@@ -1,0 +1,378 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        //Disable cut copy paste
+        $('body').bind('cut copy paste', function (e) {
+            e.preventDefault();
+        });
+
+        //Disable mouse right click
+        $("body").on("contextmenu", function (e) {
+            return false;
+        });
+    });
+</script>
+<!DOCTYPE html>
+
+<body oncopy="return false" oncut="return false" onpaste="return false">
+    <html lang="en">
+
+    <head>
+
+        <title>Guides MU-HARDCORE</title>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+    <style>
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* ========================================================================== */
+        /* Allgemeine Stile für den Body                                              */
+        /* ========================================================================== */
+        body {
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+
+        /* ========================================================================== */
+        /* Hauptcontainer für Map-Details                                             */
+        /* ========================================================================== */
+        .main-container {
+            background-color: #1f0000;
+            padding: 20px;
+            width: 90%;
+            max-width: 1000px;
+            box-sizing: border-box;
+            text-align: center;
+            margin: 50px auto;
+            border-radius: 15px;
+            box-shadow: 0 0px 100px #93330b7a;
+            border: 1px solid #93330b;
+        }
+
+        /* ========================================================================== */
+        /* Überschrift im Hauptcontainer                                              */
+        /* ========================================================================== */
+        .main-title {
+            font-family: Calibri, sans-serif;
+            font-size: 36px;
+            font-weight: 900;
+            color: rgb(255, 94, 0);
+            margin-bottom: 20px;
+        }
+
+        /* ========================================================================== */
+        /* Wrapper für Bild und Popup                                                 */
+        /* ========================================================================== */
+        .item-wrapper {
+            position: relative;
+            display: inline-block;
+            text-align: center;
+            margin: 0 30px;
+        }
+
+        /* ========================================================================== */
+        /* Dauerhaft sichtbares Vorschaubild                                          */
+        /* ========================================================================== */
+        .item-thumb {
+            width: 52px;
+            height: 52px;
+            display: block;
+            cursor: pointer;
+        }
+
+        /* ========================================================================== */
+        /* Popup-Container (erscheint bei Hover)                                      */
+        /* ========================================================================== */
+        .popup-info {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, 0);
+            width: 250px;
+            height: auto;
+            background-color: grey;
+            padding: 10px;
+            box-sizing: border-box;
+            font-family: Calibri, sans-serif;
+            color: #fff;
+            z-index: 10;
+        }
+
+        /* ========================================================================== */
+        /* Popup sichtbar machen bei Hover                                            */
+        /* ========================================================================== */
+        .item-wrapper:hover .popup-info {
+            display: block;
+        }
+
+        /* ========================================================================== */
+        /* Überschrift im Popup                                                       */
+        /* ========================================================================== */
+        .popup-header {
+            font-size: 20px;
+            font-weight: 900;
+            color: #f1c40f;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        /* ========================================================================== */
+        /* Inneres Bild im Popup                                                      */
+        /* ========================================================================== */
+        .popup-img {
+            display: block;
+            margin: 0 auto;
+            width: 60px;
+            height: 60px;
+        }
+
+        /* ========================================================================== */
+        /* Name im Popup                                                              */
+        /* ========================================================================== */
+        .popup-name {
+            text-align: center;
+            color: #4cd964;
+            margin-top: 5px;
+            font-size: 18px;
+            font-weight: 900;
+        }
+
+        /* ========================================================================== */
+        /* Loot-Text im Popup                                                         */
+        /* ========================================================================== */
+        .popup-loot {
+            text-align: center;
+            margin-top: 5px;
+            color: #5ac8fa;
+            font-size: 17px;
+            font-weight: 900;
+        }
+
+        /* ========================================================================== */
+        /* Trennlinie                                                                 */
+        /* ========================================================================== */
+        .divider {
+            border: none;
+            border-top: 2px solid #000;
+            margin: 20px 0;
+        }
+    </style>
+
+    </head>
+
+    <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+         <div class="loader">Loading...</div>
+
+            <div id="navbar-container"></div>
+
+        <section class="about section" id="about">
+          
+      
+            <div class="main-container">
+        
+                <h1>🏠About INVICTUS</h1>
+
+                <!-- About Adagio -->
+     
+            <p><strong>Why HARDCORE?</strong>.</p>
+           
+            <p >Welcome to Hardcore Team! After a hiatus of nearly three years, we are thrilled to
+                announce our comeback with a brand-new server featuring a Non-Reset system and Low Rate EXP. Hardcore
+                Team proudly continues the legacy of our successful MUFUN.EU server, now poised to deliver an
+                exceptional gaming experience once again.</p>
+            <p ><strong> Legacy of Excellence:</strong> Building on the success of
+                MUFUN.EU, we bring years of experience and expertise to create a server that meets and exceeds your
+                expectations.</p>
+            <p ><strong> Stability:</strong> Our server platform ensures stability
+                and reliability, providing a seamless gaming experience.</p>
+            <p ><strong> Dedicated Support:</strong> With support available 15
+                hours a day, our team is committed to assisting you promptly and effectively.</p>
+            <p ><strong> Quality:</strong> We prioritize quality in every aspect,
+                from gameplay mechanics to community engagement, ensuring an immersive and enjoyable environment.</p>
+            <p ><strong> Community:</strong> Join a thriving community where
+                friendships are forged and adventures await, making your gaming journey truly memorable.</p>
+            <p >Join us at Hardcore Team and rediscover the excitement of gaming with a server
+                designed to elevate your experience to new heights.</p>
+                <br>
+                <p><strong>General Information</strong>.</p>
+                <table
+                style="font-size: 16px;background-color: #1f0000;color: #ddd;padding: 6px;width: 100%;border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid black; padding: 8px;">Information</th>
+                        <th style="border: 1px solid black; padding: 8px;">Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid black; padding: 8px;">Season</td>
+                        <td style="border: 1px solid black; padding: 8px;">6 Episode 3</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black; padding: 8px;">Experience</td>
+                        <td style="border: 1px solid black; padding: 8px;">Exp 1-2x -  Master EXP: Dynamic 3-5x
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black; padding: 8px;">Master Level</td>
+                        <td style="border: 1px solid black; padding: 8px;">Maximum 200 ML</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black; padding: 8px;">Drop Rate</td>
+                        <td style="border: 1px solid black; padding: 8px;">40%</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black; padding: 8px;">Party Exp System</td>
+                        <td style="border: 1px solid black; padding: 8px;">
+                            <ul style="list-style-type: none; padding: 0;">
+                                <li>Solo = 100%</li>
+                                <li>2 Players = 97%</li>
+                                <li>3 Players = 94%</li>
+                                <li>4 Players = 92%</li>
+                                <li>5 Players = 90%</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black; padding: 8px;">Guild System</td>
+                        <td style="border: 1px solid black; padding: 8px;">Maximum 20 players per guild, level 100
+                            required to create</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black; padding: 8px;">Limited Connections</td>
+                        <td style="border: 1px solid black; padding: 8px;">Maximum of 2 accounts on same HWiD</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black; padding: 8px;">DL, MG, RF Creation Level</td>
+                        <td style="border: 1px solid black; padding: 8px;">Level 150 (or Level 1 with Platium VIP)</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black; padding: 8px;">Quest System</td>
+                        <td style="border: 1px solid black; padding: 8px;"><span style="color: green;">Active</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black; padding: 8px;">Daily System</td>
+                        <td style="border: 1px solid black; padding: 8px;"><span style="color: green;">Active</span>
+                        </td>
+                    </tr>
+                  
+                    <tr>
+                        <td style="border: 1px solid black; padding: 8px;">Reconnect System</td>
+                        <td style="border: 1px solid black; padding: 8px;"><span style="color: green;">Active</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black; padding: 8px;">OFF-Attack</td>
+                        <td style="border: 1px solid black; padding: 8px;"><span style="color: green;">Active</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black; padding: 8px;">Dc-Friend</td>
+                        <td style="border: 1px solid black; padding: 8px;"><span style="color: green;">Active</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black; padding: 8px;">Support</td>
+                        <td style="border: 1px solid black; padding: 8px;"><span style="color: green;">Active</span>
+                        </td>
+                    </tr>
+                            
+                              
+                          </tbody>
+                      </table>
+          
+                      <br>       
+
+            </div>
+        
+          
+                   
+                
+         </section>
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+
+                    <div class="ml-auto col-lg-4 col-md-5">
+                        <p class="copyright-text">Copyright &copy; 2025 - MU-HARDCORE.COM</p>
+
+                        <br>Created by: <B>
+                            <FONT COLOR="red">HARDCORE TEAM </FONT></a></p>
+                    </div>
+
+
+                </div>
+
+            </div>
+            </div>
+        </footer>
+
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/aos.js"></script>
+        <script src="js/smoothscroll.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+                 <!-- jQuery laden -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+<!-- Schutz-Skript -->
+<script src="js/protection.js"></script>
+<script src="js/loader.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const tabToOpen = params.get('tab');
+    const popupToOpen = params.get('popup');
+  
+    if (tabToOpen) {
+      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
+    }
+  
+    if (popupToOpen) {
+      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
+    }
+  </script>
+
+     
+    </body>
+
+    </html>

@@ -1,0 +1,334 @@
+{
+    "lorencia": {
+        "map": "images/MAPS/lorencia.png",
+        "description": "Lorencia is a wide plain located in the center of Mu. Dark Knights and Dark Sorcerers begin their careers here. Due to heavy rainfall, tall trees and grasses abound. It is a suitable hunting place for low-level (1-20) adventurers.",
+        "monsters": [
+            {"name": "Spider", "image": "images/monsters/lorencia/spider.png", "level": 1, "hp": 40, "defense": 2, "damage": "7 ~ 9"},
+            {"name": "Budge Dragon", "image": "images/monsters/lorencia/budgedragon.png", "level": 4, "hp": 70, "defense": 3, "damage": "10 ~ 13"},
+            {"name": "Bull Fighter", "image": "images/monsters/lorencia/bullfighter.png", "level": 6, "hp": 100, "defense": 6, "damage": "16 ~ 20"},
+            {"name": "Elite Bull Fighter", "image": "images/monsters/lorencia/bullfighter.png", "level": 12, "hp": 190, "defense": 12, "damage": "31 ~ 36"},
+            {"name": "Hound", "image": "images/monsters/lorencia/hound.png", "level": 9, "hp": 140, "defense": 9, "damage": "22 ~ 27"},
+            {"name": "Lich", "image": "images/monsters/lorencia/litch.png", "level": 14, "hp": 255, "defense": 14, "damage": "41 ~ 46"},
+            {"name": "Giant", "image": "images/monsters/lorencia/giant.png", "level": 17, "hp": 400, "defense": 18, "damage": "57 ~ 62"},
+            {"name": "Skeleton Warrior", "image": "images/monsters/lorencia/skelet.png", "level": 19, "hp": 525, "defense": 22, "damage": "68 ~ 74"}
+        ]
+    },
+    
+    "noria": {
+    "map": "images/MAPS/noria.png",
+    "description": "Noria is a serene yet perilous forest town surrounded by towering trees and mystical energies. Once a peaceful retreat for adventurers, it has become a battleground where fierce monsters roam, drawn by the ancient power hidden within its depths. Warriors must navigate its winding paths and confront these threats to uncover the secrets of this enchanted land.",
+    "monsters": [
+        { "name": "Goblin", "level": 8, "image": "images/monsters/noria/goblin.png", "hp": 5500, "defense": 65, "damage": "65 ~ 105" },
+        { "name": "Elite Goblin", "level": 10, "image": "images/monsters/noria/elitegoblin.png", "hp": 5800, "defense": 68, "damage": "70 ~ 107" },
+        { "name": "Forest", "level": 15, "image": "images/monsters/noria/forest.png", "hp": 5000, "defense": 60, "damage": "60 ~ 100" },
+        { "name": "Agon", "level": 18, "image": "images/monsters/noria/agon.png", "hp": 6000, "defense": 70, "damage": "70 ~ 110" },
+        { "name": "Bettle Monster", "level": 20, "image": "images/monsters/noria/bettlemonster.png", "hp": 7000, "defense": 75, "damage": "80 ~ 120" },
+        { "name": "Chain Scorpion", "level": 22, "image": "images/monsters/noria/chainscorpion.png", "hp": 8000, "defense": 80, "damage": "90 ~ 130" },
+        { "name": "Hunter", "level": 23, "image": "images/monsters/noria/hunter.png", "hp": 8500, "defense": 85, "damage": "95 ~ 135" },
+        { "name": "Stone Golem", "level": 25, "image": "images/monsters/noria/stonegolem.png", "hp": 10000, "defense": 90, "damage": "100 ~ 150" }
+    ]
+}
+    
+    ,
+    "devias": {
+        "map": "images/MAPS/devias.png",
+        "description": "Devias is a snowfield located at the north of Lorencia and it is covered with perpetual snow. Monsters here are more powerful than those in Lorencia or Noria so only adventurers over level 15 can enter Devias. The Guild Master who creates and manages guilds is also located in Devias.",
+        "monsters": [
+            {"name": "Worm", "image": "images/monsters/devias/worm.png", "level": 20, "hp": 600, "defense": 25, "damage": "75 ~ 80"},
+            {"name": "Ice Monster", "image": "images/monsters/devias/icemonster.png", "level": 22, "hp": 650, "defense": 27, "damage": "80 ~ 85"},
+            {"name": "Hommerd", "image": "images/monsters/devias/hommerd.png", "level": 24, "hp": 700, "defense": 29, "damage": "85 ~ 90"},
+            {"name": "Assassin", "image": "images/monsters/devias/assasin.png", "level": 26, "hp": 800, "defense": 33, "damage": "95 ~ 100"},
+            {"name": "Yeti", "image": "images/monsters/devias/yeti.png", "level": 30, "hp": 900, "defense": 37, "damage": "105 ~ 110"},
+            {"name": "Elite Yeti", "image": "images/monsters/devias/eliteyeti.png", "level": 36, "hp": 1200, "defense": 50, "damage": "120 ~ 125"},
+            {"name": "Ice Queen", "image": "images/monsters/devias/icequeen.png", "level": 52, "hp": 4000, "defense": 90, "damage": "155 ~ 165"}
+        ]
+    },
+    "dungeon": {
+        "map": "images/MAPS/dungeon.png",
+        "description": "The Dungeon is a cave in northern Lorencia. Once a prison, it now houses Kundun's army. Gorgon, the fierce guardian, awaits challengers in its depths. Warriors seek treasure here, but few return with more than they came for.",
+        "monsters": [
+            {"name": "Larva", "image": "images/monsters/dungeon/larva.png", "level": 25, "hp": 750, "defense": 31, "damage": "90 ~ 95"},
+            {"name": "Cyclops", "image": "images/monsters/dungeon/cyclops.png", "level": 28, "hp": 850, "defense": 35, "damage": "100 ~ 105"},
+            {"name": "Ghost", "image": "images/monsters/dungeon/ghost.png", "level": 32, "hp": 1000, "defense": 40, "damage": "110 ~ 115"},
+            {"name": "Skeleton Archer", "image": "images/monsters/dungeon/archer.png", "level": 34, "hp": 1100, "defense": 45, "damage": "115 ~ 120"},
+            {"name": "Hell Hound", "image": "images/monsters/dungeon/hellhound.png", "level": 38, "hp": 1400, "defense": 55, "damage": "125 ~ 130"},
+            {"name": "Hell Spider", "image": "images/monsters/dungeon/hellspider.png", "level": 40, "hp": 1600, "defense": 60, "damage": "130 ~ 135"},
+            {"name": "Elite Skeleton Warrior", "image": "images/monsters/dungeon/eliteskeletonwarrior.png", "level": 42, "hp": 1800, "defense": 65, "damage": "135 ~ 140"},
+            {"name": "Thunder Lich", "image": "images/monsters/dungeon/thunderlitch.png", "level": 44, "hp": 2000, "defense": 70, "damage": "140 ~ 145"},
+            {"name": "Poison Bull Fighter", "image": "images/monsters/dungeon/poisonbullfighter.png", "level": 44, "hp": 2000, "defense": 70, "damage": "140 ~ 145"},
+            {"name": "Dark Knight", "image": "images/monsters/dungeon/darkknight.png", "level": 48, "hp": 3000, "defense": 80, "damage": "150 ~ 155"},
+            {"name": "Gorgon", "image": "images/monsters/dungeon/gorgon.png", "level": 55, "hp": 6000, "defense": 100, "damage": "165 ~ 175"}
+        ]
+    },
+    "atlans": {
+        "map": "images/MAPS/atlans.png",
+        "description": "Atlans was once a prosperous city, built by the Kantur people, known for their advanced systems. After Kundun's resurrection, the city was destroyed, and now only ruins remain in the wilderness, overtaken by the sea.",
+        "monsters": [
+            {"name": "Bahamut", "image": "images/monsters/atlans/bahamut.png", "level": 43, "hp": 2400, "defense": 65, "damage": "130 ~ 140"},
+            {"name": "Vepar", "image": "images/monsters/atlans/vepar.png", "level": 45, "hp": 2800, "defense": 70, "damage": "135 ~ 145"},
+            {"name": "Valkyrie", "image": "images/monsters/atlans/valkyrie.png", "level": 46, "hp": 3200, "defense": 75, "damage": "140 ~ 155"},
+            {"name": "Great Bahamut", "image": "images/monsters/atlans/greatbahamut.png", "level": 66, "hp": 7200, "defense": 150, "damage": "210 ~ 230"},
+            {"name": "Silver Valkyrie", "image": "images/monsters/atlans/silvervalkyrie.png", "level": 68, "hp": 8000, "defense": 170, "damage": "230 ~ 260"},
+            {"name": "Lizard King", "image": "images/monsters/atlans/lizard.png", "level": 70, "hp": 9000, "defense": 180, "damage": "240 ~ 270"},
+            {"name": "Hydra", "image": "images/monsters/atlans/hydra.png", "level": 74, "hp": 19000, "defense": 200, "damage": "250 ~ 310"}
+        ]
+    },
+    "losttower": {
+        "map": "images/MAPS/losttower.png",
+        "description": "The Lost Tower is located in the northern part of Mu, in Devias' snowy wilderness. Once a place of great sorcery, a portal to Icarus was opened here. Now, it is filled with mystery and invites only the bravest warriors.",
+        "monsters": [
+            {"name": "Shadow", "image": "images/monsters/losttower/shadow.png", "level": 47, "hp": 2500, "defense": 78, "damage": "148 ~ 153"},
+            {"name": "Poison Shadow", "image": "images/monsters/losttower/poisonshadow.png", "level": 50, "hp": 3500, "defense": 85, "damage": "155 ~ 160"},
+            {"name": "Cursed Wizard", "image": "images/monsters/losttower/cursedlwizard.png", "level": 54, "hp": 4000, "defense": 95, "damage": "160 ~ 170"},
+            {"name": "Death Cow", "image": "images/monsters/losttower/deathcow.png", "level": 57, "hp": 4500, "defense": 110, "damage": "170 ~ 180"},
+            {"name": "Devil", "image": "images/monsters/losttower/deathcow.png", "level": 60, "hp": 5000, "defense": 115, "damage": "180 ~ 195"},
+            {"name": "Death Knight", "image": "images/monsters/losttower/deathking.png", "level": 62, "hp": 5500, "defense": 120, "damage": "190 ~ 200"},
+            {"name": "Death Gorgon", "image": "images/monsters/losttower/deathgorgon.png", "level": 64, "hp": 6000, "defense": 130, "damage": "200 ~ 210"},
+            {"name": "Balrog", "image": "images/monsters/losttower/balrog.png", "level": 66, "hp": 9000, "defense": 160, "damage": "220 ~ 240"}
+        ]
+    },
+    "tarkan": {
+        "map": "images/MAPS/tarkan.png",
+        "description": "Tarkan is a dangerous desert, home to fierce monsters. In the northeast, Zaikan awaits those brave enough to challenge it. Few dare to explore this treacherous land, with remnants of past warriors still visible in the wasteland.",
+        "monsters": [
+            {"name": "Mutant", "image": "images/monsters/tarkan/mutant.png", "level": 72, "hp": 10000, "defense": 190, "damage": "250 ~ 280"},
+            {"name": "Bloody Wolf", "image": "images/monsters/tarkan/bloodywolf.png", "level": 76, "hp": 13500, "defense": 200, "damage": "260 ~ 300"},
+            {"name": "Iron Wheel", "image": "images/monsters/tarkan/ironwheel.png", "level": 80, "hp": 17000, "defense": 215, "damage": "280 ~ 330"},
+            {"name": "Tantalos", "image": "images/monsters/tarkan/tantal.png", "level": 83, "hp": 22000, "defense": 250, "damage": "335 ~ 395"},
+            {"name": "Beam Knight", "image": "images/monsters/tarkan/beamknight.png", "level": 84, "hp": 25000, "defense": 275, "damage": "375 ~ 425"},
+            {"name": "Death Beam Knight", "image": "images/monsters/tarkan/deathbeamknight.png", "level": 93, "hp": 40000, "defense": 420, "damage": "590 ~ 650"}
+        ]
+    },
+    "aida": {
+        "map": "images/MAPS/aida.png",
+        "description": "Aida is a dangerous forest ruled by Hell Maine. Warriors come here to slay the creature for its valuable horns. Despite the danger, goblins in the safe zone offer services to enhance equipment.",
+        "monsters": [
+            {"name": "Death Tree", "image": "images/monsters/aida/deaththree.png", "level": 72, "hp": 10000, "defense": 187, "damage": "248 ~ 272"},
+            {"name": "Forest Orc", "image": "images/monsters/aida/forestork.png", "level": 74, "hp": 11000, "defense": 197, "damage": "258 ~ 282"},
+            {"name": "Death Rider", "image": "images/monsters/aida/deathrider.png", "level": 78, "hp": 14000, "defense": 222, "damage": "260 ~ 294"},
+            {"name": "Blue Golem", "image": "images/monsters/aida/bluegolem.png", "level": 78, "hp": 14000, "defense": 222, "damage": "260 ~ 294"},
+            {"name": "Witch Queen", "image": "images/monsters/aida/witchqueen.png", "level": 94, "hp": 38500, "defense": 357, "damage": "408 ~ 442"},
+            {"name": "Hell Maine", "image": "images/monsters/aida/hellmaine.png", "level": 94, "hp": 38500, "defense": 357, "damage": "408 ~ 442"}
+        ]
+    },
+
+    "icarus": {
+        "map": "images/MAPS/icarus.png",
+        "description": "Icarus is a sky world, home to the fierce Phoenix of Darkness. Only those with wings or an enchanted cape can enter. Many challenge the Phoenix to prove their strength and obtain its sacred feather.",
+        "monsters": [
+            {"name": "Alquamos", "image": "images/monsters/icarus/alquamos.png", "level": 75, "hp": 11500, "defense": 195, "damage": "255 ~ 290"},
+            {"name": "Mega Crust", "image": "images/monsters/icarus/megacrust.png", "level": 78, "hp": 15000, "defense": 210, "damage": "270 ~ 320"},
+            {"name": "Queen Raynier", "image": "images/monsters/icarus/queenrainier.png", "level": 82, "hp": 19000, "defense": 230, "damage": "305 ~ 350"},
+            {"name": "Drakan", "image": "images/monsters/icarus/drakan.png", "level": 86, "hp": 29000, "defense": 305, "damage": "425 ~ 480"},
+            {"name": "Alpha Crust", "image": "images/monsters/icarus/alphacrust.png", "level": 92, "hp": 34500, "defense": 360, "damage": "489 ~ 540"},
+            {"name": "Phantom Knight", "image": "images/monsters/icarus/phantomknight.png", "level": 96, "hp": 41000, "defense": 425, "damage": "580 ~ 610"},
+            {"name": "Great Drakan", "image": "images/monsters/icarus/greatdrakon.png", "level": 100, "hp": 50000, "defense": 495, "damage": "650 ~ 700"},
+            {"name": "Phoenix", "image": "images/monsters/icarus/phoenix.png", "level": 108, "hp": 93000, "defense": 600, "damage": "950 ~ 1000"}
+        ]
+    },
+    "kalima": {
+        "map": "images/MAPS/kalima.png",
+        "description": "Kalima is where the Great Lord Kundun was banished. To enter, adventurers need a special portal crafted from Kundun's symbols. The 7th floor hides Kundun himself, guarded by his loyal minions.",
+        "monsters": [
+            {"name": "Aegis", "image": "images/monsters/kalima/aegis.png", "level": 17, "hp": 440, "defense": 17, "damage": "55 ~ 62"},
+            {"name": "Lord Centurion", "image": "images/monsters/kalima/lordcenturion.png", "level": 19, "hp": 500, "defense": 20, "damage": "60 ~ 67"},
+            {"name": "Blood Soldier", "image": "images/monsters/kalima/bloodsoldier.png", "level": 21, "hp": 600, "defense": 25, "damage": "70 ~ 77"},
+            {"name": "Death Angel", "image": "images/monsters/kalima/deathangel.png", "level": 24, "hp": 740, "defense": 30, "damage": "80 ~ 87"},
+            {"name": "Necron", "image": "images/monsters/kalima/necron.png", "level": 28, "hp": 900, "defense": 38, "damage": "95 ~ 102"},
+            {"name": "Death Centurion", "image": "images/monsters/kalima/deathcenturion.png", "level": 33, "hp": 1250, "defense": 50, "damage": "110 ~ 117"},
+            {"name": "Schriker", "image": "images/monsters/kalima/schriker.png", "level": 40, "hp": 1800, "defense": 66, "damage": "130 ~ 137"}
+        ]
+    },
+    "kantururuins": {
+        "map": "images/MAPS/kanturu.png",
+        "description": "Kanturu Ruins were once a thriving kingdom of the Kantur people. After Kundun’s resurrection, the ruins were plundered, but the Refinery Tower still stands, guarded by Elpis.",
+        "monsters": [
+            {"name": "Splinter Wolf", "image": "images/monsters/kanturu/splinterwolf.png", "level": 80, "hp": 16000, "defense": 230, "damage": "310 ~ 340"},
+            {"name": "Iron Rider", "image": "images/monsters/kanturu/ironrider.png", "level": 82, "hp": 18000, "defense": 250, "damage": "335 ~ 365"},
+            {"name": "Satyros", "image": "images/monsters/kanturu/satyros.png", "level": 85, "hp": 22000, "defense": 280, "damage": "365 ~ 395"},
+            {"name": "Blade Hunter", "image": "images/monsters/kanturu/bladehunter.png", "level": 88, "hp": 32000, "defense": 315, "damage": "408 ~ 443"},
+            {"name": "Kentauros", "image": "images/monsters/kanturu/kentauros.png", "level": 93, "hp": 38500, "defense": 370, "damage": "470 ~ 505"},
+            {"name": "Gigantis", "image": "images/monsters/kanturu/gigantis.png", "level": 98, "hp": 43000, "defense": 430, "damage": "546 ~ 581"},
+            {"name": "Berserker", "image": "images/monsters/kanturu/berserker.png", "level": 100, "hp": 44370, "defense": 443, "damage": "555 ~ 590"},
+            {"name": "Genocider", "image": "images/monsters/kanturu/genocider.png", "level": 105, "hp": 48500, "defense": 515, "damage": "640 ~ 675"}
+        ]
+    },
+    "kanturuunderground": {
+        "map": "images/MAPS/underground.png",
+        "description": "Kanturu Underground is a hidden labyrinth beneath the Kanturu Ruins, revealed after scholars uncovered a long-sealed passage. Within its depths, a powerful monster roams, preventing further exploration. In response, the Arka Noble Alliance has deployed warriors to eliminate the threat and unveil the secrets lurking below.",
+        "monsters": [
+            {"name": "Berserk Warrior", "image": "images/monsters/kanturu/berserkerwarrior.png", "level": 112, "hp": 110000, "defense": 890, "damage": "820 ~ 890"},
+            {"name": "Gigantis Warrior", "image": "images/monsters/kanturu/gigantiswarrior.png", "level": 114, "hp": 115000, "defense": 900, "damage": "850 ~ 920"},
+            {"name": "Kentauros Warrior", "image": "images/monsters/kanturu/kentauroswarrior.png", "level": 117, "hp": 125000, "defense": 930, "damage": "875 ~ 940"},
+            {"name": "Genocider Warrior", "image": "images/monsters/kanturu/genociderwarrior.png", "level": 120, "hp": 138000, "defense": 952, "damage": "903 ~ 978"}
+        ]
+    },
+    "kantururelics": {
+        "map": "images/MAPS/kantururelics.png",
+        "description": "The Kantur people created the Jewel of Harmony to purify gemstones. After Kundun's resurrection, the Kanturu civilization fell, but the Refinery Tower remains functional to this day.",
+        "monsters": [
+            {"name": "Twin Tale", "image": "images/monsters/kanturu/twintale.png", "level": 117, "hp": 87500, "defense": 685, "damage": "630 ~ 1085"},
+            {"name": "Persona", "image": "images/monsters/kanturu/persona.png", "level": 118, "hp": 88000, "defense": 615, "damage": "1168 ~ 1213"},
+            {"name": "Dread Fear", "image": "images/monsters/kanturu/dreadfear.png", "level": 119, "hp": 94000, "defense": 783, "damage": "948 ~ 996"},
+            {"name": "Hand of Maya (Left)", "image": "images/monsters/kanturu/handleft.png", "level": 135, "hp": 400000, "defense": 315, "damage": "732 ~ 932"},
+            {"name": "Hand of Maya (Right)", "image": "images/monsters/kanturu/handright.png", "level": 135, "hp": 350000, "defense": 800, "damage": "732 ~ 932"},
+            {"name": "Nightmare", "image": "images/monsters/kanturu/nightmare.png", "level": 135, "hp": 15000000, "defense": 1500, "damage": "1400 ~ 1600"}
+        ]
+    },
+    "raklion": {
+        "map": "images/MAPS/raklion.png",
+        "description": "Raklion is an icy plain, home to Selupan's hatchery. Brave adventurers challenge Selupan to claim the treasures she guards, but few survive the battle. Gather allies to defeat her and earn great rewards.",
+        "monsters": [
+            {"name": "Ice Walker", "image": "images/monsters/raklion/icewalker.png", "level": 102, "hp": 68000, "defense": 615, "damage": "1310 ~ 1985"},
+            {"name": "Giant Mammonth", "image": "images/monsters/raklion/giantmammonth.png", "level": 112, "hp": 77000, "defense": 585, "damage": "1441 ~ 2017"},
+            {"name": "Ice Giant", "image": "images/monsters/raklion/icegiant.png", "level": 122, "hp": 84000, "defense": 820, "damage": "1585 ~ 2060"},
+            {"name": "Coolution", "image": "images/monsters/raklion/coolutin.png", "level": 132, "hp": 88000, "defense": 650, "damage": "1743 ~ 2092"},
+            {"name": "Iron Knight", "image": "images/monsters/raklion/ironknight.png", "level": 142, "hp": 95000, "defense": 680, "damage": "1917 ~ 2301"},
+            {"name": "Selupan", "image": "images/monsters/raklion/selupan.png", "level": 182, "hp": 19500000, "defense": 1500, "damage": "2917 ~ 3301"}
+        ]
+    },
+    "crywolf": {
+        "map": "images/MAPS/crywolf.png",
+        "description": "Crywolf is a fortress at the front line of battle against Kundun’s forces. Balgass trains his army here to attack the city, while brave adventurers are called to defend it and defeat him.",
+        "monsters": [
+            {"name": "Lance Scout", "image": "images/monsters/crywolf/lancescout.png", "level": 97, "hp": 45000, "defense": 425, "damage": "530 ~ 580"},
+            {"name": "Hammer Scout", "image": "images/monsters/crywolf/scouthero.png", "level": 99, "hp": 49000, "defense": 445, "damage": "560 ~ 590"},
+            {"name": "Bow Scout", "image": "images/monsters/crywolf/bowscout.png", "level": 97, "hp": 45000, "defense": 425, "damage": "530 ~ 580"},
+            {"name": "Werewolf", "image": "images/monsters/crywolf/werewolf.png", "level": 118, "hp": 110000, "defense": 685, "damage": "830 ~ 850"},
+            {"name": "Hammer(Hero)", "image": "images/monsters/crywolf/scouthero.png", "level": 123, "hp": 120000, "defense": 740, "damage": "890 ~ 910"},
+            {"name": "Werewolf(Hero)", "image": "images/monsters/crywolf/werewolf.png", "level": 134, "hp": 140000, "defense": 885, "damage": "1075 ~ 1140"},
+            {"name": "Balram", "image": "images/monsters/crywolf/balram.png", "level": 132, "hp": 140000, "defense": 885, "damage": "1075 ~ 1140"},
+            {"name": "Soram", "image": "images/monsters/crywolf/soram.png", "level": 134, "hp": 184000, "defense": 982, "damage": "1200 ~ 1300"},
+            {"name": "Dark Elf", "image": "images/monsters/crywolf/darkelf.png", "level": 142, "hp": 2000000, "defense": 1100, "damage": "1400 ~ 1500"},
+            {"name": "Balgass", "image": "images/monsters/crywolf/balgass.png", "level": 142, "hp": 2000000, "defense": 1100, "damage": "1400 ~ 1500"}
+        ]
+    },
+    "baraks": {
+        "map": "images/MAPS/baraksofbalgass.png",
+        "description": "Balgass built his army in these barracks, hidden in Crywolf’s eastern caves. His forces relentlessly train here, preparing for their attacks on the city.",
+        "monsters": [
+            {"name": "Balram", "image": "images/monsters/crywolf/balram.png", "level": 132, "hp": 140000, "defense": 885, "damage": "1075 ~ 1140"},
+            {"name": "Soram", "image": "images/monsters/crywolf/soram.png", "level": 134, "hp": 184000, "defense": 982, "damage": "1200 ~ 1300"},
+            {"name": "Death Spirit", "image": "images/monsters/crywolf/deathspirit.png", "level": 134, "hp": 184000, "defense": 982, "damage": "1200 ~ 1300"},
+            {"name": "Dark Elf", "image": "images/monsters/crywolf/darkelf.png", "level": 142, "hp": 2000000, "defense": 1100, "damage": "1400 ~ 1500"}
+        ]
+    },
+    "karutan": {
+        "map": "images/MAPS/baraksofbalgass.png",
+        "description": "Karutan is a desert village in the southwest of Mu. It was established after Kundun’s resurrection and is known for its Jewel of Bless mining using Pandora’s Pick.",
+        "monsters": [
+            {"name": "Venomous Chain Scorpion", "image": "images/monsters/karutan/scorpion.png", "level": 99, "hp": 50000, "defense": 450, "damage": "555 ~ 590"},
+            {"name": "Bone Scorpion", "image": "images/monsters/karutan/bonescorpion.png", "level": 103, "hp": 60000, "defense": 485, "damage": "595 ~ 635"},
+            {"name": "Orcus", "image": "images/monsters/karutan/orcus.png", "level": 105, "hp": 65000, "defense": 518, "damage": "618 ~ 655"},
+            {"name": "Gollock", "image": "images/monsters/karutan/gollock.png", "level": 108, "hp": 72000, "defense": 545, "damage": "685 ~ 735"},
+            {"name": "Crypta", "image": "images/monsters/karutan/crypta.png", "level": 111, "hp": 78000, "defense": 560, "damage": "705 ~ 755"},
+            {"name": "Crypos", "image": "images/monsters/karutan/crypos.png", "level": 114, "hp": 83000, "defense": 575, "damage": "720 ~ 770"},
+            {"name": "Condra", "image": "images/monsters/karutan/condra.png", "level": 117, "hp": 90000, "defense": 610, "damage": "735 ~ 790"},
+            {"name": "Narcondra", "image": "images/monsters/karutan/narcondra.png", "level": 120, "hp": 96000, "defense": 640, "damage": "750 ~ 815"}
+        ]
+    },
+    "vulcanos": {
+        "map": "images/MAPS/vulcanos.png",
+        "description": "Vulcanus is a volcanic PvP area where players can battle without gaining PK status. It is also home to the Duel Arena, where friendly battles are held for Gens contribution points.",
+        "monsters": [
+            {"name": "Zombie Fighter", "image": "images/monsters/vulcanos/zombiefighter.png", "level": 108, "hp": 110000, "defense": 885, "damage": "885 ~ 930"},
+            {"name": "Ressurected Gladiator", "image": "images/monsters/vulcanos/gladiator.png", "level": 111, "hp": 120000, "defense": 915, "damage": "910 ~ 945"},
+            {"name": "Ash Slaughter", "image": "images/monsters/vulcanos/ashslaughter.png", "level": 112, "hp": 124000, "defense": 920, "damage": "915 ~ 955"},
+            {"name": "Blood Assasin", "image": "images/monsters/vulcanos/bloodassasin.png", "level": 115, "hp": 138000, "defense": 953, "damage": "945 ~ 992"},
+            {"name": "Cruel Blood Assasin", "image": "images/monsters/vulcanos/cruelassasin.png", "level": 117, "hp": 148000, "defense": 968, "damage": "955 ~ 1002"},
+            {"name": "Burning Lava Giant", "image": "images/monsters/vulcanos/burninggiant.png", "level": 125, "hp": 165000, "defense": 1010, "damage": "1120 ~ 1210"},
+            {"name": "Ruthless Lava Giant", "image": "images/monsters/vulcanos/ruthlessgiant.png", "level": 125, "hp": 165000, "defense": 1010, "damage": "1120 ~ 1210"}
+        ]
+    },
+    "swamp": {
+        "map": "images/MAPS/swamp.png",
+        "description": "The Swamp of Peace is a dangerous swamp filled with treacherous monsters.",
+        "monsters": [
+            {"name": "Sapi Unus", "image": "images/monsters/swamp/sapiunus.png", "level": 125, "hp": 160000, "defense": 1100, "damage": "1025 ~ 1080"},
+            {"name": "Sapi Duo", "image": "images/monsters/swamp/sapiduo.png", "level": 125, "hp": 160000, "defense": 1100, "damage": "1025 ~ 1080"},
+            {"name": "Sapi Tress", "image": "images/monsters/swamp/sapitress.png", "level": 125, "hp": 160000, "defense": 1100, "damage": "1025 ~ 1080"},
+            {"name": "Shadow Knight", "image": "images/monsters/swamp/shadowknight.png", "level": 129, "hp": 176000, "defense": 1160, "damage": "1085 ~ 1120"},
+            {"name": "Shadow Look", "image": "images/monsters/swamp/shadowlook.png", "level": 129, "hp": 176000, "defense": 1160, "damage": "1085 ~ 1120"},
+            {"name": "Shadow Master", "image": "images/monsters/swamp/shadowmaster.png", "level": 129, "hp": 176000, "defense": 1160, "damage": "1085 ~ 1120"},
+            {"name": "Shadow Pown", "image": "images/monsters/swamp/shadowpown.png", "level": 129, "hp": 176000, "defense": 1160, "damage": "1085 ~ 1120"},
+            {"name": "Thunder Napin", "image": "images/monsters/swamp/thundernapin.png", "level": 135, "hp": 206000, "defense": 1240, "damage": "1185 ~ 1220"},
+            {"name": "Ghost Napin", "image": "images/monsters/swamp/ghostnapin-.png", "level": 135, "hp": 206000, "defense": 1240, "damage": "1185 ~ 1220"},
+            {"name": "Ice Napin", "image": "images/monsters/swamp/icenapin.png", "level": 135, "hp": 206000, "defense": 1240, "damage": "1185 ~ 1220"},
+            {"name": "Blaze Napin", "image": "images/monsters/swamp/blazenapin.png", "level": 135, "hp": 206000, "defense": 1240, "damage": "1185 ~ 1220"}
+        ]
+    },
+    "grayaida": {
+        "map": "images/MAPS/grayaida.png",
+        "description": "Gray Aida emerged after a dimensional rift revealed a land tainted by forbidden magic. The once-vibrant flora and fauna have turned black and white, warped by dark energy. To cleanse the area and eliminate its lingering magic, warriors from the MU continent have begun their cautious exploration.",
+        "monsters": [
+            {"name": "Gray Three", "image": "images/monsters/grayaida/three.png", "level": 125, "hp": 160000, "defense": 1100, "damage": "1025 ~ 1080"},
+            {"name": "Gray Forest Orc", "image": "images/monsters/grayaida/forestwork.png", "level": 125, "hp": 160000, "defense": 1100, "damage": "1025 ~ 1080"},
+            {"name": "Gray Golem", "image": "images/monsters/grayaida/graygolem.png", "level": 125, "hp": 160000, "defense": 1100, "damage": "1025 ~ 1080"},
+            {"name": "Gray Witch Queen", "image": "images/monsters/grayaida/witchqueen.png", "level": 125, "hp": 160000, "defense": 1100, "damage": "1025 ~ 1080"}
+        ]
+    },
+    "ferea": {
+        "map": "images/MAPS/ferea.png",
+        "description": "Once a magnificent kingdom, Ferea was devastated by the Great Tarkan Earthquake, opening a rift that unleashed dark elemental forces. The guardians of the kingdom fell under its curse, turning hostile to all intruders. Even Lord Ferea succumbed to the corruption. Once a hub of advanced architecture and art, the city now stands in ruins, overrun by its cursed protectors.",
+        "monsters": [
+            {"name": "Ferea Knight", "image": "images/monsters/ferea/king.png", "level": 145, "hp": 260000, "defense": 1500, "damage": "1525 ~ 1780"},
+            {"name": "Ferea Archer", "image": "images/monsters/ferea/archer.png", "level": 145, "hp": 260000, "defense": 1500, "damage": "1525 ~ 1780"},
+            {"name": "Ferea Fighter", "image": "images/monsters/ferea/fighter.png", "level": 145, "hp": 260000, "defense": 1500, "damage": "1525 ~ 1780"},
+            {"name": "Ferea General", "image": "images/monsters/ferea/general.png", "level": 145, "hp": 260000, "defense": 1500, "damage": "1525 ~ 1780"},
+            {"name": "Ferea Lord", "image": "images/monsters/ferea/lord.png", "level": 145, "hp": 260000, "defense": 1500, "damage": "1525 ~ 1780"}
+        ]
+    },
+    "deep": {
+         "map": "images/MAPS/deep.png",
+        "description": "Deep Dungeon is a newly discovered underground lair, believed to be built by Balgass' minions. Powerful elemental monsters roam its depths, guarding hidden secrets. Rumors suggest that the legendary treasures of Devias' Church lie at its deepest level, making it a perilous place for even the bravest adventurers.",
+        "monsters": [
+            {"name": "Skeleton Warrior", "image": "images/monsters/lorencia/skelet.png", "level": 19, "hp": 525, "defense": 22, "damage": "68 ~ 74"},
+            {"name": "Larva", "image": "images/monsters/dungeon/larva.png", "level": 25, "hp": 750, "defense": 31, "damage": "90 ~ 95"},
+            {"name": "Cyclops", "image": "images/monsters/dungeon/cyclops.png", "level": 28, "hp": 850, "defense": 35, "damage": "100 ~ 105"},
+            {"name": "Ghost", "image": "images/monsters/dungeon/ghost.png", "level": 32, "hp": 1000, "defense": 40, "damage": "110 ~ 115"},
+            {"name": "Skeleton Archer", "image": "images/monsters/dungeon/archer.png", "level": 34, "hp": 1100, "defense": 45, "damage": "115 ~ 120"},
+            {"name": "Hell Hound", "image": "images/monsters/dungeon/hellhound.png", "level": 38, "hp": 1400, "defense": 55, "damage": "125 ~ 130"},
+            {"name": "Hell Spider", "image": "images/monsters/dungeon/hellspider.png", "level": 40, "hp": 1600, "defense": 60, "damage": "130 ~ 135"},
+            {"name": "Elite Skeleton Warrior", "image": "images/monsters/dungeon/eliteskeletonwarrior.png", "level": 42, "hp": 1800, "defense": 65, "damage": "135 ~ 140"},
+            {"name": "Thunder Lich", "image": "images/monsters/dungeon/thunderlitch.png", "level": 44, "hp": 2000, "defense": 70, "damage": "140 ~ 145"},
+            {"name": "Poison Bull Fighter", "image": "images/monsters/dungeon/poisonbullfighter.png", "level": 44, "hp": 2000, "defense": 70, "damage": "140 ~ 145"},
+            {"name": "Dark Knight", "image": "images/monsters/dungeon/darkknight.png", "level": 48, "hp": 3000, "defense": 80, "damage": "150 ~ 155"},
+            {"name": "Gorgon", "image": "images/monsters/dungeon/gorgon.png", "level": 55, "hp": 6000, "defense": 100, "damage": "165 ~ 175"}
+        ]
+    },
+    "swampofdarkness": {
+         "map": "images/MAPS/swampofdarkness.png",
+        "description": "Swamp of Darkness consists of five elemental fields: Fire, Wind, Water, Earth, and Darkness. You can access any of these fields through their designated gates from the safe zone. This mysterious swamp is also known as one of the maps that drops the Golden Sentence.",
+        "monsters": [
+            {"name": "Wooden Beast", "image": "images/monsters/swampofdarkness/beast.png", "level": 145, "hp": 260000, "defense": 1500, "damage": "1525 ~ 1780"},
+            {"name": "Swamp Ent", "image": "images/monsters/swampofdarkness/ent.png", "level": 145, "hp": 260000, "defense": 1500, "damage": "1525 ~ 1780"},
+            {"name": "Swamp Wizard", "image": "images/monsters/swampofdarkness/wizard.png", "level": 145, "hp": 260000, "defense": 1500, "damage": "1525 ~ 1780"},
+            {"name": "Mutanlite", "image": "images/monsters/swampofdarkness/mutantlite.png", "level": 145, "hp": 260000, "defense": 1500, "damage": "1525 ~ 1780"},
+            {"name": "Swamp Monster", "image": "images/monsters/swampofdarkness/monster.png", "level": 145, "hp": 260000, "defense": 1500, "damage": "1525 ~ 1780"},
+            {"name": "Water Monster", "image": "images/monsters/swampofdarkness/watermonster.png", "level": 145, "hp": 260000, "defense": 1500, "damage": "1525 ~ 1780"},
+            {"name": "God of Darkness", "image": "images/monsters/swampofdarkness/godofdarkness.png", "level": 145, "hp": 260000, "defense": 1500, "damage": "1525 ~ 1780"}
+        ]
+    },
+    
+    "atlansabbys": {
+        "map": "images/MAPS/atlansabys.png",
+        "description": "The Abyss of Atlans was created by the Kantur people to trap Hydra during Kundun's invasion. Elite warriors were used as bait, but the plan failed. Hydra seized control of Atlans, and the entrance to the Abyss was sealed. Recent studies at the Church of Devias have revealed its location, allowing brave travelers to now enter this perilous place.",
+        "monsters": [
+            {"name": "Bahamut Abyss", "image": "images/monsters/atlans/bahamutabys.png", "level": 145, "hp": 260000, "defense": 1500, "damage": "1525 ~ 1780"},
+            {"name": "Vepar Abyss", "image": "images/monsters/atlans/veparabys.png", "level": 145, "hp": 260000, "defense": 1500, "damage": "1525 ~ 1780"},
+            {"name": "Silver Valkyre Abyss", "image": "images/monsters/atlans/silvervalkyrabys.png", "level": 145, "hp": 260000, "defense": 1500, "damage": "1525 ~ 1780"}, 
+            {"name": "Lizard King Abyss", "image": "images/monsters/atlans/lizardkingabys.png", "level": 145, "hp": 260000, "defense": 1500, "damage": "1525 ~ 1780"}
+        ]
+    },
+    "nixis": {
+        "map": "images/MAPS/nixis.png",
+        "description": "Nixis is a mystical land shrouded in elemental chaos, where the ancient serpent gods reign supreme. Warriors must navigate treacherous waters and face powerful guardians to uncover its secrets.",
+        "monsters": [
+            {"name": "Paraca", "image": "images/monsters/nixis/paraca.png", "level": 148, "hp": 275000, "defense": 1550, "damage": "1565 ~ 1795"},
+            {"name": "Yasuki", "image": "images/monsters/nixis/yasuki.png", "level": 150, "hp": 285000, "defense": 1575, "damage": "1575 ~ 1805"},
+            {"name": "Bass", "image": "images/monsters/nixis/bass.png", "level": 152, "hp": 295000, "defense": 1585, "damage": "1590 ~ 1810"},
+            {"name": "Nix", "image": "images/monsters/nixis/bossnix.png", "level": 175, "hp": 20000000, "defense": 2500, "damage": "2200 ~ 2900"}
+        ]
+    }
+}
+ 

@@ -1,0 +1,262 @@
+<!-- <script type="text/javascript">
+    $(document).ready(function () {
+        //Disable cut copy paste
+        $('body').bind('cut copy paste', function (e) {
+            e.preventDefault();
+        });
+
+        //Disable mouse right click
+        $("body").on("contextmenu", function (e) {
+            return false;
+        });
+    }); -->
+</script>
+<!DOCTYPE html>
+
+<body oncopy="return false" oncut="return false" >
+    <html lang="en">
+
+    <head>
+        <title>Guides MU-HARDCORE</title>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <script>
+            fetch('libraries.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.head.insertAdjacentHTML('beforeend', data);
+                })
+                .catch(error => console.error('Fehler beim Laden der Libraries:', error));
+        </script>
+
+
+        <style>
+            .loader {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #000;
+                color: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+            }
+
+            .hero {
+                background: url(images/PNG/header-guides.jpg) center top no-repeat;
+                background-size: cover;
+                height: 100vh;
+            }
+
+            .hero .bg-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #0000006e;
+                /* Dunkleres Overlay */
+                z-index: 1;
+            }
+
+            .hero-text {
+                position: relative;
+                z-index: 2;
+            }
+
+            .hero-text h6 {
+                color: white;
+                /* Weiße Schriftfarbe für h6 */
+            }
+
+            .hero-text h1 {
+                color: white;
+                /* Weiße Schriftfarbe für h1 */
+            }
+        </style>
+
+
+<style>
+    #autocomplete-results {
+      
+      max-height: 200px;
+      overflow-y: auto;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      position: absolute;
+      background: white;
+      width: 500px;
+      z-index: 1000;
+    }
+
+    #autocomplete-results li {
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    #autocomplete-results li:hover {
+      background: #eee;
+    }
+
+    #search-box {
+      width: 300px;
+      padding: 8px;
+      font-size: 16px;
+    }
+  </style>
+
+    </head>
+
+    <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+
+        <div class="loader">Loading...</div>
+
+        <div id="navbar-container"></div>
+
+
+
+        <section class="hero d-flex flex-column justify-content-center align-items-center" id="home">
+
+            <div class="bg-overlay"></div>
+
+
+            <div class="container">
+                <div class="row">
+
+
+                    <div class="col-lg-8 col-md-10 mx-auto col-12">
+                        <div class="hero-text mt-5 text-center">
+                            <img src="https://i.imgur.com/nmihhYQ.png" alt="MU HARDCORE!" style="margin-left: 00px;">
+
+
+                            <input type="text" id="search-box" placeholder="Search..." autocomplete="off" style="border: 3px solid yellow;" />
+  <ul id="autocomplete-results"></ul>
+
+                            <h3 class="feature-title"
+                                style="text-align: center;font-size: 40px;font-family: cinzel;font-weight: 800;color: #ffc436;text-shadow: 0 0 15px rgb(251 104 0);">
+                                GUIDES SYSTEM</h3>
+                            <p class="feature-p" style="color: #e0cdae;font-size: 20px;">WWW.MU-HARDCORE.COM</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+        </section>
+
+        <div id="footer-container"></div>
+
+
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/aos.js"></script>
+        <script src="js/smoothscroll.js"></script>
+        <script src="js/custom.js"></script>
+        <!-- jQuery laden -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <!-- Schutz-Skript -->
+        <!-- <script src="js/protection.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const loader = document.querySelector('.loader');
+                fetch('libraries.html?v=' + new Date().getTime())
+                    .then(response => response.text())
+                    .then(data => {
+                        document.head.insertAdjacentHTML('beforeend', data);
+                        return fetch('navbar.html?v=' + new Date().getTime());
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('navbar-container').innerHTML = data;
+                        return fetch('footer.html?v=' + new Date().getTime()); // Load footer
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('footer-container').innerHTML = data;
+                        loader.style.display = 'none'; // Hide loading screen
+                    })
+                    .catch(error => console.error('Fehler beim Laden:', error));
+            });
+        </script>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
+
+        <script>
+            let fuse;
+            let flatIndex = [];
+
+            fetch('./configs/search-index.json') // adjust if your file is in another folder
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+
+                    flatIndex = Object.entries(data).map(([pageKey, pageData]) => ({
+                        pageKey,
+                        url: pageData.url,
+                        content: pageData.content
+                    }));
+
+                    fuse = new Fuse(flatIndex, {
+  keys: ['content'],
+  threshold: 0.4,
+  minMatchCharLength: 2,
+  ignoreLocation: true,
+  includeMatches: true,
+  useExtendedSearch: true
+});
+
+                });
+
+            const searchBox = document.getElementById('search-box');
+            const resultsList = document.getElementById('autocomplete-results');
+
+            searchBox.addEventListener('input', () => {
+                const query = searchBox.value.trim();
+                resultsList.innerHTML = '';
+
+                if (!query || !fuse) return;
+
+                const results = fuse.search(query).slice(0, 12);
+
+                results.forEach(result => {
+                    const li = document.createElement('li');
+                    const snippet = result.item.content.slice(0, 150).replace(/\s+/g, ' ') + '...';
+                    li.textContent = `${result.item.url} - ${snippet}`;
+                    li.addEventListener('click', () => {
+                        const searchParam = encodeURIComponent(query);
+                        //   window.location.href = `${result.item.url}?q=${searchParam}`;
+                        // Inside li click handler, if you want to include state
+                        window.location.href = `${result.item.url}?q=${searchParam}&tab=bonuses`;
+                    });
+                    resultsList.appendChild(li);
+                });
+            });
+
+            // Close results when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!resultsList.contains(e.target) && e.target !== searchBox) {
+                    resultsList.innerHTML = '';
+                }
+            });
+        </script>
+
+
+    </body>
+
+    </html>

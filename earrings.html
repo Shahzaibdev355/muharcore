@@ -1,0 +1,631 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        //Disable cut copy paste
+        $('body').bind('cut copy paste', function (e) {
+            e.preventDefault();
+        });
+
+        //Disable mouse right click
+        $("body").on("contextmenu", function (e) {
+            return false;
+        });
+    });
+</script>
+<!DOCTYPE html>
+
+<body oncopy="return false" oncut="return false" onpaste="return false">
+    <html lang="en">
+
+    <head>
+
+        <title>Guides MU-HARDCORE</title>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <style>
+        .loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+p {
+    color: #f1c40f;
+}
+
+.item-container {
+    background-color: #1f0000;
+    padding: 10px;
+    width: 90%; /* Beibehalten, wird aber durch max-width eingeschränkt */
+    max-width: 150px; /* Feste maximale Breite */
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 0px 100px #93330b7a;
+    border: 1px solid #93330b;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* Feste Höhe */
+}
+
+/* Bilder in Containern */
+.item-thumb { 
+    width: 120px;
+    height: 120px; 
+    display: block; 
+    margin: 0 auto; 
+}
+
+/* Flexbox-Reihe */
+.items-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap; /* **Jetzt erlaubt es Umbrüche für kleine Bildschirme** */
+}
+
+/* Popup-Bilder */
+.popup-im {
+    width: 120px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Popup-Box */
+.popup-info {
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 5px;
+    width: 250px;
+    height: auto;
+}
+
+/* ========================================== */
+/* **Responsive Anpassungen für Mobile** */
+/* ========================================== */
+
+/* **Für Bildschirme bis 768px (Smartphones & kleine Tablets)** */
+@media (max-width: 768px) {
+    .items-row {
+        flex-direction: column; /* Stapelt die Boxen untereinander */
+        align-items: center; /* Zentriert die Elemente */
+    }
+    
+    .item-container {
+        max-width: 100%; /* Volle Breite für Mobile */
+        height: auto; /* Flexible Höhe */
+        padding: 15px;
+    }
+    
+    .popup-info {
+        width: 200px; /* Breite für Mobile optimiert */
+        height: auto; /* Hohe für Mobile optimiert */
+        max-width: 300px; /* Begrenzung der Breite */
+    }
+    
+    .popup-im {
+        width: 100px; /* Kleinere Bilder für Mobile */
+    }
+}
+
+/* **Für sehr kleine Bildschirme (bis 480px)** */
+@media (max-width: 480px) {
+    .item-container {
+        max-width: 95%; /* Fast volle Breite für kleine Handys */
+        height: auto;
+    }
+    
+    .item-thumb, .popup-im {
+        width: 80px; /* Noch kleinere Bilder für sehr kleine Displays */
+    }
+    
+    .popup-info {
+       width: 300px; /* Breite für Mobile optimiert */
+        height: auto; /* Hohe für Mobile optimiert */
+        max-width: 300px; /* Begrenzung der Breite */
+    }
+}
+
+      </style>
+
+
+    </head>
+
+    <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+
+         <div class="loader">Loading...</div>
+          <div id="navbar-container"></div>
+
+
+        <section class="about section" id="about">
+          
+      
+            <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+            
+            <h1 style="text-align: center;"> 🛡 Earrings </h1>
+            <br>
+  
+            <!-- Alle Details-Buttons bleiben oben -->
+            <div class="summary-container">
+             <details class="details-box"  open onclick="showContent('info')">
+                 <summary>Information</summary>
+             </details>
+               <details class="details-box"  open onclick="showContent('damage')">
+                <summary>Earrings</summary>
+            </details>  
+            </div>
+                <div class="summary-container">
+             
+           
+    
+          
+
+            </div>
+            <div id="content" class="content-container">  
+            </div>
+            </div>
+          
+                   
+                
+         </section>
+        <div id="footer-container"></div>
+
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/aos.js"></script>
+        <script src="js/smoothscroll.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- jQuery laden -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+<!-- Schutz-Skript -->
+<script src="js/protection.js"></script>
+        <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loader = document.querySelector('.loader');
+
+        fetch('libraries.html?v=' + new Date().getTime())
+            .then(response => response.text())
+            .then(data => {
+                document.head.insertAdjacentHTML('beforeend', data);
+                return fetch('navbar.html?v=' + new Date().getTime());
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+                return fetch('footer.html?v=' + new Date().getTime());
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+                showContent('info');
+                loader.style.display = 'none'; // Ladebildschirm ausblenden
+            })
+            .catch(error => console.error('Fehler beim Laden:', error));
+    });
+</script>
+
+        <script>
+            function showContent(region) {
+                const content = document.getElementById("content");
+   
+                const data = {
+                // Information
+                "info": `
+                    <div class="main-container">
+                         
+                          <h1 class="main-title">Information</h1>
+                        <p style="color: gold;">When you have the sky earring and flame earring at +4, the following options become available: 
+    <ul style="color: gold;">
+      <li>Increase Ignore Damage +2%</li>
+      <li>Increase Excellent Damage +2%</li>
+      <li>Increase Experience +30%</li>
+      <li>Increase Drop Zen (PvE) +15%</li>
+      <li>Defense  Success Rate (PvE) +15%</li>
+      <li>Increase Defense +5%</li>
+      <li>Increase Damage +5%</li>
+    </ul>
+  </p>
+                    
+
+                        <br>
+                        <br>
+                    </div>
+                    ` 
+                ,
+                // DAMAGE
+                "damage": `
+                    <div class="main-container">
+
+                     <h1 class="main-title">Flame Earring</h1><br>
+                     <div class="items-row">
+                                <!-- Evolution 1 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Level 0</strong><br>                   
+                                      <img src="images/custom/Flame_Earring.png" 
+                                           alt="SATAN" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">Flame Earring 0</div>
+                                    <img src="images/custom/Flame_Earring.png" 
+                                    alt="SATAN" 
+                                    class="popup-im" 
+                                    >
+   
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot">ATTACK SPEED + 5</div>
+                                    <div class="popup-loot">DAMAGE INCREASE +25</div>
+                        
+                                  </div>
+                                </div>   
+                                </div>
+
+                                <!-- Evolution 1 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Level 1</strong><br>                   
+                                      <img src="images/custom/Flame_Earring.png" 
+                                           alt="SATAN" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">Flame Earring 1</div>
+                                    <img src="images/custom/Flame_Earring.png" 
+                                    alt="SATAN" 
+                                    class="popup-im" 
+                                    >
+   
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot">ATTACK SPEED + 6</div>
+                                    <div class="popup-loot">DAMAGE INCREASE +40</div>
+                        
+                                  </div>
+                                </div>   
+                                </div>
+                        
+                                <!-- Evolution 2 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Level 2</strong><br>
+  
+                      
+                                        <img src="images/custom/Flame_Earring.png" 
+                                             alt="SATAN" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Flame Earring 2</div>
+                                      <img src="images/custom/Flame_Earring.png" 
+                                      alt="SATAN" 
+                                      class="popup-im" 
+                                      >
+     
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">ATTACK SPEED + 7</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +60</div>
+                                      <div class="popup-loot">INCREASE CRITICAL DAMAGE 1%</div>
+                                    </div>
+                                </div>     
+                                </div>
+                        
+                                <!-- Evolution 3 -->
+                                <div class="item-container">
+                                 <div class="item-wrapper">
+                                    <p>
+                                        <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Level 3</strong><br>
+  
+                      
+                                        <img src="images/custom/Flame_Earring.png" 
+                                             alt="SATAN" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Flame Earring 3</div>
+                                      <img src="images/custom/Flame_Earring.png" 
+                                      alt="SATAN" 
+                                      class="popup-im" 
+                                      >
+     
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">ATTACK SPEED + 8</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +80</div>
+                                      <div class="popup-loot">INCREASE CRITICAL DAMAGE +2%</div>  
+                                      <div class="popup-loot">INCREASE EXCELLENT DAMAGE +1%</div>
+                                    </div>
+                                </div>
+                                </div>
+
+                                  <!-- Evolution 4 -->
+                                <div class="item-container">
+                                 <div class="item-wrapper">
+                                    <p>
+                                        <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Level 4</strong><br>
+  
+                      
+                                        <img src="images/custom/Flame_Earring.png" 
+                                             alt="SATAN" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Flame Earring 4</div>
+                                      <img src="images/custom/Flame_Earring.png" 
+                                      alt="SATAN" 
+                                      class="popup-im" 
+                                      >
+     
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">ATTACK SPEED + 9</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +100</div>
+                                      <div class="popup-loot">INCREASE CRITICAL DAMAGE +3%</div>
+                                      <div class="popup-loot">INCREASE EXCELLENT DAMAGE +2%</div>
+                          
+                                    </div>
+                                </div>
+                                </div>
+                          
+                     </div><br>
+
+                     <h1 class="main-title">Sky Earring</h1><br>
+                     <div class="items-row">
+                                 <!-- Evolution 1 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Level 0</strong><br>
+
+                    
+                                      <img src="images/custom/Sky_Earring.png" 
+                                           alt="SATAN" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">Sky Earring</div>
+                                    <img src="images/custom/Sky_Earring.png" 
+                                    alt="SATAN" 
+                                    class="popup-im" 
+                                    >
+   
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot">HP + 100</div>
+                                   
+                                    <div class="popup-loot">INCREASE DEFENSE +50</div>
+                                  </div>
+                                </div>   
+                                </div>
+                          
+                                <!-- Evolution 1 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Level 1</strong><br>
+
+                    
+                                      <img src="images/custom/Sky_Earring.png" 
+                                           alt="SATAN" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">Sky Earring</div>
+                                    <img src="images/custom/Sky_Earring.png" 
+                                    alt="SATAN" 
+                                    class="popup-im" 
+                                    >
+   
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot">HP + 200</div>
+                                     
+                                    <div class="popup-loot">INCREASE DEFENSE +75</div>
+                                    
+                        
+                                  </div>
+                                </div>   
+                                </div>
+                        
+                                <!-- Evolution 2 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Level 2</strong><br>
+  
+                      
+                                        <img src="images/custom/Sky_Earring.png" 
+                                             alt="SATAN" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Sky Earring 2</div>
+                                      <img src="images/custom/Sky_Earring.png" 
+                                      alt="SATAN" 
+                                      class="popup-im" 
+                                      >
+     
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">HP + 300</div>
+                                      <div class="popup-loot">HP INCREASE 2%</div>
+                                      <div class="popup-loot">INCREASE DEFENSE +100</div>
+                                     
+                          
+                                    </div>
+                                </div>     
+                                </div>
+                        
+                                <!-- Evolution 3 -->
+                                <div class="item-container">
+                                 <div class="item-wrapper">
+                                    <p>
+                                        <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Level 3</strong><br>
+  
+                      
+                                        <img src="images/custom/Sky_Earring.png" 
+                                             alt="SATAN" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Sky Earring 3</div>
+                                      <img src="images/custom/Sky_Earring.png" 
+                                      alt="SATAN" 
+                                      class="popup-im" 
+                                      >
+     
+                                      <div class="popup-name">Options</div>
+                                       <div class="popup-loot">HP + 400</div>
+                                       <div class="popup-loot">DEF + 125</div>
+                                       <div class="popup-loot">HP INCREASE 3%</div>
+                                      <div class="popup-loot">DEF INCREASE 2%</div>
+                                     
+                                      
+                                    </div>
+                                </div>
+                                </div>
+
+                                  <!-- Evolution 4 -->
+                                <div class="item-container">
+                                 <div class="item-wrapper">
+                                    <p>
+                                        <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Level 4</strong><br>
+  
+                      
+                                        <img src="images/custom/Sky_Earring.png" 
+                                             alt="SATAN" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Sky Earring 4</div>
+                                      <img src="images/custom/Sky_Earring.png" 
+                                      alt="SATAN" 
+                                      class="popup-im" 
+                                      >
+     
+                                      <div class="popup-name">Options</div>
+                                       <div class="popup-loot">HP + 500</div>
+                                       <div class="popup-loot">DEF + 150</div>
+                                       <div class="popup-loot">HP INCREASE + 5%</div>
+                                      <div class="popup-loot">DEF INCREASE + 4%</div>
+                                       <div class="popup-loot">REF DAMAGE + 2%</div>
+                                    </div>
+                                </div>
+                                </div>
+
+                          
+                     </div><br>
+
+                     
+                   
+
+                        <br>
+                        <br>
+                    </div>
+                    ` 
+                
+               
+             
+                };
+                
+                content.innerHTML = data[region];
+                content.classList.add("active"); 
+            }
+            document.addEventListener("DOMContentLoaded", function() {
+           showContent('info');
+          });
+        
+  
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const tabToOpen = params.get('tab');
+  const popupToOpen = params.get('popup');
+
+  if (tabToOpen) {
+    document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
+  }
+
+  if (popupToOpen) {
+    document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
+  }
+</script>
+
+
+    </body>
+
+    </html>

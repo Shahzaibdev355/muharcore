@@ -1,0 +1,104 @@
+/* Navbar */
+.navbar {
+    background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Navbar Brand */
+.navbar-brand {
+    color: #ff6f47;
+    font-weight: bold;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.navbar-brand:hover {
+    color: #ff4500;
+}
+
+/* Navbar Links */
+.navbar-nav .nav-link {
+    color: #ff6f47; /* Weiß als Standardfarbe */
+    padding: 10px 15px;
+    font-weight: 500;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ff6f47;
+    transform: translateY(-2px);
+}
+
+/* Dropdown beim Hover anzeigen */
+.navbar-nav .dropdown:hover .dropdown-menu {
+    display: block;
+    background: #230503;
+}
+
+/* Dropdown Menü */
+.dropdown-menu {
+    background: #230503;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 8px;
+    margin-top: 5px;
+}
+
+/* Dropdown Items */
+.dropdown-menu a {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #f7f7f7;
+    font-weight: 500;
+    transition: background 0.3s, color 0.3s;
+}
+
+.dropdown-menu a i {
+    margin-right: 10px;
+    color: #ff6f47;
+}
+
+.dropdown-menu a:hover {
+    background: #4f1400;
+    color: #ff4500;
+}
+
+/* Toggler Icon für Mobile */
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 0.8)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Responsives Verhalten */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: #2d2d2d;
+        padding: 15px;
+        border-radius: 8px;
+    }
+    .navbar-nav .nav-link {
+        padding: 10px;
+        color: #fff !important; /* Explizit Weiß für mobile Ansicht */
+    }
+    .navbar-nav .nav-link:hover {
+        color: #ff6f47 !important;
+    }
+    .dropdown-menu {
+        background:#2d2d2d;
+        box-shadow: none;
+        border: none;
+    }
+    .dropdown-menu a {
+        color: #fff; /* Weiße Schrift im Mobilmenü */
+    }
+    .dropdown-menu a:hover {
+        background: #2d2d2d;
+        color: #fff;
+    }
+}

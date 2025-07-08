@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Guides MU-HARDCORE</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <style>
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* ========================================================================== */
+        /* Stil für Tabellen und Tabellenzeilen                                       */
+        /* ========================================================================== */
+        .feature-table {
+            width: 100%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            color: #f1c40f;
+        }
+
+        .feature-table td {
+            padding: 10px;
+            padding-left: 70px;
+            color: #d1caca;
+            text-align: left;
+        }
+
+        .feature-table tr {
+            background-color: transparent;
+        }
+
+        @media (max-width: 600px) {
+            .feature-table td {
+                padding-left: 20px;
+            }
+        }
+
+        /* ========================================================================== */
+        /* Stil für strong-Elemente                                                   */
+        /* ========================================================================== */
+        strong {
+           color: #49e410;
+        }
+
+        /* ========================================================================== */
+        /* Stil für die nebeneinanderliegende Anzeige von ACT I.1 und ACT I.2         */
+        /* ========================================================================== */
+        .act-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .act-section {
+            flex: 1;
+            min-width: 400px;
+            max-width: 48%;
+        }
+
+        @media (max-width: 900px) {
+            .act-section {
+                max-width: 100%;
+                min-width: 100%;
+            }
+        }
+
+    
+    </style>
+</head>
+
+<body data-spy="scroll" data-target="#navbarNav" data-offset="50" oncopy="return false" oncut="return false" onpaste="return false">
+    
+    <div class="loader">Loading...</div>
+    <div id="navbar-container"></div>
+    <section class="about section" id="about">
+        
+        <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+            <h1 style="text-align: center;"> 🛡 ACT SYSTEM </h1>
+            <br>
+
+            <div class="summary-container">
+                <details class="details-box" open onclick="showContent('info')">
+                    <summary>Information</summary>
+                </details>
+            </div><br>
+            <div class="summary-container">
+                <details class="details-box" onclick="showContent('1')">
+                    <summary>ACT I</summary>
+                </details>
+                <details class="details-box" onclick="showContent('2')">
+                    <summary>ACT II</summary>
+                </details>
+                <details class="details-box" onclick="showContent('3')">
+                    <summary>ACT III</summary>
+                </details>
+                <details class="details-box" onclick="showContent('4')">
+                    <summary>ACT IV</summary>
+                </details>
+                <details class="details-box" onclick="showContent('5')">
+                    <summary>ACT V</summary>
+                </details>
+            </div>
+            <div id="content" class="content-container"></div>
+        </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery laden -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Schutz-Skript -->
+    <script src="js/protection.js"></script>
+    
+    <!-- Lade-Skript -->
+    <script src="js/loader.js"></script>
+    
+
+    <script>
+        function showContent(region) {
+            const content = document.getElementById("content");
+            const data = {
+                // Information
+                "info": `
+                    <div class="main-container">
+                        <h1 class="main-title">Invictus Server Overview</h1>
+                        <p style="color: #f1c40f;" >The Invictus server features five Acts (also known as stages), each offering unique content:</h2>
+        <ul style="color: #f1c40f; text-align: left; list-style-position: inside;">
+            <li ><strong>Pets     </strong></li>
+            <li ><strong>Invasions</strong></li>
+            <li ><strong>Events   </strong></li>
+            <li ><strong>Weapons  </strong></li>
+            <li ><strong>Armours  </strong></li>
+            <li ><strong>Wings    </strong></li>
+            <li ><strong>Locations (maps)</strong></li>
+            <li ><strong>Quests (both progression & map specific ones)</strong></li>
+        </ul>
+        <p style="color: #f1c40f;">The experience differs from one Act, Reset, Level to another and will be adjusted at our discretion to meet the overall designed server lifecycle & duration. Typically, the last reset of each ACT will be the hardest to complete.</p>
+        <p style="color: #f1c40f;"><span class="highlight">Transition to new ACT:</span> Once the top 5 players have reached the maximum reset & level for a specific ACT, it enables the next ACT on the next day. Top 20 players will be rewarded for their efforts. When the next ACT begins, players lagging behind will have a slight experience boost.</p
+                    </div>
+                `,
+                // ACT I (nebeneinander)
+                "1": `
+                <div class="main-container">
+                                <h1 class="main-title">ACT I Overview</h1>
+                                 <p style="color: #f1c40f;">ACT I is an active start in the game with a lot of events and invasions that will provide high activity on the server and great enjoyment. ACT I will last for 5 resets, and the last reset of the ACT will have a 25% experience rate; when the next ACT begins, the experience rate will return to normal. Once 5 players reach 4 resets and level 400, they will automatically be registered, and the next day at 7:00 PM, the following ACT will start. In case multiple players are registered with the same level at the same time in the top rankings, the corresponding reward will be given to that group. In the first ACT, the top 10 players will receive rewards. The first 5 players will each receive one Jewel of Excellent and one Jewel of Luck, while the next 5 players will each receive one Jewel of Excellent.</p>
+                                  <h3 style="color: #FFD700;">General Features</h3>
+                                <table class="feature-table">
+                                    <tr><td><strong style="color: #FF5555">Maximum stats: 8.000 points in a single stat (like you can't put more than 8.000 points to ene or vit or str, etc.)</strong></td></tr>
+                                    <tr><td><strong>Level 2 Wings:</strong> wings for players in ACT I.</td></tr>
+                                    <tr><td><strong>Quest System:</strong> access limited to quest 283.</td></tr>
+                                    <tr><td><strong>Quest Map System:</strong> quest on map up to the Karutan1.</td></tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Pets:</strong> 
+                                            <span style="color: #FF5555; font-style: italic;">SATAN[DAMAGE]</span>, 
+                                            <span style="color: #55AAFF; font-style: italic;">FAIRY KING[DEFENSE]</span>, 
+                                            <span style="color: #55FF55; font-style: italic;">FOX[MIX]</span>, 
+                                            <span style="color: #AA55FF; font-style: italic;">GHOST[HORSE]</span>, 
+                                            <span style="color: #FFAA55; font-style: italic;">WILLIAM[FARM]</span>
+                                        </td>
+                                    </tr>
+                                    <tr><td><strong>Jewel of Daedalus:</strong> item available in ACT I for crafting wings lvl 2 for your class.</td></tr>
+                                </table>
+                                
+                                <br>
+                </div>
+                    <div class="act-container">
+                        <div class="act-section">
+                            <div class="main-container">
+                                <h1 class="main-title">STAGE 1</h1><br>
+                                <p style="color: #f1c40f;">STAGE 1 will be completed when 5 players reach 2 resets and level 400, and the start of the ACT will be at 7:00 PM server time on the same day.</p>
+
+                                <h3 style="color: #FFD700;">Events</h3>
+                                 <table class="feature-table">
+                                     <tr><td><strong>Events:</strong> Pandora.</td></tr>
+                                 </table>
+                                 
+                                 <h3 style="color: #FFD700;">Invasions</h3>
+                                 <table class="feature-table">
+                                     <tr><td><strong>White Wizards:</strong> White Wizards x1 and Orcs x10 per map (Lorencia,Devias,Elbeland).</td></tr>
+                                     <tr><td><strong>Pet:</strong> Shark x40 (Lorencia).</td></tr>
+                                     <tr><td><strong>Feather:</strong> Pharaoh x3(Dungeon), Icar (Icarus).</td></tr>
+                                     <tr><td><strong>Kalima:</strong> Kalima 1 with Berserker Boss.</td></tr>
+                                     <tr><td><strong>Skill:</strong> Gargoyle x7(Elbeland),Dragon x5(Losttower),Great Dragon x3(Kanturu) .</td></tr>
+                                     <tr><td><strong>Lunar Rabbit:</strong> x10 every map(Dungeon,Devias,Elbeland).</td></tr>
+                                     <tr><td><strong>Fire Flame Ghost:</strong> x10 every map(Atlans,Tarkan,Aida).</td></tr>
+                                     <tr><td><strong>Pouch of Blessing:</strong> x10 every map(Dungeon,Noria,Elbeland).</td></tr>
+                                     <tr><td><strong>Golden Goldens:</strong> Golden Goblin(x8 Noria), Golden Titan(x4 Devias), Golden Vepar(x4 Atlans).</td></tr>
+                                     <tr><td><strong>Golden Guardians:</strong> Golden Budge Dragon(x8 Noria), Golden Soldier(x4 Atlans & Devias).</td></tr>
+                                     <tr><td><strong>King Invasion:</strong>  Death King x1 and Death Bone x5 every map (Dungeon,Devias,Elbeland).</td></tr>
+                                     <tr><td><strong>Summon Dragon:</strong> LVL 1, LVL 2.</td></tr>
+                                     <tr><td><strong>Goblin Invasion:</strong>Goblin ACT1 x15 Noria.</td></tr>
+                                     <tr><td><strong>Christmas Invasion:</strong> Christmas Goblin x3 and Santa x20 (Devias).</td></tr>
+                                 </table>
+                                 
+                                 <h3 style="color: #FFD700;">XSHOP</h3>
+                                 <table class="feature-table">
+                                     <tr><td><strong>Jewels:</strong> Jewel of Luck, Jewel of Level +10 and +11, Jewel of Option (Access from level open),Daedalus.</td></tr>
+                                     <tr><td><strong>Buffs:</strong> Buffs .</td></tr>
+                                 </table>
+
+                                <br><br>
+                            </div>
+                        </div>
+                        <div class="act-section">
+                            <div class="main-container">
+                                <h1 class="main-title">STAGE 2</h1>
+                                 <p style="color: #f1c40f;">STAGE 2 will be completed when 5 players reach 4 resets and level 400, and the start of the ACT will be at 7:00 PM server time on the next day.</p>
+
+                                 <h3 style="color: #FFD700;">Events</h3>
+                                 <table class="feature-table">
+                                     <tr><td><strong>Events:</strong> PVP-Arena,Double Goer.</td></tr>
+                                 </table>
+                                <h3 style="color: #FFD700;">Invasion</h3>
+                                <table class="feature-table">
+                                    <tr><td><strong>Kalima:</strong> Kalima 2 with Purple Boss.</td></tr>  
+                                    <tr><td><strong>Weapon:</strong> Minotaur x7(Karutan1).</td></tr>
+                                    <tr><td><strong>Golden Goldens:</strong> Golden Tantalos(x3 Tarkan) & Golden Crust(x3 Icarus).</td></tr>
+                                     <tr><td><strong>Golden Guardians:</strong> Golden Dark Knigt(x4 Tarkan & Icarus).</td></tr>
+                                    <tr><td><strong>Dota:</strong> Roshan x1 and Escort Golden Roshan x5 in Lorencia.</td></tr>
+                                    <tr><td><strong>Dragon:</strong> Blue Dragon in Dungeon.</td></tr>
+                                    <tr><td><strong>Summon Dragon:</strong> Summon Dragon LVL 3.</td></tr>
+                                    <tr><td><strong>Evolution:</strong> Evolution ACT I in Lorencia.</td></tr>
+                                </table>
+                               <h3 style="color: #FFD700;">XShop</h3>
+                                <table class="feature-table">
+                                    <tr><td><strong>Jewels:</strong> Pet Jewel ACT I.</td></tr>   
+                                    <tr><td><strong>Items:</strong> Reset Ticket ACT I.</td></tr>      
+                                </table>
+                                <br><br>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                // ACT II
+                "2": `
+                     <div class="main-container">
+                                <h1 class="main-title">ACT II Overview</h1>
+                                 <p style="color: #f1c40f;"> ACT II will last from 5 to 10 resets, and the last reset of the ACT will have a 50% experience rate; when the next ACT begins, the experience rate will return to normal. Once 5 players reach 9 resets and level 400, they will automatically be registered, and the next day at 7:00 PM, the following ACT will start. In case multiple players are registered with the same level at the same time in the top rankings, the corresponding reward will be given to that group. In the first ACT, the top 10 players will receive rewards. The first 5 players will each receive one Excelent Weapon Box +2  + 1 Jewel of Kundun, while the next 5 players will each receive  1 Jewel of Kundun.</p>
+                                  <h3 style="color: #FFD700;">General Features</h3>
+                                <table class="feature-table">
+                                    <tr><td><strong style="color: #FF5555">Maximum stats: 10.000 points(Stage I) and 12.000(Stage II) in a single stat (like you can't put more than 10.000 points to ene or vit or str, etc.)</strong></td></tr>
+                                    <tr><td><strong>Level 2.5 Wings:</strong> wings for players in ACT II.</td></tr>
+                                    <tr><td><strong>Quest System:</strong> access limited to quest 507.</td></tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Pets:</strong> 
+                                            <span style="color: #FF5555; font-style: italic;">DESDOMUS[DAMAGE]</span>, 
+                                            <span style="color: #55AAFF; font-style: italic;">FAIRY QUEEN[DEFENSE]</span>, 
+                                            <span style="color: #55FF55; font-style: italic;">WOLF[MIX]</span>, 
+                                            <span style="color: #AA55FF; font-style: italic;">ICE[HORSE]</span>, 
+                                            <span style="color: #FFAA55; font-style: italic;">TIBETTON[FARM]</span>
+                                        </td>
+                                    </tr>
+                                    <tr><td><strong>Jewel of Daedalus 2:</strong> item available in ACT II for crafting wings lvl 2.5 for your class.</td></tr>
+                                </table>
+                                
+                                <br>
+                </div>
+                     <div class="act-container">
+                        <div class="act-section">
+                            <div class="main-container">
+                                   <h1 class="main-title">STAGE 1</h1><br>
+                                <p style="color: #f1c40f;">STAGE 1 will be completed when 5 players reach 7 resets and level 400, and the start of the ACT will be at 7:00 PM server time on the same day.</p>
+
+                              
+                                  <h3 style="color: #FFD700;">Events</h3>
+                                 <table class="feature-table">
+                                     <tr><td><strong>Events:</strong> Nightmare.</td></tr>
+                                 </table>
+                                 <h3 style="color: #FFD700;">Invasions</h3>
+                                 <table class="feature-table">
+                                     <tr><td><strong>Pet:</strong> Bone x20 (Kanturu).</td></tr>
+                                     <tr><td><strong>Feather:</strong> Fallen Angel x4(Kanturu).</td></tr>
+                                     <tr><td><strong>Kalima:</strong> Kalima 3 with Blue Boss.</td></tr>
+                                     <tr><td><strong>Weapon:</strong> Ramesses x5(Kanturu Relix).</td></tr>
+                                     <tr><td><strong>Golden Goldens:</strong> Golden Satyros(x4 Kanturu & Karutan1).</td></tr>
+                                     <tr><td><strong>Golden Guardians:</strong> Golden Stone Golem(x5 Kanturu & Karutan1).</td></tr>
+                                     <tr><td><strong>Summon Dragon:</strong> LVL 4.</td></tr>
+                                     <tr><td><strong>Goblin Invasion:</strong>Goblin ACTII x15 Losttower.</td></tr>
+                                 </table>
+                                 
+                                 <h3 style="color: #FFD700;">XSHOP</h3>
+                                 <table class="feature-table">
+                                     <tr><td><strong>Jewels:</strong> Jewel of Level +12.</td></tr>
+                                     <tr><td><strong>Items:</strong> Reset Ticket ACT II.</td></tr>
+                                 </table>
+
+                                <br><br>
+                            </div>
+                        </div>
+                        <div class="act-section">
+                            <div class="main-container">
+                              <h1 class="main-title">STAGE 2</h1><br>
+                              <p style="color: #f1c40f;">STAGE 2 will be completed when 5 players reach 9 resets and level 400, and the start of the ACT will be at 7:00 PM server time on the next day.</p>
+
+                               
+                                 
+                                 <h3 style="color: #FFD700;">Invasions</h3>
+                                 <table class="feature-table">
+
+                                     <tr><td><strong>Kalima:</strong> Kalima 4 with Knight Boss.</td></tr>
+                                    <tr><td><strong>Dota:</strong> Brodmother x1 and Spiderlings x5 in Tarkan.</td></tr>
+                                    <tr><td><strong>Dragon:</strong> Green Dragon in Kanturu.</td></tr>
+                                    <tr><td><strong>Evolution:</strong> Evolution ACT II in Dungeon.</td></tr>
+                                 </table>
+                                 
+                                 <h3 style="color: #FFD700;">XSHOP</h3>
+                                 <table class="feature-table">
+                                     <tr><td><strong>Jewels:</strong> Pet Jewel ACT II.</td></tr>
+                                 </table><br>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                // ACT III
+                "3": `
+                <div class="main-container">
+                                <h1 class="main-title">ACT III Overview</h1>
+                                 <p style="color: #f1c40f;">ACT III will last from 10 to 15 resets, and the last reset of the ACT will have a 30% experience rate; when the next ACT begins, the experience rate will return to normal. Once 5 players reach 14 resets and level 400, they will automatically be registered, and the next day at 7:00 PM, the following ACT will start. In case multiple players are registered with the same level at the same time in the top rankings, the corresponding reward will be given to that group. In the first ACT, the top 10 players will receive rewards. The first 5 players will each receive one Jewel of Kundun and x2Jewel of Excellent , while the next 5 players will each receive  3xJewel of Excellent.</p>
+                                  <h3 style="color: #FFD700;">General Features</h3>
+                                <table class="feature-table">
+                                    <tr><td><strong style="color: #FF5555">Maximum stats: 16.000 points in a single stat (like you can't put more than 16.000 points to ene or vit or str, etc.)</strong></td></tr>
+                                    <tr><td><strong>Level 3 Wings:</strong> wings for players in ACT III.</td></tr>
+                                    <tr><td><strong>Quest System:</strong> access limited to quest 700.</td></tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Pets:</strong> 
+                                            <span style="color: #FF5555; font-style: italic;">MARS[DAMAGE]</span>, 
+                                            <span style="color: #55AAFF; font-style: italic;">RAYNER QUEEN[DEFENSE]</span>, 
+                                            <span style="color: #55FF55; font-style: italic;">TIGER[MIX]</span>, 
+                                            <span style="color: #AA55FF; font-style: italic;">EMBER[HORSE]</span>, 
+                                            <span style="color: #FFAA55; font-style: italic;">WOOPAROO[FARM]</span>
+                                        </td>
+                                    </tr>
+                                    <tr><td><strong>Jewel of Daedalus 3:</strong> item available in ACT III for crafting wings lvl 3 for your class.</td></tr>
+                                </table>
+                                
+                                <br>
+                </div>
+                   <div class="act-container">
+                        <div class="act-section">
+                            <div class="main-container">
+                                  <h1 class="main-title">STAGE 1</h1><br>
+                                <p style="color: #f1c40f;">STAGE 1 will be completed when 5 players reach 12 resets and level 400, and the start of the ACT will be at 7:00 PM server time on the same day.</p>
+
+                               
+
+                                 <h3 style="color: #FFD700;">Invasions</h3>
+                                 <table class="feature-table">
+                                     <tr><td><strong>Pet:</strong> Troll x20 (Raklion).</td></tr>
+                                     <tr><td><strong>Feather:</strong> Silver x2(Raklion).</td></tr>
+                                     
+                                     <tr><td><strong>Weapon:</strong> Xin Zhao x4(Vulcanos).</td></tr>
+                                     <tr><td><strong>Golden Goldens:</strong> Golden Twin Tale(x2 Kanturu Relics & Underground).</td></tr>
+                                     <tr><td><strong>Golden Guardians:</strong> Golden Napin(x3 Kanturu Relics & Underground).</td></tr>
+                                     <tr><td><strong>Summon Dragon:</strong> LVL 5.</td></tr>
+                                     <tr><td><strong>Goblin Invasion:</strong>Goblin ACTIII (x15 Kanturu).</td></tr>
+                                 </table>
+                                 
+                                 <h3 style="color: #FFD700;">XSHOP</h3>
+                                 <table class="feature-table">
+                                     <tr><td><strong>Jewels:</strong> Flame Element and Sky Element.</td></tr>
+                                     <tr><td><strong>Items:</strong> Reset Ticket ACT III.</td></tr>
+                                 </table>
+                                <br><br>
+                            </div>
+                        </div>
+                        <div class="act-section">
+                            <div class="main-container">
+                                       <h1 class="main-title">STAGE 2</h1><br>
+                                <p style="color: #f1c40f;">STAGE 2 will be completed when 5 players reach 14 resets and level 400, and the start of the ACT will be at 7:00 PM server time on the next day.</p>                                 
+                                      <h3 style="color: #FFD700;">Events</h3>
+                                 <table class="feature-table">
+                                     <tr><td><strong>Events:</strong> Balgass and Imperial Guardian.</td></tr>
+                                 </table>
+                                  
+                                  <h3 style="color: #FFD700;">Invasions</h3>
+                                 <table class="feature-table">
+                                    <tr><td><strong>Dota:</strong> Pudge x1 and Naix x5 in Kanturu.</td></tr>
+                                    <tr><td><strong>Dragon:</strong> Ice Dragon in Raklion.</td></tr>
+                                    <tr><td><strong>Evolution:</strong> Evolution ACT III in Kanturu.</td></tr>
+                                    <tr><td><strong>Kalima:</strong> Kalima 5 with Incubus Boss.</td></tr>
+                                 </table>
+                                 
+                                 <h3 style="color: #FFD700;">XSHOP</h3>
+                                 <table class="feature-table">
+                                     <tr><td><strong>Jewels:</strong> Pet Jewel ACT III.</td></tr>
+                                 </table><br>
+                                <br><br>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                // ACT IV
+                "4": `
+                <div class="main-container">
+                                <h1 class="main-title">ACT IV Overview</h1>
+                                 <p style="color: #f1c40f;">ACT IV will last from 15 to 20 resets, and the last reset of the ACT will have a 30% experience rate; when the next ACT begins, the experience rate will return to normal. Once 5 players reach 19 resets and level 400, they will automatically be registered, and the next day at 7:00 PM, the following ACT will start. In case multiple players are registered with the same level at the same time in the top rankings, the corresponding reward will be given to that group. In the first ACT, the top 10 players will receive rewards. The first 5 players will each receive x2 Jewel + 13 & one Jewel of Kundun, while the next 5 players will each receive  x2 Jewel + 13.</p>
+                                  <h3 style="color: #FFD700;">General Features</h3>
+                                <table class="feature-table">
+                                    <tr><td><strong style="color: #FF5555">Maximum stats: 16.000 points in a single stat (like you can't put more than 16.000 points to ene or vit or str, etc.)</strong></td></tr>
+                                    <tr><td><strong>Level 4 Wings:</strong> wings for players in ACT IV.</td></tr>
+                                    <tr><td><strong>Quest System:</strong> access limited to quest 404.</td></tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Pets:</strong> <BR>
+                                            <span style="color: #FF5555; font-style: italic;">AMNEMIS-PET[DAMAGE]</span>, 
+                                            <span style="color: #FF5555; font-style: italic;">DROGON-MOUNT[DAMAGE]</span>,<BR>
+                                            <span style="color: #55AAFF; font-style: italic;">DORYO-PET[DEFENSE]</span>, 
+                                            <span style="color: #55AAFF; font-style: italic;">WINTER WYVERN-MOUNT[DEFENSE]</span>,<BR>
+                                            <span style="color: #55FF55; font-style: italic;">PHOENIX-PET[MIX]</span>, 
+                                            <span style="color: #55FF55; font-style: italic;">RHAEGAL-MOUNT</span>,<BR>
+                                            <span style="color: #AA55FF; font-style: italic;">FLAME[HORSE]</span>, <BR>
+                                            <span style="color: #FFAA55; font-style: italic;">CHIRON[FARM]</span>
+                                        </td>
+                                    </tr>
+                                    <tr><td><strong>Jewel of Daedalus 4:</strong> item available in ACT IV for crafting wings lvl 4 for your class.</td></tr>
+                                </table>
+                                
+                                <br>
+                </div>
+                    <div class="act-container">
+                        <div class="act-section">
+                            <div class="main-container">
+                                 <h1 class="main-title">STAGE 1</h1><br>
+                                <p style="color: #f1c40f;">STAGE 1 will be completed when 5 players reach 17 resets and level 400, and the start of the ACT will be at 7:00 PM server time on the same day.</p>
+
+                          
+                                 
+                                 <h3 style="color: #FFD700;">Invasions</h3>
+                                 <table class="feature-table">
+                                     <tr><td><strong>Pet:</strong> Doom x20 (Ferea).</td></tr>
+                                     <tr><td><strong>Feather:</strong> Phoenix Spirit x1(Ferea).</td></tr>
+                                     <tr><td><strong>Kalima:</strong> Kalima 6 with Lilith Boss.</td></tr>
+                                     <tr><td><strong>Weapon:</strong> Fiora x3(Swamp of Calmness).</td></tr>
+                                     <tr><td><strong>Golden Goldens:</strong> GGD(x2 Raklion & Vulcanos).</td></tr>
+                                     <tr><td><strong>Golden Guardians:</strong> Golden Iron Knight(x2 Raklion & Vulcanos).</td></tr>
+                                     <tr><td><strong>Summon Dragon:</strong> LVL 6.</td></tr>
+                                     <tr><td><strong>Goblin Invasion:</strong>Goblin ACTIV (x15 Raklion) .</td></tr>
+                                 </table>
+                                 
+                                 <h3 style="color: #FFD700;">XSHOP</h3>
+                                 <table class="feature-table">
+                                     <tr><td><strong>Items:</strong> Reset Ticket ACT III.</td></tr>
+                                 </table>
+                                <br><br>
+                            </div>
+                        </div>
+                        <div class="act-section">
+                            <div class="main-container">
+                                       <h1 class="main-title">STAGE 2</h1><br>
+                                <p style="color: #f1c40f;">STAGE 2 will be completed when 5 players reach 19 resets and level 400, and the start of the ACT will be at 7:00 PM server time on the next day.</p>                                 
+                                  <h3 style="color: #FFD700;">Invasions</h3>
+                                 <table class="feature-table">
+                                    <tr><td><strong>Dota:</strong> Medusa x1 and SapiQueen x5 in Raklion.</td></tr>
+                                    <tr><td><strong>Dragon:</strong> Flame Dragon in Raklion.</td></tr>
+                                    <tr><td><strong>Evolution:</strong> Evolution ACT IV in Raklion.</td></tr>
+                                 </table>
+                                 
+                                 <h3 style="color: #FFD700;">XSHOP</h3>
+                                 <table class="feature-table">
+                                     <tr><td><strong>Jewels:</strong> Pet Jewel ACT IV.</td></tr>
+                                 </table><br>
+                                <br><br>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                // ACT V
+                "5": `
+                   <div class="main-container">
+                                <h1 class="main-title">ACT V Overview</h1>
+                                 <p style="color: #f1c40f;">ACT V is the final Act in which no more players will be registered since it is the last ACT, and no further rewards will be offered.</p>
+                                  <h3 style="color: #FFD700;">General Features</h3>
+                                <table class="feature-table">
+                                    <tr><td><strong style="color: #FF5555">Maximum stats: 20.000 points in a single stat (like you can't put more than 20.000 points to ene or vit or str, etc.)</strong></td></tr>
+                                    <tr><td><strong>Level 5 Wings:</strong> wings for players in ACT V.</td></tr>
+                                    <tr><td><strong>Quest System:</strong> access limited to quest 404.</td></tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Pets:</strong> <BR>
+                                            <span style="color: #FF5555; font-style: italic;">HELL MAINE-PET[DAMAGE]</span>, 
+                                            <span style="color: #FF5555; font-style: italic;">RED DRAGON-MOUNT[DAMAGE]</span>,<BR>
+                                            <span style="color: #55AAFF; font-style: italic;">SELUPAN-PET[DEFENSE]</span>, 
+                                            <span style="color: #55AAFF; font-style: italic;">GOLD DRAGON-MOUNT[DEFENSE]</span>,<BR>
+                                            <span style="color: #55FF55; font-style: italic;">NIGHTMARE-PET[MIX]</span>, 
+                                            <span style="color: #55FF55; font-style: italic;">GREEN DRAGON-MOUNT</span>,<BR>
+                                            <span style="color: #AA55FF; font-style: italic;">PHOENIX[HORSE]</span>, <BR>
+                                            <span style="color: #FFAA55; font-style: italic;">BALROG[FARM]</span>
+                                        </td>
+                                    </tr>
+                                    <tr><td><strong>Jewel of Daedalus 5:</strong> item available in ACT V for crafting wings lvl 5 for your class.</td></tr>
+                                </table>
+                                
+                                <br>
+                </div>
+                   <div class="act-container">
+                        <div class="act-section">
+                            <div class="main-container">
+                                 <h1 class="main-title">STAGE 1</h1><br>
+                                <p style="color: #f1c40f;">STAGE 1 will be completed when 5 players reach 22 resets and level 400, and the start of the ACT will be at 7:00 PM server time on the same day.</p>
+
+                          
+                                 
+                                 <h3 style="color: #FFD700;">Invasions</h3>
+                                 <table class="feature-table">
+                                     <tr><td><strong>Pet:</strong> Gremlin x20 (Nixia).</td></tr>
+                                     <tr><td><strong>Feather:</strong> Daemon x1(Nixia).</td></tr>
+                                     <tr><td><strong>Kalima:</strong> Kalima 7 with Kundun Boss.</td></tr>
+                                     <tr><td><strong>Weapon:</strong> Yunking x2(Swamp of Darkness).</td></tr>
+                                     <tr><td><strong>Golden Goldens:</strong> Golden Erohim(x2 Swamp of Darkness & Nixis).</td></tr>
+                                     <tr><td><strong>Golden Guardians:</strong> Golden Hell Maine(x2 Swamp of Darkness & Nixis).</td></tr>
+                                     <tr><td><strong>Summon Dragon:</strong> LVL 7.</td></tr>
+                                     <tr><td><strong>Selupan:</strong>Selupan appear in Raklion.</td></tr>
+                                     <tr><td><strong>Goblin Invasion:</strong>Goblin ACTV (x15 Swamp of Darkness) .</td></tr>
+                                 </table>
+                                 
+                                 <h3 style="color: #FFD700;">XSHOP</h3>
+                                 <table class="feature-table">
+                                     <tr><td><strong>Items:</strong> Reset Ticket ACT IV.</td></tr>
+                                 </table>
+                                <br><br>
+                            </div>
+                        </div>
+                        <div class="act-section">
+                            <div class="main-container">
+                                      <h1 class="main-title">STAGE 2</h1><br>
+                                                                 
+                                  <h3 style="color: #FFD700;">Invasions</h3>
+                                 <table class="feature-table">
+                                    <tr><td><strong>Global Boss:</strong> Nixis in Nixia.</td></tr>
+                                    <tr><td><strong>Evolution:</strong> Ferea in Ferea.</td></tr>
+                                 </table>
+                                 
+                                 <h3 style="color: #FFD700;">XSHOP</h3>
+                                 <table class="feature-table">
+                                     <tr><td><strong>Jewels:</strong> Pet Jewel ACT V.</td></tr>
+                                 </table><br>
+                                <br><br>
+                            </div>
+                        </div>
+                    </div>
+                `
+            };
+
+            content.innerHTML = data[region];
+            content.classList.add("active");
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            showContent('info');
+        });
+    </script>
+
+
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const tabToOpen = params.get('tab');
+    const popupToOpen = params.get('popup');
+  
+    if (tabToOpen) {
+      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
+    }
+  
+    if (popupToOpen) {
+      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,1421 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        //Disable cut copy paste
+        $('body').bind('cut copy paste', function (e) {
+            e.preventDefault();
+        });
+
+        //Disable mouse right click
+        $("body").on("contextmenu", function (e) {
+            return false;
+        });
+    });
+</script>
+<!DOCTYPE html>
+
+<body oncopy="return false" oncut="return false" onpaste="return false">
+    <html lang="en">
+
+    <head>
+
+        <title>Guides MU-HARDCORE</title>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   <style>
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        p {
+            color: #f1c40f;
+        }
+        .item-container {
+            background-color: #1f0000;
+            padding: 10px;
+            width: 90%; /* Beibehalten, wird aber durch max-width eingeschränkt */
+            max-width: 150px; /* Feste maximale Breite */
+            box-sizing: border-box;
+            text-align: center; /* Horizontale Zentrierung */
+            border-radius: 15px;
+            box-shadow: 0 0px 100px #93330b7a;
+            border: 1px solid #93330b;
+            display: flex; /* Flexbox für vertikale Zentrierung */
+            flex-direction: column; /* Stapelt Kinder vertikal */
+            justify-content: center; /* Vertikale Zentrierung */
+            align-items: center; /* Horizontale Zentrierung innerhalb Flex */
+            height: 200px; /* Feste Höhe für Konsistenz und Zentrierung */
+        }
+        .item-wrapper { 
+            text-align: center; /* Zentriert Text und Bild */
+        }
+        .item-thumb { 
+            width: 120px; /* Angepasst an deine Inline-Styles */
+            height: 120px; 
+            display: block; 
+            margin: 0 auto; 
+        }
+        .items-row {
+            display: flex; /* Horizontale Anordnung */
+            justify-content: center; /* Zentriert die Container */
+            gap: 10px; /* Abstand zwischen den Containern */
+            flex-wrap: nowrap; /* Verhindert Umbruch */
+        }
+        /* Neues Tabellen-Styling */
+        table {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #1f0000;
+            border: 1px solid #93330b;
+            border-radius: 8px;
+            box-shadow: 0 0 20px #93330b7a;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #93330b;
+            color: #f1c40f;
+        }
+        th {
+            background-color: #2c3e50;
+            color: #4cffd5;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        tr:nth-child(even) {
+            background-color: #2a0a0a;
+        }
+        tr:hover {
+            background-color: #3a1a1a;
+            transition: background-color 0.3s ease;
+        }
+        td {
+            font-size: 16px;
+        }
+        /* Mobile Anpassungen */
+    @media (max-width: 768px) {
+        /* Items-Row für mobile Geräte umbrechen */
+        .items-row {
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        /* Item-Container auf mobilen Geräten anpassen */
+        .item-container {
+            max-width: 120px;
+            height: 180px;
+        }
+        .item-thumb {
+            width: 100px;
+            height: 100px;
+        }
+        /* Tabelle für mobile Geräte anpassen */
+        table {
+            max-width: 100%;
+            margin: 10px auto;
+            font-size: 14px; /* Kleinere Schriftgröße für bessere Lesbarkeit */
+        }
+        th, td {
+            padding: 8px; /* Weniger Padding für kleinere Bildschirme */
+            font-size: 14px;
+        }
+        /* Container für horizontales Scrollen der Tabelle */
+        .table-container {
+            width: 100%;
+            overflow-x: auto; /* Ermöglicht horizontales Scrollen */
+        }
+        /* Tabelle innerhalb des Containers */
+        .table-container table {
+            min-width: 600px; /* Stellt sicher, dass die Tabelle ihre Mindestbreite behält */
+        }
+    }
+
+    /* Für sehr kleine Bildschirme (z. B. < 480px) */
+    @media (max-width: 480px) {
+        .item-container {
+            max-width: 100px;
+            height: 160px;
+        }
+        .item-thumb {
+            width: 80px;
+            height: 80px;
+        }
+        th, td {
+            padding: 6px;
+            font-size: 12px;
+        }
+    }
+    </style>
+
+    </head>
+
+    <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+
+        <div class="loader">Loading...</div>
+
+            <div id="navbar-container"></div>
+
+        <section class="about section" id="about">
+          
+      
+            <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+            
+            <h1 style="text-align: center;"> 🎗️ Achievements</h1>
+            <br>
+  
+            <!-- Alle Details-Buttons bleiben oben -->
+            <div class="summary-container">
+             <details class="details-box"  open onclick="showContent('info')">
+                 <summary>Information</summary>
+             </details>
+            </div><br>
+                <div class="summary-container">
+            <details class="details-box"  open onclick="showContent('mybonus')">
+                <summary>My Bonus</summary>
+            </details>        
+            <details class="details-box"  open onclick="showContent('general')">
+                <summary>General</summary>
+            </details>
+            <details class="details-box"  open onclick="showContent('monsters')">
+                <summary>Monsters</summary>
+            </details>
+            <details class="details-box"  open onclick="showContent('items')">
+                <summary>Items</summary>
+            </details>
+          
+    
+  
+
+            </div>
+            <div id="content" class="content-container">  
+            </div>
+            </div>
+          
+                   
+                
+         </section>
+
+         <div id="footer-container"></div>
+        
+
+
+      
+            
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/aos.js"></script>
+        <script src="js/smoothscroll.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- jQuery laden -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+
+        <script type="text/javascript">
+          $(document).ready(function () {
+            $('body').bind('cut copy paste', function (e) {
+                e.preventDefault();
+            });
+            $("body").on("contextmenu", function (e) {
+                return false;
+            });
+            });
+        </script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const loader = document.querySelector('.loader');
+                fetch('libraries.html?v=' + new Date().getTime())
+                    .then(response => response.text())
+                    .then(data => {
+                        document.head.insertAdjacentHTML('beforeend', data);
+                        return fetch('navbar.html?v=' + new Date().getTime());
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('navbar-container').innerHTML = data;
+                        return fetch('footer.html?v=' + new Date().getTime());
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('footer-container').innerHTML = data;
+                        showContent('info');
+                        loader.style.display = 'none';
+                    })
+                    .catch(error => console.error('Fehler beim Laden:', error));
+            });
+        </script>
+
+    <script>
+// Konfiguration der Achievements
+
+
+// Funktion zum Erstellen einer Tabelle für ein Achievement
+function generateAchievementTable(tableId, levels) {
+    const table = document.getElementById(tableId);
+    if (!table) return; // Sicherstellen, dass die Tabelle existiert
+
+    // Tabellenkopf erstellen
+    const thead = document.createElement('thead');
+    const headerRow = document.createElement('tr');
+    const headers = ['Level', 'Quests Required'];
+
+    headers.forEach(headerText => {
+        const th = document.createElement('th');
+        th.textContent = headerText;
+        headerRow.appendChild(th);
+    });
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+
+    // Tabellenkörper erstellen
+    const tbody = document.createElement('tbody');
+    levels.forEach(({ level, quests }) => {
+        const row = document.createElement('tr');
+        const levelCell = document.createElement('td');
+        levelCell.textContent = `Level ${level}`;
+        row.appendChild(levelCell);
+        const questsCell = document.createElement('td');
+        questsCell.textContent = `${quests} Quests`;
+        row.appendChild(questsCell);
+        tbody.appendChild(row);
+    });
+    table.appendChild(tbody);
+}
+function showContent(region) {
+    const content = document.getElementById("content");
+    const data = {
+        "info": `
+            <div class="main-container">
+                <h1 class="main-title">Achievements</h1>
+                <p>The <strong>Achievements system</strong> was introduced on the server to provide players with new motivation to complete various missions. It offers a wide range of achievements, from defeating monsters to using specific items or performing certain in-game actions. The Achievements system is accessible to both VIP and non-VIP characters. To open the Achievements panel, press "U" in-game and select "Achievements" from the last row. The system is based on collecting points upon completing an achievement, which can then be used to upgrade a buff in the "My Bonus" section. Each buff has multiple levels, offering numerous upgrade possibilities.</p>
+                <img src="images/achievments/General/imagemenu.png" alt="Jewel of +10">
+                <br><br>
+            </div>
+        `,
+        "mybonus": `
+            <div class="main-container">
+                <h2 class="main-title">My Bonus</h2>
+                <p>The <strong>"My Bonus"</strong> section is where you can use the points accumulated from achievements. Progress and buffs will be added gradually, and some options will be excluded at the start of the game to prevent imbalance in PvP.</p>
+                <div class="items-row">
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">HP</strong><br>
+                                    <img src="images/achievments/bonus/inchp.png" alt="Jewel of +10" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Experience</strong><br>
+                                    <img src="images/achievments/bonus/incxp.png" alt="Jewel of +10" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Defense</strong><br>
+                                    <img src="images/achievments/bonus/incdef.png" alt="Jewel of +10" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Critical Damage</strong><br>
+                                    <img src="images/achievments/bonus/inccrit.png" alt="Jewel of +10" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Excellent Damage</strong><br>
+                                    <img src="images/achievments/bonus/incexedmg.png" alt="Jewel of +10" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="items-row">
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Double Damage</strong><br>
+                                    <img src="images/achievments/bonus/incdd.png" alt="Jewel of +10" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Ignore Defense</strong><br>
+                                    <img src="images/achievments/bonus/incignore.png" alt="Jewel of +10" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Resist Critical Damage</strong><br>
+                                    <img src="images/achievments/bonus/inccritdamage.png" alt="Jewel of +10" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Resist Double Damage</strong><br>
+                                    <img src="images/achievments/bonus/resistdd.png" alt="Jewel of +10" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Resist Excellent Damage</strong><br>
+                                    <img src="images/achievments/bonus/resistexedmg.png" alt="Jewel of +10" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="items-row">
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Resist Ignore Defense</strong><br>
+                                    <img src="images/achievments/bonus/resistignore.png" alt="Jewel of +10" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Triple Damage</strong><br>
+                                    <img src="images/achievments/bonus/increasetriple.png" alt="Jewel of +10" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Resist Triple Damage</strong><br>
+                                    <img src="images/achievments/bonus/resisttriple.png" alt="Jewel of +10" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div><br>
+                <p><strong style="color:#4cffd5;">Increase HP</strong> - Increase HP by +50 and can be upgraded 100 times. The result is that at the end of the achievement, you have a bonus of 5000 HP.</p>
+                <p><strong style="color:#4cffd5;">Increase Experience Rate</strong> - Increase Experience provides 1% experience per level and can be upgraded a maximum of 5 times. At the end of the achievement, the maximum value is 5% experience.</p>
+                <p><strong style="color:#4cffd5;">Increase Base Defense</strong> - Increase Defense provides 10 defense per level and can be upgraded a maximum of 50 times. At the end of the achievement, you will have +500 defense.</p>
+                <p><strong style="color:#4cffd5;">Increase Critical Damage Rate</strong> - Increase Critical Damage provides 1% per level and can be upgraded a maximum of 20 times. At the end of the achievement, you will have +20% Critical Damage Rate.</p>
+                <p><strong style="color:#4cffd5;">Increase Excellent Damage Rate</strong> - Increase Excellent Damage provides 1% per level and can be upgraded a maximum of 10 times. At the end of the achievement, you will have +10% Excellent Damage Rate.</p>
+                <p><strong style="color:#4cffd5;">Increase Double Damage</strong> - Increase Double Damage provides 1% per level and can be upgraded a maximum of 7 times. At the end of the achievement, you will have +7% Double Damage.</p>
+                <p><strong style="color:#4cffd5;">Increase Ignore Defense Rate</strong> - Increase Ignore Defense Rate provides 1% per level and can be upgraded a maximum of 7 times. At the end of the achievement, you will have +7% Ignore Defense Rate.</p>
+                <p><strong style="color:#4cffd5;">Resist Critical Damage Rate</strong> - Increase Resist Critical Damage Rate provides 1% per level and can be upgraded a maximum of 10 times. At the end of the achievement, you will have +10% Resist Critical Damage.</p>
+                <p><strong style="color:#4cffd5;">Resist Excellent Damage Rate</strong> - Increase Resist Excellent Damage provides 1% per level and can be upgraded a maximum of 10 times. At the end of the achievement, you will have +10% Resist Excellent Damage.</p>
+                <p><strong style="color:#4cffd5;">Resist Double Damage</strong> - Increase Resist Double Damage provides 1% per level and can be upgraded a maximum of 5 times. At the end of the achievement, you will have +5% Resist Double Damage.</p>
+                <p><strong style="color:#4cffd5;">Resist Ignore Defense</strong> - Increase Resist Ignore Defense Rate provides 1% per level and can be upgraded a maximum of 5 times. At the end of the achievement, you will have +5% Ignore Defense Rate.</p>
+                <p><strong style="color:#4cffd5;">Triple Damage</strong> - Increase Triple Damage provides 1% per level and can be upgraded a maximum of 3 times. At the end of the achievement, you will have +3% Triple Damage.</p>
+                <p><strong style="color:#4cffd5;">Resist Triple Damage</strong> - Increase Resist Triple Damage provides 1% per level and can be upgraded a maximum of 2 times. At the end of the achievement, you will have +2% Resist Triple Damage.</p>
+                <br><br>
+            </div>
+        `,
+        "general": `
+            <div class="main-container">
+                <h1 class="main-title">General</h1>
+                 <p>In the General section, there is a combination of general achievements of various types that take into account in-game activity, including killing mobs, completing events, and many other actions.</p>
+                <br>
+                <div class="items-row">
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Quest</strong><br>
+                                    <img src="images/achievments/General/customquest.png" class="item-thumb" data-table="customQuestTable">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                     <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Npc Quest</strong><br>
+                                    <img src="images/achievments/General/customnpcquest.png" class="item-thumb" data-table="customQuestTable">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Reset</strong><br>
+                                    <img src="images/achievments/General/reset.png" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Complete BC</strong><br>
+                                    <img src="images/achievments/General/completebc.png" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Complete DS</strong><br>
+                                    <img src="images/achievments/General/completeds.png" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="items-row">
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Complete CC</strong><br>
+                                    <img src="images/achievments/General/completecc.png" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Success Chaos Mix</strong><br>
+                                    <img src="images/achievments/General/succesmixrate.png" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Failed Chaos Mix</strong><br>
+                                    <img src="images/achievments/General/failedmix.png" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Kill Goldens</strong><br>
+                                    <img src="images/achievments/General/goldens.png" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div><br>
+                <table class="achievement-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Lvl 1</th>
+                            <th>Lvl 2</th>
+                            <th>Lvl 3</th>
+                            <th>Lvl 4</th>
+                            <th>Lvl 5</th>
+                            <th>Lvl 6</th>
+                            <th>Lvl 7</th>
+                            <th>Lvl 8</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Custom Quest</td>
+                            <td>50</td>
+                            <td>100</td>
+                            <td>150</td>
+                            <td>200</td>
+                            <td>250</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                           
+                        </tr>
+                        <tr>
+                            <td>NPC Quest</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                           
+                        </tr>
+                        <tr>
+                            <td>Reset</td>
+                            <td>3</td>
+                            <td>6</td>
+                            <td>9</td>
+                            <td>=</td>
+                            <td>=</td>
+                            <td>=</td>
+                            <td>=</td>
+                            <td>=</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Complete BC</td>
+                            <td>6</td>
+                            <td>12</td>
+                            <td>18</td>
+                            <td>24</td>
+                            <td>30</td>
+                            <td>36</td>
+                            <td>42</td>
+                            <td>-</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Complete DS</td>
+                             <td>6</td>
+                            <td>12</td>
+                            <td>18</td>
+                            <td>24</td>
+                            <td>30</td>
+                            <td>36</td>
+                            <td>42</td>
+                            <td>-</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Complete CC</td>
+                            <td>4</td>
+                            <td>8</td>
+                            <td>12</td>
+                            <td>14</td>
+                            <td>16</td>
+                            <td>20</td>
+                            <td>24</td>
+                            <td>-</td>
+                           
+                        </tr>
+                        <tr>
+                            <td>Success Chaos Mix</td>
+                            <td>10</td>
+                            <td>20</td>
+                            <td>30</td>
+                            <td>40</td>
+                            <td>50</td>
+                            <td>60</td>
+                            <td>70</td>
+                            <td>-</td>
+                           
+                        </tr>
+                        <tr>
+                            <td>Failed Chaos Mix</td>
+                            <td>10</td>
+                            <td>20</td>
+                            <td>30</td>
+                            <td>40</td>
+                            <td>50</td>
+                            <td>60</td>
+                            <td>70</td>
+                            <td>-</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Kill Goldens</td>
+                            <td>20</td>
+                            <td>40</td>
+                            <td>60</td>
+                            <td>80</td>
+                            <td>100</td>
+                            <td>120</td>
+                            <td>140</td>
+                            <td>160</td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+               
+                  <br>
+              </div>
+                <br>
+            </div>
+        `,
+        "monsters": `
+            <div class="main-container">
+                <h1 class="main-title">Monsters</h1>
+               
+                <p>In the Monsters section including killing monsters.</p>
+                <br>
+                <div class="items-row">
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Fire Flame Ghost</strong><br>
+                                    <img src="images/PNG/ghost.png" class="item-thumb" data-table="customQuestTable">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                     <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Pouch of Blessing</strong><br>
+                                    <img src="images/PNG/pouch.png" class="item-thumb" data-table="customQuestTable">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Lunar Rabbit</strong><br>
+                                    <img src="images/PNG/lunar.png" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Cursed Goblin</strong><br>
+                                    <img src="images/monsters/cursedgoblin.png" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Cursed Santa</strong><br>
+                                    <img src="images/monsters/cursedsanta.png" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="items-row">
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Golden Budge Dragon</strong><br>
+                                    <img src="images/monsters/goldenbudge.png" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Golden Goblin</strong><br>
+                                    <img src="images/monsters/goldengoblin.png" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Golden Titan</strong><br>
+                                    <img src="images/monsters/goldentitan.png" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Golden Vepar</strong><br>
+                                    <img src="images/monsters/goldenvepar.png" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Golden Tantalos</strong><br>
+                                    <img src="images/monsters/goldentantal.png" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="items-row">
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Golden Crust</strong><br>
+                                    <img src="images/monsters/goldencrust.png" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Golden Derkon</strong><br>
+                                    <img src="images/monsters/ggd.png" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Golden Rabbit</strong><br>
+                                    <img src="images/monsters/goldenrabbit.png" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Golden Satyros</strong><br>
+                                    <img src="images/monsters/goldensatyros.png" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Golden Great Dragon</strong><br>
+                                    <img src="images/monsters/ggd.png" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div><br>
+                    <div class="items-row">
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Golden Erohim</strong><br>
+                                    <img src="images/monsters/Golden Erohim.png" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">WW Soldier</strong><br>
+                                    <img src="images/monsters/orc.png" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">WW Archer</strong><br>
+                                    <img src="images/monsters/orc.png" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">White Wizard</strong><br>
+                                    <img src="images/PNG/ww.png" class="item-thumb">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                 
+                </div><br>
+
+
+                <table class="achievement-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th> 1</th>
+                            <th> 2</th>
+                            <th> 3</th>
+                            <th> 4</th>
+                            <th> 5</th>
+                            <th> 6</th>
+                            <th> 7</th>
+                            <th> 8</th>
+                            <th> 9</th>
+                            <th> -</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Fire Flame Ghost</td>
+                            <td>10</td>
+                            <td>20</td>
+                            <td>30</td>
+                            <td>40</td>
+                            <td>50</td>
+                            <td>60</td>
+                            <td>70</td>
+                            <td>80</td>
+                            <td>90</td>
+                            <td>-</td>
+                           
+                        </tr>
+                        <tr>
+                            <td>Pouch of Blessing</td>
+                            <td>10</td>
+                            <td>20</td>
+                            <td>30</td>
+                            <td>40</td>
+                            <td>50</td>
+                            <td>60</td>
+                            <td>70</td>
+                            <td>80</td>
+                            <td>90</td>
+                            <td>-</td>
+                           
+                        </tr>
+                        <tr>
+                            <td>Cursed Goblin</td>
+                              <td>10</td>
+                            <td>20</td>
+                            <td>30</td>
+                            <td>40</td>
+                            <td>50</td>
+                            <td>60</td>
+                            <td>70</td>
+                            <td>80</td>
+                            <td>90</td>
+                            <td>-</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Cursed Santa</td>
+                            <td>2</td>
+                            <td>4</td>
+                            <td>6</td>
+                            <td>8</td>
+                            <td>10</td>
+                            <td>12</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            
+                        </tr>
+                              <tr>
+                            <td>Golden Rabbit</td>
+                            <td>10</td>
+                            <td>20</td>
+                            <td>30</td>
+                            <td>40</td>
+                            <td>50</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Golden Goblin</td>
+                            <td>7</td>
+                            <td>14</td>
+                            <td>21</td>
+                            <td>28</td>
+                            <td>35</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                           
+                        </tr>
+                        <tr>
+                             <td>Golden Titan</td>
+                            <td>6</td>
+                            <td>12</td>
+                            <td>18</td>
+                            <td>24</td>
+                            <td>30</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                           
+                        </tr>
+                        <tr>
+                            <td>Golden Vepar</td>
+                            <td>6</td>
+                            <td>12</td>
+                            <td>18</td>
+                            <td>24</td>
+                            <td>30</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            
+                        </tr>
+                        <tr>
+                             <td>Golden Tantalos</td>
+                            <td>5</td>
+                            <td>10</td>
+                            <td>15</td>
+                            <td>20</td>
+                            <td>25</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            
+                        </tr>
+                        <tr>
+                             <td>Golden Crust</td>
+                              <td>5</td>
+                            <td>10</td>
+                            <td>15</td>
+                            <td>20</td>
+                            <td>25</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            
+                        </tr>
+                    
+                  
+                        <tr>
+                            <td>Golden Satyros</td>
+                            <td>4</td>
+                            <td>8</td>
+                            <td>12</td>
+                            <td>16</td>
+                            <td>20</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            
+                        </tr>
+                         <tr>
+                            <td>Golden Twin Tale</td>
+                            <td>3</td>
+                            <td>6</td>
+                            <td>9</td>
+                            <td>12</td>
+                            <td>15</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            
+                        </tr>
+                         <tr>
+                            <td>Golden Great Dragon</td>
+                            <td>2</td>
+                            <td>4</td>
+                            <td>6</td>
+                            <td>8</td>
+                            <td>10</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            
+                        </tr>
+                         <tr>
+                            <td>Golden Erohim</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            
+                        </tr>
+
+                            <tr>
+                            <td>Golden Derkon</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            
+                        </tr>
+                         <tr>
+                            <td>WW Soldier</td>
+                            <td>7</td>
+                            <td>14</td>
+                            <td>21</td>
+                            <td>28</td>
+                            <td>35</td>
+                            <td>42</td>
+                            <td>49</td>
+                            <td>56</td>
+                            <td>63</td>
+                            <td>-</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>WW Archer</td>
+                            <td>7</td>
+                            <td>14</td>
+                            <td>21</td>
+                            <td>28</td>
+                            <td>35</td>
+                            <td>42</td>
+                            <td>49</td>
+                            <td>56</td>
+                            <td>63</td>
+                            <td>-</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>WW</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>9</td>
+                            <td>10</td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+               
+                 <br>
+             </div>
+                <br>
+            </div>
+        `,
+        "items": `
+          <div class="main-container">
+                <h1 class="main-title">Items</h1>
+                 <p>In the General section, there is a combination of general achievements of various types that take into account in-game activity, including killing mobs, completing events, and many other actions.</p>
+                <br>
+                <div class="items-row">
+                    <div class="item-container">
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Use  Bless</strong><br>
+                                    <img src="images/achievments/General/usebless.png" class="item-thumb" data-table="customQuestTable">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                     <div class="item-container">
+                       <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Use  Soul</strong><br>
+                                    <img src="images/achievments/General/usesoul.png" class="item-thumb" data-table="customQuestTable">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="item-container">
+                       <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Use Life</strong><br>
+                                    <img src="images/achievments/General/uselife.png" class="item-thumb" data-table="customQuestTable">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                     <div class="item-container">
+                       <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Use Refine Stone</strong><br>
+                                    <img src="images/achievments/General/userefine.png" class="item-thumb" data-table="customQuestTable">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                     <div class="item-container">
+                       <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#4cffd5; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Use Harmony</strong><br>
+                                    <img src="images/achievments/General/useharmony.png" class="item-thumb" data-table="customQuestTable">
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                  
+                </div><br>
+            
+                <table class="achievement-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Lvl 1</th>
+                            <th>Lvl 2</th>
+                            <th>Lvl 3</th>
+                            <th>Lvl 4</th>
+                            <th>Lvl 5</th>
+                            <th>Lvl 6</th>
+                            <th>Lvl 7</th>
+                            <th>Lvl 8</th>
+                            <th>Lvl 9</th>
+                            <th>Lvl 10</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Jewel of Bless</td>
+                            <td>20</td>
+                            <td>40</td>
+                            <td>60</td>
+                            <td>80</td>
+                            <td>100</td>
+                            <td>120</td>
+                            <td>140</td>
+                            <td>160</td>
+                            <td>180</td>
+                            <td>200</td>
+                        </tr>
+                        <tr>
+                            <td>Jewel of Soul</td>
+                           <td>20</td>
+                            <td>40</td>
+                            <td>60</td>
+                            <td>80</td>
+                            <td>100</td>
+                            <td>120</td>
+                            <td>140</td>
+                            <td>160</td>
+                            <td>180</td>
+                            <td>200</td>
+                        </tr>
+                         <tr>
+                            <td>Jewel of Life</td>
+                            <td>15</td>
+                            <td>30</td>
+                            <td>45</td>
+                            <td>60</td>
+                            <td>75</td>
+                            <td>90</td>
+                            <td>105</td>
+                            <td>120</td>
+                            <td>135</td>
+                             <td>150</td>
+                        </tr>
+                         <tr>
+                            <td>High Refine Stone</td>
+                            <td>15</td>
+                            <td>30</td>
+                            <td>45</td>
+                            <td>60</td>
+                            <td>75</td>
+                            <td>90</td>
+                            <td>105</td>
+                            <td>120</td>
+                            <td>135</td>
+                             <td>150</td>
+                        </tr>
+                         <tr>
+                            <td>Jewel of Harmony</td>
+                            <td>10</td>
+                            <td>20</td>
+                            <td>30</td>
+                            <td>40</td>
+                            <td>50</td>
+                            <td>60</td>
+                            <td>70</td>
+                            <td>80</td>
+                            <td>90</td>
+                             <td>100</td>
+                        </tr>
+                       
+                    </tbody>
+                </table>
+               
+                  <br>
+              </div>
+                <br>
+            </div>
+        `
+    };
+
+    content.innerHTML = data[region];
+    content.classList.add("active");
+
+    // Tabellen für Achievements generieren, wenn die "general"-Sektion geladen wird
+    if (region === 'general') {
+        generateAllTables();
+
+        // Custom Quest-Tabelle direkt anzeigen
+        const customQuestContainer = document.getElementById('customQuestTableContainer');
+        if (customQuestContainer) {
+            customQuestContainer.style.display = 'block';
+        }
+    }
+}
+// Alle Achievement-Tabellen generieren
+function generateAllTables() {
+    achievements.forEach(({ id, levels }) => {
+        generateAchievementTable(id, levels);
+    });
+}
+
+// Event-Listener und Initialisierung
+document.addEventListener("DOMContentLoaded", function() {
+    // Tabellen generieren
+    generateAllTables();
+
+    // Custom Quest-Tabelle direkt anzeigen
+    const customQuestContainer = document.getElementById('customQuestTableContainer');
+    const npcQuestContainer = document.getElementById('npcQuestTableContainer');
+
+    if (customQuestContainer) {
+        customQuestContainer.style.display = 'block';
+    }
+
+    // Event-Listener für die Bilder hinzufügen
+    const customQuestImg = document.querySelector('.item-thumb[data-table="customQuestTable"]');
+    const npcQuestImg = document.querySelector('.item-thumb[data-table="npcQuestTable"]');
+
+    if (customQuestImg) {
+        customQuestImg.addEventListener('click', () => {
+            customQuestContainer.style.display = 'block';
+            if (npcQuestContainer) {
+                npcQuestContainer.style.display = 'none';
+            }
+        });
+    }
+
+    if (npcQuestImg) {
+        npcQuestImg.addEventListener('click', () => {
+            npcQuestContainer.style.display = 'block';
+            if (customQuestContainer) {
+                customQuestContainer.style.display = 'none';
+            }
+        });
+    }
+});
+
+
+    </script>
+
+
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const tabToOpen = params.get('tab');
+    const popupToOpen = params.get('popup');
+  
+    if (tabToOpen) {
+      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
+    }
+  
+    if (popupToOpen) {
+      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
+    }
+  </script>
+
+       
+
+    </body>
+
+    </html>

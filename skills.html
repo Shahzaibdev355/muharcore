@@ -1,0 +1,272 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        //Disable cut copy paste
+        $('body').bind('cut copy paste', function (e) {
+            e.preventDefault();
+        });
+
+        //Disable mouse right click
+        $("body").on("contextmenu", function (e) {
+            return false;
+        });
+    });
+</script>
+<!DOCTYPE html>
+<body oncopy="return false" oncut="return false" onpaste="return false">
+    <html lang="en">
+    <head>
+        <title>Guides MU-HARDCORE</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <script>
+        fetch('libraries.html')
+            .then(response => response.text())
+            .then(data => {
+                document.head.insertAdjacentHTML('beforeend', data);
+            })
+            .catch(error => console.error('Fehler beim Laden der Libraries:', error));
+        </script>
+
+        <style>
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .item-wrapper { 
+            text-align: center; 
+            margin: 20px auto; 
+            max-width: 600px; 
+        }
+        .item-thumb { 
+            width: 150px; 
+            height: 150px; 
+            display: block; 
+            margin: 0 auto; 
+        }
+        .popup-info { 
+            width: 300px; 
+            margin: 20px auto; 
+            text-align: center; 
+            padding: 10px; 
+            border: 1px solid #ccc; 
+        }
+        .popup-header { 
+            font-size: 20px; 
+            font-weight: bold; 
+            color: #f1c40f; 
+            margin-bottom: 10px; 
+        }
+        .popup-im { 
+            width: 120px; 
+            height: 120px; 
+            display: block; 
+            margin: 10px auto; 
+        }
+        .popup-name { 
+            font-size: 16px; 
+            font-weight: bold; 
+            margin: 5px 0; 
+        }
+        .popup-loot { 
+            font-size: 16px; 
+            color: #ffdf1b; 
+            margin: 2px 0; 
+        }
+        .skill-container {
+            background-color: #1f0000;
+            padding: 20px;
+            width: 90%;
+            max-width: 1000px;
+            box-sizing: border-box;
+            text-align: center;
+            margin: 50px auto;
+            border-radius: 15px;
+            box-shadow: 0 0px 100px #93330b7a;
+            border: 1px solid #93330b;
+        }
+        </style>
+    </head>
+
+    <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+        <div class="loader">Loading...</div>
+        <div id="navbar-container"></div>
+
+        <section class="about section" id="about">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+                <h1 style="text-align: center;"> 🛡 Drop Skills </h1>
+                <br>
+                <div class="summary-container">
+                    <details class="details-box" open onclick="showContent('info')">
+                        <summary>Information</summary>
+                    </details>
+                </div><br>
+                <div class="summary-container">
+                    <details class="details-box" open onclick="showContent('dw')">
+                        <summary>Dark Wizard</summary>
+                    </details>
+                    <details class="details-box" open onclick="showContent('dk')">
+                        <summary>Dark Knight</summary>
+                    </details>
+                    <details class="details-box" onclick="showContent('elf')">
+                        <summary>Fairy Elf</summary>
+                    </details>
+                    <details class="details-box" onclick="showContent('sum')">
+                        <summary>Summoner</summary>
+                    </details>
+                    <details class="details-box" onclick="showContent('rf')">
+                        <summary>Rage Fighter</summary>
+                    </details>
+                    <details class="details-box" onclick="showContent('mg')">
+                        <summary>Magic Gladiator</summary>
+                    </details>
+                    <details class="details-box" onclick="showContent('dl')">
+                        <summary>Dark Lord</summary>
+                    </details>
+                </div>
+                <div id="content" class="content-container"></div>
+            </div>
+        </section>
+
+        <div id="footer-container"></div>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/aos.js"></script>
+        <script src="js/smoothscroll.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const loader = document.querySelector('.loader');
+
+            fetch('libraries.html?v=' + new Date().getTime())
+                .then(response => response.text())
+                .then(data => {
+                    document.head.insertAdjacentHTML('beforeend', data);
+                    return fetch('navbar.html?v=' + new Date().getTime());
+                })
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-container').innerHTML = data;
+                    return fetch('footer.html?v=' + new Date().getTime());
+                })
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                    loadSkillsData();
+                })
+                .catch(error => console.error('Fehler beim Laden:', error))
+                .finally(() => {
+                    loader.style.display = 'none';
+                });
+        });
+
+        let skillsData = {};
+
+        function loadSkillsData() {
+            fetch('configs/skills.json?v=' + new Date().getTime())
+                .then(response => response.json())
+                .then(data => {
+                    skillsData = data;
+                    showContent('info');
+                })
+                .catch(error => console.error('Fehler beim Laden der Skills:', error));
+        }
+
+        function showContent(region) {
+            const content = document.getElementById("content");
+            content.innerHTML = '';
+
+            if (region === 'info') {
+                content.innerHTML = `
+                <div class="main-container">
+                <h1 class="main-title">Information</h1>
+                <p style="color: #f1c40f;">The topic describes in more detail which location  and monster drops certail skill scroll of orb.</p>
+                <br><br>
+                </div>`;
+
+            } else if (skillsData[region] && skillsData[region].skills && skillsData[region].skills.length > 0) {
+                let html = '<div class="main-container">';
+                skillsData[region].skills.forEach(skill => {
+                    html += `
+                        <div class="item-wrapper">
+                            <div class="skill-container">
+                                <p style="line-height:140%;font-size:15px">
+                                    <span style="color:#f1c40f; line-height:19.6px;">
+                                        <strong style="display: block; margin-bottom: 12px;">${skill.name}</strong>
+                                        <img src="${skill.image}" alt="${skill.name}" class="item-thumb">
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="popup-info">
+                                <div class="popup-header">${skill.name}</div>
+                                <img src="${skill.image}" alt="${skill.name}" class="popup-im">
+                                
+                                <div class="popup-name" style="color:#c5ff4c">${skill.description}</div>
+                                <div class="popup-name" style="color:#1af42b;display: inline;font-size: 18px; font-weight: bold;">Required Level: </div>
+                                <div class="popup-loot" style="color:#f1c40f;display: inline;font-size: 18px; font-weight: bold;">${skill.requiredLevel} level</div><br>
+                                <div class="popup-name" style="color:#1af42b;display: inline;font-size: 18px; font-weight: bold;">Required Stats: </div>
+                                <div class="popup-loot" style="color:#f1c40f;display: inline;font-size: 18px; font-weight: bold;">${Object.entries(skill.requiredStats).map(([stat, value]) => `${stat}: ${value}`).join(', ')}</div><br>
+                            
+                                <div class="popup-name" style="color:#4cffac;font-size: 18px; font-weight: bold;">Drop from: </div>
+                                ${skill.dropFrom.map(drop => `<div class="popup-loot">${drop}</div>`).join('')}
+                            </div>
+                        </div>`;
+                });
+                html += '<br><br></div>';
+                content.innerHTML = html;
+            } else {
+                content.innerHTML = '<div class="main-container"><p>Keine Skills für diese Klasse verfügbar.</p><br><br></div>';
+            }
+            content.classList.add("active");
+        }
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const tabToOpen = params.get('tab');
+    const popupToOpen = params.get('popup');
+  
+    if (tabToOpen) {
+      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
+    }
+  
+    if (popupToOpen) {
+      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
+    }
+  </script>
+    </body>
+    </html>
+</body>

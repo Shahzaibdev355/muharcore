@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Guides MU-HARDCORE</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- jQuery zuerst laden -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+    </style>
+
+</head>
+
+<body oncopy="return false" oncut="return false" onpaste="return false" data-spy="scroll" data-target="#navbarNav" data-offset="50">
+
+    <div class="loader">Loading...</div>
+
+    <div id="navbar-container"></div>
+
+    <section class="about section" id="about">
+        <h1 style="text-align:center">🏠About INVICTUS</h1>
+
+        <div class="main-container">
+
+        <h2 class="main-title">Why MU Hardcore?</h2>
+
+    <h2 class="main-title">1. Experienced Owners</h2>
+    <p style="color: #f1c40f;">Based on the previous success of the Adagio, MUFUN.EU & NOVAMU.NET projects, we have joined efforts to deliver you an unique experience.</p>
+
+    <h2 class="main-title">2. Our values</h2>
+   <ul style="color: #f1c40f; text-align: left; list-style-position: inside;">
+    <li><strong style="color: #49e410;">Legacy of Excellence:</strong> we are constantly refining any game aspect - mechanical, visual, website, etc</li>
+    <li><strong style="color: #49e410;">Focus on player feedback & gameplay experience:</strong> this game is not for us, it is for you. We will listen to you whether you are a solo, party or guild player. We will Act accordingly if deemed necessary</li>
+    <li><strong style="color: #49e410;">Full transparency:</strong> we have implemented a discord system where all suggestions & bug reports are public. Any private communication will be forwarded to these channels for public display if any Action will result from it</li>
+    <li><strong style="color: #49e410;">Community:</strong> Our players are more than just “clients” to us. We are driven to build a community where everyone is listened to and taken into consideration.</li>
+    <li><strong style="color: #49e410;">Impartiality:</strong> We will only work towards the entire community’s benefit, without any preferential treatment towards certain guilds, players, etc.</li>
+</ul>
+
+
+    <h2 class="main-title">3. Dedicated support</h2>
+    <p style="color: #f1c40f;">With more than 15 hours online between our staff members, we are Actively responding to your queries, analysing bugs and suggestions, developing new content & refining the existing one.</p>
+
+    <h2 class="main-title">4. Stability</h2>
+    <p style="color: #f1c40f;">All our servers have 24/7 online. The only minor disruptions are where major patches & gameplay updates are required, or maintenance work. For this purpose, we will announce well in advance any short period of time that the server will be closed and the purpose of closure. The announcements will be made both on the discord channel and the website.</p>
+      
+        </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <!-- JavaScript-Dateien -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- jQuery laden -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Schutz-Skript -->
+<script src="js/protection.js"></script>
+
+<!-- Lade-Skript -->
+<script src="js/loader.js"></script>
+
+
+<!-- show tab based on ?tab=bonuses -->
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const tabToOpen = params.get('tab');
+    const popupToOpen = params.get('popup');
+  
+    if (tabToOpen) {
+      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
+    }
+  
+    if (popupToOpen) {
+      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
+    }
+  </script>
+  
+
+</body>
+</html>

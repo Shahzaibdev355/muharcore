@@ -1,0 +1,268 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        //Disable cut copy paste
+        $('body').bind('cut copy paste', function (e) {
+            e.preventDefault();
+        });
+
+        //Disable mouse right click
+        $("body").on("contextmenu", function (e) {
+            return false;
+        });
+    });
+</script>
+<!DOCTYPE html>
+
+<body oncopy="return false" oncut="return false" onpaste="return false">
+    <html lang="en">
+
+    <head>
+
+        <title>Guides MU-HARDCORE</title>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+     <style>
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+         p {
+            color: #f1c40f;
+        }
+
+       
+     </style>
+
+    </head>
+
+    <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+
+        <div class="loader">Loading...</div>
+          <div id="navbar-container"></div>
+
+
+        <section class="about section" id="about">
+          
+      
+            <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+            
+            <h1 style="text-align: center;"> 🛡 PVM RANKING </h1>
+            <br>
+  
+            <!-- Alle Details-Buttons bleiben oben -->
+            <div class="summary-container">
+             <details class="details-box"  open onclick="showContent('info')">
+                 <summary>Information</summary>
+             </details>
+            </div><br>
+                <div class="summary-container">
+            <details class="details-box"  open onclick="showContent('farm')">
+                <summary>FARM</summary>
+            </details>   
+            <details class="details-box"  open onclick="showContent('feather')">
+                <summary>FEATHER</summary>
+            </details>       
+            <details class="details-box"  open onclick="showContent('goldens')">
+                <summary>Golden Invasion</summary>
+            </details>
+    
+            <details class="details-box" onclick="showContent('kalima')">
+                <summary>Kalima Invasion </summary>
+            </details>
+    
+            <details class="details-box" onclick="showContent('world')">
+                <summary>World Bosses </summary>
+            </details>
+    
+           
+
+            </div>
+            <div id="content" class="content-container">  
+            </div>
+            </div>
+          
+                   
+                
+         </section>
+     
+        <div id="footer-container"></div>
+        <!-- jQuery laden -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/aos.js"></script>
+        <script src="js/smoothscroll.js"></script>
+        <script src="js/custom.js"></script>
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        
+        <!-- Schutz-Skript -->
+        <script src="js/protection.js"></script>
+        <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loader = document.querySelector('.loader');
+
+        fetch('libraries.html?v=' + new Date().getTime())
+            .then(response => response.text())
+            .then(data => {
+                document.head.insertAdjacentHTML('beforeend', data);
+                return fetch('navbar.html?v=' + new Date().getTime());
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+                return fetch('footer.html?v=' + new Date().getTime());
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+                showContent('info');
+                loader.style.display = 'none'; // Ladebildschirm ausblenden
+            })
+            .catch(error => console.error('Fehler beim Laden:', error));
+    });
+    </script>
+     <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Lade externe Dateien
+        fetch('libraries.html?v=' + new Date().getTime())
+            .then(response => response.text())
+            .then(data => {
+                document.head.insertAdjacentHTML('beforeend', data);
+                return fetch('navbar.html?v=' + new Date().getTime());
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+                return fetch('footer.html?v=' + new Date().getTime());
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+                // Starte mit "info"
+                showContent('info');
+            })
+            .catch(error => console.error('Fehler beim Laden:', error));
+    });
+
+    function showContent(region) {
+        const content = document.getElementById("content");
+
+        // Inhalt leeren, ohne Loader
+        content.innerHTML = '';
+
+        // Lade die pvm.json-Datei aus dem Verzeichnis configs
+        fetch('configs/pvm.json')
+            .then(response => response.json())
+            .then(data => {
+                const regionData = data[region];
+                if (!regionData) {
+                    content.innerHTML = `<p>Keine Daten für ${region} gefunden.</p>`;
+                    return;
+                }
+
+                // HTML-Inhalt generieren
+                let html = `
+                    <div class="main-container">
+                        <h1 class="main-title">${region.charAt(0).toUpperCase() + region.slice(1)}</h1>
+                `;
+
+                // Falls eine Beschreibung vorhanden ist (z. B. für "info")
+                if (regionData.description) {
+                    html += `
+                        <div class="map-container">
+                            <div class="map-text-content">
+                                <div class="map-description" style= "color: #f1c40f;">${regionData.description}</div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                // Falls Monster vorhanden sind (z. B. für "farm", "goldens", etc.)
+                if (regionData.monsters && regionData.monsters.length > 0) { 
+                    regionData.monsters.forEach(monster => {
+                        html += `
+                            <div class="item-wrapper">
+                              <p style="line-height: 140%; text-align: center;">
+                                  <span style="color: #f1c40f; line-height: 19.6px;">
+                                      <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block;">${monster.name}</strong><br>
+                                      <div style="text-align: center;">
+                                          <img src="${monster.image}" alt="${monster.name}" class="item-thumb" style="width: 120px; height: 120px; display: block; margin: 0 auto;">
+                                      </div>
+                                  </span><br>
+                              </p>
+                                <div class="popup-info" style="width: 200px;">
+                                    <div class="popup-header">${monster.name}</div>
+                                    <img src="${monster.image}" alt="${monster.name}" class="popup-im" style="vertical-align: middle; width: 120px; height: 120px;">
+                                    <br>
+                                    <div class="popup-name" style="display: inline; font-size: 18px; font-weight: bold;">Points :</div>
+                                    <div class="popup-loot" style="display: inline; font-size: 18px;">${monster.points || 0}</div>
+                                </div>
+                            </div>
+                        `;
+                    });
+                }
+
+                html += '</div>';
+                content.innerHTML = html;
+            })
+            .catch(error => {
+                console.error('Fehler beim Laden von pvm.json:', error);
+                content.innerHTML = `<p>Fehler beim Laden der Daten.</p>`;
+            });
+    }
+
+    // Standardmäßig "info" anzeigen (zweiter Listener bleibt, kann aber entfernt werden, wenn nicht benötigt)
+    document.addEventListener("DOMContentLoaded", function() {
+        showContent('info');
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const tabToOpen = params.get('tab');
+    const popupToOpen = params.get('popup');
+  
+    if (tabToOpen) {
+      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
+    }
+  
+    if (popupToOpen) {
+      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
+    }
+  </script>
+            
+
+    </body>
+
+    </html>

@@ -1,0 +1,155 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        //Disable cut copy paste
+        $('body').bind('cut copy paste', function (e) {
+            e.preventDefault();
+        });
+
+        //Disable mouse right click
+        $("body").on("contextmenu", function (e) {
+            return false;
+        });
+    });
+</script>
+<!DOCTYPE html>
+
+<body oncopy="return false" oncut="return false" onpaste="return false">
+    <html lang="en">
+
+    <head>
+
+        <title>Guides MU-HARDCORE</title>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+
+        <style>
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+    </style>
+
+    </head>
+
+    <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+
+         <div class="loader">Loading...</div>
+
+    <div id="navbar-container"></div>
+
+
+        <section class="about section" id="about">
+          
+      
+                <h1 style="text-align:center "> 🏠Important to know</h1>
+            <div class="main-container">
+        
+                <h2 class="main-title" >
+                    <strong> What you need to know at the start:</strong></h2>
+                      <ul style="color: #f1c40f; text-align: left; list-style-position: inside;">
+                          <li>With  VIP status, you can create Magic Gladiator,Rage Fighter and Dark Lord from level 1.</li>
+                          <li>All characters start in Lorencia.</li>
+                          <li>Monsters appear 1 hour after the server starts.</li>
+                          <li>There is no "perfect party" bonus; all party members receive the same experience.</li>
+                          <li>Experience in a party decreases: solo play offers 100% EXP, while a 5-player party offers 90% EXP.</li>
+                          <li>A maximum of 5 accounts is allowed per HWID, but on the same IP address, more accounts are allowed as long as the HWID count does not exceed 2.</li><br>  
+                          <li>ELF buffer is available up to 300 level.</li>
+                          <li>The quest system starts automatically; <code> separate window</code> not command.</li>
+                          <li>Phono (PK players) can use the shop, and enter Blood Castle , Devil Square , Chaos Castle.</li>
+                          <li>No Phono limit.</li>
+                          <li>No Energy ELF character.</li> 
+                          <li>SM cant hit while in teleport. </li>
+                          <li>Murder can't move.</li>
+                          <li>Achievments system.</li>
+                          <li>New unique pet system.</li>
+                          <li>All quests provide around approximately 10% of total available level up points.</li>
+                          <li><strong> The unique server experience system adjusts automatically for the players that are behind, gradually boosting them as they approach to the top players.</strong></li>
+                      </ul>
+
+               
+          
+                 <br>       
+
+            </div>
+        
+          
+                   
+                
+         </section>
+         <div id="footer-container"></div>
+ 
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/aos.js"></script>
+        <script src="js/smoothscroll.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+       <!-- jQuery laden -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+<!-- Schutz-Skript -->
+<script src="js/protection.js"></script>
+       <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loader = document.querySelector('.loader');
+        fetch('libraries.html?v=' + new Date().getTime())
+            .then(response => response.text())
+            .then(data => {
+                document.head.insertAdjacentHTML('beforeend', data);
+                return fetch('navbar.html?v=' + new Date().getTime());
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+                return fetch('footer.html?v=' + new Date().getTime()); // Load footer
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+                loader.style.display = 'none'; // Hide loading screen
+            })
+            .catch(error => console.error('Fehler beim Laden:', error));
+    });
+</script>
+     
+
+
+
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const tabToOpen = params.get('tab');
+    const popupToOpen = params.get('popup');
+  
+    if (tabToOpen) {
+      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
+    }
+  
+    if (popupToOpen) {
+      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
+    }
+  </script>
+
+
+
+    </body>
+
+    </html>

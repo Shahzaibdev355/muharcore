@@ -1,0 +1,1497 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        //Disable cut copy paste
+        $('body').bind('cut copy paste', function (e) {
+            e.preventDefault();
+        });
+
+        //Disable mouse right click
+        $("body").on("contextmenu", function (e) {
+            return false;
+        });
+    });
+</script>
+<!DOCTYPE html>
+
+<body oncopy="return false" oncut="return false" onpaste="return false">
+    <html lang="en">
+
+    <head>
+
+        <title>Guides MU-HARDCORE</title>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+   
+
+       
+  <style>
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+ .jewel-container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 10px auto;
+            padding: 20px;
+            background-color: #1f0000; /* Dunkles Rot */
+            border: 3px solid #49e410; /* Grüne Umrandung */
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(73, 228, 16, 0.5);
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .flex-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        .flex-video-wrapper {
+            flex: 1;
+            min-width: 400px;
+        }
+
+        .flex-table-wrapper {
+            flex: 1;
+            min-width: 400px;
+            position: relative;
+        }
+
+        .item-wrapper {
+            text-align: center;
+        }
+
+        .item-thumb {
+            width: 250px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            cursor: pointer; /* Zeigt an, dass es klickbar ist */
+        }
+
+        .popup-im {
+            width: 120px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .popup-info {
+            border: 2px solid white;
+            padding: 10px;
+            border-radius: 5px;
+            width: 300px;
+            height: auto;
+            display: none; /* Standardmäßig ausgeblendet */
+            position: absolute;
+            background-color: #1f0000;
+            z-index: 10;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Popup bei Hover für Desktop */
+        .flex-table-wrapper:hover .popup-info {
+            display: block;
+        }
+
+        .video-frame {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 Seitenverhältnis */
+        }
+
+        .video-frame iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        /* Mobile Anpassungen */
+        @media only screen and (max-width: 768px) {
+            .jewel-container {
+                padding: 10px;
+                margin: 5px auto;
+            }
+
+            .flex-container {
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+
+            .flex-video-wrapper, .flex-table-wrapper {
+                min-width: 100%;
+                padding: 0;
+            }
+
+            .item-thumb {
+                width: 150px;
+            }
+
+            .popup-im {
+                width: 80px;
+            }
+
+            .popup-info {
+                width: 90%;
+                max-width: 250px;
+                position: relative;
+                transform: none;
+                left: auto;
+                margin: 10px auto;
+            }
+
+            /* Hover auf Mobile deaktivieren */
+            .flex-table-wrapper:hover .popup-info {
+                display: none;
+            }
+
+            body, html {
+                overflow-x: hidden;
+                width: 100%;
+            }
+        }
+
+        /* Querformat */
+        @media only screen and (max-width: 768px) and (orientation: landscape) {
+            .item-thumb {
+                width: 120px;
+            }
+
+            .popup-im {
+                width: 60px;
+            }
+
+            .popup-info {
+                width: 80%;
+                max-width: 200px;
+            }
+        }
+  </style>
+
+    </head>
+
+    <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+
+        <div class="loader">Loading...</div>
+          <div id="navbar-container"></div>
+
+
+        <section class="about section" id="about">
+          
+      
+            <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+            
+            <h1 style="text-align: center;"> 🛡 PET SYSTEM </h1>
+            <br>
+  
+            <!-- Alle Details-Buttons bleiben oben -->
+            <div class="summary-container">
+             <details class="details-box"  open onclick="showContent('info')">
+                 <summary>Information</summary>
+             </details>
+            </div><br>
+                <div class="summary-container">
+            <details class="details-box"  open onclick="showContent('damage')">
+                <summary>DAMAGE</summary>
+            </details>        
+            <details class="details-box"  open onclick="showContent('defense')">
+                <summary>DEFENSE</summary>
+            </details>
+    
+            <details class="details-box" onclick="showContent('mix')">
+                <summary>MIX </summary>
+            </details>
+    
+            <details class="details-box" onclick="showContent('horse')">
+                <summary>HORSE </summary>
+            </details>
+    
+            <details class="details-box" onclick="showContent('farm')">
+                <summary>FARM</summary>
+            </details>
+
+            </div>
+            <div id="content" class="content-container">  
+            </div>
+            </div>
+          
+                   
+                
+         </section>
+     
+        <div id="footer-container"></div>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/aos.js"></script>
+        <script src="js/smoothscroll.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- jQuery laden -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        
+<!-- Schutz-Skript -->
+<script src="js/protection.js"></script>
+        <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loader = document.querySelector('.loader');
+
+        fetch('libraries.html?v=' + new Date().getTime())
+            .then(response => response.text())
+            .then(data => {
+                document.head.insertAdjacentHTML('beforeend', data);
+                return fetch('navbar.html?v=' + new Date().getTime());
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+                return fetch('footer.html?v=' + new Date().getTime());
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+                showContent('info');
+                loader.style.display = 'none'; // Ladebildschirm ausblenden
+            })
+            .catch(error => console.error('Fehler beim Laden:', error));
+    });
+</script>
+        <script>
+            function showContent(region) {
+                const content = document.getElementById("content");
+   
+                const data = {
+                // Information
+                "info": `
+                    <div class="main-container">
+                         
+                          <h1 class="main-title">Pet System</h1>
+
+
+                          <p style="color: #f1c40f;">In this chapter, we will delve into the Pet System Upgrade between acts.</p>
+                          <p style="color: #f1c40f;">As described within the Pet System Chapter, each pet needs to be upgraded to <span class="highlight-text">V3</span> before crafting the next ACT pet.</p>
+                          <p style="color: #f1c40f;">The higher the pet level/evolution – the better options it provides for the owner.</p>
+                          <p style="color: #f1c40f;">The higher the pet level/evolution – the more resources are required for the upgrade craft.</p>
+       
+
+        
+                       
+                    
+
+                        <br>
+                        <br>
+                    </div>
+                    ` 
+                ,
+                // DAMAGE
+                "damage": `
+                    <div class="main-container">
+                        <h1 class="main-title">DAMAGE</h1><br>
+
+                               <div class="jewel-container">
+                               <h1 style="color: #49e410;">ACT I</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">SATAN</strong><br>
+                                                       <img src="images/pets/damage pet act 1.png" alt="SATAN" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">SATAN</div>
+                                                   <img src="images/pets/damage pet act 1.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                   <div class="popup-name">Mix</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Guardian Angel EVO 3</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT I</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Bless (10)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (10)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (10)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">100.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/MyJTfyYmC1g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+
+                               <div class="jewel-container">
+                               <h1 style="color: #49e410;">ACT II</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">DESDOMUS</strong><br>
+                                                       <img src="images/pets/damage pet act 2.png" alt="DESDOMUS" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">DESDOMUS</div>
+                                                   <img src="images/pets/damage pet act 2.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                   <div class="popup-name">Mix</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">SATAN EVO 3 </div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT II</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Bless (20)</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (20)</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Gemstone (10)</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (20)</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">200.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/_vfthf2TbaA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+
+
+                               <div class="jewel-container">
+                               <h1 style="color: #49e410;">ACT III</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">MARS</strong><br>
+                                                       <img src="images/pets/damage pet act 3.png" alt="DESDOMUS" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">MARS</div>
+                                                   <img src="images/pets/damage pet act 3.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                   <div class="popup-name">Mix</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">DESDOMUS EVO 3 </div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT III</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Bless (30)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (30)</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Gemstone (20)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (30)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">300.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/-UxjiNG4ZvI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+
+                               <div class="jewel-container">
+                                <h1 style="color: #49e410;">ACT IV</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">AMNEMIS(PET)</strong><br>
+                                                       <img src="images/pets/damage pet act 4.png" alt="AMNEMIS" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">AMNEMIS</div>
+                                                   <img src="images/pets/damage pet act 4.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                   <div class="popup-name">Mix</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">MARS EVO 3 </div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT IV</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Bless (40)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (40)</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Gemstone (30)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (40)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">500.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/FZlcMqLIZKw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">DROGON(MOUNT)</strong><br>
+                                                       <img src="images/pets/damage mount act 4.png" alt="AMNEMIS" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">DROGON</div>
+                                                   <img src="images/pets/damage mount act 4.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                     <div class="popup-name">Mix</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">MARS EVO 3 </div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT IV</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Broken Horn</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Bless (40)</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (40)</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Gemstone (30)</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (40)</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Guardian (10)</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">500.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/FTJUszW0U4M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+
+                               </div>
+
+
+                               <div class="jewel-container">
+                               <h1 style="color: #49e410;">ACT V</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">HELL MAINE(PET)</strong><br>
+                                                       <img src="images/pets//Hell Main Damage pet act 5.png" alt="AMNEMIS" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">HELL MAINE</div>
+                                                   <img src="images/pets//Hell Main Damage pet act 5.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                   <div class="popup-name">Mix</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">AMNEMIS EVO 3 </div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT V</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Life (40)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (40)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Gemstone (30)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (40)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Guardian (10)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">650.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/SjzAeniTLc8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">RED DROGON(MOUNT)</strong><br>
+                                                       <img src="images/pets/Dmg Mount act 5.png" alt="AMNEMIS" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">RED DROGON</div>
+                                                   <img src="images/pets/Dmg Mount act 5.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                     <div class="popup-name">Mix</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Drogon EVO 3 </div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT V</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Bless (40)</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (40)</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Gemstone (30)</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (40)</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Guardian (20)</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">650.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/SjzAeniTLc8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+
+                               </div>
+
+           
+                        <br>
+                        <br>
+                    </div>
+                    ` 
+                ,
+                // DEFENSE
+                "defense": `
+                    <div class="main-container">
+                        <h1 class="main-title">DEFENSE</h1><br>
+                              
+                               <div class="jewel-container">
+                                <h1 style="color: #49e410;">ACT I</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">FAIRY KING</strong><br>
+                                                       <img src="images/pets/Defense pet act 1.png" alt="FAIRY KING" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">FAIRY KING</div>
+                                                   <img src="images/pets/Defense pet act 1.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                   <div class="popup-name">Mix</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Guardian Angel EVO 3 </div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT I</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Soul (10)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (10)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (10)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">100.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/K46C0msldXE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+
+                               <div class="jewel-container">
+                                <h1 style="color: #49e410;">ACT II</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Fairy Queen</strong><br>
+                                                       <img src="images/pets/defense pet act 2.png" alt="Fairy Queen" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">Fairy Queen</div>
+                                                   <img src="images/pets/defense pet act 2.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                    <div class="popup-name">Mix</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">FAIRY KING EVO 3 </div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT II</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Soul (20)</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (20)</div>
+                                                      <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Gemstone (10)</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (20)</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">200.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/KG9Ipos7ZaA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+
+                               <div class="jewel-container">
+                                <h1 style="color: #49e410;">ACT III</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Rayner Queen</strong><br>
+                                                       <img src="images/pets/defense pet act 3.png" alt="Fairy Queen" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">Rayner Queen</div>
+                                                   <img src="images/pets/defense pet act 3.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                    <div class="popup-name">Mix</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Fairy Queen EVO 3 </div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT III</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Soul (30)</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (30)</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Gemstone (20)</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (30)</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">300.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/GgIel993A6c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+
+                               <div class="jewel-container">
+                                <h1 style="color: #49e410;">ACT IV</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Doryo(PET)</strong><br>
+                                                       <img src="images/pets/Defense pet act 4.png" alt="Fairy Queen" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">Doryo</div>
+                                                   <img src="images/pets/Defense pet act 4.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                    <div class="popup-name">Mix</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Rayner Queen EVO 3</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT IV</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Soul (40)</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (40)</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Gemstone (30)</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (40)</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">500.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/z_hYxHNtDpM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Winter Wyvern(MOUNT)</strong><br>
+                                                       <img src="images/pets/defense mount act 4.png" alt="Fairy Queen" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">Winter Wyvern</div>
+                                                   <img src="images/pets/defense mount act 4.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                    <div class="popup-name">Mix</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Rayner Queen EVO 3</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Broken Horn</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT IV</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Soul (40)</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (40)</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Gemstone (30)</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (40)</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Guardian (10)</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">500.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/z_hYxHNtDpM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+
+                               <div class="jewel-container">
+                                <h1 style="color: #49e410;">ACT V</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Selupan(PET)</strong><br>
+                                                       <img src="images/pets/Selupan def pet act 5.png" alt="Fairy Queen" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">Selupan</div>
+                                                   <img src="images/pets/Selupan def pet act 5.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                    <div class="popup-name">Mix</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Doryo EVO 3 </div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT V</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Soul (40)</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (40)</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Gemstone (30)</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (40)</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Guardian (10)</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">650.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/z_hYxHNtDpM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">GoldenDragon(MOUNT)</strong><br>
+                                                       <img src="images/pets/Def mount act 5.png" alt="Fairy Queen" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">Golden Dragon</div>
+                                                   <img src="images/pets/Def mount act 5.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                    <div class="popup-name">Mix</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Winter Wyvern EVO 3 </div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT V</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Soul (40)</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (40)</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Gemstone (30)</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (40)</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Guardian (10)</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">650.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/z_hYxHNtDpM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+
+                        <br>
+                        <br>
+                    </div>
+                    ` 
+                ,
+                // MIX
+                "mix": `
+                    <div class="main-container">
+                    <h1 class="main-title">MIX</h1>
+                            <div class="jewel-container">
+                                <h1 style="color: #49e410;">ACT I</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">FOX</strong><br>
+                                                       <img src="images/pets/mix mount act 1.png" alt="FAIRY KING" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">FOX</div>
+                                                   <img src="images/pets/mix mount act 1.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                   <div class="popup-name">Mix</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Guardian Angel EVO 3 </div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT I</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Life (10)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (10)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (10)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">100.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/wPXk_3D91L4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                            </div>
+
+                             <div class="jewel-container">
+                                <h1 style="color: #49e410;">ACT II</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">WOLF</strong><br>
+                                                       <img src="images/pets/mix mount act 2.png" alt="FAIRY KING" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">WOLF</div>
+                                                   <img src="images/pets/mix mount act 2.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                   <div class="popup-name">Mix</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">FOX EVO 3 </div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT II</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of lIFE (20)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (20)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Gemstone (10)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (20)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">200.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/ngP440luz4U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                            </div>
+                            
+                            <div class="jewel-container">
+                                <h1 style="color: #49e410;">ACT III</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">TIGER</strong><br>
+                                                       <img src="images/pets/mix mount act 3.png" alt="FAIRY KING" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">TIGER</div>
+                                                   <img src="images/pets/mix mount act 3.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                        <div class="popup-name">Mix</div>
+                                                       <div class="popup-loot" style="color: rgb(103, 185, 240);">WOLF EVO 3 </div>
+                                                       <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT III</div>
+                                                       <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Life (30)</div>
+                                                       <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (30)</div>
+                                                        <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Gemstone (20)</div>
+                                                       <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (30)</div>
+                                                       <div class="popup-loot" style="color: rgb(103, 185, 240);">300.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/YlcKFqk_cM8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                            </div>
+
+                            <div class="jewel-container">
+                                <h1 style="color: #49e410;">ACT IV</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Phoenix(PET)</strong><br>
+                                                       <img src="images/pets/mix pet act 4.png" alt="Fairy Queen" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">Phoenix</div>
+                                                   <img src="images/pets/mix pet act 4.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                    <div class="popup-name">Mix</div>
+                                                
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">TIGER EVO 3</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT IV</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Life (40)</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (40)</div>
+                                                      <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Gemstone (30)</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (40)</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">500.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/rxt4fNDAyHY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">RHAEGAL(MOUNT)</strong><br>
+                                                       <img src="images/pets/mix mount act 4.png" alt="Fairy Queen" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">RHAEGAL</div>
+                                                   <img src="images/pets/mix mount act 4.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                     <div class="popup-name">Mix</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">TIGER EVO 3</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT IV</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Broken Horn</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Life (40)</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (40)</div>
+                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Gemstone (30)</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (40)</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Guardian (10)</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">500.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/ZePDMif9beo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                            </div>
+
+                            <div class="jewel-container">
+                                <h1 style="color: #49e410;">ACT V</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Nightmare(PET)</strong><br>
+                                                       <img src="images/pets/Nightmare Mix Pet Act 5.png" alt="Fairy Queen" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">Nightmare</div>
+                                                   <img src="images/pets/Nightmare Mix Pet Act 5.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                    <div class="popup-name">Mix</div>
+                                                
+                                                      <div class="popup-name">Mix</div>
+                                                      <div class="popup-loot" style="color: rgb(103, 185, 240);">Phoenix EVO 3 </div>
+                                                      <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT V</div>
+                                                      <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Life (40)</div>
+                                                      <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (40)</div>
+                                                      <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Gemstone (30)</div>
+                                                      <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (40)</div>
+                                                      <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Guardian (10)</div>
+                                                      <div class="popup-loot" style="color: rgb(103, 185, 240);">650.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/JwY1nCOWQPc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">GreenDragon(MOUNT)</strong><br>
+                                                       <img src="images/pets/mix mount act 5.png" alt="Fairy Queen" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">Green Dragon</div>
+                                                   <img src="images/pets/mix mount act 5.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                     <div class="popup-name">Mix</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Rhaegal EVO 3 </div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT V</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Life (40)</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (40)</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Gemstone (30)</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (40)</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Guardian (10)</div>
+                                                     <div class="popup-loot" style="color: rgb(103, 185, 240);">650.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/wzmrwjJvp5E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                            </div>
+
+                        <br>
+                        <br>
+                    </div>
+                    ` 
+                ,
+                // HORSE
+                "horse": `
+                    <div class="main-container">
+                     <h1 class="main-title">HORSE</h1>
+
+
+                     <div class="jewel-container">
+                                <h1 style="color: #49e410;">ACT I</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">GHOST HORSE</strong><br>
+                                                       <img src="images/pets/Ghost_Horse.png" alt="FAIRY KING" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">GHOST HORSE</div>
+                                                   <img src="images/pets/Ghost_Horse.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                   <div class="popup-name">Mix</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Guardian Angel(evolution 2) </div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT I</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Dark Horse</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Life (10)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (10)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (10)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">100.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/s4kOVQjLQVo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                     </div>
+
+                     <div class="jewel-container">
+                                <h1 style="color: #49e410;">ACT II</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">ICE HORSE</strong><br>
+                                                       <img src="images/pets/Ice_Horse.png" alt="FAIRY KING" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">ICE HORSE</div>
+                                                   <img src="images/pets/Ice_Horse.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                   <div class="popup-name">Mix</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">GHOST HORSE(evolution2) </div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT II</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of lIFE (20)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (20)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Gemstone (10)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (20)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">200.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/TcL8f832qEs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                     </div>
+
+                     <div class="jewel-container">
+                                <h1 style="color: #49e410;">ACT III</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">EMBER HORSE</strong><br>
+                                                       <img src="images/pets/Ember_Horse.png" alt="FAIRY KING" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">EMBER HORSE</div>
+                                                   <img src="images/pets/Ember_Horse.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                   <div class="popup-name">Mix</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">ICE HORSE(evolution2) </div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT III</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Life (30)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (30)</div>
+                                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Gemstone (20)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (30)</div>
+                                                   <div class="popup-loot" style="color: rgb(103, 185, 240);">300.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/cbLAN7jfRuY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                     </div>
+
+                     <div class="jewel-container">
+                                <h1 style="color: #49e410;">ACT IV</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">FLAME HORSE</strong><br>
+                                                       <img src="images/pets/Flame_Horse.png" alt="FAIRY KING" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">FLAME HORSE</div>
+                                                   <img src="images/pets/Flame_Horse.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                      <div class="popup-name">Mix</div>
+                                                      <div class="popup-loot" style="color: rgb(103, 185, 240);">EMBER HORSE(evolution2)</div>
+                                                      <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT IV</div>
+                                                      <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Life (40)</div>
+                                                      <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (40)</div>
+                                                       <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Gemstone (30)</div>
+                                                      <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (40)</div>
+                                                      <div class="popup-loot" style="color: rgb(103, 185, 240);">500.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/UkcYnZlCRA4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                     </div>
+
+                     <div class="jewel-container">
+                                <h1 style="color: #49e410;">ACT V</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">PHOENIX HORSE</strong><br>
+                                                       <img src="images/pets/Fenix_Horse.png" alt="FAIRY KING" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">PHOENIX HORSE</div>
+                                                   <img src="images/pets/Fenix_Horse.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                      <div class="popup-name">Mix</div>
+                                                      <div class="popup-loot" style="color: rgb(103, 185, 240);">FLAME HORSE(evolution2)</div>
+                                                      <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT V</div>
+                                                      <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Life (40)</div>
+                                                      <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (40)</div>
+                                                       <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Gemstone (30)</div>
+                                                      <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (40)</div>
+                                                      <div class="popup-loot" style="color: rgb(103, 185, 240);">650.000.000zen</div>
+
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/LThaq3FunG0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                     </div>
+                                
+
+                               
+                                 
+                        
+                             
+                             
+                  
+                        <br>
+                    </div>
+                    ` 
+                ,
+                // FARM
+                "farm": `
+                    <div class="main-container">
+                     <h1 class="main-title">FARM</h1>
+
+                     <div class="jewel-container">
+                                <h1 style="color: #49e410;">ACT I</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">William</strong><br>
+                                                       <img src="images/pets/farm pet act 1.png" alt="FAIRY KING" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">William</div>
+                                                   <img src="images/pets/farm pet act 1.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                          <div class="popup-name">Mix</div>
+                                                           <div class="popup-loot" style="color: rgb(103, 185, 240);">Guardian Angel EVO 3 </div>
+                                                           <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT I</div>
+                       
+                                                           <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Soul (10)</div>
+                                                           <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Life (10)</div>
+                                                           <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (10)</div>
+                                                           <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (10)</div>
+                                                           <div class="popup-loot" style="color: rgb(103, 185, 240);">100.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/f0ioMslwFII" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                     </div>
+
+
+                     <div class="jewel-container">
+                                <h1 style="color: #49e410;">ACT II</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Tibetton</strong><br>
+                                                       <img src="images/pets/farm pet act 2.png" alt="FAIRY KING" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">Tibetton</div>
+                                                   <img src="images/pets/farm pet act 2.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                             <div class="popup-name">Mix</div>
+                                                             <div class="popup-loot" style="color: rgb(103, 185, 240);">William EVO 3 </div>
+                                                             <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT II</div>
+                                                             <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of lIFE (20)</div>
+                                                             <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (20)</div>
+                                                             <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Gemstone (10)</div>
+                                                             <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (20)</div>
+                                                             <div class="popup-loot" style="color: rgb(103, 185, 240);">200.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/CqhqzUpfvFw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                     </div>
+
+                     <div class="jewel-container">
+                                <h1 style="color: #49e410;">ACT III</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Wooparoo</strong><br>
+                                                       <img src="images/pets/farm pet act 3.png" alt="FAIRY KING" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">Wooparoo</div>
+                                                   <img src="images/pets/farm pet act 3.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                              <div class="popup-name">Mix</div>
+                                                              <div class="popup-loot" style="color: rgb(103, 185, 240);">Tibetton EVO 3 </div>
+                                                              <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT III</div>
+                                                              <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Life (30)</div>
+                                                              <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (30)</div>
+                                                               <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Gemstone (20)</div>
+                                                              <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (30)</div>
+                                                              <div class="popup-loot" style="color: rgb(103, 185, 240);">300.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/34WMudkp83s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                     </div>
+
+                     <div class="jewel-container">
+                                <h1 style="color: #49e410;">ACT IV</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Chiron</strong><br>
+                                                       <img src="images/pets/farm pet act 4.png" alt="FAIRY KING" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">Chiron</div>
+                                                   <img src="images/pets/farm pet act 4.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                              <div class="popup-name">Mix</div>
+                                                              <div class="popup-loot" style="color: rgb(103, 185, 240);">Wooparoo EVO 3</div>
+                                                              <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT IV</div>
+                                                              <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Life (40)</div>
+                                                              <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (40)</div>
+                                                               <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Gemstone (30)</div>
+                                                              <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (40)</div>
+                                                              <div class="popup-loot" style="color: rgb(103, 185, 240);">500.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/klJKkARfR8A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                     </div>
+
+                      <div class="jewel-container">
+                                <h1 style="color: #49e410;">ACT IV</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Balrog</strong><br>
+                                                       <img src="images/pets/Balrog Farm Pet act 5.png" alt="FAIRY KING" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">Balrog</div>
+                                                   <img src="images/pets/Balrog Farm Pet act 5.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                                <div class="popup-name">Mix</div>
+                                                                <div class="popup-loot" style="color: rgb(103, 185, 240);">Chiron EVO 3</div>
+                                                                <div class="popup-loot" style="color: rgb(103, 185, 240);">Pet Jewel ACT V</div>
+                                                                <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Life (40)</div>
+                                                                <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Creation (40)</div>
+                                                                <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Gemstone (30)</div>
+                                                                 <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Guardian (10)</div>
+                                                                <div class="popup-loot" style="color: rgb(103, 185, 240);">Bundle of Chaos (40)</div>
+                                                                <div class="popup-loot" style="color: rgb(103, 185, 240);">650.000.000zen</div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/zdlaTMRgX7U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                     </div>
+
+
+                        <br>
+                        <br>
+                    </div>
+                    ` 
+                ,
+
+                };
+    
+                
+                content.innerHTML = data[region];
+                content.classList.add("active"); 
+            }
+            document.addEventListener("DOMContentLoaded", function() {
+           showContent('info');
+          });
+        
+  
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const tabToOpen = params.get('tab');
+    const popupToOpen = params.get('popup');
+  
+    if (tabToOpen) {
+      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
+    }
+  
+    if (popupToOpen) {
+      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
+    }
+  </script>
+
+    </body>
+
+    </html>

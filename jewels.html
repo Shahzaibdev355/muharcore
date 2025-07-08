@@ -1,0 +1,806 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        //Disable cut copy paste
+        $('body').bind('cut copy paste', function (e) {
+            e.preventDefault();
+        });
+
+        //Disable mouse right click
+        $("body").on("contextmenu", function (e) {
+            return false;
+        });
+    });
+</script>
+<!DOCTYPE html>
+
+<body oncopy="return false" oncut="return false" onpaste="return false">
+    <html lang="en">
+
+    <head>
+
+        <title>Guides MU-HARDCORE</title>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+  <style>
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+    /* Hauptcontainer */
+.jewel-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: #1f0000; /* Dunkles Rot */
+    border: 3px solid #49e410; /* Grüne Umrandung */
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(73, 228, 16, 0.5);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Flex-Container */
+.flex-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px; /* Abstand zwischen Video und Item */
+    width: 100%;
+    flex-wrap: wrap; /* Responsiv für Mobilgeräte */
+    justify-content: center; /* Zentriert die Inhalte */
+}
+
+/* Item-Wrapper */
+.flex-table-wrapper {
+    flex: 1;
+    min-width: 300px; /* Mindestbreite für Item-Liste */
+    position: relative; /* Für Popup-Positionierung */
+}
+
+.item-wrapper {
+    text-align: center;
+}
+
+/* Video-Wrapper */
+.flex-video-wrapper {
+    flex: 1;
+    min-width: 500px; /* Größeres Video */
+}
+
+.video-wrapper {
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    padding: 15px;
+}
+
+.video-frame {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 Seitenverhältnis */
+    background-color: black;
+    border: 12px solid #333; /* Größere Borders */
+    border-radius: 12px;
+}
+
+.video-frame iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.flex-table-wrapper:hover .popup-info {
+    display: block; /* Bei Hover anzeigen */
+}
+
+.item-thumb {
+    width: 250px;
+    height: 250px;
+    display: block;
+    margin: 0 auto;
+}
+
+.popup-im {
+    width: 120px;
+    height: 120px;
+    display: block;
+    margin: 0 auto;
+}
+
+.popup-header {
+    font-size: 26px;
+}
+
+.popup-name {
+    font-size: 22px;
+}
+
+.popup-loot {
+    font-size: 22px;
+}
+
+/* Mobile Anpassungen */
+@media only screen and (max-width: 768px) {
+    .jewel-container {
+        padding: 10px; /* Weniger Padding auf Mobile */
+        margin: 5px auto;
+    }
+
+    .flex-container {
+        flex-direction: column; /* Stapelt Inhalte vertikal */
+        gap: 10px;
+    }
+
+    .flex-table-wrapper {
+        min-width: 100%; /* Volle Breite */
+        padding: 0;
+    }
+
+    .flex-video-wrapper {
+        min-width: 100%; /* Volle Breite */
+        padding: 0;
+    }
+
+    .video-wrapper {
+        padding: 5px; /* Weniger Padding */
+    }
+
+    .video-frame {
+        border: 6px solid #333; /* Kleinere Borders */
+        padding-bottom: 56.25%; /* Beibehalten des Seitenverhältnisses */
+    }
+
+    .item-thumb {
+        width: 150px; /* Kleiner für Mobile */
+        height: 150px;
+    }
+
+    .popup-im {
+        width: 80px; /* Kleiner für Mobile */
+        height: 80px;
+    }
+
+    .popup-header {
+        font-size: 20px; /* Kleinere Schrift */
+    }
+
+    .popup-name {
+        font-size: 18px;
+    }
+
+    .popup-loot {
+        font-size: 16px;
+    }
+
+    /* Sicherstellen, dass nichts abgeschnitten wird */
+    body, html {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    /* Hover-Effekt auf Mobile deaktivieren (Touch-Geräte) */
+    .flex-table-wrapper:hover .popup-info {
+        display: none; /* Popup nicht bei Hover, da Touch */
+    }
+
+    /* Optional: Popup bei Touch sichtbar machen, falls gewünscht */
+    .flex-table-wrapper:active .popup-info {
+        display: block;
+    }
+}
+
+/* Zusätzliche Anpassung für Querformat */
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+    .item-thumb {
+        width: 120px; /* Noch kleiner im Querformat */
+        height: 120px;
+    }
+
+    .popup-im {
+        width: 60px;
+        height: 60px;
+    }
+
+    .video-frame {
+        padding-bottom: 40%; /* Anpassung für Querformat */
+    }
+} 
+  </style>
+
+    </head>
+
+    <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+
+        <div class="loader">Loading...</div>
+             <div id="navbar-container"></div>
+
+
+        <section class="about section" id="about">
+
+
+            <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+
+                <h1 style="text-align: center;"> 🛡 Jewels Mixes </h1>
+                <br>
+
+                <!-- Alle Details-Buttons bleiben oben -->
+                <div class="summary-container">
+                    <details class="details-box" open onclick="showContent('info')">
+                        <summary>Information</summary>
+                    </details>
+                </div><br>
+                <div class="summary-container">
+                    <details class="details-box" open onclick="showContent('upgrade')">
+                        <summary>UPGRADE</summary>
+                    </details>
+                    <details class="details-box" open onclick="showContent('daedalus')">
+                        <summary>Jewel of Daedalus</summary>
+                    </details>
+                    <details class="details-box" open onclick="showContent('earrings')">
+                        <summary>Earrings</summary>
+                    </details>
+
+
+
+                </div>
+                <div id="content" class="content-container">
+                </div>
+            </div>
+
+
+
+        </section>
+
+        <div id="footer-container"></div>
+      
+
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/aos.js"></script>
+        <script src="js/smoothscroll.js"></script>
+        <script src="js/custom.js"></script>
+        <!-- jQuery laden -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+<!-- Schutz-Skript -->
+<script src="js/protection.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+            <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loader = document.querySelector('.loader');
+
+        fetch('libraries.html?v=' + new Date().getTime())
+            .then(response => response.text())
+            .then(data => {
+                document.head.insertAdjacentHTML('beforeend', data);
+                return fetch('navbar.html?v=' + new Date().getTime());
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+                return fetch('footer.html?v=' + new Date().getTime());
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+                showContent('info');
+                loader.style.display = 'none'; // Ladebildschirm ausblenden
+            })
+            .catch(error => console.error('Fehler beim Laden:', error));
+    });
+</script>
+
+        <script>
+            function showContent(region) {
+                const content = document.getElementById("content");
+
+                const data = {
+                    // Information
+                    "info": `
+                    <div class="main-container">
+                          <h1 class="main-title">Information</h1>
+                           <p style="color: #f1c40f;">In this chapter, we will explore the crafts for the <span class="highlight-text">Custom Jewels</span> that you will require on our server.</p>
+                           <p style="color: #f1c40f;">Firstly, the <span class="highlight-text">Jewel of Excellent</span>, used to add <span class="highlight-number">1</span> excellent option to an existing excellent item.</p>
+                           <p style="color: #f1c40f;">Secondly, the <span class="highlight-text">Jewel of Daedalus</span>, used to craft wings for your class only.</p>
+
+                        <br>
+                        <br>
+                    </div>
+                    `
+                    ,
+                    // UPGRADE
+                    "upgrade": `
+                    <div class="main-container">
+                         
+                      <div style="font-family: Arial, sans-serif; color: black;">
+                        <h2 style="color: rgb(255, 94, 0);text-shadow: 0 0 15px rgb(251 104 0);">UPGRADE</h2>
+                          <p style="color: #f1c40f;" >
+                            The Jewels can be crafted in Chaos Machine wit. 
+                        </p>
+                      </div><br><br>
+
+
+                        <div class="jewel-container">
+                               <h1 style="color: #49e410;">Jewel of Excelent</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Jewel of Excelent</strong><br>
+                                                       <img src="images/custom/Jewel of Excellent.png" alt="SATAN" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">Jewel of Excelent</div>
+                                                   <img src="images/custom/Jewel of Excellent.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                   <div class="popup-name" style="display: inline; font-weight: bold;font-size:21px;">Mix:</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Bless (30)</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Soul (30)</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">200.000.000 Zen</div><br>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/Tg_-pabpIUc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                        </div>
+
+                        <div class="jewel-container">
+                               <h1 style="color: #49e410;">Jewel of Socket</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Jewel of Socket</strong><br>
+                                                       <img src="images/custom/Jewel_of_Socket.png" alt="SATAN" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">Jewel of Socket</div>
+                                                   <img src="images/custom/Jewel_of_Socket.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                   <div class="popup-name" style="display: inline; font-weight: bold;font-size:21px;">Mix:</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Bless (30)</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Soul (30)</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Chaos (20)</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">250.000.000 Zen</div><br>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/S8NW3UbuaEg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                        </div>
+
+                        <div class="jewel-container">
+                               <h1 style="color: #49e410;">Talisman of Chaos Assembly</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Talisman of Chaos Assembly</strong><br>
+                                                       <img src="images/custom/tal.png" alt="SATAN" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">Talisman of Chaos Assembly</div>
+                                                   <img src="images/custom/tal.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                   <div class="popup-name" style="display: inline; font-weight: bold;font-size:21px;">Mix:</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Creation (20)</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Life (20)</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Chaos (10)</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">300.000.000 Zen</div><br>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                               
+                                                   <iframe src="https://www.youtube.com/embed/pLHd18Az6Dg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                        </div>
+                        <br>
+                        <br>
+                    </div>
+                    `
+                    ,
+                    // Daedalus
+                    "daedalus": `
+                    <div class="main-container">
+                                         
+                     
+                      <div style="font-family: Arial, sans-serif; color: black;">
+                        <h2 style="color: rgb(255, 94, 0);text-shadow: 0 0 15px rgb(251 104 0);">Jewel of Daedalus</h2>
+                          <p style="color: #f1c40f;" >
+                            The Jewel of Daedalus can be crafted for different wing levels. Everything starts with the first <strong style="color: #49e410;">Jewel of Daedalus ACT I</strong>. 
+                            If you want to craft wings for each act, you will always need to start from the first level and upgrade step by step to craft the next level of wings.
+                        </p>
+                      </div><br><br>
+
+
+                     <h1 class="main-title" >How to upgrade Jewel of Daedalus?</h1><br>
+
+
+
+
+
+                            <div class="jewel-container">
+                               <h1 style="color: #49e410;">Jewel of Daedalus ACT II</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <img src="images/custom/daedalus act 2.png" alt="Jewel of Daedalus ACT II" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">Jewel of Daedalus ACT II</div>
+                                                   <img src="images/custom/daedalus act 2.png" alt="Jewel of Daedalus ACT II" class="popup-im" style="vertical-align: middle;">
+                                                   <div class="popup-name" style="display: inline; font-weight: bold;font-size:21px;">Mix:</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Jewel of Daedalus ACT I x1</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Deadfear Soul x1</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Chaos (10)</div><br>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/TzJfow5oP5M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                            </div>
+
+                            <div class="jewel-container">
+                               <h1 style="color: #49e410;">Jewel of Daedalus ACT III</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <img src="images/custom/daedalus act 3.png" alt="Jewel of Daedalus ACT II" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">Jewel of Daedalus ACT III</div>
+                                                   <img src="images/custom/daedalus act 3.png" alt="Jewel of Daedalus ACT III" class="popup-im" style="vertical-align: middle;">
+                                                   <div class="popup-name" style="display: inline; font-weight: bold;font-size:21px;">Mix:</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Jewel of Daedalus ACT II x1</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Condor Flame x1</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Chaos (10)</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Soul (10)</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Bless (10)</div><br>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/CskcznoC05A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                            </div>
+
+                            <div class="jewel-container">
+                               <h1 style="color: #49e410;">Jewel of Daedalus ACT IV</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <img src="images/custom/daedalus act 4.png" alt="Jewel of Daedalus ACT IV" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">Jewel of Daedalus ACT IV</div>
+                                                   <img src="images/custom/daedalus act 4.png" alt="Jewel of Daedalus ACT III" class="popup-im" style="vertical-align: middle;">
+                                                  <div class="popup-name" style="display: inline; font-weight: bold;font-size:21px;">Mix:</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Jewel of Daedalus ACT III x1</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Phoenix Flame x1</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Chaos (10)</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Soul (10)</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Bless (10)</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Creation (10)</div><br>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/nfX8bziAZAk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                            </div>
+
+                             <div class="jewel-container">
+                               <h1 style="color: #49e410;">Jewel of Daedalus ACT V</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <img src="images/custom/daedalus act 5.png" alt="Jewel of Daedalus ACT V" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">Jewel of Daedalus ACT V</div>
+                                                   <img src="images/custom/daedalus act 5.png" alt="Jewel of Daedalus ACT III" class="popup-im" style="vertical-align: middle;">
+                                                 <div class="popup-name" style="display: inline; font-weight: bold;font-size:21px;">Mix:</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Jewel of Daedalus ACT IV x1</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Garuda Flame x1</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Chaos (10)</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Soul (10)</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Bless (10)</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Creation (10)</div><br>
+                                             <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Gemstone (10)</div><br>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/j7Fa2yapTl0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                            </div>
+
+
+                           
+
+                        <br>
+                        <br>
+                    </div>
+                    `
+                    ,
+                     // Earrings
+                    "earrings": `
+                    <div class="main-container">
+                         
+                      <div style="font-family: Arial, sans-serif; color: black;">
+                        <h2 style="color: rgb(255, 94, 0);text-shadow: 0 0 15px rgb(251 104 0);">UPGRADE</h2>
+                          <p style="color: #f1c40f;" >
+                            The Earrings can be crafted in Chaos Machine and Senior Mix from Castle(With reduce price 50%). 
+                        </p>
+                      </div><br><br>
+
+
+                        <div class="jewel-container">
+                               <h1 style="color: #49e410;">Flame Earring Chaos Machine</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Flame Earring</strong><br>
+                                                       <img src="images/custom/Flame_Earring.png" alt="SATAN" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">Flame Earring</div>
+                                                   <img src="images/custom/Flame_Earring.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                   <div class="popup-name" style="display: inline; font-weight: bold;font-size:21px;">Mix:</div><br>
+                                                   <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Flame Element x10</div><br>
+                                                   <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Excelent Ring/Pendant x4</div><br>
+                                                   <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Chaos (20)</div><br>
+                                                   <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Creation (60)</div><br>
+                                                   <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Life (60)</div><br>
+                                                   <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">200.000.000 Zen</div><br>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/HPRkmRYHLes" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <br>
+                                    <h1 style="color: #49e410;">Flame Earring Senior Mix</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Flame Earring</strong><br>
+                                                       <img src="images/custom/Flame_Earring.png" alt="SATAN" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">Flame Earring</div>
+                                                   <img src="images/custom/Flame_Earring.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                   <div class="popup-name" style="display: inline; font-weight: bold;font-size:21px;">Mix:</div><br>
+                                                   <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Flame Element x10</div><br>
+                                                   <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Excelent Ring/Pendant x4</div><br>
+                                                   <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Chaos (10)</div><br>
+                                                   <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Creation (30)</div><br>
+                                                   <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Life (30)</div><br>
+                                                   <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">100.000.000 Zen</div><br>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/ngKQHzr_WRY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                        </div>
+
+                        <div class="jewel-container">
+                               <h1 style="color: #49e410;">Sky Earring Chaos Machine</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Sky Earring</strong><br>
+                                                       <img src="images/custom/Sky_Earring.png" alt="SATAN" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">Sky Earring</div>
+                                                   <img src="images/custom/Sky_Earring.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                   <div class="popup-name" style="display: inline; font-weight: bold;font-size:21px;">Mix:</div><br>
+                                                   <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Sky Element x10</div><br>
+                                                   <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Excelent Ring/Pendant x4</div><br>
+                                                   <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Chaos (20)</div><br>
+                                                   <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Creation (60)</div><br>
+                                                   <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Life (60)</div><br>
+                                                   <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">200.000.000 Zen</div><br>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+                                                   <iframe src="https://www.youtube.com/embed/ZiK_tpB2KbU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <br>
+                                   <h1 style="color: #49e410;">Sky Earring Senior Mix</h1><br>
+                                   <div class="flex-container">
+                                       <div class="flex-table-wrapper">
+                                           <div class="item-wrapper">
+                                               <p style="line-height:140%; text-align:center;">
+                                                   <span style="color:#721d1a; line-height:19.6px;">
+                                                       <strong class="popup-header" style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Sky Earring</strong><br>
+                                                       <img src="images/custom/Sky_Earring.png" alt="SATAN" class="item-thumb" style="vertical-align: middle; margin-left: 31px;">
+                                                   </span>
+                                               </p>
+                                               <div class="popup-info" style="width: 300px;">
+                                                   <div class="popup-header">Sky Earring</div>
+                                                   <img src="images/custom/Sky_Earring.png" alt="SATAN" class="popup-im" style="vertical-align: middle;">
+                                                   <div class="popup-name" style="display: inline; font-weight: bold;font-size:21px;">Mix:</div><br>
+                                                   <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Sky Element x10</div><br>
+                                                   <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Excelent Ring/Pendant x4</div><br>
+                                                   <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Chaos (10)</div><br>
+                                                   <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Creation (30)</div><br>
+                                                   <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">Bundle of Life (30)</div><br>
+                                                   <div class="popup-loot" style="display: inline; font-weight: bold;font-size:21px;">100.000.000 Zen</div><br>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="flex-video-wrapper">
+                                           <div class="video-wrapper">
+                                               <div class="video-frame">
+
+                                                   <iframe src="https://www.youtube.com/embed/DG2Kda8JdoM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                        </div>
+
+                      
+                        <br>
+                        <br>
+                    </div>
+                    `
+                    ,
+                  
+
+                };
+
+
+                content.innerHTML = data[region];
+                content.classList.add("active");
+            }
+            document.addEventListener("DOMContentLoaded", function () {
+                showContent('info');
+            });
+
+
+        </script>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const tabToOpen = params.get('tab');
+    const popupToOpen = params.get('popup');
+  
+    if (tabToOpen) {
+      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
+    }
+  
+    if (popupToOpen) {
+      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
+    }
+  </script>
+
+
+    </body>
+
+    </html>

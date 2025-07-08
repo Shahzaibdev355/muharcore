@@ -1,0 +1,242 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        //Disable cut copy paste
+        $('body').bind('cut copy paste', function (e) {
+            e.preventDefault();
+        });
+       
+        //Disable mouse right click
+        $("body").on("contextmenu", function (e) {
+            return false;
+        });
+    });
+</script>
+<!DOCTYPE html>
+<body oncopy="return false" oncut="return false" onpaste="return false">
+<html lang="en">
+<head>
+    <title>Guides MU-HARDCORE</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <style>
+      .loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    
+</style>
+   
+   
+</head>
+<body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+    <div class="loader">Loading...</div>
+
+    <div id="navbar-container"></div>
+
+    <section class="about section" id="about">
+        <h1 style="text-align: center;"> 🛡 Boxes </h1>
+        <br>
+
+        <!-- Alle Details-Buttons bleiben oben -->
+        <div class="summary-container">
+            <details class="details-box" open onclick="showContent('goldens')">
+                <summary>Golden Invasion</summary>
+            </details>
+
+            <details class="details-box" onclick="showContent('farm')">
+                <summary>Monster Farm</summary>
+            </details>
+
+            <details class="details-box" onclick="showContent('winged')">
+                <summary>Winged</summary>
+            </details>
+
+            <details class="details-box" onclick="showContent('hardbox')">
+                <summary>HARDBOXES</summary>
+            </details>
+            <details class="details-box" onclick="showContent('bc')">
+                <summary>Blood Castle</summary>
+            </details>
+            <details class="details-box" onclick="showContent('cc')">
+                <summary>Chaos Castle</summary>
+            </details>
+            <details class="details-box" onclick="showContent('kalima')">
+                <summary>Kalima</summary>
+            </details>
+            <details class="details-box" onclick="showContent('weapon')">
+                <summary>Weapon</summary>
+            </details>
+            <details class="details-box" onclick="showContent('exeweapon')">
+                <summary>Excellent Weapon</summary>
+            </details>
+            <details class="details-box" onclick="showContent('ww')">
+                <summary>White Wizard</summary>
+            </details>
+            <details class="details-box" onclick="showContent('skill')">
+                <summary>Skill</summary>
+            </details>
+            <details class="details-box" onclick="showContent('christmas')">
+                <summary>Christmas</summary>
+            </details>
+            <details class="details-box" onclick="showContent('evolution')">
+                <summary>Evolution</summary>
+            </details>
+            <details class="details-box" onclick="showContent('dota')">
+                <summary>Dota</summary>
+            </details>
+            <details class="details-box" onclick="showContent('dragon')">
+                <summary>Dragon</summary>
+            </details>
+        </div>
+        <div id="content" class="content-container"></div>
+    </section>
+
+ <div id="footer-container"></div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/custom.js"></script>
+    <!-- jQuery laden -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loader = document.querySelector('.loader');
+
+        fetch('libraries.html?v=' + new Date().getTime())
+            .then(response => response.text())
+            .then(data => {
+                document.head.insertAdjacentHTML('beforeend', data);
+                return fetch('navbar.html?v=' + new Date().getTime());
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+                return fetch('footer.html?v=' + new Date().getTime()); // Load footer
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+                return fetch('configs/boxes.json'); // Load JSON data
+            })
+            .then(response => response.json())
+            .then(boxData => {
+                window.boxData = boxData; // Store JSON data globally
+                showContent('goldens'); // Display "goldens" content by default
+                loader.style.display = 'none'; // Hide loading screen
+            })
+            .catch(error => console.error('Fehler beim Laden:', error));
+    });
+
+    function showContent(region) {
+        const content = document.getElementById("content");
+        if (!window.boxData || !window.boxData[region]) {
+            content.innerHTML = "<div class='main-container'><h1 class='main-title'>Not Found</h1></div>";
+        } else {
+            content.innerHTML = generateBoxContent(window.boxData[region], region);
+        }
+        content.classList.add("active"); // Show content
+    }
+
+    function generateBoxContent(data, category) {
+        const isExcellent = category === 'goldens'; // Determine if "Excellent" should be used
+        return `
+            <div class="main-container">
+                <h1 class="main-title">${category.charAt(0).toUpperCase() + category.slice(1)} Boxes</h1>
+                ${data.map(item => `
+                    <div class="item-wrapper">
+                        <p style="line-height:140%; text-align:center;">
+                            <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block;">${item.name}</strong><br>
+                                <img src="${item.image}" alt="${item.name}" class="item-thumb" style="display: block; margin: 0 auto; width: 50px; height: 50px">
+                            </span>
+                        </p>
+                        <div class="popup-info" style="width: ${item.popupWidth}px; height: auto;">
+                            <div class="popup-header">${item.name}</div>
+                            <img src="${item.image}" alt="${item.name}" class="popup-im" style="display: block; margin: 0 auto; width: 80px; height: 80px">
+                            ${item.dropFrom ? `<div class="popup-name">Drop from:</div><div class="popup-loot">${item.dropFrom.join(', ')}</div>` : ''}
+                            ${item.description ? `<div class="popup-name">${item.description}</div>` : ''}
+                            ${item.dropInfo ? `<div class="popup-name">Drop Info:</div><div class="popup-loot">${item.dropInfo}</div>` : ''}
+                            ${(item.sets || item.excellentSets) ? `<div class="popup-name">${isExcellent ? 'Excellent Sets' : 'Sets'}</div><div class="popup-loot">${(item.sets || item.excellentSets).join(', ')}</div>` : ''}
+                            ${(item.weapons || item.excellentWeapons) ? `
+                                <div class="popup-name">${isExcellent ? 'Excellent Weapons' : 'Weapons'}</div>
+                                ${(item.weapons || item.excellentWeapons).reduce((acc, weapon, index) => {
+                                    const chunk = Math.floor(index / 4);
+                                    if (!acc[chunk]) acc[chunk] = [];
+                                    acc[chunk].push(weapon);
+                                    return acc;
+                                }, []).map(chunk => `<div class="popup-loot">${chunk.join(', ')}</div>`).join('')}
+                            ` : ''}
+                            ${(item.shields || item.excellentShields) ? `<div class="popup-name">${isExcellent ? 'Excellent Shields' : 'Shields'}</div><div class="popup-loot">${(item.shields || item.excellentShields).join(', ')}</div>` : ''}
+                            ${item.excellentRings ? `<div class="popup-name">Excellent Rings</div><div class="popup-loot">${item.excellentRings.join(', ')}</div>` : ''}
+                            ${item.excellentPendents ? `<div class="popup-name">Excellent Pendants</div><div class="popup-loot">${item.excellentPendents.join(', ')}</div>` : ''}
+                            ${item.brokenJewels ? `<div class="popup-name">Broken Jewels</div><div class="popup-loot">${item.brokenJewels.join(', ')}</div>` : ''}
+                            ${item.items ? item.items.map(i => `<div class="popup-loot">${i}</div>`).join('') : ''}
+
+                            ${item.description1 ? `<div class="popup-name">${item.description1}</div>` : ''}
+                            ${item.items1 ? item.items1.map(i => `<div class="popup-loot">${i}</div>`).join('') : ''}
+
+                            ${item.description2 ? `<div class="popup-name">${item.description2}</div>` : ''}
+                            ${item.items2 ? item.items2.map(i => `<div class="popup-loot">${i}</div>`).join('') : ''}
+
+                             ${item.description3 ? `<div class="popup-name">${item.description3}</div>` : ''}
+                            ${item.items3 ? item.items3.map(i => `<div class="popup-loot">${i}</div>`).join('') : ''}
+
+
+                            ${item.additionalDrop ? `<div class="popup-name">${item.additionalDrop}</div>` : ''}
+                             ${item.additionalInfo ? `<div class="popup-loot">${item.additionalInfo}</div>` : ''}
+                        </div>
+                    </div>
+                `).join('')}
+                <br><br>
+            </div>
+        `;
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const tabToOpen = params.get('tab');
+    const popupToOpen = params.get('popup');
+  
+    if (tabToOpen) {
+      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
+    }
+  
+    if (popupToOpen) {
+      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
+    }
+  </script>
+
+</body>
+</html>

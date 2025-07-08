@@ -1,0 +1,153 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        //Disable cut copy paste
+        $('body').bind('cut copy paste', function (e) {
+            e.preventDefault();
+        });
+
+        //Disable mouse right click
+        $("body").on("contextmenu", function (e) {
+            return false;
+        });
+    });
+</script>
+<!DOCTYPE html>
+
+<body oncopy="return false" oncut="return false" onpaste="return false">
+    <html lang="en">
+
+    <head>
+
+        <title>Guides MU-HARDCORE</title>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+    <style>
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+    </style>
+
+    </head>
+
+    <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+         <div class="loader">Loading...</div>
+
+            <div id="navbar-container"></div>
+
+        <section class="about section" id="about">
+          
+            <h1 style="text-align:center;">🔓Fruits system</h1>
+            <div class="main-container">
+            
+<p style=" color: #f1c40f;"><strong style="color:#4cffd5;">Create Fruits: Add or Subtract Points with Chaos Machine</strong></p>
+                            
+                            <p style=" color: #f1c40f;" >Fruits can be created in the Chaos Machine using <code>creation</code> and <code>chaos</code> items. The success rate for crafting fruits is 90%, making it a reliable method for enhancing or adjusting your character’s stats.</p>
+                            
+                     
+                            <p style=" color: #f1c40f;">
+                                <strong style="color:#4cffd5;">Add Fruits:</strong> Add fruits can increase your points by a value between <code>1</code> and <code>3</code> points.<br>
+                                <strong style="color:#4cffd5;">Subtract Fruits:</strong> Subtract fruits can decrease your points by a value between <code>1</code> and <code>9</code> points.
+                            </p>
+                            
+                            <p style=" color: #f1c40f;"><strong style="color:#4cffd5;">How to Create Fruits:</strong></p> 
+                            <p style=" color: #f1c40f;">To create a fruit, place the required <code>creation</code> and <code>chaos</code> items into the Chaos Machine and start the process. With a 90% success rate, you have a high chance of successfully crafting a fruit that can either add or subtract points based on your choice.</p> 
+                            
+                            <p style=" color: #f1c40f;"><strong style="color: red;">Note:</strong> Once you have used the maximum number of fruits at level 400, you will receive a bonus of +1500 stats. </p> 
+                            
+
+                
+
+     
+           
+           
+                  
+
+            </div>
+        
+          
+                   
+                
+         </section>
+       <div id="footer-container"></div>
+
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/aos.js"></script>
+        <script src="js/smoothscroll.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- jQuery laden -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+<!-- Schutz-Skript -->
+<script src="js/protection.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loader = document.querySelector('.loader');
+        fetch('libraries.html?v=' + new Date().getTime())
+            .then(response => response.text())
+            .then(data => {
+                document.head.insertAdjacentHTML('beforeend', data);
+                return fetch('navbar.html?v=' + new Date().getTime());
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+                return fetch('footer.html?v=' + new Date().getTime()); // Load footer
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+                loader.style.display = 'none'; // Hide loading screen
+            })
+            .catch(error => console.error('Fehler beim Laden:', error));
+    });
+</script>
+
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const tabToOpen = params.get('tab');
+    const popupToOpen = params.get('popup');
+  
+    if (tabToOpen) {
+      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
+    }
+  
+    if (popupToOpen) {
+      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+
+     
+    </body>
+
+    </html>

@@ -1,0 +1,2241 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        //Disable cut copy paste
+        $('body').bind('cut copy paste', function (e) {
+            e.preventDefault();
+        });
+
+        //Disable mouse right click
+        $("body").on("contextmenu", function (e) {
+            return false;
+        });
+    });
+</script>
+<!DOCTYPE html>
+
+<body oncopy="return false" oncut="return false" onpaste="return false">
+<html lang="en">
+
+<head>
+
+    <title>Guides MU-HARDCORE</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+   <style>
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .section-container {
+            background-color: #1f0000;
+            padding: 20px;
+            width: 90%;
+            max-width: 450px; /* Halbe Breite, da zwei Container nebeneinander kommen */
+            box-sizing: border-box;
+            text-align: center;
+            margin: 50px 10px; /* Abstand zwischen Containern */
+            border-radius: 15px;
+            box-shadow: 0 0 100px #93330b7a;
+            border: 1px solid #93330b;
+            font-family: Arial, sans-serif;
+            display: inline-block; /* Nebeneinander anzeigen */
+            vertical-align: top; /* Oben ausrichten */
+        }
+
+        .video-wrapper {
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 20px; /* Abstand zwischen Video und Tabelle */
+        }
+
+        .video-title {
+            color: #fff;
+            text-align: center;
+            margin: 10px 0;
+            font-size: 1.5em;
+        }
+
+        .video-frame {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            background-color: black;
+            border: 8px solid #333;
+            border-radius: 8px;
+        }
+
+        .video-frame iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .modern-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .modern-table th {
+            padding: 14px;
+            background-color: #93330b;
+            color: #fff;
+            font-weight: bold;
+            border-bottom: 2px solid #7a2a09;
+            font-size: 1.4em; /* Größere Schrift für die Kopfzeile */
+        }
+
+        .modern-table td {
+            padding: 14px;
+            color: #ff6f00; /* Akzentuierte Farbe: leuchtendes Orange */
+            font-size: 1.3em; /* Größere Schriftgröße für die Zellen */
+            transition: background-color 0.3s;
+        }
+
+        .modern-table tr:nth-child(odd) td {
+            background-color: #f9f9f9;
+        }
+
+        .modern-table tr:nth-child(even) td {
+            background-color: #fff;
+        }
+
+        .modern-table tr:last-child td {
+            background-color: #e8f5e9;
+            color: #2a7a2a; /* Grün für "Success 70%" bleibt erhalten */
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .modern-table td:hover {
+            background-color: #e0e0e0 !important;
+        }
+
+        /* Flex-Container für Dark Phoenix Flame */
+        .flex-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            width: 100%;
+            flex-wrap: wrap; /* Responsiv für Mobilgeräte */
+        }
+
+        .flex-video-wrapper {
+            flex: 1;
+            min-width: 200px; /* Mindestbreite für Video */
+        }
+
+        .flex-table-wrapper {
+            flex: 1;
+            min-width: 200px; /* Mindestbreite für Tabelle */
+        }
+      
+    </style>
+
+
+
+</head>
+
+<body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+<div class="loader">Loading...</div>
+<div id="navbar-container"></div>
+
+
+<section class="about section" id="about">
+
+
+    
+
+        <h1 style="text-align: center;"> 🛡 Wings Chaos Mix </h1>
+        <br>
+
+        <!-- Alle Details-Buttons bleiben oben -->
+        <div class="summary-container">
+            <details class="details-box"  open onclick="showContent('info')">
+                <summary>Information</summary>
+            </details>
+        </div><br>
+        <div class="summary-container">
+            <details class="details-box"  open onclick="showContent('1')">
+                <summary>Wings 1</summary>
+            </details>
+            <details class="details-box"  open onclick="showContent('2')">
+                <summary>Wings 2</summary>
+            </details>
+
+            <details class="details-box" onclick="showContent('2.5')">
+                <summary>Wings 2.5</summary>
+            </details>
+
+            <details class="details-box" onclick="showContent('3')">
+                <summary>Wings 3</summary>
+            </details>
+
+            <details class="details-box" onclick="showContent('4')">
+                <summary>Wings 4</summary>
+            </details>
+            <details class="details-box" onclick="showContent('5')">
+                <summary>Wings 5</summary>
+            </details>
+
+        </div>
+        <div id="content" class="content-container">
+        </div>
+    </div>
+
+
+
+</section>
+
+   <div id="footer-container"></div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/aos.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/custom.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+         <!-- jQuery laden -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+<!-- Schutz-Skript -->
+<script src="js/protection.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loader = document.querySelector('.loader');
+
+        fetch('libraries.html?v=' + new Date().getTime())
+            .then(response => response.text())
+            .then(data => {
+                document.head.insertAdjacentHTML('beforeend', data);
+                return fetch('navbar.html?v=' + new Date().getTime());
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+                return fetch('footer.html?v=' + new Date().getTime());
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+                showContent('info');
+                loader.style.display = 'none'; // Ladebildschirm ausblenden
+            })
+            .catch(error => console.error('Fehler beim Laden:', error));
+    });
+</script>
+<script>
+    function showContent(region) {
+        const content = document.getElementById("content");
+
+        const data = {
+            // Information
+            "info": `
+                        
+                                    <div class="main-container">
+                            <h1 class="main-title">Information</h1>
+                            <br>
+                            <p style="color: #f1c40f;">We have developed an unique wing evolution system where each Act features its own specific wings. For example, <span class="highlight-text">ACT I</span> includes <span class="highlight-text">Level 1</span> and <span class="highlight-text">Level 2</span> wings, <span class="highlight-text">ACT II</span> brings <span class="highlight-text">Level 2.5</span> wings, <span class="highlight-text">ACT III</span> offers <span class="highlight-text">Level 3</span> wings, <span class="highlight-text">ACT IV</span> introduces <span class="highlight-text">Level 4</span> wings, and <span class="highlight-text">ACT V</span> features <span class="highlight-text">Level 5</span> wings. Each of these require ACT specific hunting items & crafts.</p>
+                            <p style="color: #f1c40f;">We have also allowed <span class="highlight-text">RF</span> & <span class="highlight-text">DL</span> to equip <span class="highlight-text">Level 1 DK wings</span>.</p>
+                            <p style="color: #f1c40f;">All the wing options have been re-designed in terms of damage and unique absorption to ensure better <span class="highlight-text">PvP</span> balance.</p>
+                            <p style="color: #f1c40f;">Additionally, starting from <span class="highlight-text">Level 2</span>, any wing can be crafted for its specific class using the <span class="highlight-text">Jewel of Daedalus</span>, tailored to the appropriate wing level.</p>
+                            <p style="color: #f1c40f;">Each wing is subject to the <span class="highlight-text">Item Bonus System</span>, increasing character stats with the wing level upgrade.</p>
+                           
+                            <br>
+                        </div>
+                    
+                    `
+            ,
+            // Wings lvl 1
+            "1": `
+                   <div class="main-container">
+                          <h1 class="main-title">Wings lvl 1</h1>
+
+                          <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings1dw.png"
+                                     alt="Wings DW 1"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Wings of DW LVL 1</div>
+                              <img src="images/wings/wings1dw.png"
+                              alt="Wings DW 1"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+11%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+10%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">180</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">DW,MG</div><br>
+                            </div>
+                          </div>
+
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings1elf.png"
+                                     alt="Wings DW 1"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Wings of ELF LVL 1</div>
+                              <img src="images/wings/wings1elf.png"
+                              alt="Wings DW 1"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+11%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+10%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">180</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">ELF</div><br>
+                            </div>
+                          </div>
+
+                          <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings1dk.png"
+                                     alt="Wings DK 1"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Wings of DK LVL 1</div>
+                              <img src="images/wings/wings1dk.png"
+                              alt="Wings DK 1"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+11%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+10%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">180</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">DK,MG,RF,DL</div><br>
+                            </div>
+                          </div>
+
+                          <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings1sum.png"
+                                     alt="Wings SUM 1"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Wings of SUM LVL 1</div>
+                              <img src="images/wings/wings1sum.png"
+                              alt="Wings SUM 1"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+11%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+10%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">180</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">SUM</div><br>
+                            </div>
+                          </div>
+
+
+                          <div style="padding: 20px;  color: #000000; font-family: Arial, sans-serif;">
+                            
+                            <p style="color: #f1c40f;">In MU Online, Wings and Cloaks boost your damage, defense, and speed, helping you
+                                navigate the game world faster.
+                                To craft them, you’ll need to use the <strong>Chaos Goblin Machine</strong> in Lorencia and Noria.</p>
+
+                            <div style="display: flex; justify-content: space-between;">
+                                <!-- Left Section: Image of Chaos Goblin Machine -->
+
+
+                                <!-- Right Section: Instructions for Creating Wings -->
+                                <div style="flex: 2;">
+                                    <h1 class="main-title">How to Create Wings</h1>
+                                    <p style="color: #f1c40f;">To create your first Wings, go to the <strong>Chaos Goblin Machine</strong> and
+                                        select
+                                        <strong>Regular Combination</strong>. You’ll need the following items:
+                                    </p>
+                                    <ul style="color: #f1c40f;">
+                                        <li>Chaos Weapon +4/+4 (Min. Level +4)</li>
+                                        <li>1 Jewel of Chaos</li>
+                                        <li>Zen (Up to 1,000,000, depending on success rate)</li>
+                                    </ul>
+                                    <p style="color: #f1c40f;"><strong>Success Result:</strong> Random Wings with random options.</p>
+                                    <p style="color: #f1c40f;"><strong>Tips to Increase Success Rate:</strong></p>
+                                    <ul style="color: #f1c40f;">
+                                        <li>Adding a Bless increases success by 5%.</li>
+                                        <li>Adding a Soul increases success by 3%.</li>
+                                        <li>Lower Magic Stones increase success by 5%.</li>
+                                        <li>Max success rate is 100%.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+
+
+
+
+                        <div
+                            style="padding: 20px; color: #000000; font-family: Arial, sans-serif;">
+                            <!-- Chaos Weapon Creation Instructions -->
+                            <h1 class="main-title">How to Get a Chaos Weapon?</h1>
+                            <p style="color: #f1c40f;">To get a Chaos weapon, you must go to the <strong>Chaos Goblin Machine</strong> and
+                                select the
+                                <strong>"Chaos Weapon Combination"</strong> option and enter the following items:
+                            </p>
+                            <ul style="color: #f1c40f;">
+                                <li>Any Item +4 +4 (Minimum Level +4 & Additional +4)</li>
+                                <li>1 Jewel of Chaos</li>
+                                <li>Zen (depends on chance of success) – Max 1,000,000</li>
+                            </ul>
+                            <p style="color: #f1c40f;"><strong>Successful Result:</strong> A random chaos weapon with random level and random
+                                options.</p>
+                            <p style="color: #f1c40f;"><strong>Failed Result:</strong> The Jewel of Chaos disappears but the Chaos Weapon is not
+                                destroyed, it can level
+                                down.</p>
+
+                            <!-- Success Rate Modifiers -->
+                            <ul style="color: #f1c40f;">
+                                <li>The success rate will vary depending on the level and additional of the item.</li>
+                                <li>The maximum success rate is 100%.</li>
+                                <li>Adding a Bless into the combination will increase the success rate by 5%.</li>
+                                <li>Adding a Soul into the combination will increase the success rate by 3%.</li>
+                            </ul>
+
+                            <!-- Types of Chaos Weapons -->
+                            <h1 class="main-title">How Many Types of Chaos Weapons Are There?</h1>
+                            <p style="color: #f1c40f;">There are 3 types of chaos weapons:</p>
+
+                            <div style="display: flex; justify-content: space-around;">
+                                <!-- Chaos Dragon Axe -->
+                                <div style="text-align: center;">
+                                    <img src="images/wings/axe.png" alt="Chaos Dragon Axe" style="width: 150px;">
+
+                                </div>
+
+                                <!-- Chaos Nature Bow -->
+                                <div style="text-align: center;">
+                                    <img src="images/wings/bow.png" alt="Chaos Nature Bow" style="width: 180px;">
+
+                                </div>
+
+                                <!-- Chaos Lightning Staff -->
+                                <div style="text-align: center;">
+                                    <img src="images/wings/staff.png" alt="Chaos Lightning Staff" style="width: 200px;">
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <br>
+                        <br>
+                    </div>
+                    `
+            ,
+            // Wings lvl 2
+            "2": `
+                    <div class="main-container">
+                        <h1 class="main-title">Wings & Cloaks lvl 2</h1>
+
+                          <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings2dw.png"
+                                     alt="Wings DW 2"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Wings of DW LVL 2</div>
+                              <img src="images/wings/wings2dw.png"
+                              alt="Wings DW 2"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+22%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+20%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">215</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">SM</div><br>
+                            </div>
+                          </div>
+                           <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings2elf.png"
+                                     alt="Wings ELF 2"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Wings of ELF LVL 2</div>
+                              <img src="images/wings/wings2elf.png"
+                              alt="Wings ELF 2"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+22%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+20%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">320</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">ME</div><br>
+                            </div>
+                          </div>
+
+                          <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings2dk.png"
+                                     alt="Wings DK 2"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Wings of DK LVL 2</div>
+                              <img src="images/wings/wings2dk.png"
+                              alt="Wings DK 2"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+22%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+20%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">215</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">SM</div><br>
+                            </div>
+                          </div>
+                          <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings2sum.png"
+                                     alt="Wings SUM 2"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Wings of SUM LVL 2</div>
+                              <img src="images/wings/wings2sum.png"
+                              alt="Wings SUM 2"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+22%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+20%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">215</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">SUM</div><br>
+                            </div>
+                          </div>
+                          <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings2mg.png"
+                                     alt="Wings MG 2"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Wings of MG LVL 2</div>
+                              <img src="images/wings/wings2mg.png"
+                              alt="Wings MG 2"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+22%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+20%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">215</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">MG</div><br>
+                            </div>
+                          </div>
+                          <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/cape2rf.png"
+                                     alt="Cape of RF LVL 2"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Cape of RF LVL 2</div>
+                              <img src="images/wings/cape2rf.png"
+                              alt="Cape of RF LVL 2"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+21%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+12%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">180</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">RF</div><br>
+                            </div>
+                          </div>
+                          <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/cape2dl.png"
+                                     alt="Cape of DL LVL 2"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Cape of DL LVL 2</div>
+                              <img src="images/wings/cape2dl.png"
+                              alt="Cape of DL LVL 2"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+21%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+12%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">180</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">DL</div><br>
+                            </div>
+                          </div>
+                          <div style="padding: 20px; color: #000000; font-family: Arial, sans-serif; text-align: center;">
+                       <p style="color: #f1c40f;">In this level, we will need different materials to make wings and cloaks. For the wings, we will need the <strong>Loch's Feather</strong>, and for the cloaks, the <strong>Crest of Monarch</strong>.</p>
+                   
+                       <div style="display: flex; justify-content: center; gap: 40px; margin-top: 20px;">
+                           <!-- Loch's Feather Section -->
+                           <div style="text-align: center;">
+                               <div style="font-weight: bold; margin-bottom: 5px;color: #49e410;">Loch's Feather</div>
+                               <img src="images/wings/featherr.gif" alt="Loch's Feather" style="width: 50px; vertical-align: middle;">
+                           </div>
+                   
+                           <!-- Crest of Monarch Section -->
+                           <div style="text-align: center;">
+                               <div style="font-weight: bold; margin-bottom: 5px;color: #49e410;">Crest of Monarch</div>
+                               <img src="images/wings/crestt.gif" alt="Crest of Monarch" style="width: 50px; vertical-align: middle;">
+                              </div>
+                           </div>
+                         </div>
+                   
+                   
+                 <div style="max-width: 800px; margin: 20px auto; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                       <div style="padding: 20px; color: #000000; font-family: Arial, sans-serif;">
+                           <h1 class="main-title" >Mix for WINGS or CAPE!</h1>
+                           
+                           <div style="max-width: 900px; margin: 20px auto; padding: 20px;  border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); font-family: Arial, sans-serif;">
+                       <div style="display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+                           <div style="flex: 1; text-align: center; min-width: 250px;">
+                               <h3 style="color: #49e410; font-weight: bold; margin-bottom: 15px; text-transform: uppercase;">Random</h3>
+                               <table style="width: 100%; border-collapse: collapse; margin: 0 auto; background-color: #f0f0f0; border: 1px solid #ccc;color: #f1c40f;">
+                                   <tr>
+                                       <th style="border: 1px solid #ccc; padding: 12px; background-color: #e0e0e0; color: #333;">Item</th>
+                                   </tr>
+                                   <tr>
+                                       <td style="border: 1px solid #ccc; padding: 12px;">1st Wings/cloaks +7 +12</td>
+                                   </tr>
+                                   <tr>
+                                       <td style="border: 1px solid #ccc; padding: 12px;">1 Jewel of Chaos</td>
+                                   </tr>
+                                   <tr>
+                                       <td style="border: 1px solid #ccc; padding: 12px;">1 Loch's Feather/Crest of Monarch</td>
+                                   </tr>
+                                   <tr>
+                                       <td style="border: 1px solid #ccc; padding: 12px;">1 Excellent Item +4 +4</td>
+                                   </tr>
+                                   <tr>
+                                       <td style="border: 1px solid #ccc; padding: 12px;">Zen – 25,000,000</td>
+                                   </tr>
+                                   <tr>
+                                       <td style="border: 1px solid #ccc; padding: 12px; color: #2a7a2a;">70% Success</td>
+                                   </tr>
+                               </table>
+                           </div>
+                           <div style="flex: 1; text-align: center; min-width: 250px;">
+                               <h3 style="color: #49e410; font-weight: bold; margin-bottom: 15px; text-transform: uppercase;">For Class</h3>
+                               <table style="width: 100%; border-collapse: collapse; margin: 0 auto; background-color: #f0f0f0; border: 1px solid #ccc;color: #f1c40f;">
+                                   <tr>
+                                       <th style="border: 1px solid #ccc; padding: 12px; background-color: #e0e0e0; color: #333;">Item</th>
+                                   </tr>
+                                   <tr>
+                                       <td style="border: 1px solid #ccc; padding: 12px;">1st Wings/cloaks +7 +12</td>
+                                   </tr>
+                                   <tr>
+                                       <td style="border: 1px solid #ccc; padding: 12px;">1 Jewel of Chaos</td>
+                                   </tr>
+                                   <tr>
+                                       <td style="border: 1px solid #ccc; padding: 12px;">1 Loch's Feather/Crest of Monarch</td>
+                                   </tr>
+                                   <tr>
+                                       <td style="border: 1px solid #ccc; padding: 12px;">Jewel of Daedalus ACTI</td>
+                                   </tr>
+                                   <tr>
+                                       <td style="border: 1px solid #ccc; padding: 12px;">1 Excellent Item +4 +4</td>
+                                   </tr>
+                                   <tr>
+                                       <td style="border: 1px solid #ccc; padding: 12px;">Zen – 25,000,000</td>
+                                   </tr>
+                                   <tr>
+                                       <td style="border: 1px solid #ccc; padding: 12px; color: #2a7a2a;">70% Success</td>
+                                   </tr>
+                               </table>
+                                 </div>
+                             </div>
+                         </div>
+                             </div>
+                         </div>
+                     
+                     
+                     <br>
+                 </div>
+                    `
+            ,
+            // Wings lvl 2.5
+            "2.5": `
+                    <div class="main-container">
+                      <h1 class="main-title">Wings & Cloaks lvl 2.5</h1>
+
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings2.5dw.png"
+                                     alt="Wings DW 2.5"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Wings of DW LVL 2.5</div>
+                              <img src="images/wings/wings2.5dw.png"
+                              alt="Wings DW 2.5"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+30%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+27%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">250</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">SM</div><br>
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings2.5elf.png"
+                                     alt="Wings ELF 2.5"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Wings of ELF LVL 2.5</div>
+                              <img src="images/wings/wings2.5elf.png"
+                              alt="Wings ELF 2.5"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+30%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+27%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">250</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">ME</div><br>
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings2.5dk.png"
+                                     alt="Wings DK 2.5"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Wings of DK LVL 2.5</div>
+                              <img src="images/wings/wings2.5dk.png"
+                              alt="Wings DK 2.5"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+30%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+27%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">250</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">BK</div><br>
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings2.5sum.png"
+                                     alt="Wings SUM 2.5"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Wings of SUM LVL 2.5</div>
+                              <img src="images/wings/wings2.5sum.png"
+                              alt="Wings SUM 2.5"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+30%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+27%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">250</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">bSUM</div><br>
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings2.5mg.png"
+                                     alt="Wings MG 2.5"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Wings of MG LVL 2.5</div>
+                              <img src="images/wings/wings2.5mg.png"
+                              alt="Wings MG 2.5"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+30%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+27%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">250</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">MG</div><br>
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/cape2.5rf.png"
+                                     alt="Cape of RF LVL 2.5"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Cape of RF LVL 2.5</div>
+                              <img src="images/wings/cape2.5rf.png"
+                              alt="Cape of RF LVL 2.5"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+29%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+17%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">250</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">RF</div><br>
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/cape2.5dl.png"
+                                     alt="Cape of DL LVL 2.5"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Cape of DL LVL 2.5</div>
+                              <img src="images/wings/cape2.5dl.png"
+                              alt="Cape of DL LVL 2.5"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+29%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+17%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">250</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">DL</div><br>
+                            </div>
+                        </div>
+
+
+
+
+                         <div style="padding: 20px; color: #000000; font-family: Arial, sans-serif; text-align: center;">
+                            <p style="color: #f1c40f;">In this level, we will need different materials to make wings and cloaks.We will need the <strong>Dark Phoenix Flame</strong> and  <strong>Deadfear Soul</strong>.</p>
+          
+                            <div style="display: flex; justify-content: center; gap: 40px; margin-top: 20px;">
+                                <div style="text-align: center;">
+                                    <div style="font-weight: bold; margin-bottom: 5px;color: #49e410;">Dark Phoenix Flame</div>
+                                    <img src="images/jewels/darkphoenixflame.png" alt="Dark Phoenix Flame" style="width: 150px; vertical-align: middle;">
+                                </div>
+                                <div style="text-align: center;">
+                                    <div style="font-weight: bold; margin-bottom: 5px;color: #49e410;">Deadfear Soul</div>
+                                    <img src="images/jewels/dreadfearsoul.png" alt="Deadfear Soul" style="width: 150px; vertical-align: middle;">
+                                   </div>
+                                </div>
+                            </div>
+
+                            <h1 class="main-title" >How to create Dark Phoenix Flame?</h1>
+                            <div  style="width: 100%;">
+                                  <div class="flex-container">
+                                      <div class="flex-video-wrapper">
+                                          <div class="video-wrapper">
+                                              <h2 class="video-title" style="color: #49e410;">Dark Phoenix Flame</h2>
+                                              <div class="video-frame">
+                                                  <iframe src="https://www.youtube.com/embed/yWrvAIRwJEI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="flex-table-wrapper">
+                                          <table class="modern-table">
+                                              <tr>
+                                                  <th>Item</th>
+                                              </tr>
+                                              <tr>
+                                                  <td>WINGS LVL2 + 9 + add4 min</td>
+                                              </tr>
+                                              <tr>
+                                                  <td>Bundle Chaos +0 (10)</td>
+                                              </tr>
+                                              <tr>
+                                                  <td>Bundle Creation +0 (10)</td>
+                                              </tr>
+                                              <tr>
+                                                  <td>Ancient Item + 7 +add4 min</td>
+                                              </tr>
+                                              <tr>
+                                                  <td>Zen 25.000.000</td>
+                                              </tr>
+                                              <tr>
+                                                  <td>Success 75%</td>
+                                              </tr>
+                                          </table>
+                                      </div>
+                                  </div>
+                            </div>
+                            <h1 class="main-title" >Mix for WINGS or CAPE!</h1>
+                            <div class="section-container">
+                              <div class="video-wrapper">
+                                  <h2 class="video-title" style="color: #49e410;">RANDOM</h2>
+                                  <div class="video-frame">
+                                      <iframe src="https://www.youtube.com/embed/2Maib-YTD_Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                  </div>
+                              </div>
+                              <table class="modern-table">
+                                  <tr>
+                                      <th>Items</th>
+                                  </tr>
+                                  <tr>
+                                      <td>Dark Phoenix Flame x1</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Deadfear Soul x1</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Excellent Item +9+add4 min</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Zen 75.000.000</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Success 70%</td>
+                                  </tr>
+                              </table>
+                            </div>
+                            <div class="section-container">
+                              <div class="video-wrapper">
+                                  <h2 class="video-title" style="color: #49e410;">FOR CLASS</h2>
+                                  <div class="video-frame">
+                                      <iframe src="https://www.youtube.com/embed/c0JpKDcBHeo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                  </div>
+                              </div>
+                              <table class="modern-table">
+                                  <tr>
+                                      <th>Items</th>
+                                  </tr>
+                                  <tr>
+                                      <td>Dark Phoenix Flame x1</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Deadfear Soul x1</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Jewel of Daedalus ACT II</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Excellent Item +9+add4 min</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Zen 75.000.000</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Success 70%</td>
+                                  </tr>
+                              </table>
+                            </div>
+                        <br>
+                        <br>
+                    </div>
+                    `
+            ,
+            // Wings lvl 3
+            "3": `
+                    <div class="main-container">
+
+                     <h1 class="main-title">Wings & Cloaks lvl 3</h1>
+
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings3dw.png"
+                                     alt="Wings DW 3"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Wings of DW LVL 3</div>
+                              <img src="images/wings/wings3dw.png"
+                              alt="Wings DW 3"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+38%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+34%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">300</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">SM</div><br>
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings3elf.png"
+                                     alt="Wings ELF 3"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Wings of ELF LVL 3</div>
+                              <img src="images/wings/wings3elf.png"
+                              alt="Wings ELF 3"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+38%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+34%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">300</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">ME</div><br>
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings3dk.png"
+                                     alt="Wings DK 3"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Wings of DK LVL 3</div>
+                              <img src="images/wings/wings3dk.png"
+                              alt="Wings DK 3"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+38%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+34%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">300</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">BK</div><br>
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings3sum.png"
+                                     alt="Wings SUM 3"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Wings of SUM LVL 3</div>
+                              <img src="images/wings/wings3sum.png"
+                              alt="Wings SUM 3"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+38%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+34%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">300</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">BSUM</div><br>
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings3mg.png"
+                                     alt="Wings MG 3"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Wings of MG LVL 3</div>
+                              <img src="images/wings/wings3mg.png"
+                              alt="Wings MG 3"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+38%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+34%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">300</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">MG</div><br>
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/cape3rf.png"
+                                     alt="Cape of RF LVL 3"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Cape of RF LVL 3</div>
+                              <img src="images/wings/cape3rf.png"
+                              alt="Cape of RF LVL 2.5"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+38%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+21%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">300</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">RF</div><br>
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/cape3dl.png"
+                                     alt="Cape of DL LVL 3"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Cape of DL LVL 3</div>
+                              <img src="images/wings/cape3dl.png"
+                              alt="Cape of DL LVL 3"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+38%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+21%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">300</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">DL</div><br>
+                            </div>
+                        </div>
+
+                         <div style="padding: 20px; color: #000000; font-family: Arial, sans-serif; text-align: center;">
+                       <p style="color: #f1c40f;">In this level, we will need different materials to make wings and cloaks.We will need the <strong>Condor Flame</strong> and  <strong>Condor Feather</strong>.</p>
+                   
+                            <div style="display: flex; justify-content: center; gap: 40px; margin-top: 20px;">
+                              <div style="text-align: center;">
+                                  <div style="font-weight: bold; margin-bottom: 5px;color: #49e410;">Condor Flame</div>
+                                  <img src="images/jewels/condorflame.png" alt="Condor Flame" style="width: 150px; vertical-align: middle;">
+                              </div>
+                              <div style="text-align: center;">
+                                  <div style="font-weight: bold; margin-bottom: 5px;color: #49e410;">Condor Feather</div>
+                                  <img src="images/jewels/condorfeather.png" alt="Condor Feather" style="width: 150px; vertical-align: middle;">
+                                 </div>
+                              </div>
+                            </div>
+
+
+                            <h1 class="main-title" >How to create Condor Feather?</h1>
+                            <div  style="width: 100%;">
+                                  <div class="flex-container">
+                                      <div class="flex-video-wrapper">
+                                          <div class="video-wrapper">
+                                              <h2 class="video-title" style="color: #49e410;">Feather of Condor</h2>
+                                              <div class="video-frame">
+                                                  <iframe src="https://www.youtube.com/embed/JZfdLGOTpVU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="flex-table-wrapper">
+                                          <table class="modern-table">
+                                              <tr>
+                                                  <th>Item</th>
+                                              </tr>
+                                              <tr>
+                                                  <td>WINGS LVL2 + 9 + add4 min</td>
+                                              </tr>
+                                              <tr>
+                                                  <td>Ancient Item + 7 +add4 min</td>
+                                              </tr>
+                                              <tr>
+                                                  <td>Bundle Soul (10)</td>
+                                              </tr>
+                                              <tr>
+                                                  <td>Jewel of Creation</td>
+                                              </tr>
+                                              <tr>
+                                                  <td>Jewel of Chaos</td>
+                                              </tr>
+                                              
+                                              <tr>
+                                                  <td>Zen 12.000.000</td>
+                                              </tr>
+                                              <tr>
+                                                  <td>Success max-60%</td>
+                                              </tr>
+                                          </table>
+                                      </div>
+                                  </div>
+                            </div>
+                            <h1 class="main-title" >Mix for WINGS or CAPE!</h1>
+                            <div class="section-container">
+                              <div class="video-wrapper">
+                                  <h2 class="video-title" style="color: #49e410;">RANDOM</h2>
+                                  <div class="video-frame">
+                                      <iframe src="https://www.youtube.com/embed/m3QcV1ewa54" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                  </div>
+                              </div>
+                              <table class="modern-table">
+                                  <tr>
+                                      <th>Items</th>
+                                  </tr>
+                                  <tr>
+                                      <td>Condor Feather</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Condor Flame</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Excellent Item +11 +12add min</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Bundle of Chaos (20)</td>
+                                  </tr>
+                                   <tr>
+                                      <td>Bundle of Bless (20)</td>
+                                  </tr>
+                                   <tr>
+                                      <td>Bundle of Soul (20)</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Bundle of Creation (20)</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Zen 125.000.000</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Success 50%</td>
+                                  </tr>
+                              </table>
+                            </div>
+                            <div class="section-container">
+                              <div class="video-wrapper">
+                                  <h2 class="video-title" style="color: #49e410;">FOR CLASS</h2>
+                                  <div class="video-frame">
+                                      <iframe src="https://www.youtube.com/embed/Xdo7GAzgWxk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                  </div>
+                              </div>
+                             <table class="modern-table">
+                                  <tr>
+                                      <th>Items</th>
+                                  </tr>
+                                  <tr>
+                                      <td>Condor Feather</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Condor Flame</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Excellent Item +11 +12add min</td>
+                                  </tr>
+                                   <tr>
+                                      <td>Jewel of Daedalus ACT III</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Bundle of Chaos (20)</td>
+                                  </tr>
+                                   <tr>
+                                      <td>Bundle of Bless (20)</td>
+                                  </tr>
+                                   <tr>
+                                      <td>Bundle of Soul (20)</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Bundle of Creation (20)</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Zen 125.000.000</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Success 50%</td>
+                                  </tr>
+                              </table>
+                            </div>
+
+
+
+                        <br>
+                        <br>
+                    </div>
+                    `
+            ,
+            // Wings lvl 4
+            "4": `
+                    <div class="main-container">
+
+                          <h1 class="main-title">Wings & Cloaks lvl 4</h1>
+
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings4dw.png"
+                                     alt="Wings DW 4"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Wings of DW LVL 4</div>
+                              <img src="images/wings/wings4dw.png"
+                              alt="Wings DW 4"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+39%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+34%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">320</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">SM</div><br>
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings4elf.png"
+                                     alt="Wings ELF 4"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Wings of ELF LVL 4</div>
+                              <img src="images/wings/wings4elf.png"
+                              alt="Wings ELF 4"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+39%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+34%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">320</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">ELF</div><br>
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings4dk.png"
+                                     alt="Wings DK 4"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Wings of DK LVL 4</div>
+                              <img src="images/wings/wings4dk.png"
+                              alt="Wings DK 4"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+39%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+34%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">320</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">DK</div><br>
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings4sum.png"
+                                     alt="Wings SUM 4"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Wings of SUM LVL 4</div>
+                              <img src="images/wings/wings4sum.png"
+                              alt="Wings SUM 4"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+39%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+34%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">320</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">DSUM</div><br>
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings4mg.png"
+                                     alt="Wings MG 4"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Wings of MG LVL 4</div>
+                              <img src="images/wings/wings4mg.png"
+                              alt="Wings MG 4"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+39%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+34%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">320</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">MG</div><br>
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings4rf.png"
+                                     alt="Cape of RF LVL 4"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Cape of RF LVL 4</div>
+                              <img src="images/wings/wings4rf.png"
+                              alt="Cape of RF LVL 4"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+38%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+21%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">320</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">RF</div><br>
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/cape4dl.png"
+                                     alt="Cape of DL LVL 4"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Cape of DL LVL 4</div>
+                              <img src="images/wings/cape4dl.png"
+                              alt="Cape of DL LVL 4"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+38%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+21%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">320</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">DL</div><br>
+                            </div>
+                        </div>
+
+
+                        <div style="padding: 20px; color: #000000; font-family: Arial, sans-serif; text-align: center;">
+                                       <p style="color: #f1c40f;">In this level, we will need different materials to make wings and cloaks.We will need the <strong>Phoenix Feather</strong> and  <strong>Phoenix Flame</strong>.</p>
+                                   
+                                       <div style="display: flex; justify-content: center; gap: 40px; margin-top: 20px;">
+                                   
+                                           <div style="text-align: center;">
+                                               <div style="font-weight: bold; margin-bottom: 5px;color: #49e410;">Phoenix Flame</div>
+                                               <img src="images/custom/Phoenix Flame (4 Level Wing).png" alt="Phoenix Flame" style="width: 150px; vertical-align: middle;">
+                                           </div>
+                                   
+                                           <div style="text-align: center;">
+                                               <div style="font-weight: bold; margin-bottom: 5px;color: #49e410;">Phoenix Feather</div>
+                                               <img src="images/custom/Phoenix of Feather (4 Level Wing).png" alt="Phoenix Feather" style="width: 150px; vertical-align: middle;">
+                                              </div>
+                                       </div>
+                        </div><br>
+                        <h1 class="main-title" >How to create Phoenix Feather?</h1>
+                        <div  style="width: 100%;">
+                              <div class="flex-container">
+                                  <div class="flex-video-wrapper">
+                                      <div class="video-wrapper">
+                                          <h2 class="video-title" style="color: #49e410;">Phoenix Feather</h2>
+                                          <div class="video-frame">
+                                              <iframe src="https://www.youtube.com/embed/DB6R498TaMM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="flex-table-wrapper">
+                                      <table class="modern-table">
+                                          <tr>
+                                              <th>Item</th>
+                                          </tr>
+                                          <tr>
+                                              <td>Excellent Item  +15 +28</td>
+                                          </tr>
+                                          <tr>
+                                              <td>Ancient Item + 7 +add4 min</td>
+                                          </tr>
+                                          <tr>
+                                              <td>Bundle of Chaos (30)</td>
+                                          </tr>
+                                            <tr>
+                                              <td>Bundle of Bless (30)</td>
+                                          </tr>
+                                          <tr>
+                                              <td>Bundle of Soul (30)</td>
+                                          </tr>
+                                           <tr>
+                                              <td>Bundle of Creation (30)</td>
+                                          </tr>
+                                        
+                                          
+                                          <tr>
+                                              <td>Zen 100.000.000</td>
+                                          </tr>
+                                          <tr>
+                                              <td>Success 90%</td>
+                                          </tr>
+                                      </table>
+                                  </div>
+                              </div>
+                        </div>
+                        <h1 class="main-title" >Mix for WINGS or CAPE!</h1>
+                        <div class="section-container">
+                          <div class="video-wrapper">
+                              <h2 class="video-title" style="color: #49e410;">RANDOM</h2>
+                              <div class="video-frame">
+                                  <iframe src="https://www.youtube.com/embed/LovDs6mqKUQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                              </div>
+                          </div>
+                          <table class="modern-table">
+                              <tr>
+                                  <th>Items</th>
+                              </tr>
+                              <tr>
+                                  <td>Phoenix Feather</td>
+                              </tr>
+                              <tr>
+                                  <td>Phoenix Flame</td>
+                              </tr>
+                              <tr>
+                                  <td>Wings lvl 3 +13 +12 add min</td>
+                              </tr>
+
+                              <tr>
+                                  <td>Excellent Item +11 +12add min</td>
+                              </tr>
+                              <tr>
+                                  <td>Bundle of Chaos (20)</td>
+                              </tr>
+                              <tr>
+                                  <td>Bundle of Creation (10)</td>
+                              </tr>
+                              <tr>
+                                  <td>Zen 1.000.000.000</td>
+                              </tr>
+                              <tr>
+                                  <td>Success 90%</td>
+                              </tr>
+                          </table>
+                        </div>
+                        <div class="section-container">
+                          <div class="video-wrapper">
+                              <h2 class="video-title" style="color: #49e410;">FOR CLASS</h2>
+                              <div class="video-frame">
+                                  <iframe src="https://www.youtube.com/embed/xtrzTlU8UVI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                              </div>
+                          </div>
+                             <table class="modern-table">
+                              <tr>
+                                  <th>Items</th>
+                              </tr>
+                              <tr>
+                                  <td>Phoenix Feather</td>
+                              </tr>
+                              <tr>
+                                  <td>Phoenix Flame</td>
+                              </tr>
+                                                            <tr>
+                                  <td>Wings lvl 3 +13 +12 add min</td>
+                              </tr>
+                              <tr>
+                                  <td>Excellent Item +11 +12add min</td>
+                              </tr>
+                              <tr>
+                                  <td>Jewel of Daedalus ACT IV</td>
+                              </tr>
+                              <tr>
+                                  <td>Bundle of Chaos (20)</td>
+                              </tr>
+                              <tr>
+                                  <td>Bundle of Creation (10)</td>
+                              </tr>
+                              <tr>
+                                  <td>Zen 1.000.000.000</td>
+                              </tr>
+                              <tr>
+                                  <td>Success 90%</td>
+                              </tr>
+                            </table>
+                        </div>
+
+
+                        <br>
+                        <br>
+                    </div>
+                    `
+            ,
+            // Wings lvl 5
+            "5": `
+                    <div class="main-container">
+                        <h1 class="main-title">Wings & Cloaks lvl 5</h1>
+
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings5dw.png"
+                                     alt="Wings DW 5"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Wings of DW LVL 5</div>
+                              <img src="images/wings/wings5dw.png"
+                              alt="Wings DW 5"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                            <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+52%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+46%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">350</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">SM</div><br>
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings5elf.png"
+                                     alt="Wings ELF 5"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Wings of ELF LVL 5</div>
+                              <img src="images/wings/wings5elf.png"
+                              alt="Wings ELF 5"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+52%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+46%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">350</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">ELF</div><br>
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings5dk.png"
+                                     alt="Wings DK 5"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Wings of DK LVL 5</div>
+                              <img src="images/wings/wings5dk.png"
+                              alt="Wings DK 5"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+52%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+46%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">350</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">DK</div><br>
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings5sum.png"
+                                     alt="Wings SUM 5"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Wings of SUM LVL 5</div>
+                              <img src="images/wings/wings5sum.png"
+                              alt="Wings SUM 5"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+52%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+46%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">350</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">SUM</div><br>
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/wings5mg.png"
+                                     alt="Wings MG 5"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Wings of MG LVL 5</div>
+                              <img src="images/wings/wings5mg.png"
+                              alt="Wings MG 5"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+52%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+46%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">350</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">MG</div><br>
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/cape5rf.png"
+                                     alt="Cape of RF LVL 5"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Cape of RF LVL 5</div>
+                              <img src="images/wings/cape5rf.png"
+                              alt="Cape of RF LVL 5"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+51%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+32%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">350</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">RF</div><br>
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+
+                              <span style="color: rgb(255, 217, 0); line-height:19.6px;">
+                                <img src="images/wings/cape5dl.png"
+                                     alt="Cape of DL LVL 5"
+
+                                     class="item-thumb"
+                                     style="display: block; margin: 0 auto; width: 150px;height: 150;">
+                              </span>
+                            </p>
+
+                            <div class="popup-info" style="width: 300px;">
+                              <div class="popup-header">Cape of DL LVL 5</div>
+                              <img src="images/wings/cape5dl.png"
+                              alt="Cape of DL LVL 5"
+                              class="popup-im"
+                              style="display: block; margin: 0 auto; width: 120px;height: 120;">
+
+                               <div class="popup-name" style="display: inline; font-weight: bold;">Increase Damage:</div>
+                              <div class="popup-loot" style="display: inline;">+51%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Increase Absorb:</div>
+                              <div class="popup-loot" style="display: inline;">+32%</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Minimumlevel required:</div>
+                              <div class="popup-loot" style="display: inline;">350</div><br>
+                              <div class="popup-name" style="display: inline; font-weight: bold;">Can be equipped by:</div>
+                              <div class="popup-loot" style="display: inline;">DL</div><br>
+                            </div>
+                        </div>
+
+                         <div style="padding: 20px; color: #000000; font-family: Arial, sans-serif; text-align: center;">
+                           <p style="color: #f1c40f;">In this level, we will need different materials to make wings and cloaks.We will need the <strong>Garuda Feather</strong> and  <strong>Garuda Flame</strong>.</p>
+                        
+                           <div style="display: flex; justify-content: center; gap: 40px; margin-top: 20px;">
+                        
+                               <div style="text-align: center;">
+                                   <div style="font-weight: bold; margin-bottom: 5px;color: #49e410;">Garuda Flame</div>
+                                   <img src="images/custom/Garuda Flame (5 Level Wing).png" alt="Garuda Flame" style="width: 150px; vertical-align: middle;">
+                               </div>
+                        
+                               <div style="text-align: center;">
+                                   <div style="font-weight: bold; margin-bottom: 5px;color: #49e410;">Garuda Feather</div>
+                                   <img src="images/custom/Garuda Feather (5 Level Wing).png" alt="Garuda Feather" style="width: 150px; vertical-align: middle;">
+                                  </div>
+                               </div>
+                         </div>
+
+
+                        <h1 class="main-title" >How to create Garuda Feather?</h1>
+                        <div  style="width: 100%;">
+                              <div class="flex-container">
+                                  <div class="flex-video-wrapper">
+                                      <div class="video-wrapper">
+                                          <h2 class="video-title" style="color: #49e410;">Garuda Feather</h2>
+                                          <div class="video-frame">
+                                              <iframe src="https://www.youtube.com/embed/IzpA7Ox_0s4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="flex-table-wrapper">
+                                      <table class="modern-table">
+                                          <tr>
+                                              <th>Item</th>
+                                          </tr>
+                                          <tr>
+                                              <td>EXCELLENT SOCKET ITEM +15 + ADD28</td>
+                                          </tr>
+                                          <tr>
+                                              <td>Ancient Item + 7 +add4 min</td>
+                                          </tr>
+                                          <tr>
+                                              <td>Bundle of Chaos (40)</td>
+                                          </tr>
+                                            <tr>
+                                              <td>Bundle of Bless (40)</td>
+                                          </tr>
+                                          <tr>
+                                              <td>Bundle of Soul (40)</td>
+                                          </tr>
+                                           <tr>
+                                              <td>Bundle of Creation (40)</td>
+                                          </tr>
+                                          <tr>
+                                              <td>Zen 500.000.000</td>
+                                          </tr>
+                                          <tr>
+                                              <td>Success 90%</td>
+                                          </tr>
+                                      </table>
+                                  </div>
+                              </div>
+                        </div>
+                        <h1 class="main-title" >Mix for WINGS or CAPE!</h1>
+                        <div class="section-container">
+                          <div class="video-wrapper">
+                              <h2 class="video-title" style="color: #49e410;">RANDOM</h2>
+                              <div class="video-frame">
+                                  <iframe src="https://www.youtube.com/embed/c1M9EfrxHAI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                              </div>
+                          </div>
+                          <table class="modern-table">
+                              <tr>
+                                  <th>Items</th>
+                              </tr>
+                              <tr>
+                                  <td>Garuda Feather</td>
+                              </tr>
+                              <tr>
+                                  <td>Garuda Flame</td>
+                              </tr>
+                              <tr>
+                                  <td>WINGS LVL 4 + 13 + 28 add</td>
+                              </tr>
+                              <tr>
+                                  <td>Bundle of Life (40)</td>
+                              </tr>
+                              <tr>
+                                  <td>Bundle of Harmony (20)</td>
+                              </tr>
+                              <tr>
+                                  <td>Zen 1.000.000.000</td>
+                              </tr>
+                              <tr>
+                                  <td>Success 90%</td>
+                              </tr>
+                          </table>
+                        </div>
+                        <div class="section-container">
+                          <div class="video-wrapper">
+                              <h2 class="video-title" style="color: #49e410;">FOR CLASS</h2>
+                              <div class="video-frame">
+                                  <iframe src="https://www.youtube.com/embed/NpFoepId4n0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                              </div>
+                          </div>
+                             <table class="modern-table">
+                                  <tr>
+                                  <th>Items</th>
+                              </tr>
+                              <tr>
+                                  <td>Garuda Feather</td>
+                              </tr>
+                              <tr>
+                                  <td>Garuda Flame</td>
+                              </tr>
+                              <tr>
+                                  <td>WINGS LVL 4 + 13 + 28 add</td>
+                              </tr>
+                              <tr>
+                                  <td>Jewel of Daedalus ACT V</td>
+                              </tr>
+                              <tr>
+                                  <td>Bundle of Life (40)</td>
+                              </tr>
+                              <tr>
+                                  <td>Bundle of Harmony (20)</td>
+                              </tr>
+                              <tr>
+                                  <td>Zen 1.000.000.000</td>
+                              </tr>
+                              <tr>
+                                  <td>Success 90%</td>
+                              </tr>
+                            </table>
+                        </div>
+                                      
+
+
+                        <br>
+                        <br>
+                    </div>
+                    `
+            ,
+        };
+
+
+        content.innerHTML = data[region];
+        content.classList.add("active");
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        showContent('info');
+    });
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const tabToOpen = params.get('tab');
+    const popupToOpen = params.get('popup');
+  
+    if (tabToOpen) {
+      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
+    }
+  
+    if (popupToOpen) {
+      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
+    }
+  </script>
+
+
+
+</body>
+
+</html>

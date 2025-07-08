@@ -1,0 +1,746 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        //Disable cut copy paste
+        $('body').bind('cut copy paste', function (e) {
+            e.preventDefault();
+        });
+
+        //Disable mouse right click
+        $("body").on("contextmenu", function (e) {
+            return false;
+        });
+    });
+</script>
+<!DOCTYPE html>
+
+<body oncopy="return false" oncut="return false" onpaste="return false">
+    <html lang="en">
+
+    <head>
+
+        <title>Guides MU-HARDCORE</title>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+          <style>
+          .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+       
+      
+        h1 {
+            color: #ffd700;
+            text-align: center;
+            text-shadow: 2px 2px 4px #ff8c00;
+        }
+        h3 {
+            color: #00e6e6;
+            border-bottom: 2px solid #ffd700;
+            padding-bottom: 5px;
+        }
+        p {
+            line-height: 1.6;
+            margin: 10px 0;
+            color: #f1c40f;
+        }
+        .highlight {
+            color: #ff00ff;
+            font-weight: bold;
+        }
+        .evolution-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .evolution-list li {
+            margin: 10px 0;
+            color: #ffd700;
+        }
+        .evolution-list li span {
+            color: #00e6e6;
+        }
+
+    
+  </style>
+
+    </head>
+
+    <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+
+          <div class="loader">Loading...</div>
+          <div id="navbar-container"></div>
+
+
+        <section class="about section" id="about">
+          
+      
+            <div style="max-width: 1200px; margin: 0 auto; padding: 20px; ">
+            
+            <h1 style="text-align: center;"> 🛡 Class Evolution </h1>
+            <br>
+  
+            <!-- Alle Details-Buttons bleiben oben -->
+            <div class="summary-container">
+             <details class="details-box"  open onclick="showContent('info')">
+                 <summary>Information</summary>
+             </details>
+            </div><br>
+                <div class="summary-container">
+            <details class="details-box"  open onclick="showContent('2')">
+                <summary>Sebina The Priest</summary>
+            </details>        
+            <details class="details-box"  open onclick="showContent('220')">
+                <summary>Marlon</summary>
+            </details>
+    
+            <details class="details-box" onclick="showContent('3')">
+                <summary>3rd class </summary>
+            </details>
+
+            </div>
+            <div id="content" class="content-container">  
+            </div>
+            </div>
+          
+                   
+                
+         </section>
+
+        <div id="footer-container"></div>
+
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/aos.js"></script>
+        <script src="js/smoothscroll.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- jQuery laden -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+        <!-- Schutz-Skript -->
+        <script src="js/protection.js"></script>
+
+        <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loader = document.querySelector('.loader');
+
+        fetch('libraries.html?v=' + new Date().getTime())
+            .then(response => response.text())
+            .then(data => {
+                document.head.insertAdjacentHTML('beforeend', data);
+                return fetch('navbar.html?v=' + new Date().getTime());
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+                return fetch('footer.html?v=' + new Date().getTime());
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+                showContent('info');
+                loader.style.display = 'none'; // Ladebildschirm ausblenden
+            })
+            .catch(error => console.error('Fehler beim Laden:', error));
+    });
+</script>
+
+        <script>
+            function showContent(region) {
+                const content = document.getElementById("content");
+   
+                const data = {
+                // Information
+                "info": `
+                    <div class="main-container">
+                          <h1 class="main-title">Character Evolution</h1>
+
+        <p style="color: #f1c40f;">Unlock the full potential of your characters in MuOnline by completing the essential class evolution quests. Advancing through these class upgrades allows you to gain powerful new abilities, increased stats, and access to exclusive gear, making your character stronger in battle. This guide provides detailed instructions for each class’s upgrade quests, led by the legendary NPCs Sebina and Marlon.</p>
+
+        <h1 class="main-title">1. What is Class Evolution in MuOnline?</h1>
+        <p style="color: #f1c40f;">In MuOnline, every character starts at the base class, but through class evolution, they can transform into advanced versions with enhanced stats, skills, and equipment. To evolve, you must complete specific quests that challenge your strength, endurance, and knowledge of the game. These quests are designed to test your character’s abilities and prepare them for tougher enemies.</p>
+
+        <h1 class="main-title">2. The Evolution Stages for Each Class</h1>
+        <p style="color: #f1c40f;">Each class in MuOnline can evolve through multiple stages. Below is a breakdown of their progression paths:</p>
+        <ul class="evolution-list">
+            <li>Dark Knight → <span>Blade Knight</span> → <span>Blade Master</span></li>
+            <li>Dark Wizard → <span>Soul Master</span> → <span>Grand Master</span></li>
+            <li>Fairy Elf → <span>Muse Elf</span> → <span>High Elf</span></li>
+            <li>Summoner → <span>Bloody Summoner</span> → <span>Dimension Master</span></li>
+            <li>Magic Gladiator → <span>Duel Master</span></li>
+            <li>Dark Lord → <span>Lord Emperor</span></li>
+            <li>Rage Fighter → <span>Fist Master</span></li>
+           
+        </ul>
+                    
+
+                        <br>
+                        <br>
+                    </div>
+                    ` 
+                ,
+                // Sabine
+                "2": `
+                    <div class="main-container">
+                          <h1 class="main-title">Sebina The
+                            Priest</h1>
+
+                            <p style="margin-left: 8px;font-size: 18px;">There are 7 different characters that can be
+                            further evolved in
+                            MU-HARDCORE Season 6.
+                            each following class change makes your character more robust and allows you to equip better
+                            gear on it
+                            and to learn new and better skills. There are 3 class changes possible, 2 of which you will
+                            have to do
+                            in-game.</p><br>
+
+                        <div class="item-wrapper">
+                                  <p style="line-height:140%; text-align:center;">
+                                    <span style="color:#0ff150; line-height:19.6px;">
+                                        <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Dark Wizard</strong><br>
+
+                    
+                                      <img src="images/characters/darkwizard.png" 
+                                           alt="DW" 
+
+                                           class="item-thumb" 
+                                           style="vertical-align: middle; margin-left: 31px;width: 130px;height: 130px;">
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" style="width: 175px;">
+                                    <div class="popup-header">Dark Wizard</div>
+                                    <img src="images/characters/darkwizard.png" 
+                                    alt="Dark Wizard" 
+                                    class="popup-im" 
+                                    style="vertical-align: middle; width: 120px;height: 120px;">
+                                   <div class="popup-name">Information</div>
+                                   <div class="popup-name" style="display: inline; font-weight: bold;">Evolution:</div>
+                                   <div class="popup-loot" style="display: inline;">Soul Master</div><br>
+                                   <div class="popup-name" style="display: inline; font-weight: bold;">Requirements:</div>
+                                   <div class="popup-loot" style="display: inline;">150level</div><br>
+                                   <div class="popup-name" style="display: inline; font-weight: bold;">Bonus:</div>
+                                   <div class="popup-loot" style="display: inline;">20 stats</div><br>
+                                   
+   
+                       
+                                  </div>
+                        </div>
+                        <div class="item-wrapper">
+                                  <p style="line-height:140%; text-align:center;">
+                                    <span style="color:#0ff150; line-height:19.6px;">
+                                        <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Dark Knight</strong><br>
+
+                    
+                                      <img src="images/characters/darkknight.png" 
+                                           alt="Dark Knight" 
+
+                                           class="item-thumb" 
+                                           style="vertical-align: middle; margin-left: 31px;width: 130px;height: 130px;">
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" style="width: 175px;">
+                                    <div class="popup-header">Dark Wizard</div>
+                                    <img src="images/characters/darkknight.png" 
+                                    alt="Dark Knight" 
+                                    class="popup-im" 
+                                    style="vertical-align: middle; width: 120px;height: 120px;">
+                                   <div class="popup-name">Information</div>
+                                   <div class="popup-name" style="display: inline; font-weight: bold;">Evolution:</div>
+                                   <div class="popup-loot" style="display: inline;">Blade Knight</div><br>
+                                   <div class="popup-name" style="display: inline; font-weight: bold;">Requirements:</div>
+                                   <div class="popup-loot" style="display: inline;">150level</div><br>
+                                   <div class="popup-name" style="display: inline; font-weight: bold;">Bonus:</div>
+                                   <div class="popup-loot" style="display: inline;">20 stats</div><br>
+                                   
+   
+                       
+                                  </div>
+                        </div>
+                        <div class="item-wrapper">
+                                  <p style="line-height:140%; text-align:center;">
+                                    <span style="color:#0ff150; line-height:19.6px;">
+                                        <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Fairy Elf</strong><br>
+
+                    
+                                      <img src="images/characters/elf.png" 
+                                           alt="Fairy Elf" 
+
+                                           class="item-thumb" 
+                                           style="vertical-align: middle; margin-left: 31px;width: 130px;height: 130px;">
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" style="width: 175px;">
+                                    <div class="popup-header">Fairy Elf</div>
+                                    <img src="images/characters/elf.png" 
+                                    alt="Fairy Elf" 
+                                    class="popup-im" 
+                                    style="vertical-align: middle; width: 120px;height: 120px;">
+                                   <div class="popup-name">Information</div>
+                                   <div class="popup-name" style="display: inline; font-weight: bold;">Evolution:</div>
+                                   <div class="popup-loot" style="display: inline;">Muse Elf</div><br>
+                                   <div class="popup-name" style="display: inline; font-weight: bold;">Requirements:</div>
+                                   <div class="popup-loot" style="display: inline;">150level</div><br>
+                                   <div class="popup-name" style="display: inline; font-weight: bold;">Bonus:</div>
+                                   <div class="popup-loot" style="display: inline;">20 stats</div><br>
+                                   
+   
+                       
+                                  </div>
+                        </div>
+                        <div class="item-wrapper">
+                                  <p style="line-height:140%; text-align:center;">
+                                    <span style="color:#0ff150; line-height:19.6px;">
+                                        <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Summoner</strong><br>
+
+                    
+                                      <img src="images/characters/summoner.png" 
+                                           alt="Summoner" 
+
+                                           class="item-thumb" 
+                                           style="vertical-align: middle; margin-left: 31px;width: 130px;height: 130px;">
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" style="width: 175px;">
+                                    <div class="popup-header">Summoner</div>
+                                    <img src="images/characters/summoner.png" 
+                                    alt="Summoner" 
+                                    class="popup-im" 
+                                    style="vertical-align: middle; width: 120px;height: 120px;">
+                                   <div class="popup-name">Information</div>
+                                   <div class="popup-name" style="display: inline; font-weight: bold;">Evolution:</div>
+                                   <div class="popup-loot" style="display: inline;">Bloody Summoner</div><br>
+                                   <div class="popup-name" style="display: inline; font-weight: bold;">Requirements:</div>
+                                   <div class="popup-loot" style="display: inline;">150level</div><br>
+                                   <div class="popup-name" style="display: inline; font-weight: bold;">Bonus:</div>
+                                   <div class="popup-loot" style="display: inline;">20 stats</div><br>
+                                   
+   
+                       
+                                  </div>
+                        </div>
+                               
+
+
+                        <br>
+                        <p style="margin-left: 8px;font-size: 18px;"><strong>Second class change t:</strong> This
+                            quest can be done by dark knight, dark
+                            wizard, fairy elf and summoner.</p>
+                        <p style="margin-left: 8px;font-size: 18px;"><strong>Requirements for the quest:</strong> level
+                            150 and
+                            1.000.000zen.</p>
+                        <p style="margin-left: 8px;font-size: 18px;">If you fill the requirements and you are ready to
+                            do the quest,
+                            you will need to speak to NPC sevina in
+                            devias (coordinates 184,31). She will give you the first task.</p>
+                        <img src="images/imagesGuide/sabine.png" alt="img1.png"><br><br>
+                        <p style="margin-left: 8px;font-size: 18px;">For the first task, you will need to find the
+                            scroll of
+                            emperor.</p>
+                        <img src="images/imagesGuide/emperorr.png" alt="img1.png"><br><br>
+                        <p style="margin-left: 8px;font-size: 18px;">You can find this item in:</p>
+
+                        <table border="1" cellpadding="10" cellspacing="0" style="font-size: 18px;color: #f1c40f;width: 100%;text-align: center;">
+                            <tr>
+                                <th>Location</th>
+                                <th>Monsters</th>
+                            </tr>
+                            <tr>
+                                <td>Atlans</td>
+                                <td>Bahamut, Vepar, Valkyrie</td>
+                            </tr>
+                            <tr>
+                                <td>Lost Tower</td>
+                                <td>Shadow, Poison shadow, Cursed wizard, Death cow, Devil</td>
+                            </tr>
+                        </table>
+                        <br>
+                        <p style="margin-left: 8px;font-size: 18px;">When you have found it, take it back to the NPC. as
+                            a reward
+                            you will get 10 stat points and you will be given the second task.</p>
+                        <p style="margin-left: 8px;font-size: 18px;">To complete the second task, you will need to have
+                            3kk zen and
+                            find another item, this time class-specific.</p>
+                        <p style="margin-left: 8px;font-size: 18px;"><strong>Dark Knight:</strong> broken sword.</p>
+                        <p style="margin-left: 8px;font-size: 18px;"><strong>Dark Wizard:</strong> soul shard of wizard.
+                        </p>
+                        <p style="margin-left: 8px;font-size: 18px;"><strong>Fairy elf:</strong> tear of elf.</p>
+                        <p style="margin-left: 8px;font-size: 18px;"><strong>Summoner:</strong> abyssal eye.</p><br>
+                        <div class="item-wrapper">
+                        <p style="line-height:140%; text-align:center;">
+                                <span style="color:#0ff150; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; display: inline-block;">Boken Sword</strong><br>
+                                    <img src="images/imagesGuide/brokensword.png" 
+                                         alt="image" 
+                                         class="item-thumb" 
+                                         style="vertical-align: middle; display: block; margin: 0 auto; width: 90px; height: 90px;">
+                                </span>
+                            </p>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#0ff150; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; display: inline-block;">Soul Shard Wizard</strong><br>
+                                    <img src="images/imagesGuide/soulwizard.png" 
+                                         alt="image" 
+                                         class="item-thumb" 
+                                         style="vertical-align: middle; display: block; margin: 0 auto; width: 90px; height: 90px;">
+                                </span>
+                            </p>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#0ff150; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; display: inline-block;">Tear of Elf</strong><br>
+                                    <img src="images/imagesGuide/tearofelf.png" 
+                                         alt="image" 
+                                         class="item-thumb" 
+                                         style="vertical-align: middle; display: block; margin: 0 auto; width: 90px; height: 90px;">
+                                </span>
+                            </p>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#0ff150; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; display: inline-block;">Abyssal Eye</strong><br>
+                                    <img src="images/imagesGuide/eye.png" 
+                                         alt="image" 
+                                         class="item-thumb" 
+                                         style="vertical-align: middle; display: block; margin: 0 auto; width: 90px; height: 90px;">
+                                </span>
+                            </p>
+                        </div>
+                        <br>
+                     
+                        <p style="margin-left: 8px;font-size: 18px;" <strong>>Second class will give you these
+                            abilities:</strong>
+                        </p>
+                        <p style="margin-left: 8px;font-size: 18px;">1)To wear wings of second level.</p>
+                        <p style="margin-left: 8px;font-size: 18px;">2)To learn more advanced skills and stronger gear.
+                        </p>
+                        <p style="margin-left: 8px;font-size: 18px;">3)Access to do the marlon quest.</p>
+                    
+
+                        <br>
+                        <br>
+                    </div>
+                    ` 
+                ,
+                // Marlon
+                "220": `
+                    <div class="main-container">
+                    <h1 class="main-title">Marlon</h1>
+
+                     <p style="margin-left: 8px;font-size: 18px;">This quest can be done by dark knight, dark wizard,
+                            fairy elf,
+                            summoner.
+                            This is a quest between the second and third class changes and is needed in order to do the
+                            3rd class
+                            quest.</p>
+                        <p style="margin-left: 8px;font-size: 18px;"><strong>Requirements for this quest:</strong>level
+                            220 and
+                            3.000.000zen.</p>
+                        <img src="images/imagesGuide/marlonn.png" alt="img1.png"><br><br>
+                        <p style="margin-left: 8px;font-size: 18px;">If you fill the requirements and you are ready to
+                            do this
+                            quest, you will need to find NPC Marlon in of these locations:</p>
+                        <p style="margin-left: 8px;font-size: 18px;">1)Lorencia (coordinates 137,87)</p>
+                        <p style="margin-left: 8px;font-size: 18px;">2)Noria (coordinates 169,88)</p>
+                        <p style="margin-left: 8px;font-size: 18px;">3)Devias (coordinates 198,47)</p>
+                        <p style="margin-left: 8px;font-size: 18px;">4)Atlans (coordinates 18,25)</p><br>
+                        <p style="margin-left: 8px;font-size: 18px;">To complete the first part of the quest, you will
+                            need to find
+                            ring of honor. it can be found in:</p>
+
+                        <table border="1" cellpadding="10" cellspacing="0" style="font-size: 18px;color: #f1c40f;width: 100%;text-align: center;">
+                            <tr>
+                                <th>Location</th>
+                                <th>Monsters</th>
+                            </tr>
+                            <tr>
+                                <td>Tarkan</td>
+                                <td>Tantalos, Beam Knight, Death Beam Knight</td>
+                            </tr>
+                            <tr>
+                                <td>Icarus</td>
+                                <td>Alquamos, Mega Crust, Queen Rainier</td>
+                            </tr>
+                            <tr>
+                                <td>Aida</td>
+                                <td>Death Tree, Forest Orc, Death Rider</td>
+                            </tr>
+                            <tr>
+                                <td>Kanturu</td>
+                                <td>Splinter Wolf, Iron Rider, Satyros</td>
+                            </tr>
+                        </table><br><br>
+                        <br>
+                      <div class="item-wrapper">
+                      <p style="line-height:140%; text-align:center;">
+                              <span style="color:#0ff150; line-height:19.6px;">
+                                  <strong style="vertical-align: middle; display: inline-block;">Ring of Honor</strong><br>
+                                  <img src="images/imagesGuide/ringofhonor.png" 
+                                       alt="image" 
+                                       class="item-thumb" 
+                                       style="vertical-align: middle; display: block; margin: 0 auto; width: 90px; height: 90px;">
+                              </span>
+                          </p>
+                      </div>
+                      <div class="item-wrapper">
+                          <p style="line-height:140%; text-align:center;">
+                              <span style="color:#0ff150; line-height:19.6px;">
+                                  <strong style="vertical-align: middle; display: inline-block;">Dark Stone</strong><br>
+                                  <img src="images/imagesGuide/darkstone.png" 
+                                       alt="image" 
+                                       class="item-thumb" 
+                                       style="vertical-align: middle; display: block; margin: 0 auto; width: 90px; height: 90px;">
+                              </span>
+                          </p>
+                      </div>
+                        <p></p>
+                        <p style="margin-left: 8px;font-size: 18px;">When you have found the first item, take it back to
+                            the NPC.
+                            for
+                            blade knights there is a second part of the quest, where you will need to find dark stone.
+                            it is found
+                            in
+                            the same locations.</p>
+                        <p style="margin-left: 8px;font-size: 18px;"><strong>After you have completed this quest, you unlock these
+                            abilities:</strong>
+                        </p>
+                        <p style="margin-left: 8px;font-size: 18px;">-To do combo hits (only for blade knight) </p>
+                        <p style="margin-left: 8px;font-size: 18px;">-To learn the magic nova (only for soul master)</p>
+                        <p style="margin-left: 8px;font-size: 18px;">-You get 6 stat points instead of 5.</p>
+                        <p style="margin-left: 8px;font-size: 18px;">-You are now eligible for the 3rd class change
+                            quest.</p><br>
+                        
+
+                        <br>
+                        <br>
+                    </div>
+                    ` 
+                ,
+                // 3rd quest
+                "3": `
+                    <div class="main-container">
+                      <h1 class="main-title">Apostle Devin</h1>
+
+                       <p style="margin-left: 8px;font-size: 18px;">This quest is available for all classes (dark
+                            knight, dark
+                            wizard, fairy elf and summoner need to have completed 2nd class change and Marlon quest)</p>
+                        <br>
+                        <p style="margin-left: 8px;font-size: 18px;"><strong>Requirements for the quest:</strong>380lvl
+                            and
+                            5.000.000zen.</p>
+                        <p style="margin-left: 8px;font-size: 18px;">If you fill the requirements and you are ready to
+                            do the quest,
+                            you will need to speak to NPC Apostle Devin в Crywolf (coordinates 228,48). He will give you
+                            the first
+                            task.</p><br>
+                        <img src="images/imagesGuide/apostle.png" alt="img1.png"><br>
+                        <p style="margin-left: 8px;font-size: 18px;">To complete the first task, you will need to find 3
+                            items.</p>
+                        <div class="item-wrapper">
+                        <p style="line-height:140%; text-align:center;">
+                            <span style="color:#0ff150; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; display: inline-block;">Death-Beam Knight Flame</strong><br>
+                                    <img src="images/imagesGuide/flameknight.png" 
+                                         alt="image" 
+                                         class="item-thumb" 
+                                         style="vertical-align: middle; display: block; margin: 0 auto; width: 100px; height: 100px; cursor: pointer;">
+                                </span>
+                            </p>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#0ff150; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; display: inline-block;">Hell-Miner Horn</strong><br>
+                                    <img src="images/imagesGuide/hornofmaine.png" 
+                                         alt="image" 
+                                         class="item-thumb" 
+                                         style="vertical-align: middle; display: block; margin: 0 auto; width: 100px; height: 100px; cursor: pointer;">
+                                </span>
+                            </p>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#0ff150; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; display: inline-block;">Dark Phoenix Feather</strong><br>
+                                    <img src="images/imagesGuide/featherofphoenix.png" 
+                                         alt="image" 
+                                         class="item-thumb" 
+                                         style="vertical-align: middle; display: block; margin: 0 auto; width: 100px; height: 100px; cursor: pointer;">
+                                </span>
+                            </p>
+                        </div>
+                        <br>
+                        <p style="margin-left: 8px;font-size: 18px;">-Flame of Death Beam Knight - drops in Tarkan from
+                            the monster
+                            Death Beam Knight. (approximate coordinates - 160,210)</p>
+                        <p style="margin-left: 8px;font-size: 18px;">-Horn of Hell Maine - drops in Aida from the
+                            monster Hell
+                            Maine. (approximate coordinates - 120,100)</p>
+                        <p style="margin-left: 8px;font-size: 18px;">-Feather of Phoenix - drops in Icarus from the
+                            monster Phoenix
+                            of Darkness. (approximate coordinates - 40,245)</p>
+                        <p></p>
+                        <p style="margin-left: 8px;font-size: 18px;">These items may take some time to drop, so be ready
+                            to farm for
+                            some time. After you have found these items, take them back to the NPC. </p>
+                        <p></p>
+                        <p style="margin-left: 8px;font-size: 18px;">Now you can continue with the second part of the
+                            quest. To
+                            complete it you will need to pay 7kk Zen and to have level 400.</p>
+                        <p style="margin-left: 8px;font-size: 18px;">Your task will be to kill 20 of 3 types of monsters
+                            that are
+                            found in the location Barracks. You can access this locations via the NPC Werewolf Quarrel,
+                            which is
+                            located in Crywolf, coordinates 58,237.</p>
+                            <br>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#0ff150; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; display: inline-block;">Soram X20</strong><br>
+                                    <img src="images/monsters/crywolf/soram.png" 
+                                         alt="image" 
+                                         class="item-thumb" 
+                                         style="vertical-align: middle; display: block; margin: 0 auto; width: 150px; height: 150px;">
+                                </span>
+                            </p>
+                        </div>
+                         <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#0ff150; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; display: inline-block;">Balram X20</strong><br>
+                                    <img src="images/monsters/crywolf/balram.png" 
+                                         alt="image" 
+                                         class="item-thumb" 
+                                         style="vertical-align: middle; display: block; margin: 0 auto; width: 150px; height: 150px;">
+                                </span>
+                            </p>
+                        </div>
+                         <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#0ff150; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; display: inline-block;">Death Spirit X20</strong><br>
+                                    <img src="images/monsters/crywolf/deathspirit.png" 
+                                         alt="image" 
+                                         class="item-thumb" 
+                                         style="vertical-align: middle; display: block; margin: 0 auto; width: 150px; height: 150px;">
+                                </span>
+                            </p>
+                        </div>
+                        <br>
+                        <p style="margin-left: 8px;font-size: 18px;">Now it's time for the 3rd part of the quest. Pay
+                            10kk zen to
+                            the NPC and it will give you the task - to kill Dark Elf Hero. </p>
+                        <p></p>
+                        <p style="margin-left: 8px;font-size: 18px;">Dark Elf is located in the location Refuge. You can
+                            access
+                            Refuge via the NPC Gate Keeper which is located in Barracks, coordinates 121,168. The
+                            locations is small
+                            and if you don't see the Dark Elf, you have to wait for it to re spawn. There can only be 1
+                            Dark Elf in
+                            the map at the same time.</p>
+
+                         <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                                <span style="color:#0ff150; line-height:19.6px;">
+                                    <strong style="vertical-align: middle; display: inline-block;">Dark Elf</strong><br>
+                                    <img src="images/monsters/crywolf/darkelf.png" 
+                                         alt="image" 
+                                         class="item-thumb" 
+                                         style="vertical-align: middle; display: block; margin: 0 auto; width: 250px; height: 350px;">
+                                </span>
+                            </p>
+                        </div><br>
+                        <p style="margin-left: 8px;font-size: 18px;">After killing the monster, talk to the NPC again
+                            and it will
+                            bless you in your future endeavors and award you with the 3rd class. </p>
+                        <p style="margin-left: 8px;font-size: 18px;">
+                            <strong>The 3rd class unlocks these abilities:</strong>
+                        </p>
+                        <p style="margin-left: 8px;font-size: 18px;">-To equip level 3 wings.</p>
+                        <p style="margin-left: 8px;font-size: 18px;">-To learn the Master skill tree.</p>
+                        <p style="margin-left: 8px;font-size: 18px;">-To obtain Mastery rewards from events.</p>
+                        <p style="margin-left: 8px;font-size: 18px;">-To learn new and better skills and to equip better
+                            gear. </p>
+                        <p style="margin-left: 8px;font-size: 18px;">-To learn new and better skills and to equip better
+                            gear. </p>
+
+                        <br>
+                        <br>
+                    </div>
+                    ` 
+                ,
+                
+               
+               
+                };
+    
+                
+                content.innerHTML = data[region];
+                content.classList.add("active"); 
+            }
+            document.addEventListener("DOMContentLoaded", function() {
+           showContent('info');
+          });
+        
+  
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const tabToOpen = params.get('tab');
+    const popupToOpen = params.get('popup');
+  
+    if (tabToOpen) {
+      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
+    }
+  
+    if (popupToOpen) {
+      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
+    }
+  </script>
+
+            
+
+    </body>
+
+    </html>

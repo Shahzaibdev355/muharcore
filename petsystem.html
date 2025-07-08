@@ -1,0 +1,3228 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        //Disable cut copy paste
+        $('body').bind('cut copy paste', function (e) {
+            e.preventDefault();
+        });
+
+        //Disable mouse right click
+        $("body").on("contextmenu", function (e) {
+            return false;
+        });
+    });
+</script>
+<!DOCTYPE html>
+
+<body oncopy="return false" oncut="return false" onpaste="return false">
+    <html lang="en">
+
+    <head>
+
+        <title>Guides MU-HARDCORE</title>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <style>
+        .loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+p {
+    color: #f1c40f;
+}
+
+.item-container {
+    background-color: #1f0000;
+    padding: 10px;
+    width: 90%; /* Beibehalten, wird aber durch max-width eingeschränkt */
+    max-width: 150px; /* Feste maximale Breite */
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 0px 100px #93330b7a;
+    border: 1px solid #93330b;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* Feste Höhe */
+}
+
+/* Bilder in Containern */
+.item-thumb { 
+    width: 120px;
+    height: 120px; 
+    display: block; 
+    margin: 0 auto; 
+}
+
+/* Flexbox-Reihe */
+.items-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap; /* **Jetzt erlaubt es Umbrüche für kleine Bildschirme** */
+}
+
+/* Popup-Bilder */
+.popup-im {
+    width: 120px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Popup-Box */
+.popup-info {
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 5px;
+    width: 250px;
+    height: auto;
+}
+
+/* ========================================== */
+/* **Responsive Anpassungen für Mobile** */
+/* ========================================== */
+
+/* **Für Bildschirme bis 768px (Smartphones & kleine Tablets)** */
+@media (max-width: 768px) {
+    .items-row {
+        flex-direction: column; /* Stapelt die Boxen untereinander */
+        align-items: center; /* Zentriert die Elemente */
+    }
+    
+    .item-container {
+        max-width: 100%; /* Volle Breite für Mobile */
+        height: auto; /* Flexible Höhe */
+        padding: 15px;
+    }
+    
+    .popup-info {
+        width: 200px; /* Breite für Mobile optimiert */
+        height: auto; /* Hohe für Mobile optimiert */
+        max-width: 300px; /* Begrenzung der Breite */
+    }
+    
+    .popup-im {
+        width: 100px; /* Kleinere Bilder für Mobile */
+    }
+}
+
+/* **Für sehr kleine Bildschirme (bis 480px)** */
+@media (max-width: 480px) {
+    .item-container {
+        max-width: 95%; /* Fast volle Breite für kleine Handys */
+        height: auto;
+    }
+    
+    .item-thumb, .popup-im {
+        width: 80px; /* Noch kleinere Bilder für sehr kleine Displays */
+    }
+    
+    .popup-info {
+       width: 300px; /* Breite für Mobile optimiert */
+        height: auto; /* Hohe für Mobile optimiert */
+        max-width: 300px; /* Begrenzung der Breite */
+    }
+}
+
+      </style>
+
+
+    </head>
+
+    <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+
+         <div class="loader">Loading...</div>
+          <div id="navbar-container"></div>
+
+
+        <section class="about section" id="about">
+          
+      
+            <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+            
+            <h1 style="text-align: center;"> 🛡 PET SYSTEM </h1>
+            <br>
+  
+            <!-- Alle Details-Buttons bleiben oben -->
+            <div class="summary-container">
+             <details class="details-box"  open onclick="showContent('info')">
+                 <summary>Information</summary>
+             </details>
+            </div><br>
+                <div class="summary-container">
+            <details class="details-box"  open onclick="showContent('damage')">
+                <summary>DAMAGE</summary>
+            </details>        
+            <details class="details-box"  open onclick="showContent('defense')">
+                <summary>DEFENSE</summary>
+            </details>
+    
+            <details class="details-box" onclick="showContent('mix')">
+                <summary>MIX </summary>
+            </details>
+    
+            <details class="details-box" onclick="showContent('horse')">
+                <summary>HORSE </summary>
+            </details>
+    
+            <details class="details-box" onclick="showContent('farm')">
+                <summary>FARM</summary>
+            </details>
+
+            </div>
+            <div id="content" class="content-container">  
+            </div>
+            </div>
+          
+                   
+                
+         </section>
+        <div id="footer-container"></div>
+
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/aos.js"></script>
+        <script src="js/smoothscroll.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- jQuery laden -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+<!-- Schutz-Skript -->
+<script src="js/protection.js"></script>
+        <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loader = document.querySelector('.loader');
+
+        fetch('libraries.html?v=' + new Date().getTime())
+            .then(response => response.text())
+            .then(data => {
+                document.head.insertAdjacentHTML('beforeend', data);
+                return fetch('navbar.html?v=' + new Date().getTime());
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+                return fetch('footer.html?v=' + new Date().getTime());
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+                showContent('info');
+                loader.style.display = 'none'; // Ladebildschirm ausblenden
+            })
+            .catch(error => console.error('Fehler beim Laden:', error));
+    });
+</script>
+
+        <script>
+            function showContent(region) {
+                const content = document.getElementById("content");
+   
+                const data = {
+                // Information
+                "info": `
+                    <div class="main-container">
+                         
+                          <h1 class="main-title">Pet System</h1>
+                   <p>The Invictus <span class="highlight">[MU HARDCORE]</span> server offers you a strategically designed and progression-focused pet system. The unique features will enhance both your PvP & PvE potential. It emphasizes heavily on strategy, resource management, and progression, making it appealing to players who enjoy a methodical gameplay.</p>
+        <h2  class="main-title">Main specifications:</h2>
+        <ul style="color: #f1c40f; text-align: left; list-style-position: inside;">
+            <li>You can wear <span class="highlight-text">2 pets</span> at the same time: <span class="highlight-text">1 primary pet</span> + <span class="highlight-text">1 farming pet</span>. Each of them have their own slot. The farming pet is mainly focused on enhancing your PvE capability, offering bonus experience, HP & mana recovery, defence success rate, etc.</li>
+            <li><strong style="color: #49e410;">Primary pet:</strong> you can choose between <span class="highlight-text">Damage</span>, <span class="highlight-text">Defence</span> & <span class="highlight-text">Mixed</span> characteristics to best suit your build and game style</li>
+            <li><strong style="color: #49e410;">Starting pet:</strong> <span class="highlight-text">Guardian Angel</span>. Each player is awarded <span class="highlight-text">2</span> of them through the Quest System</li>
+            <li><strong style="color: #49e410;">Pet Upgrades (same ACT):</strong> Pets can be upgraded using <span class="highlight-text">Pet Jewels</span>, which are farmed in the Pet Invasion. These jewels are essential for enhancing pets’ abilities and evolving them. Within each act, pets can evolve twice. Evolving a pet requires the specific Pet Jewel for the current act, one jewel per evolution. Pet Jewel mechanics are similar to using a Jewel of Bless, with the success rate of <span class="highlight-text">100%</span>.</li>
+            <li><strong style="color: #49e410;">Pet Upgrades (different ACT):</strong> To upgrade to a new pet, players must first evolve their current pet to its final stage (V3). Only after reaching this stage can they unlock the next ACT pet upgrade. More details about this can be found in the <span class="highlight-text">Chaos Mix</span> section.</li>
+            <li><strong style="color: #49e410;">ALL pets are immortal.</strong></li>
+            <li>ACTs 4 & 5 provide the opportunity to choose between <span class="highlight-text">mount</span> & pet options, depending on your build, race, gameplay, etc. The <span class="highlight-text">"Mixed"</span> branch is the only one that has mounts throughout the entire game.</li>
+        </ul>
+                    
+
+                        <br>
+                        <br>
+                    </div>
+                    ` 
+                ,
+                // DAMAGE
+                "damage": `
+                    <div class="main-container">
+                     <h1 class="main-title">DAMAGE</h1><br>
+
+                     <h1 class="main-title">SATAN ACT I</h1><br>
+                     <div class="items-row">
+                          
+                                <!-- Evolution 1 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Evolution 1</strong><br>
+
+                    
+                                      <img src="images/pets/damage pet act 1.png" 
+                                           alt="SATAN" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">SATAN Evolution 1</div>
+                                    <img src="images/pets/damage pet act 1.png" 
+                                    alt="SATAN" 
+                                    class="popup-im" 
+                                    >
+   
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot">ATTACK SPEED + 5</div>
+                                    <div class="popup-loot">DAMAGE INCREASE +3%</div>
+                                    <div class="popup-loot">EXCELLENT DAMAGE RATE +1%</div>
+                        
+                                  </div>
+                                </div>   
+                                </div>
+                        
+                                <!-- Evolution 2 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+  
+                      
+                                        <img src="images/pets/damage pet act 1.png" 
+                                             alt="SATAN" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">SATAN Evolution 2</div>
+                                      <img src="images/pets/damage pet act 1.png" 
+                                      alt="SATAN" 
+                                      class="popup-im" 
+                                      >
+     
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">ATTACK SPEED + 7</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +4%</div>
+                                      <div class="popup-loot">EXCELLENT DAMAGE RATE +2%</div>
+                          
+                                    </div>
+                                </div>     
+                                </div>
+                        
+                                <!-- Evolution 3 -->
+                                <div class="item-container">
+                                 <div class="item-wrapper">
+                                    <p>
+                                        <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 3</strong><br>
+  
+                      
+                                        <img src="images/pets/damage pet act 1.png" 
+                                             alt="SATAN" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">SATAN Evolution 3</div>
+                                      <img src="images/pets/damage pet act 1.png" 
+                                      alt="SATAN" 
+                                      class="popup-im" 
+                                      >
+     
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">ATTACK SPEED + 10</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +5%</div>
+                                      <div class="popup-loot">EXCELLENT DAMAGE RATE +3%</div>
+                          
+                                    </div>
+                                </div>
+                                </div>
+                     </div><br>
+                     <h1 class="main-title">Desdomus  ACT II</h1><br>
+                     <div class="items-row">
+                          
+                                <!-- Evolution 1 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Evolution 1</strong><br>
+
+                    
+                                      <img src="images/pets/damage pet act 2.png" 
+                                           alt="Desdomus" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">Desdomus Evolution 1</div>
+                                    <img src="images/pets/damage pet act 2.png" 
+                                    alt="Desdomus" 
+                                    class="popup-im" 
+                                    >
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot">ATTACK SPEED + 15</div>
+                                    <div class="popup-loot">DAMAGE INCREASE +6%</div>
+                                    <div class="popup-loot">EXCELLENT DAMAGE RATE +4%</div>
+                                    <div class="popup-loot">IGNORE DEFENSE RATE +1%</div>
+                                  </div>
+                                </div>   
+                                </div>
+                        
+                                <!-- Evolution 2 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                        <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+  
+                      
+                                        <img src="images/pets/damage pet act 2.png" 
+                                             alt="Desdomus" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Desdomus Evolution 2</div>
+                                      <img src="images/pets/damage pet act 2.png" 
+                                      alt="Desdomus" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">ATTACK SPEED + 20</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +7%</div>
+                                      <div class="popup-loot">EXCELLENT DAMAGE RATE +5%</div>
+                                      <div class="popup-loot">IGNORE DEFENSE RATE +1%</div>
+                          
+                                    </div>
+                                </div>      
+                                </div>
+                        
+                                <!-- Evolution 3 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                        <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 3</strong><br>
+  
+                      
+                                        <img src="images/pets/damage pet act 2.png" 
+                                             alt="Desdomus" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Desdomus Evolution 3</div>
+                                      <img src="images/pets/damage pet act 2.png" 
+                                      alt="Desdomus" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">ATTACK SPEED + 25</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +8%</div>
+                                      <div class="popup-loot">EXCELLENT DAMAGE RATE +6%</div>
+                                      <div class="popup-loot">IGNORE DEFENSE RATE +1%</div>
+                          
+                                    </div>
+                                </div> 
+                                </div>
+                     </div><br>
+                     <h1 class="main-title">Mars  ACT III</h1><br>  
+                     <div class="items-row">
+                          
+                                <!-- Evolution 1 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Evolution 1</strong><br>
+
+                    
+                                      <img src="images/pets/damage pet act 3.png" 
+                                           alt="Mars" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+
+                                  <div class="popup-info" >
+                                    <div class="popup-header">Desdomus Evolution 1</div>
+                                    <img src="images/pets/damage pet act 3.png" 
+                                    alt="mars" 
+                                    class="popup-im" 
+                                    >
+   
+                                    <div class="popup-name">Options</div>
+                                
+                                    <div class="popup-loot">ATTACK SPEED + 30</div>
+                                    <div class="popup-loot">DAMAGE INCREASE +9%</div>
+                                    <div class="popup-loot">EXCELLENT DAMAGE RATE +7%</div>
+                                    <div class="popup-loot">IGNORE DEFENSE RATE +1%</div>
+                        
+                                  </div>
+                                </div>   
+                                </div>
+                        
+                                <!-- Evolution 2 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                        <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+  
+                      
+                                        <img src="images/pets/damage pet act 3.png" 
+                                             alt="Mars" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Desdomus Evolution 2</div>
+                                      <img src="images/pets/damage pet act 3.png" 
+                                      alt="mars" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">ATTACK SPEED + 35</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +10%</div>
+                                      <div class="popup-loot">EXCELLENT DAMAGE RATE +8%</div>
+                                      <div class="popup-loot">IGNORE DEFENSE RATE +1%</div>
+                          
+                                    </div>
+                                </div>     
+                                </div>
+                        
+                                <!-- Evolution 3 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                        <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 3</strong><br>
+  
+                      
+                                        <img src="images/pets/damage pet act 3.png" 
+                                             alt="Mars" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Desdomus Evolution 3</div>
+                                      <img src="images/pets/damage pet act 3.png" 
+                                      alt="mars" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">ATTACK SPEED + 40</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +11%</div>
+                                      <div class="popup-loot">EXCELLENT DAMAGE RATE +9%</div>
+                                      <div class="popup-loot">IGNORE DEFENSE RATE +1%</div>
+                          
+                                    </div>
+                                </div> 
+                                </div>
+                     </div><br>
+                     <h1 class="main-title">Amnemis  ACT IV (PET)</h1><br>  
+                     <div class="items-row">
+                          
+                                <!-- Evolution 1 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Evolution 1</strong><br>
+
+                    
+                                      <img src="images/pets/damage pet act 4.png" 
+                                           alt="Amnemis" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">Amnemis Evolution 1</div>
+                                    <img src="images/pets/damage pet act 4.png" 
+                                    alt="Amnemis" 
+                                    class="popup-im" 
+                                    >
+   
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot">ATTACK SPEED + 45</div>
+                                    <div class="popup-loot">DAMAGE INCREASE +13%</div>
+                                    <div class="popup-loot">EXCELLENT DAMAGE RATE +10%</div>
+                                    <div class="popup-loot">DOUBLE DAMAGE RATE +1%</div>
+                                    <div class="popup-loot">IGNORE DEFENSE RATE +1%</div>
+                        
+                        
+                                  </div>
+                                </div>   
+                                </div>
+                        
+                                <!-- Evolution 2 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                        <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+  
+                      
+                                        <img src="images/pets/damage pet act 4.png" 
+                                             alt="Amnemis" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Amnemis Evolution 2</div>
+                                      <img src="images/pets/damage pet act 4.png" 
+                                      alt="Amnemis" 
+                                      class="popup-im" 
+                                      >
+     
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">ATTACK SPEED + 50</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +15%</div>
+                                      <div class="popup-loot">EXCELLENT DAMAGE RATE +11%</div>
+                                      <div class="popup-loot">DOUBLE DAMAGE RATE +2%</div>
+                                      <div class="popup-loot">IGNORE DEFENSE RATE +1%</div>
+                          
+                                    </div>
+                                </div>     
+                                </div>
+                        
+                                <!-- Evolution 3 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                        <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 3</strong><br>
+                                        <img src="images/pets/damage pet act 4.png" 
+                                             alt="Amnemis" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Amnemis Evolution 3</div>
+                                      <img src="images/pets/damage pet act 4.png" 
+                                      alt="Amnemis" 
+                                      class="popup-im" 
+                                      >
+     
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">ATTACK SPEED + 55</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +20%</div>
+                                      <div class="popup-loot">EXCELLENT DAMAGE RATE +12%</div>
+                                      <div class="popup-loot">DOUBLE DAMAGE RATE +3%</div>
+                                      <div class="popup-loot">IGNORE DEFENSE RATE +2%</div>
+                          
+                                    </div>
+                                </div>
+                                </div>
+                     </div><br>
+                     <h1 class="main-title">Drogon  ACT IV (MOUNT)</h1><br>  
+                     <div class="items-row">
+                          
+                                <!-- Evolution 1 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Evolution 1</strong><br>
+
+                    
+                                      <img src="images/pets/damage mount act 4.png" 
+                                           alt="Drogon" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">Drogon Evolution 1</div>
+                                    <img src="images/pets/damage mount act 4.png" 
+                                    alt="Drogon" 
+                                    class="popup-im" 
+                                    >
+   
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot">ATTACK SPEED + 45</div>
+                                    <div class="popup-loot">DAMAGE INCREASE +13%</div>
+                                    <div class="popup-loot">EXCELLENT DAMAGE RATE +10%</div>
+                                    <div class="popup-loot">DOUBLE DAMAGE RATE +1%</div>
+                                    <div class="popup-loot">IGNORE DEFENSE RATE +1%</div>
+                        
+                                  </div>
+                                </div>   
+                                </div>
+                        
+                                <!-- Evolution 2 -->
+                                <div class="item-container">
+                                 <div class="item-wrapper">
+                                    <p>
+                                        <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+  
+                      
+                                        <img src="images/pets/damage mount act 4.png" 
+                                             alt="Drogon" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Drogon Evolution 2</div>
+                                      <img src="images/pets/damage mount act 4.png" 
+                                      alt="Drogon" 
+                                      class="popup-im" 
+                                      >
+     
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">ATTACK SPEED + 50</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +15%</div>
+                                      <div class="popup-loot">EXCELLENT DAMAGE RATE +11%</div>
+                                      <div class="popup-loot">DOUBLE DAMAGE RATE +2%</div>
+                                      <div class="popup-loot">IGNORE DEFENSE RATE +1%</div>
+                          
+                                    </div>
+                                </div>    
+                                </div>
+                        
+                                <!-- Evolution 3 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                        <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+  
+                      
+                                        <img src="images/pets/damage mount act 4.png" 
+                                             alt="Drogon" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Drogon Evolution 3</div>
+                                      <img src="images/pets/damage mount act 4.png" 
+                                      alt="Drogon" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">ATTACK SPEED + 55</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +20%</div>
+                                      <div class="popup-loot">EXCELLENT DAMAGE RATE +12%</div>
+                                      <div class="popup-loot">DOUBLE DAMAGE RATE +3%</div>
+                                      <div class="popup-loot">IGNORE DEFENSE RATE +2%</div>
+                                    </div>
+                                </div> 
+                                </div>
+                     </div><br>
+                     <h1 class="main-title">Hell Maine ACT V (PET)</h1> <br>  
+                     <div class="items-row">
+                          
+                                <!-- Evolution 1 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Evolution 1</strong><br>
+
+                    
+                                      <img src="images/pets/Hell Main Damage pet act 5.png" 
+                                           alt="Hell Maine" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">Hell Maine Evolution 1</div>
+                                    <img src="images/pets/Hell Main Damage pet act 5.png" 
+                                    alt="Hell Maine" 
+                                    class="popup-im" 
+                                    >
+   
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot">ATTACK SPEED + 60</div>
+                                    <div class="popup-loot">DAMAGE INCREASE +22%</div>
+                                    <div class="popup-loot">EXCELLENT DAMAGE RATE +13%</div>
+                                    <div class="popup-loot">DOUBLE DAMAGE RATE +4%</div>
+                                    <div class="popup-loot">IGNORE DEFENSE RATE +3%</div>
+                        
+                        
+                                  </div>
+                                </div>   
+                                </div>
+                        
+                                <!-- Evolution 2 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                        <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+  
+                      
+                                        <img src="images/pets/Hell Main Damage pet act 5.png" 
+                                             alt="Amnemis" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Hell Maine Evolution 2</div>
+                                      <img src="images/pets/Hell Main Damage pet act 5.png" 
+                                      alt="Amnemis" 
+                                      class="popup-im" 
+                                      >
+     
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">ATTACK SPEED + 65</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +23%</div>
+                                      <div class="popup-loot">EXCELLENT DAMAGE RATE +14%</div>
+                                      <div class="popup-loot">DOUBLE DAMAGE RATE +5%</div>
+                                      <div class="popup-loot">IGNORE DEFENSE RATE +3%</div>
+                          
+                                    </div>
+                                </div>     
+                                </div>
+                        
+                                <!-- Evolution 3 -->
+                                <div class="item-container">
+                                 <div class="item-wrapper">
+                                    <p>
+                                        <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 3</strong><br>
+                                        <img src="images/pets/Hell Main Damage pet act 5.png" 
+                                             alt="Amnemis" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Hell Maine Evolution 3</div>
+                                      <img src="images/pets/Hell Main Damage pet act 5.png" 
+                                      alt="Amnemis" 
+                                      class="popup-im" 
+                                      >
+     
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">ATTACK SPEED + 70</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +25%</div>
+                                      <div class="popup-loot">EXCELLENT DAMAGE RATE +15%</div>
+                                      <div class="popup-loot">DOUBLE DAMAGE RATE +6%</div>
+                                      <div class="popup-loot">IGNORE DEFENSE RATE +4%</div>
+                          
+                                    </div>
+                                </div>
+                                </div>
+                     </div><br>
+                     <h1 class="main-title">Red Dragon  ACT V (MOUNT)</h1>  
+                     <div class="items-row">
+                          
+                                <!-- Evolution 1 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Evolution 1</strong><br>
+
+                    
+                                      <img src="images/pets/Dmg Mount act 5.png" 
+                                           alt="Red Dragon" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">Red Dragon Evolution 1</div>
+                                    <img src="images/pets/Dmg Mount act 5.png" 
+                                    alt="Red Dragon" 
+                                    class="popup-im" 
+                                    >
+   
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot">ATTACK SPEED + 60</div>
+                                    <div class="popup-loot">DAMAGE INCREASE +22%</div>
+                                    <div class="popup-loot">EXCELLENT DAMAGE RATE +13%</div>
+                                    <div class="popup-loot">DOUBLE DAMAGE RATE +4%</div>
+                                    <div class="popup-loot">IGNORE DEFENSE RATE +3%</div>
+                        
+                                  </div>
+                                </div>   
+                                </div>
+                        
+                                <!-- Evolution 2 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                        <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+  
+                      
+                                        <img src="images/pets/Dmg Mount act 5.png" 
+                                             alt="Drogon" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Drogon Evolution 2</div>
+                                      <img src="images/pets/Dmg Mount act 5.png" 
+                                      alt="Drogon" 
+                                      class="popup-im" 
+                                      >
+     
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">ATTACK SPEED + 65</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +23%</div>
+                                      <div class="popup-loot">EXCELLENT DAMAGE RATE +14%</div>
+                                      <div class="popup-loot">DOUBLE DAMAGE RATE +5%</div>
+                                      <div class="popup-loot">IGNORE DEFENSE RATE +3%</div>
+                          
+                                    </div>
+                                </div>     
+                                </div>
+                        
+                                <!-- Evolution 3 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                        <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+  
+                      
+                                        <img src="images/pets/Dmg Mount act 5.png" 
+                                             alt="Drogon" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Drogon Evolution 3</div>
+                                      <img src="images/pets/Dmg Mount act 5.png" 
+                                      alt="Drogon" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">ATTACK SPEED + 70</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +25%</div>
+                                      <div class="popup-loot">EXCELLENT DAMAGE RATE +15%</div>
+                                      <div class="popup-loot">DOUBLE DAMAGE RATE +6%</div>
+                                      <div class="popup-loot">IGNORE DEFENSE RATE +4%</div>
+                                    </div>
+                                </div> 
+                                </div>
+                     </div><br>
+
+                        <br>
+                        <br>
+                    </div>
+                    ` 
+                ,
+                // DEFENSE
+                "defense": `
+                    <div class="main-container">
+                     <h1 class="main-title">DEFENSE</h1><br>
+                     <h1 class="main-title">Fairy King ACT I</h1>
+                     <div class="items-row">
+                          
+                                <!-- Evolution 1 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Evolution 1</strong><br>
+
+                    
+                                      <img src="images/pets/Defense pet act 1.png" 
+                                           alt="Fairy King" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">Fairy King Evolution 1</div>
+                                    <img src="images/pets/Defense pet act 1.png" 
+                                    alt="Fairy King" 
+                                    class="popup-im" 
+                                    >
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot">HP +500</div>
+                                    <div class="popup-loot">Excelent Damage Resist 1%</div>
+                                    <div class="popup-loot">DEFENSE INCREASE +6%</div>
+                        
+                                  </div>
+                                </div>   
+                                </div>
+                        
+                                <!-- Evolution 2 -->
+                                <div class="item-container">
+                                 <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+  
+                      
+                                        <img src="images/pets/Defense pet act 1.png" 
+                                             alt="Fairy King" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Fairy King Evolution 2</div>
+                                      <img src="images/pets/Defense pet act 1.png" 
+                                      alt="Fairy King" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">HP +600</div>
+                                      <div class="popup-loot">Excelent Damage Resist 2%</div>
+                                      <div class="popup-loot">DEFENSE INCREASE +7%</div>
+                          
+                                    </div>
+                                </div>    
+                                </div>
+                        
+                                <!-- Evolution 3 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 3</strong><br>
+  
+                      
+                                        <img src="images/pets/Defense pet act 1.png" 
+                                             alt="Fairy King" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Fairy King Evolution 3</div>
+                                      <img src="images/pets/Defense pet act 1.png" 
+                                      alt="Fairy King" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">HP +700</div>
+                                      <div class="popup-loot">Excelent Damage Resist 3%</div>
+                                      <div class="popup-loot">DEFENSE INCREASE +8%</div>
+                          
+                                    </div>
+                                </div> 
+                                </div>
+                     </div><br>
+                     <h1 class="main-title">Fairy Queen ACT II</h1>
+                     <div class="items-row">
+                          
+                                <!-- Evolution 1 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Evolution 1</strong><br>
+
+                    
+                                      <img src="images/pets/defense pet act 2.png" 
+                                           alt="Fairy Queen" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">Fairy King Evolution 1</div>
+                                    <img src="images/pets/defense pet act 2.png" 
+                                    alt="Fairy Queen" 
+                                    class="popup-im" 
+                                    >
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot">HP +700</div>
+                                    <div class="popup-loot">Excelent Damage Resist 4%</div>
+
+                                    <div class="popup-loot">DEFENSE INCREASE +9%</div>
+                        
+                                  </div>
+                                </div>   
+                                </div>
+                        
+                                <!-- Evolution 2 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+  
+                      
+                                        <img src="images/pets/defense pet act 2.png" 
+                                             alt="Fairy Queen" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Fairy King Evolution 2</div>
+                                      <img src="images/pets/defense pet act 2.png" 
+                                      alt="Fairy Queen" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">HP +800</div>
+                                      <div class="popup-loot">Excelent Damage Resist 5%</div>
+                                      <div class="popup-loot">DEFENSE INCREASE +10%</div>
+                          
+                                    </div>
+                                </div>     
+                                </div>
+                        
+                                <!-- Evolution 3 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 3</strong><br>
+  
+                      
+                                        <img src="images/pets/defense pet act 2.png" 
+                                             alt="Fairy Queen" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Fairy King Evolution 3</div>
+                                      <img src="images/pets/defense pet act 2.png" 
+                                      alt="Fairy Queen" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">HP +900</div>
+                                      <div class="popup-loot">Excelent Damage Resist 6%</div>
+                                      <div class="popup-loot">DEFENSE INCREASE +11%</div>
+                          
+                                    </div>
+                                </div> 
+                                </div>
+                     </div><br>
+                     <h1 class="main-title">Rayner Queen ACT III</h1>
+                     <div class="items-row">
+                          
+                                <!-- Evolution 1 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Evolution 1</strong><br>
+                                      <img src="images/pets/defense pet act 3.png" 
+                                           alt="Doryu" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">Rayner Queen Evolution 1</div>
+                                    <img src="images/pets/defense pet act 3.png" 
+                                    alt="Doryu" 
+                                    class="popup-im" 
+                                    >
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot">HP +900</div>
+                                    <div class="popup-loot">Excelent Damage Resist +7%</div>
+                                   
+                                    <div class="popup-loot">DEFENSE INCREASE +12%</div>
+                                  </div>
+                                </div>   
+                                </div>
+                        
+                                <!-- Evolution 2 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+                                        <img src="images/pets/defense pet act 3.png" 
+                                             alt="Doryu" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Rayner Queen Evolution 2</div>
+                                      <img src="images/pets/defense pet act 3.png" 
+                                      alt="Doryu" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">HP +1000</div>
+                                      <div class="popup-loot">Excelent Damage Resist +8%</div>
+     
+                                      <div class="popup-loot">DEFENSE INCREASE +13%</div>
+                                    </div>
+                                </div>     
+                                </div>
+                        
+                                <!-- Evolution 3 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 3</strong><br>
+                                        <img src="images/pets/defense pet act 3.png" 
+                                             alt="Rayner Queen" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Rayner Queen Evolution 3</div>
+                                      <img src="images/pets/defense pet act 3.png" 
+                                      alt="Rayner Queen" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">HP +1100</div>
+                                      <div class="popup-loot">Excelent Damage Resist +9%</div>
+                      
+                                      <div class="popup-loot">DEFENSE INCREASE +14%</div>
+                                    </div>
+                                </div> 
+                                </div>
+                     </div><br>
+                     <h1 class="main-title">Doryo ACT IV (PET)</h1>
+                     <div class="items-row">
+                          
+                                <!-- Evolution 1 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Evolution 1</strong><br>
+                                      <img src="images/pets/Defense pet act 4.png" 
+                                           alt="Doryu" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">Doryo Evolution 1</div>
+                                    <img src="images/pets/Defense pet act 4.png" 
+                                    alt="Doryu" 
+                                    class="popup-im" 
+                                    >
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot">HP +1200</div>
+                                    <div class="popup-loot">Excelent Damage Resist +10%</div>
+                                    <div class="popup-loot">Double Damage Rate +1%</div>
+                  
+                                    <div class="popup-loot">DEFENSE INCREASE +15%</div>
+                                  </div>
+                                </div>   
+                                </div>
+                        
+                                <!-- Evolution 2 -->
+                                <div class="item-container">
+                                 <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+                                        <img src="images/pets/Defense pet act 4.png" 
+                                             alt="Doryu" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Doryo Evolution 2</div>
+                                      <img src="images/pets/Defense pet act 4.png" 
+                                      alt="Doryu" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">HP +1300</div>
+                                      <div class="popup-loot">Excelent Damage Resist +11%</div>
+                                      <div class="popup-loot">Double Damage Rate +2%</div>
+                                 
+                                      <div class="popup-loot">DEFENSE INCREASE +17%</div>
+                                    </div>
+                                </div>    
+                                </div>
+                        
+                                <!-- Evolution 3 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 3</strong><br>
+                                        <img src="images/pets/Defense pet act 4.png" 
+                                             alt="Doryu" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Doryo Evolution 3</div>
+                                      <img src="images/pets/Defense pet act 4.png" 
+                                      alt="Doryu" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">HP +1500</div>
+                                      <div class="popup-loot">Excelent Damage Resist +12%</div>
+                                      <div class="popup-loot">Double Damage Rate +3%</div>
+                                      <div class="popup-loot">DEFENSE INCREASE +20%</div>
+                                    </div>
+                                </div> 
+                                </div>
+                     </div><br>
+                     <h1 class="main-title">Winter Wyvern ACT IV (MOUNT)</h1>
+                     <div class="items-row">
+                          
+                                <!-- Evolution 1 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Evolution 1</strong><br>
+                                      <img src="images/pets/defense mount act 4.png" 
+                                           alt="Winter Wyvern" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">Winter Wyvern Evolution 1</div>
+                                    <img src="images/pets/defense mount act 4.png" 
+                                    alt="Winter Wyvern" 
+                                    class="popup-im" 
+                                    >
+                                      <div class="popup-name">Options</div>
+                                    <div class="popup-loot">HP +1200</div>
+                                    <div class="popup-loot">Excelent Damage Resist +10%</div>
+                                    <div class="popup-loot">Double Damage Rate +1%</div>
+                  
+                                    <div class="popup-loot">DEFENSE INCREASE +15%</div>
+                                  </div>
+                                </div>   
+                                </div>
+                        
+                                <!-- Evolution 2 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+                                        <img src="images/pets/defense mount act 4.png" 
+                                             alt="Doryu" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Winter Wyvern Evolution 2</div>
+                                      <img src="images/pets/defense mount act 4.png" 
+                                      alt="Doryu" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">HP +1300</div>
+                                      <div class="popup-loot">Excelent Damage Resist +11%</div>
+                                      <div class="popup-loot">Double Damage Rate +2%</div>
+                             
+                                      <div class="popup-loot">DEFENSE INCREASE +17%</div>
+                                    </div>
+                                </div>     
+                                </div>
+                        
+                                <!-- Evolution 3 -->
+                                <div class="item-container">
+                                 <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 3</strong><br>
+                                        <img src="images/pets/defense mount act 4.png" 
+                                             alt="Doryu" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Winter Wyvern Evolution 3</div>
+                                      <img src="images/pets/defense mount act 4.png" 
+                                      alt="Doryu" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">HP +1500</div>
+                                      <div class="popup-loot">Excelent Damage Resist +12%</div>
+                                      <div class="popup-loot">Double Damage Rate +3%</div>
+                                      <div class="popup-loot">DEFENSE INCREASE +20%</div>
+                                    </div>
+                                </div>
+                                </div>
+                     </div><br>
+                     <h1 class="main-title">Selupan ACT V (PET)</h1>  
+                     <div class="items-row">
+                          
+                                <!-- Evolution 1 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Evolution 1</strong><br>
+
+                    
+                                      <img src="images/pets/Selupan def pet act 5.png" 
+                                           alt="Selupan" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">Selupan Evolution 1</div>
+                                    <img src="images/pets/Selupan def pet act 5.png" 
+                                    alt="Selupan" 
+                                    class="popup-im" 
+                                    >
+   
+                                    <div class="popup-name">Options</div>
+                                      <div class="popup-loot">HP +1700</div>
+                                      <div class="popup-loot">Excelent Damage Resist +13%</div>
+                                      <div class="popup-loot">Double Damage Rate +4%</div>
+                                      <div class="popup-loot">DEFENSE INCREASE +22%</div>
+                        
+                        
+                                  </div>
+                                </div>  
+                                </div>
+                        
+                                <!-- Evolution 2 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                        <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+  
+                      
+                                        <img src="images/pets/Selupan def pet act 5.png" 
+                                             alt="Amnemis" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Selupan Evolution 2</div>
+                                      <img src="images/pets/Selupan def pet act 5.png" 
+                                      alt="Amnemis" 
+                                      class="popup-im" 
+                                      >
+     
+                                      <div class="popup-name">Options</div>
+                                         <div class="popup-loot">HP +1800</div>
+                                      <div class="popup-loot">Excelent Damage Resist +14%</div>
+                                      <div class="popup-loot">Double Damage Rate +5%</div>
+                                      <div class="popup-loot">DEFENSE INCREASE +23%</div>
+                          
+                                    </div>
+                                </div>     
+                                </div>
+                        
+                                <!-- Evolution 3 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                        <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 3</strong><br>
+                                        <img src="images/pets/Selupan def pet act 5.png" 
+                                             alt="Amnemis" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Selupan Evolution 3</div>
+                                      <img src="images/pets/Selupan def pet act 5.png" 
+                                      alt="Amnemis" 
+                                      class="popup-im" 
+                                      >
+     
+                                      <div class="popup-name">Options</div>
+                                         <div class="popup-loot">HP +2000</div>
+                                      <div class="popup-loot">Excelent Damage Resist +15%</div>
+                                      <div class="popup-loot">Double Damage Rate +6%</div>
+                                      <div class="popup-loot">DEFENSE INCREASE +25%</div>
+                          
+                                    </div>
+                                </div> 
+                                </div>
+                     </div><br>
+                     <h1 class="main-title">Gold Dragon  ACT V (MOUNT)</h1>  
+                     <div class="items-row">
+                          
+                                <!-- Evolution 1 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Evolution 1</strong><br>
+
+                    
+                                      <img src="images/pets/Def mount act 5.png" 
+                                           alt="Red Dragon" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">Gold Dragon Evolution 1</div>
+                                    <img src="images/pets/Def mount act 5.png" 
+                                    alt="Red Dragon" 
+                                    class="popup-im" 
+                                    >
+   
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot">HP +1700</div>
+                                      <div class="popup-loot">Excelent Damage Resist +13%</div>
+                                      <div class="popup-loot">Double Damage Rate +4%</div>
+                                      <div class="popup-loot">DEFENSE INCREASE +22%</div>
+                        
+                                  </div>
+                                </div>   
+                                </div>
+                        
+                                <!-- Evolution 2 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                        <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+  
+                      
+                                        <img src="images/pets/Def mount act 5.png" 
+                                             alt="Drogon" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Gold Dragon Evolution 2</div>
+                                      <img src="images/pets/Def mount act 5.png" 
+                                      alt="Drogon" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-loot">HP +1800</div>
+                                      <div class="popup-loot">Excelent Damage Resist +14%</div>
+                                      <div class="popup-loot">Double Damage Rate +5%</div>
+                                      <div class="popup-loot">DEFENSE INCREASE +23%</div>
+                          
+                          
+                                    </div>
+                                </div>     
+                                </div>
+                        
+                                <!-- Evolution 3 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                        <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+  
+                      
+                                        <img src="images/pets/Def mount act 5.png" 
+                                             alt="Drogon" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Gold Dragon Evolution 3</div>
+                                      <img src="images/pets/Def mount act 5.png" 
+                                      alt="Drogon" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                          <div class="popup-loot">HP +2000</div>
+                                      <div class="popup-loot">Excelent Damage Resist +15%</div>
+                                      <div class="popup-loot">Double Damage Rate +6%</div>
+                                      <div class="popup-loot">DEFENSE INCREASE +25%</div>
+                                    </div>
+                                </div> 
+                                </div>
+                     </div><br>
+
+                        <br>
+                        <br>
+                    </div>
+                    ` 
+                ,
+                // MIX
+                "mix": `
+                    <div class="main-container">
+                     <h1 class="main-title">MIX</h1><br>
+                     <h1 class="main-title">FOX ACT I</h1><br>
+                     <div class="items-row">
+                          
+                                <!-- Evolution 1 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Evolution 1</strong><br>
+
+                    
+                                      <img src="images/pets/mix mount act 1.png" 
+                                           alt="FOX" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">Fox Evolution 1</div>
+                                    <img src="images/pets/mix mount act 1.png" 
+                                    alt="Fox" 
+                                    class="popup-im" 
+                                    >
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot">DAMAGE INCREASE +1%</div>
+                                    <div class="popup-loot">DEFENSE INCREASE +1%</div>
+                                  </div>
+                                </div>        
+                                </div>
+                        
+                                <!-- Evolution 2 -->
+                                <div class="item-container">
+                                 <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+  
+                      
+                                        <img src="images/pets/mix mount act 1.png" 
+                                             alt="FOX" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Fox Evolution 2</div>
+                                      <img src="images/pets/mix mount act 1.png" 
+                                      alt="Fox" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +2%</div>
+                                      <div class="popup-loot">DEFENSE INCREASE +2%</div>
+                                    </div>
+                                </div>      
+                                </div>
+                        
+                                <!-- Evolution 3 -->
+                                <div class="item-container">
+                                  <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 3</strong><br>
+  
+                      
+                                        <img src="images/pets/mix mount act 1.png" 
+                                             alt="FOX" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Fox Evolution 3</div>
+                                      <img src="images/pets/mix mount act 1.png" 
+                                      alt="Fox" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +3%</div>
+                                      <div class="popup-loot">DEFENSE INCREASE +3%</div>
+                                    </div>
+                                </div>         
+                                </div>
+                     </div><br>
+                     <h1 class="main-title">WOLF ACT II</h1><br>
+                     <div class="items-row">
+                     
+                           <!-- Evolution 1 -->
+                           <div class="item-container">
+                           <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 1</strong><br>
+  
+                      
+                                        <img src="images/pets/mix mount act 2.png" 
+                                             alt="Wolf" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Wolf Evolution 1</div>
+                                      <img src="images/pets/mix mount act 2.png" 
+                                      alt="Wolf" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +4%</div>
+                                      <div class="popup-loot">ATTACK SPEED +5</div>
+                                      <div class="popup-loot">DEFENSE INCREASE +4%</div>
+                                    </div>
+                                </div>        
+                           </div>
+                                                  <!-- Evolution 2 -->
+                           <div class="item-container">
+                           <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+  
+                      
+                                        <img src="images/pets/mix mount act 2.png" 
+                                             alt="Wolf" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Wolf Evolution 2</div>
+                                      <img src="images/pets/mix mount act 2.png" 
+                                      alt="Wolf" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      
+                                      <div class="popup-loot">DAMAGE INCREASE +5%</div>
+                                      <div class="popup-loot">ATTACK SPEED +7</div>
+                                      <div class="popup-loot">DEFENSE INCREASE +5%</div>
+                                    </div>
+                                </div>       
+                           </div>
+                                                  <!-- Evolution 3 -->
+                           <div class="item-container">
+                           <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 3</strong><br>
+  
+                      
+                                        <img src="images/pets/mix mount act 2.png" 
+                                             alt="Wolf" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Wolf Evolution 3</div>
+                                      <img src="images/pets/mix mount act 2.png" 
+                                      alt="Wolf" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +6%</div>
+                                      <div class="popup-loot">ATTACK SPEED +10</div>
+                                      <div class="popup-loot">DEFENSE INCREASE +6%</div>
+                                    </div>
+                                </div>          
+                           </div>
+                     </div><br>
+                     <h1 class="main-title">TIGER ACT III</h1><br>
+                     <div class="items-row">
+                     
+                           <!-- Evolution 1 -->
+                           <div class="item-container">
+                            <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 1</strong><br>
+  
+                      
+                                        <img src="images/pets/mix mount act 3.png" 
+                                             alt="TIGER" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">TIGER Evolution 1</div>
+                                      <img src="images/pets/mix mount act 3.png" 
+                                      alt="TIGER" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">HP +500</div>
+                                      <div class="popup-loot">ATTACK SPEED +15</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +7%</div>
+                                      <div class="popup-loot">DEFENSE INCREASE +7%</div>
+                                    </div>
+                                </div>       
+                           </div>
+                                                  <!-- Evolution 2 -->
+                           <div class="item-container">
+                            <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+  
+                      
+                                        <img src="images/pets/mix mount act 3.png" 
+                                             alt="TIGER" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">TIGER Evolution 2</div>
+                                      <img src="images/pets/mix mount act 3.png" 
+                                      alt="TIGER" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">HP +600</div>
+                                      <div class="popup-loot">ATTACK SPEED +17</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +8%</div>
+                                      <div class="popup-loot">DEFENSE INCREASE +8%</div>
+                                    </div>
+                                </div>       
+                           </div>
+                                                  <!-- Evolution 3 -->
+                           <div class="item-container">
+                           <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 3</strong><br>
+  
+                      
+                                        <img src="images/pets/mix mount act 3.png" 
+                                             alt="TIGER" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">TIGER Evolution 3</div>
+                                      <img src="images/pets/mix mount act 3.png" 
+                                      alt="TIGER" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">HP +700</div>
+                                      <div class="popup-loot">ATTACK SPEED +20</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +9%</div>
+                                      <div class="popup-loot">DEFENSE INCREASE +9%</div>
+                                    </div>
+                                </div>          
+                           </div>
+                     </div><br>
+                     <h1 class="main-title">PHOENIX ACT IV (PET)</h1><br>
+                     <div class="items-row">
+                     
+                           <!-- Evolution 1 -->
+                           <div class="item-container">
+                           <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 1</strong><br>
+  
+                      
+                                        <img src="images/pets/mix pet act 4.png" 
+                                             alt="PHOENIX" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">PHOENIX Evolution 1</div>
+                                      <img src="images/pets/mix pet act 4.png" 
+                                      alt="PHOENIX" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">HP +800</div>
+                                      <div class="popup-loot">ATTACK SPEED +25</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +10%</div>
+                                      <div class="popup-loot">DEFENSE INCREASE +10%</div>
+                                      <div class="popup-loot">IGNORE DEFENSE RATE +1%</div>
+                                    </div>
+                                </div>        
+                           </div>
+                                                  <!-- Evolution 2 -->
+                           <div class="item-container">
+                           <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+  
+                      
+                                        <img src="images/pets/mix pet act 4.png" 
+                                             alt="PHOENIX" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">PHOENIX Evolution 2</div>
+                                      <img src="images/pets/mix pet act 4.png" 
+                                      alt="PHOENIX" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">HP +900</div>
+                                      <div class="popup-loot">ATTACK SPEED +27</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +11%</div>
+                                      <div class="popup-loot">DEFENSE INCREASE +11%</div>
+                                      <div class="popup-loot">IGNORE DEFENSE RATE +1%</div>
+                                    </div>
+                                </div>      
+                           </div>
+                                                  <!-- Evolution 3 -->
+                           <div class="item-container">
+                           <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 3</strong><br>
+  
+                      
+                                        <img src="images/pets/mix pet act 4.png" 
+                                             alt="PHOENIX" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">PHOENIX Evolution 3</div>
+                                      <img src="images/pets/mix pet act 4.png" 
+                                      alt="PHOENIX" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">HP +1000</div>
+                                      <div class="popup-loot">ATTACK SPEED +30</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +12%</div>
+                                      <div class="popup-loot">DEFENSE INCREASE +12%</div>
+                                      <div class="popup-loot">IGNORE DEFENSE RATE +2%</div>
+                                    </div>
+                                </div>          
+                           </div>
+                     </div><br>
+                     <h1 class="main-title">RHAEGAL ACT IV (MOUNT)</h1><br>
+                     <div class="items-row">
+                     
+                           <!-- Evolution 1 -->
+                           <div class="item-container">
+                            <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 1</strong><br>
+  
+                      
+                                        <img src="images/pets/mix mount act 4.png" 
+                                             alt="RHAEGAL" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">RHAEGAL Evolution 1</div>
+                                      <img src="images/pets/mix mount act 4.png" 
+                                      alt="RHAEGAL" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">HP +800</div>
+                                      <div class="popup-loot">ATTACK SPEED +25</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +10%</div>
+                                      <div class="popup-loot">DEFENSE INCREASE +10%</div>
+                                      <div class="popup-loot">IGNORE DEFENSE RATE +1%</div>
+                                    </div>
+                                </div>        
+                           </div>
+                                                  <!-- Evolution 2 -->
+                           <div class="item-container">
+                            <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+  
+                      
+                                        <img src="images/pets/mix mount act 4.png" 
+                                             alt="RHAEGAL" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">RHAEGAL Evolution 2</div>
+                                      <img src="images/pets/mix mount act 4.png" 
+                                      alt="RHAEGAL" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">HP +900</div>
+                                      <div class="popup-loot">ATTACK SPEED +27</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +11%</div>
+                                      <div class="popup-loot">DEFENSE INCREASE +11%</div>
+                                      <div class="popup-loot">IGNORE DEFENSE RATE +1%</div>
+                                    </div>
+                                </div>      
+                           </div>
+                                                  <!-- Evolution 3 -->
+                           <div class="item-container">
+                             <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 3</strong><br>
+  
+                      
+                                        <img src="images/pets/mix mount act 4.png" 
+                                             alt="RHAEGAL" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">RHAEGAL Evolution 3</div>
+                                      <img src="images/pets/mix mount act 4.png" 
+                                      alt="RHAEGAL" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">HP +1000</div>
+                                      <div class="popup-loot">ATTACK SPEED +30</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +12%</div>
+                                      <div class="popup-loot">DEFENSE INCREASE +12%</div>
+                                      <div class="popup-loot">IGNORE DEFENSE RATE +2%</div>
+                                    </div>
+                                </div>          
+                           </div>
+                     </div><br>
+                     <h1 class="main-title">Nightmare ACT V (PET)</h1><br>
+                     <div class="items-row">
+                     
+                           <!-- Evolution 1 -->
+                           <div class="item-container">
+                            <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Evolution 1</strong><br>
+
+                    
+                                      <img src="images/pets/Nightmare Mix Pet Act 5.png" 
+                                           alt="Selupan" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">Nightmare Evolution 1</div>
+                                    <img src="images/pets/Nightmare Mix Pet Act 5.png" 
+                                    alt="Selupan" 
+                                    class="popup-im" 
+                                    >
+   
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot">HP +1100</div>
+                                    <div class="popup-loot">ATTACK SPEED + 35</div>
+                                    <div class="popup-loot">DAMAGE INCREASE +13%</div>
+                                    <div class="popup-loot">DEFENSE INCREASE +13%</div>
+                                    <div class="popup-loot">IGNORE DEFENSE RATE +2%</div>
+                        
+                        
+                                  </div>
+                                </div>       
+                           </div>
+                                                  <!-- Evolution 2 -->
+                           <div class="item-container">
+                           <div class="item-wrapper">
+                                    <p>
+                                        <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+  
+                      
+                                        <img src="images/pets/Nightmare Mix Pet Act 5.png" 
+                                             alt="Amnemis" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Nightmare Evolution 2</div>
+                                      <img src="images/pets/Nightmare Mix Pet Act 5.png" 
+                                      alt="Amnemis" 
+                                      class="popup-im" 
+                                      >
+     
+                                      <div class="popup-name">Options</div>
+                                    <div class="popup-loot">HP +1200</div>
+                                    <div class="popup-loot">ATTACK SPEED + 40</div>
+                                    <div class="popup-loot">DAMAGE INCREASE +14%</div>
+                                    <div class="popup-loot">DEFENSE INCREASE +14%</div>
+                                    <div class="popup-loot">IGNORE DEFENSE RATE +3%</div>
+                          
+                                    </div>
+                                </div>       
+                           </div>
+                                                  <!-- Evolution 3 -->
+                           <div class="item-container">
+                            <div class="item-wrapper">
+                                    <p>
+                                        <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 3</strong><br>
+                                        <img src="images/pets/Nightmare Mix Pet Act 5.png" 
+                                             alt="Amnemis" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Nightmare Evolution 3</div>
+                                      <img src="images/pets/Nightmare Mix Pet Act 5.png" 
+                                      alt="Amnemis" 
+                                      class="popup-im" 
+                                      >
+     
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">HP +1300</div>
+                                      <div class="popup-loot">ATTACK SPEED + 45</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +15%</div>
+                                      <div class="popup-loot">DEFENSE INCREASE +15%</div>
+                                      <div class="popup-loot">IGNORE DEFENSE RATE +4%</div>
+                          
+                                    </div>
+                                </div>         
+                           </div>
+                     </div><br>
+                     <h1 class="main-title">Green Dragon  ACT V (MOUNT)</h1><br>
+                     <div class="items-row">
+                     
+                           <!-- Evolution 1 -->
+                           <div class="item-container">
+                            <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Evolution 1</strong><br>
+
+                    
+                                      <img src="images/pets/mix mount act 5.png" 
+                                           alt="Red Dragon" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">Green Dragon Evolution 1</div>
+                                    <img src="images/pets/mix mount act 5.png" 
+                                    alt="Red Dragon" 
+                                    class="popup-im" 
+                                    >
+   
+                                    <div class="popup-name">Options</div>
+                                     <div class="popup-loot">HP +1100</div>
+                                    <div class="popup-loot">ATTACK SPEED + 35</div>
+                                    <div class="popup-loot">DAMAGE INCREASE +13%</div>
+                                    <div class="popup-loot">DEFENSE INCREASE +13%</div>
+                                    <div class="popup-loot">IGNORE DEFENSE RATE +2%</div>
+                        
+                                  </div>
+                                </div>       
+                           </div>
+                                                  <!-- Evolution 2 -->
+                           <div class="item-container">
+                            <div class="item-wrapper">
+                                    <p>
+                                        <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+  
+                      
+                                        <img src="images/pets/mix mount act 5.png" 
+                                             alt="Drogon" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Green Dragon Evolution 2</div>
+                                      <img src="images/pets/mix mount act 5.png" 
+                                      alt="Drogon" 
+                                      class="popup-im" 
+                                      >
+     
+                                      <div class="popup-name">Options</div>
+                                       <div class="popup-loot">HP +1200</div>
+                                    <div class="popup-loot">ATTACK SPEED + 40</div>
+                                    <div class="popup-loot">DAMAGE INCREASE +14%</div>
+                                    <div class="popup-loot">DEFENSE INCREASE +14%</div>
+                                    <div class="popup-loot">IGNORE DEFENSE RATE +3%</div>
+                          
+                                    </div>
+                                </div>       
+                           </div>
+                                                  <!-- Evolution 3 -->
+                           <div class="item-container">
+                            <div class="item-wrapper">
+                                    <p>
+                                        <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+  
+                      
+                                        <img src="images/pets/mix mount act 5.png" 
+                                             alt="Drogon" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Green Dragon Evolution 3</div>
+                                      <img src="images/pets/mix mount act 5.png" 
+                                      alt="Drogon" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                       <div class="popup-loot">HP +1300</div>
+                                      <div class="popup-loot">ATTACK SPEED + 45</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +15%</div>
+                                      <div class="popup-loot">DEFENSE INCREASE +15%</div>
+                                      <div class="popup-loot">IGNORE DEFENSE RATE +4%</div>
+                                    </div>
+                                </div>         
+                           </div>
+                     </div>
+
+                        <br>
+                        <br>
+                    </div>
+                    ` 
+                ,
+                // HORSE
+                "horse": `
+                    <div class="main-container">           
+                    <h1 class="main-title">HORSES</h1><br>
+                    <h1 class="main-title">GHOST HORSE ACT I</h1><br>
+                    <div class="items-row">
+                          
+                                <!-- Evolution 1 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Evolution 1</strong><br>
+
+                    
+                                      <img src="images/pets/Ghost_Horse.png" 
+                                           alt=">GHOST HORSE" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">GHOST HORSE Evolution 1</div>
+                                    <img src="images/pets/Ghost_Horse.png" 
+                                    alt=">GHOST HORSE" 
+                                    class="popup-im" 
+                                    >
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot">DAMAGE DECREASE +1%</div>
+                                    <div class="popup-loot">DEFENSE INCREASE +20%</div>
+                                    <div class="popup-loot">Command +400</div>
+                                  </div>
+                                </div>  
+                                </div>
+                        
+                                <!-- Evolution 2 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+  
+                      
+                                        <img src="images/pets/Ghost_Horse.png" 
+                                             alt="GHOST HORSE" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">GHOST HORSE Evolution 2</div>
+                                      <img src="images/pets/Ghost_Horse.png" 
+                                      alt="GHOST HORSE" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +2%</div>
+                                      <div class="popup-loot">DAMAGE DECREASE +22%</div>
+                                      <div class="popup-loot">Command +450</div>
+                                    </div>
+                                </div>    
+                                </div>
+                        
+                                <!-- Evolution 3 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 3</strong><br>
+  
+                      
+                                        <img src="images/pets/Ghost_Horse.png" 
+                                             alt="GHOST HORSE" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">GHOST HORSE Evolution 3</div>
+                                      <img src="images/pets/Ghost_Horse.png" 
+                                      alt="GHOST HORSE" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +3%</div>
+                                      <div class="popup-loot">DAMAGE DECREASE +25%</div>
+                                      <div class="popup-loot">Command +500</div>
+                                    </div>
+                                </div>
+                                </div>
+                    </div><br>
+                    <h1 class="main-title">ICE HORSE ACT II</h1><br>
+                    <div class="items-row">
+                          
+                                <!-- Evolution 1 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Evolution 1</strong><br>
+
+                    
+                                      <img src="images/pets/Ice_Horse.png" 
+                                           alt="ICE HORSE" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">ICE HORSE Evolution 1</div>
+                                    <img src="images/pets/Ice_Horse.png" 
+                                    alt="ICE HORSE" 
+                                    class="popup-im" 
+                                    >
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot">DAMAGE INCREASE +4%</div>
+                                    <div class="popup-loot">DAMAGE DECREASE +25%</div>
+                                    <div class="popup-loot">Command +550</div>
+                                  </div>
+                                </div>   
+                                </div>
+                        
+                                <!-- Evolution 2 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+  
+                      
+                                        <img src="images/pets/Ice_Horse.png" 
+                                             alt="ICE HORSE" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">ICE HORSE Evolution 2</div>
+                                      <img src="images/pets/Ice_Horse.png" 
+                                      alt="ICE HORSE" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +5%</div>
+                                      <div class="popup-loot">DAMAGE DECREASE +27%</div>
+                                      <div class="popup-loot">Command +600</div>
+                                    </div>
+                                </div>     
+                                </div>
+                        
+                                <!-- Evolution 3 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 3</strong><br>
+  
+                      
+                                        <img src="images/pets/Ice_Horse.png" 
+                                             alt="ICE HORSE" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">ICE HORSE Evolution 3</div>
+                                      <img src="images/pets/Ice_Horse.png" 
+                                      alt="ICE HORSE" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +6%</div>
+                                      <div class="popup-loot">DAMAGE DECREASE +30%</div>
+                                      <div class="popup-loot">Command +650</div>
+                                    </div>
+                                </div> 
+                                </div>
+                    </div><br>
+                    <h1 class="main-title">EMBER HORSE ACT III</h1><br>  
+                    <div class="items-row">
+                          
+                                <!-- Evolution 1 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Evolution 1</strong><br>
+
+                    
+                                      <img src="images/pets/Ember_Horse.png" 
+                                           alt="EMBER HORSE" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">EMBER HORSE Evolution 1</div>
+                                    <img src="images/pets/Ember_Horse.png" 
+                                    alt="EMBER HORSE" 
+                                    class="popup-im" 
+                                    >
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot">DAMAGE INCREASE +7%</div>
+                                    <div class="popup-loot">DAMAGE DECREASE +30%</div>
+                                    <div class="popup-loot">Command +700</div>
+                                  </div>
+                                </div>   
+                                </div>
+                        
+                                <!-- Evolution 2 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+  
+                      
+                                        <img src="images/pets/Ember_Horse.png" 
+                                             alt="EMBER HORSE" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">EMBER HORSE Evolution 2</div>
+                                      <img src="images/pets/Ember_Horse.png" 
+                                      alt="EMBER HORSE" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +8%</div>
+                                      <div class="popup-loot">DAMAGE DECREASE +32%</div>
+                                      <div class="popup-loot">Command +750</div>
+                                    </div>
+                                </div>     
+                                </div>
+                        
+                                <!-- Evolution 3 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 3</strong><br>
+  
+                      
+                                        <img src="images/pets/Ember_Horse.png" 
+                                             alt="EMBER HORSE" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">EMBER HORSE Evolution 3</div>
+                                      <img src="images/pets/Ember_Horse.png" 
+                                      alt="EMBER HORSE" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +9%</div>
+                                      <div class="popup-loot">DAMAGE DECREASE +35%</div>
+                                      <div class="popup-loot">Command +800</div>
+                                    </div>
+                                </div> 
+                                </div>
+                    </div><br>
+                    <h1 class="main-title">FLAME HORSE ACT IV</h1><br>  
+                    <div class="items-row">
+                          
+                                <!-- Evolution 1 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Evolution 1</strong><br>
+
+                    
+                                      <img src="images/pets/Flame_Horse.png" 
+                                           alt="FLAME HORSE" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">FLAME HORSE Evolution 1</div>
+                                    <img src="images/pets/Flame_Horse.png" 
+                                    alt="FLAME HORSE" 
+                                    class="popup-im" 
+                                    >
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot">DAMAGE INCREASE +10%</div>
+                                    <div class="popup-loot">DAMAGE DECREASE +35%</div>
+                                    <div class="popup-loot">IGNORE DEFENSE RATE +1%</div>
+                                    <div class="popup-loot">Command +850</div>
+                                  </div>
+                                </div>   
+                                </div>
+                        
+                                <!-- Evolution 2 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+  
+                      
+                                        <img src="images/pets/Flame_Horse.png" 
+                                             alt="FLAME HORSE" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">FLAME HORSE Evolution 2</div>
+                                      <img src="images/pets/Flame_Horse.png" 
+                                      alt="FLAME HORSE" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +11%</div>
+                                      <div class="popup-loot">DAMAGE DECREASE +37%</div>
+                                      <div class="popup-loot">IGNORE DEFENSE RATE +2%</div>
+                                      <div class="popup-loot">Command +900</div>
+                                    </div>
+                                </div>     
+                                </div>
+                        
+                                <!-- Evolution 3 -->
+                                <div class="item-container">
+                                 <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 3</strong><br>
+  
+                      
+                                        <img src="images/pets/Flame_Horse.png" 
+                                             alt="FLAME HORSE" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">FLAME HORSE Evolution 3</div>
+                                      <img src="images/pets/Flame_Horse.png" 
+                                      alt="FLAME HORSE" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +12%</div>
+                                      <div class="popup-loot">DAMAGE DECREASE +40%</div>
+                                      <div class="popup-loot">IGNORE DEFENSE RATE +3%</div>
+                                      <div class="popup-loot">Command +1000</div>
+                                    </div>
+                                </div> 
+                                </div>
+                    </div><br>
+                    <h1 class="main-title">PHOENIX HORSE ACT V</h1><br>  
+                    <div class="items-row">
+                          
+                                <!-- Evolution 1 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Evolution 1</strong><br>
+
+                    
+                                      <img src="images/pets/Fenix_Horse.png" 
+                                           alt="FLAME HORSE" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">PHOENIX HORSE Evolution 1</div>
+                                    <img src="images/pets/Fenix_Horse.png" 
+                                    alt="FLAME HORSE" 
+                                    class="popup-im" 
+                                    >
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot">DAMAGE INCREASE +13%</div>
+                                    <div class="popup-loot">DAMAGE DECREASE +42%</div>
+                                    <div class="popup-loot">IGNORE DEFENSE RATE +3%</div>
+                                    <div class="popup-loot">Command +1100</div>
+                                  </div>
+                                </div>   
+                                </div>
+                        
+                                <!-- Evolution 2 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+  
+                      
+                                        <img src="images/pets/Fenix_Horse.png" 
+                                             alt="FLAME HORSE" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">PHOENIX HORSE Evolution 2</div>
+                                      <img src="images/pets/Fenix_Horse.png" 
+                                      alt="FLAME HORSE" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +14%</div>
+                                      <div class="popup-loot">DAMAGE DECREASE +44%</div>
+                                      <div class="popup-loot">IGNORE DEFENSE RATE +4%</div>
+                                      <div class="popup-loot">Command +1200</div>
+                                    </div>
+                                </div>     
+                                </div>
+                        
+                                <!-- Evolution 3 -->
+                                <div class="item-container">
+                                 <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 3</strong><br>
+  
+                      
+                                        <img src="images/pets/Fenix_Horse.png" 
+                                             alt="FLAME HORSE" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">PHOENIX HORSE Evolution 3</div>
+                                      <img src="images/pets/Fenix_Horse.png" 
+                                      alt="FLAME HORSE" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">DAMAGE INCREASE +15%</div>
+                                      <div class="popup-loot">DAMAGE DECREASE +46%</div>
+                                      <div class="popup-loot">IGNORE DEFENSE RATE +5%</div>
+                                      <div class="popup-loot">Command +1300</div>
+                                    </div>
+                                </div> 
+                                </div>
+                    </div><br>
+
+                        <br>
+                        <br>
+                    </div>
+                    ` 
+                ,
+                // FARM
+                "farm": `
+                    <div class="main-container">
+                     
+                          <h1 class="main-title">William ACT I</h1><br>
+                          <div class="items-row">
+                          
+                                <!-- Evolution 1 -->
+                                <div class="item-container">
+                                          <div class="item-wrapper">
+                                              <p>
+                                            
+                                                  <strong class="popup-header">Evolution 1</strong>
+                                                  <img src="images/pets/farm pet act 1.png" alt="William" class="item-thumb">
+                                              </p>
+                                              <div class="popup-info">
+                                                  <div class="popup-header">William Evolution 1</div>
+                                                  <img src="images/pets/farm pet act 1.png" alt="William" class="popup-im">
+                                                  <div class="popup-name">Options</div>
+                                                  <div class="popup-loot">EXPERIENCE +7%</div>
+                                                  <div class="popup-loot">ZEN DROP +10%</div>
+                                              </div>
+                                          </div>
+                                </div>
+                        
+                                <!-- Evolution 2 -->
+                                <div class="item-container">
+                                          <div class="item-wrapper">
+                                              <p>
+                                                  <strong class="popup-header">Evolution 2</strong>
+                                                  <img src="images/pets/farm pet act 1.png" alt="William" class="item-thumb">
+                                              </p>
+                                              <div class="popup-info">
+                                                  <div class="popup-header">William Evolution 2</div>
+                                                  <img src="images/pets/farm pet act 1.png" alt="William" class="popup-im">
+                                                  <div class="popup-name">Options</div>
+                                                  <div class="popup-loot">EXPERIENCE +8%</div>
+                                                  <div class="popup-loot">ZEN DROP +15%</div>
+                                              </div>
+                                          </div>
+                                </div>
+                        
+                                <!-- Evolution 3 -->
+                                <div class="item-container">
+                                          <div class="item-wrapper">
+                                              <p>
+                                                  <strong class="popup-header">Evolution 3</strong>
+                                                  <img src="images/pets/farm pet act 1.png" alt="William" class="item-thumb">
+                                              </p>
+                                              <div class="popup-info">
+                                                  <div class="popup-header">William Evolution 3</div>
+                                                  <img src="images/pets/farm pet act 1.png" alt="William" class="popup-im">
+                                                  <div class="popup-name">Options</div>
+                                                  <div class="popup-loot">EXPERIENCE +9%</div>
+                                                  <div class="popup-loot">ZEN DROP +20%</div>
+                                              </div>
+                                          </div>
+                                </div>
+                          </div><br>
+                          <h1 class="main-title">Tibetton ACT II</h1>
+                          <div class="items-row">
+
+                                <!-- Evolution 1 -->
+                                <div class="item-container">
+                                        <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header">Evolution 1</strong><br>
+                                      <img src="images/pets/farm pet act 2.png" alt="Tibetton" class="item-thumb" >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info">
+                                    <div class="popup-header">Tibetton Evolution 1</div>
+                                    <img src="images/pets/farm pet act 2.png"  alt="Tibetton"  class="popup-im" 
+                                    >
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot">EXPERIENCE +9%</div>
+                                    <div class="popup-loot">ZEN DROP +20%</div>
+                                    <div class="popup-loot">MONSTER KILL +LIFE/25</div>
+                                  </div>
+                                </div>       
+                                </div>
+                        
+                                <!-- Evolution 2 -->
+                                <div class="item-container">
+                                 <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+
+                                        <img src="images/pets/farm pet act 2.png"  alt="Tibetton"  class="item-thumb"  >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Tibetton Evolution 2</div>
+                                      <img src="images/pets/farm pet act 2.png" 
+                                      alt="Tibetton" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">EXPERIENCE +10%</div>
+                                      <div class="popup-loot">ZEN DROP +25%</div>
+                                      <div class="popup-loot">MONSTER KILL +LIFE/20</div>
+                                    </div>
+                                </div>        
+                                </div>
+                        
+                                <!-- Evolution 3 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 3</strong><br>
+  
+                      
+                                        <img src="images/pets/farm pet act 2.png" 
+                                             alt="Tibetton" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Tibetton Evolution 3</div>
+                                      <img src="images/pets/farm pet act 1.png" 
+                                      alt="Tibetton" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">EXPERIENCE +11%</div>
+                                      <div class="popup-loot">ZEN DROP +30%</div>
+                                      <div class="popup-loot">MONSTER KILL +LIFE/15</div>
+                                    </div>
+                                </div>          
+                                </div>
+                          </div><br>
+                          <h1 class="main-title">Wooparoo ACT III</h1>
+                          <div class="items-row">
+                                <!-- Evolution 1 -->
+                                <div class="item-container">
+                                  <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Evolution 1</strong><br>
+
+                    
+                                      <img src="images/pets/farm pet act 3.png" 
+                                           alt="Wooparoo" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">Wooparoo Evolution 1</div>
+                                    <img src="images/pets/farm pet act 3.png" 
+                                    alt="Wooparoo" 
+                                    class="popup-im" 
+                                    >
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot">EXPERIENCE +11%</div>
+                                    <div class="popup-loot">ZEN DROP +30%</div>
+                                    <div class="popup-loot">MONSTER KILL +LIFE/10</div>
+                                    <div class="popup-loot">MONSTER KILL +MANA/10</div>
+                                  </div>
+                                </div>         
+                                </div>
+                        
+                                <!-- Evolution 2 -->
+                                <div class="item-container">
+                                 <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+  
+                      
+                                        <img src="images/pets/farm pet act 3.png" 
+                                             alt="Wooparoo" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Wooparoo Evolution 2</div>
+                                      <img src="images/pets/farm pet act 3.png" 
+                                      alt="Wooparoo" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">EXPERIENCE +12%</div>
+                                      <div class="popup-loot">ZEN DROP +35%</div>
+                                      <div class="popup-loot">MONSTER KILL +LIFE/9</div>
+                                      <div class="popup-loot">MONSTER KILL +MANA/9</div>
+                                    </div>
+                                </div>
+                                </div>
+                        
+                                <!-- Evolution 3 -->
+                                <div class="item-container">
+                                 <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 3</strong><br>
+  
+                      
+                                        <img src="images/pets/farm pet act 3.png" 
+                                             alt="Wooparoo" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Wooparoo Evolution 3</div>
+                                      <img src="images/pets/farm pet act 3.png" 
+                                      alt="Wooparoo" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">EXPERIENCE +13%</div>
+                                      <div class="popup-loot">ZEN DROP +40%</div>
+                                      <div class="popup-loot">MONSTER KILL +LIFE/8</div>
+                                      <div class="popup-loot">MONSTER KILL +MANA/8</div>
+                                    </div>
+                                </div>
+                                </div>
+                          </div><br>
+                  
+                          <h1 class="main-title">Chiron ACT IV</h1><br>
+                          <div class="items-row">
+
+                                <!-- Evolution 1 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Evolution 1</strong><br>
+
+                    
+                                      <img src="images/pets/farm pet act 4.png" 
+                                           alt="Chiron" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">Chiron Evolution 1</div>
+                                    <img src="images/pets/farm pet act 4.png" 
+                                    alt="Chiron" 
+                                    class="popup-im" 
+                                    >
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot">EXPERIENCE +13%</div>
+                                    <div class="popup-loot">ZEN DROP +40%</div>
+                                    <div class="popup-loot">MONSTER KILL +LIFE/7</div>
+                                    <div class="popup-loot">MONSTER KILL +MANA/7</div>
+                                    <div class="popup-loot">DEFENSE SUCCES RATE +5%</div>
+                                  </div>
+                                </div>          
+                                </div>
+                        
+                                <!-- Evolution 2 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 2</strong><br>
+  
+                      
+                                        <img src="images/pets/farm pet act 4.png" 
+                                             alt="Chiron" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Chiron Evolution 2</div>
+                                      <img src="images/pets/farm pet act 4.png" 
+                                      alt="Chiron" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">EXPERIENCE +14%</div>
+                                      <div class="popup-loot">ZEN DROP +45%</div>
+                                      <div class="popup-loot">MONSTER KILL +LIFE/6</div>
+                                      <div class="popup-loot">MONSTER KILL +MANA/6</div>
+                                      <div class="popup-loot">DEFENSE SUCCES RATE +10%</div>
+                                    </div>
+                                </div>
+                                </div>
+                        
+                                <!-- Evolution 3 -->
+                                <div class="item-container">
+                                  <div class="item-wrapper">
+                                    <p>
+                                      <span style="color:#721d1a; line-height:19.6px;">
+                                          <strong class="popup-header" >Evolution 3</strong><br>
+  
+                      
+                                        <img src="images/pets/farm pet act 4.png" 
+                                             alt="Chiron" 
+  
+                                             class="item-thumb" 
+                                             >
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" >
+                                      <div class="popup-header">Chiron Evolution 3</div>
+                                      <img src="images/pets/farm pet act 4.png" 
+                                      alt="Chiron" 
+                                      class="popup-im" 
+                                      >
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot">EXPERIENCE +15%</div>
+                                      <div class="popup-loot">ZEN DROP +50%</div>
+                                      <div class="popup-loot">MONSTER KILL +LIFE/5</div>
+                                      <div class="popup-loot">MONSTER KILL +MANA/5</div>
+                                      <div class="popup-loot">DEFENSE SUCCES RATE +15%</div>
+                                    </div>
+                                </div> 
+                                </div>
+                          </div><br>
+                          <h1 class="main-title">Balrog ACT V</h1>
+                          <div class="items-row">
+                                <!-- Evolution 1 -->
+                                <div class="item-container">
+                                <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Evolution 1</strong><br>
+
+                    
+                                      <img src="images/pets/Balrog Farm Pet act 5.png" 
+                                           alt="Chiron" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">Balrog Evolution 1</div>
+                                    <img src="images/pets/Balrog Farm Pet act 5.png" 
+                                    alt="Chiron" 
+                                    class="popup-im" 
+                                    >
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot" >EXPERIENCE +15%</div>
+                                    <div class="popup-loot">ZEN DROP +55%</div>
+                                    <div class="popup-loot">MONSTER KILL +LIFE/5</div>
+                                    <div class="popup-loot">MONSTER KILL +MANA/5</div>
+                                    <div class="popup-loot">DEFENSE SUCCES RATE +15%</div>
+                                  </div>
+                                </div>          
+                                </div>
+                        
+                                <!-- Evolution 2 -->
+                                <div class="item-container">
+                                 <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Evolution 2</strong><br>
+
+                    
+                                      <img src="images/pets/Balrog Farm Pet act 5.png" 
+                                           alt="Chiron" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">Balrog Evolution 2</div>
+                                    <img src="images/pets/Balrog Farm Pet act 5.png" 
+                                    alt="Chiron" 
+                                    class="popup-im" 
+                                    >
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot">EXPERIENCE +16%</div>
+                                    <div class="popup-loot">ZEN DROP +60%</div>
+                                    <div class="popup-loot">MONSTER KILL +LIFE/4</div>
+                                    <div class="popup-loot">MONSTER KILL +MANA/4</div>
+                                    <div class="popup-loot">DEFENSE SUCCES RATE +20%</div>
+                                  </div>
+                                </div> 
+                                </div>
+                        
+                                <!-- Evolution 3 -->
+                                <div class="item-container">
+                               <div class="item-wrapper">
+                                  <p>
+                                    <span style="color:#721d1a; line-height:19.6px;">
+                                        <strong class="popup-header" >Evolution 3</strong><br>
+
+                    
+                                      <img src="images/pets/Balrog Farm Pet act 5.png" 
+                                           alt="Chiron" 
+
+                                           class="item-thumb" 
+                                           >
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" >
+                                    <div class="popup-header">Balrog Evolution 3</div>
+                                    <img src="images/pets/Balrog Farm Pet act 5.png" 
+                                    alt="Chiron" 
+                                    class="popup-im" 
+                                    >
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot">EXPERIENCE +17%</div>
+                                    <div class="popup-loot">ZEN DROP +65%</div>
+                                    <div class="popup-loot">MONSTER KILL +LIFE/3</div>
+                                    <div class="popup-loot">MONSTER KILL +MANA/3</div>
+                                    <div class="popup-loot">DEFENSE SUCCES RATE +25%</div>
+                                  </div>
+                                </div>  
+                                </div>
+                          </div>
+
+
+                        <br>
+                        <br>
+                    </div>
+                    ` 
+                ,
+
+                };
+    
+                
+                content.innerHTML = data[region];
+                content.classList.add("active"); 
+            }
+            document.addEventListener("DOMContentLoaded", function() {
+           showContent('info');
+          });
+        
+  
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const tabToOpen = params.get('tab');
+  const popupToOpen = params.get('popup');
+
+  if (tabToOpen) {
+    document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
+  }
+
+  if (popupToOpen) {
+    document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
+  }
+</script>
+
+    </body>
+
+    </html>

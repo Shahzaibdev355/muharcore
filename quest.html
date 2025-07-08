@@ -1,0 +1,452 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        //Disable cut copy paste
+        $('body').bind('cut copy paste', function (e) {
+            e.preventDefault();
+        });
+       
+        //Disable mouse right click
+        $("body").on("contextmenu",function(e){
+            return false;
+        });
+    });
+    </script>
+    <!DOCTYPE html>
+    <body oncopy="return false" oncut="return false" onpaste="return false">
+    <html lang="en">
+    <head>
+         <title>Guides MU-HARDCORE</title>
+         <meta charset="UTF-8">
+         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+         <meta name="description" content="">
+         <meta name="keywords" content="">
+         <meta name="author" content="">
+         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <style>
+           .loader {
+               position: fixed;
+               top: 0;
+               left: 0;
+               width: 100%;
+               height: 100%;
+               background: #000;
+               color: #fff;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               z-index: 1000;
+           }
+
+       </style>
+        </head>
+        <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+
+           <div class="loader">Loading...</div>
+          <div id="navbar-container"></div>
+        
+        
+            <section class="about section" id="about">
+            
+        
+            <div style="max-width: 1200px; margin: 0 auto; padding: 20px; ">
+            
+            <h1 style="text-align: center;">🎃 Quests</h1>
+            <br>
+
+                <!-- Alle Details-Buttons bleiben oben -->
+            <div class="summary-container">
+           
+             <details class="details-box"  open onclick="showContent('info')">
+                 <summary>Information</summary>
+             </details>
+            </div><br>
+            <div class="summary-container">
+        <details class="details-box" id="act1-details" open onclick="showContent('act1')">
+            <summary>ACT I</summary>
+        </details>
+
+        <details class="details-box" onclick="showContent('act2')">
+            <summary>ACT II</summary>
+        </details>
+
+        <details class="details-box" onclick="showContent('act3')">
+            <summary>ACT III</summary>
+        </details>
+
+        <details class="details-box" onclick="showContent('act4')">
+            <summary>ACT IV</summary>
+        </details>
+        <details class="details-box" onclick="showContent('act5')">
+            <summary>ACT V</summary>
+        </details>
+    
+    </div>
+            <div id="content" class="content-container">  
+            </div>
+            </div>
+                   
+                
+         </section>
+        
+        <div id="footer-container"></div>
+         <script src="js/jquery.min.js"></script>
+         <script src="js/bootstrap.min.js"></script>
+         <script src="js/aos.js"></script>
+         <script src="js/smoothscroll.js"></script>
+         <script src="js/custom.js"></script>
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+    // Globale Variable für die Quests (wird später gefüllt)
+    let quests = [];
+
+    // Funktion zum Laden der Quests aus der JSON-Datei
+    async function loadQuests() {
+        try {
+            const response = await fetch('configs/quests.json?v=' + new Date().getTime()); // Pfad zur JSON-Datei
+            if (!response.ok) {
+                throw new Error('Fehler beim Laden von configs/quests.json');
+            }
+            quests = await response.json(); // JSON in Array umwandeln
+            console.log('Quests erfolgreich geladen:', quests);
+        } catch (error) {
+            console.error('Fehler beim Laden der Quests:', error);
+            quests = []; // Fallback auf leeres Array bei Fehler
+        }
+    }
+
+    // Funktionen zum Abrufen der Daten
+    function getQuestType(index) {
+        return quests[index]?.questType || 'N/A';
+    }
+    function getImageType(index) {
+        return quests[index]?.imageType || 'bronze'; // Fallback-Wert
+    }
+    function getMonsterName(index) {
+        return quests[index]?.monster || 'Unbekannt';
+    }
+    function getLevelRequired(index) {
+        return quests[index]?.levelRequired || '*';
+    }
+    function getResetRequired(index) {
+        return quests[index]?.resetRequired || '*';
+    }
+    function getMonsterImage(index) {
+        return quests[index]?.image || 'placeholder.png'; // Fallback-Bild
+    }
+    function getMonsterCount(index) {
+        return quests[index]?.count || 0;
+    }
+    function getMonsterLocation(index) {
+        return quests[index]?.location || 'Unbekannt';
+    }
+    function getReward(index) {
+        return quests[index]?.reward || 'Kein Reward';
+    }
+
+    // Funktion zum Anzeigen der Inhalte
+    function showContent(region) {
+        const content = document.getElementById("content");
+        if (!content) {
+            console.error('Element mit ID "content" nicht gefunden');
+            return;
+        }
+
+        const data = {
+            "info": `
+                <div class="main-container">
+                <h1 class="main-title">Information</h1>
+                   <p style="color: #f1c40f;"><span class="highlight">MU HARDCORE</span> offers an uniquely designed quest system. For those of you that will embark on this journey, the following are just a few examples of what rewards await you:</p>
+        <ul style="color: #f1c40f; text-align: left; list-style-position: inside;">
+            <li><strong style="color: #49e410;">Level up points</strong> – up to <span class="highlight-text">10%</span> of total available</li>
+            <li><strong style="color: #49e410;">Reset currencies</strong> (approx. <span class="highlight-text">70%</span> of total required)</li>
+            <li><strong style="color: #49e410;">Battle pass stars</strong> (system available only for <span class="highlight-text">VIP players</span>)</li>
+            <li><strong style="color: #49e410;">Dragon Summon Scrolls</strong> (<span class="highlight-text">Broken</span>)</li>
+            <li><strong style="color: #49e410;">Pet Upgrade Jewels</strong> (<span class="highlight-text">Broken</span>)</li>
+        </ul>
+        <p style="color: #f1c40f;">Below are the available quests, broken down per each individual ACT.</p>
+                </div>
+            `,
+            "act1": `
+                <div class="main-container">
+                 <h1 class="main-title">ACT I - Quests</h1>
+                    ${quests.slice(0, 283).map((q, i) => `
+                        <div class="item-wrapper">
+                            <div class="image-container">
+                                <img src="images/${getImageType(i)}.png" alt="${getImageType(i)}" class="item-thumb">
+                                <span class="image-overlay" style="color: #49e410;text-shadow: 0 0 15px rgb(251 104 0)" >${i + 1}</span>
+                            </div>
+                            <div class="popup-info" style="width: 300px;">
+                                <div class="popup-header">Quest ${i + 1}</div>
+                                <img src="images/monsters/${getMonsterImage(i)}"  
+                                    alt="${getMonsterName(i)}" 
+                                    class="popup-im" 
+                                    style="vertical-align: middle;"><br>
+                                                       
+                                <div class="popup-name" style="display: inline; font-weight: bold;">Monster Name:</div>
+                                <div class="popup-loot" style="display: inline;">${getMonsterName(i)}</div><br>           
+                                <div class="popup-name" style="display: inline; font-weight: bold;">Quest Type:</div>
+                                <div class="popup-loot" style="display: inline;">${getQuestType(i)}</div><br>
+                                <div class="popup-name" style="display: inline; font-weight: bold;">Number:</div>
+                                <div class="popup-loot" style="display: inline;">${getMonsterCount(i)}</div><br>
+                                <div class="popup-name" style="display: inline; font-weight: bold;">Location:</div>
+                                <div class="popup-loot" style="display: inline;">${getMonsterLocation(i)}</div><br>
+                                <div class="popup-name" style="display: inline; font-weight: bold;">Required Reset:</div>
+                                <div class="popup-loot" style="display: inline;">${getResetRequired(i)}</div><br>
+                                <div class="popup-name" style="display: inline; font-weight: bold;">Required Level:</div>
+                                <div class="popup-loot" style="display: inline;">${getLevelRequired(i)}</div><br>
+                                <div class="popup-name" style="display: inline; font-weight: bold;">Reward:</div>
+                                <div class="popup-loot" style="display: inline;">${getReward(i)}</div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `,
+            "act2": `
+                <div class="main-container">
+    <h1 class="main-title">ACT II - Quests</h1>
+    ${quests.slice(283, 507).map((q, i) => `
+        <div class="item-wrapper">
+            <div class="image-container">
+                <img src="images/${getImageType(i)}.png" alt="${getImageType(i)}" class="item-thumb">
+                <span class="image-overlay" style="color: #49e410;text-shadow: 0 0 15px rgb(251 104 0)" >${284 + i}</span>
+            </div>
+            <div class="popup-info" style="width: 300px;">
+                <div class="popup-header">Quest ${284 + i}</div>
+                 <img src="images/monsters/${getMonsterImage(283 + i)}"  
+                    alt="${getMonsterName(283 + i)}" 
+                    class="popup-im" 
+                    style="vertical-align: middle;"><br>
+                                       
+                                <div class="popup-name" style="display: inline; font-weight: bold;">Monster Name:</div>
+                                <div class="popup-loot" style="display: inline;">${getMonsterName(283 + i)}</div><br>           
+                                <div class="popup-name" style="display: inline; font-weight: bold;">Quest Type:</div>
+                                <div class="popup-loot" style="display: inline;">${getQuestType(283 + i)}</div><br>
+                                <div class="popup-name" style="display: inline; font-weight: bold;">Number:</div>
+                                <div class="popup-loot" style="display: inline;">${getMonsterCount(283 + i)}</div><br>
+                                <div class="popup-name" style="display: inline; font-weight: bold;">Location:</div>
+                                <div class="popup-loot" style="display: inline;">${getMonsterLocation(283 + i)}</div><br>
+                                <div class="popup-name" style="display: inline; font-weight: bold;">Required Reset:</div>
+                                <div class="popup-loot" style="display: inline;">${getResetRequired(283 + i)}</div><br>
+                                <div class="popup-name" style="display: inline; font-weight: bold;">Required Level:</div>
+                                <div class="popup-loot" style="display: inline;">${getLevelRequired(283 + i)}</div><br>
+                                <div class="popup-name" style="display: inline; font-weight: bold;">Reward:</div>
+                                <div class="popup-loot" style="display: inline;">${getReward(283 + i)}</div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `,
+            "act3": `
+            <div class="main-container">
+    <h1 class="main-title">ACT III - Quests</h1>
+    ${quests.slice(507, 650).map((q, i) => `
+        <div class="item-wrapper">
+            <div class="image-container">
+                <img src="images/${getImageType(i)}.png" alt="${getImageType(i)}" class="item-thumb">
+                <span class="image-overlay" style="color: #49e410;text-shadow: 0 0 15px rgb(251 104 0)" >${508 + i}</span>
+            </div>
+            <div class="popup-info" style="width: 300px;">
+                <div class="popup-header">Quest ${508 + i}</div>
+                <img src="images/monsters/${getMonsterImage(507 + i)}"  
+                    alt="${getMonsterName(507 + i)}" 
+                    class="popup-im" 
+                    style="vertical-align: middle;"><br>
+                                       
+                            <div class="popup-name" style="display: inline; font-weight: bold;">Monster Name:</div>
+                            <div class="popup-loot" style="display: inline;">${getMonsterName(507 + i)}</div><br>           
+                            <div class="popup-name" style="display: inline; font-weight: bold;">Quest Type:</div>
+                            <div class="popup-loot" style="display: inline;">${getQuestType(507 + i)}</div><br>
+                            <div class="popup-name" style="display: inline; font-weight: bold;">Number:</div>
+                            <div class="popup-loot" style="display: inline;">${getMonsterCount(507 + i)}</div><br>
+                            <div class="popup-name" style="display: inline; font-weight: bold;">Location:</div>
+                            <div class="popup-loot" style="display: inline;">${getMonsterLocation(507 + i)}</div><br>
+                            <div class="popup-name" style="display: inline; font-weight: bold;">Required Reset:</div>
+                            <div class="popup-loot" style="display: inline;">${getResetRequired(507 + i)}</div><br>
+                            <div class="popup-name" style="display: inline; font-weight: bold;">Required Level:</div>
+                            <div class="popup-loot" style="display: inline;">${getLevelRequired(507 + i)}</div><br>
+                            <div class="popup-name" style="display: inline; font-weight: bold;">Reward:</div>
+                            <div class="popup-loot" style="display: inline;">${getReward(507 + i)}</div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+            `,
+            "act4": `
+               <div class="main-container">
+    <h1 class="main-title">ACT IV - Quests</h1>
+    ${quests.slice(650, 760).map((q, i) => `
+        <div class="item-wrapper">
+            <div class="image-container">
+                <img src="images/${getImageType(i)}.png" alt="${getImageType(i)}" class="item-thumb">
+                <span class="image-overlay" style="color: #49e410;text-shadow: 0 0 15px rgb(251 104 0)" >${651 + i}</span>
+            </div>
+            <div class="popup-info" style="width: 300px;">
+                <div class="popup-header">Quest ${651 + i}</div>
+                <img src="images/monsters/${getMonsterImage(650 + i)}"  
+                    alt="${getMonsterName(650 + i)}" 
+                    class="popup-im" 
+                    style="vertical-align: middle;"><br>
+                                       
+                            <div class="popup-name" style="display: inline; font-weight: bold;">Monster Name:</div>
+                            <div class="popup-loot" style="display: inline;">${getMonsterName(650 + i)}</div><br>           
+                            <div class="popup-name" style="display: inline; font-weight: bold;">Quest Type:</div>
+                            <div class="popup-loot" style="display: inline;">${getQuestType(650 + i)}</div><br>
+                            <div class="popup-name" style="display: inline; font-weight: bold;">Number:</div>
+                            <div class="popup-loot" style="display: inline;">${getMonsterCount(650 + i)}</div><br>
+                            <div class="popup-name" style="display: inline; font-weight: bold;">Location:</div>
+                            <div class="popup-loot" style="display: inline;">${getMonsterLocation(650 + i)}</div><br>
+                            <div class="popup-name" style="display: inline; font-weight: bold;">Required Reset:</div>
+                            <div class="popup-loot" style="display: inline;">${getResetRequired(650 + i)}</div><br>
+                            <div class="popup-name" style="display: inline; font-weight: bold;">Required Level:</div>
+                            <div class="popup-loot" style="display: inline;">${getLevelRequired(650 + i)}</div><br>
+                            <div class="popup-name" style="display: inline; font-weight: bold;">Reward:</div>
+                            <div class="popup-loot" style="display: inline;">${getReward(650 + i)}</div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+
+            `,
+            "act5": `
+             <div class="main-container">
+    <h1 class="main-title">ACT IV - Quests</h1>
+    ${quests.slice(760, 871).map((q, i) => `
+        <div class="item-wrapper">
+            <div class="image-container">
+                <img src="images/${getImageType(i)}.png" alt="${getImageType(i)}" class="item-thumb">
+                <span class="image-overlay" style="color: #49e410;text-shadow: 0 0 15px rgb(251 104 0)" >${761 + i}</span>
+            </div>
+            <div class="popup-info" style="width: 300px;">
+                <div class="popup-header">Quest ${761 + i}</div>
+                <img src="images/monsters/${getMonsterImage(760 + i)}"  
+                    alt="${getMonsterName(760 + i)}" 
+                    class="popup-im" 
+                    style="vertical-align: middle;"><br>
+                                       
+                            <div class="popup-name" style="display: inline; font-weight: bold;">Monster Name:</div>
+                            <div class="popup-loot" style="display: inline;">${getMonsterName(760 + i)}</div><br>           
+                            <div class="popup-name" style="display: inline; font-weight: bold;">Quest Type:</div>
+                            <div class="popup-loot" style="display: inline;">${getQuestType(760 + i)}</div><br>
+                            <div class="popup-name" style="display: inline; font-weight: bold;">Number:</div>
+                            <div class="popup-loot" style="display: inline;">${getMonsterCount(760 + i)}</div><br>
+                            <div class="popup-name" style="display: inline; font-weight: bold;">Location:</div>
+                            <div class="popup-loot" style="display: inline;">${getMonsterLocation(760 + i)}</div><br>
+                            <div class="popup-name" style="display: inline; font-weight: bold;">Required Reset:</div>
+                            <div class="popup-loot" style="display: inline;">${getResetRequired(760 + i)}</div><br>
+                            <div class="popup-name" style="display: inline; font-weight: bold;">Required Level:</div>
+                            <div class="popup-loot" style="display: inline;">${getLevelRequired(760 + i)}</div><br>
+                            <div class="popup-name" style="display: inline; font-weight: bold;">Reward:</div>
+                            <div class="popup-loot" style="display: inline;">${getReward(760 + i)}</div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+
+            `
+        };
+
+        content.innerHTML = data[region] || '<h2>Unbekannter Bereich</h2>';
+        content.classList.add("active");
+    }
+
+    // Laden der Seite mit Loader
+    document.addEventListener("DOMContentLoaded", function () {
+        const loader = document.querySelector('.loader');
+        if (!loader) {
+            console.warn('Loader-Element nicht gefunden');
+        }
+
+        function hideLoader() {
+            if (loader) {
+                loader.style.display = 'none';
+            }
+        }
+
+        // Lade libraries.html, navbar.html und quests.json
+        fetch('libraries.html?v=' + new Date().getTime())
+            .then(response => {
+                if (!response.ok) throw new Error('Fehler beim Laden von libraries.html');
+                return response.text();
+            })
+            .then(data => {
+                document.head.insertAdjacentHTML('beforeend', data);
+                return fetch('navbar.html?v=' + new Date().getTime());
+            })
+            .then(response => {
+                if (!response.ok) throw new Error('Fehler beim Laden von navbar.html');
+                return response.text();
+            })
+            .then(data => {
+                const navbarContainer = document.getElementById('navbar-container');
+                if (navbarContainer) {
+                    navbarContainer.innerHTML = data;
+                } else {
+                    console.error('Navbar-Container nicht gefunden');
+                }
+                // Lade Quests nach Navbar
+                return loadQuests();
+            })
+            .then(() => {
+                showContent('info'); // Standardmäßig 'info' anzeigen
+                hideLoader(); // Loader ausblenden
+            })
+            .catch(error => {
+                console.error('Fehler beim Laden:', error);
+                hideLoader(); // Auch bei Fehler ausblenden
+            });
+
+        // Fallback: Loader nach 5 Sekunden ausblenden
+        setTimeout(() => {
+            hideLoader();
+            console.warn('Timeout: Loader wurde nach 5 Sekunden ausgeblendet');
+        }, 5000);
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loader = document.querySelector('.loader');
+        
+        fetch('footer.html?v=' + new Date().getTime()) // Nur Footer laden
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data; // Footer einfügen
+                loader.style.display = 'none'; // Ladebildschirm ausblenden
+            })
+            .catch(error => console.error('Fehler beim Laden des Footers:', error));
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const tabToOpen = params.get('tab');
+    const popupToOpen = params.get('popup');
+  
+    if (tabToOpen) {
+      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
+    }
+  
+    if (popupToOpen) {
+      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
+    }
+  </script>
+ 
+    </body>
+    </html>

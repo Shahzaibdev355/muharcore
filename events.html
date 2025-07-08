@@ -1,0 +1,1223 @@
+<script type="text/javascript">
+  $(document).ready(function () {
+      //Disable cut copy paste
+      $('body').bind('cut copy paste', function (e) {
+          e.preventDefault();
+      });
+
+      //Disable mouse right click
+      $("body").on("contextmenu", function (e) {
+          return false;
+      });
+  });
+</script>
+<!DOCTYPE html>
+
+<body oncopy="return false" oncut="return false" onpaste="return false">
+  <html lang="en">
+
+  <head>
+
+      <title>Guides MU-HARDCORE</title>
+
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+      <meta name="description" content="">
+      <meta name="keywords" content="">
+      <meta name="author" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+   <style>
+      .loader {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: #000;
+          color: #fff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 1000;
+      }
+
+  </style>
+  
+
+  </head>
+
+  <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+
+      <div class="loader">Loading...</div>
+
+      <div id="navbar-container"></div>
+
+
+      <section class="about section" id="about">
+        
+    
+          <div style="max-width: 1200px; margin: 0 auto; padding: 20px; ">
+          
+          <h1 style="text-align: center;"> 🛡 Events </h1>
+          <br>
+
+          <!-- Alle Details-Buttons bleiben oben -->
+          <div class="summary-container">
+           <details class="details-box"  open onclick="showContent('info')">
+               <summary>Information</summary>
+           </details>
+          </div><br>
+              <div class="summary-container">
+          <details class="details-box"  open onclick="showContent('bc')">
+              <summary>Blood Castle</summary>
+          </details>        
+          <details class="details-box"  open onclick="showContent('ds')">
+              <summary>Devil Square</summary>
+          </details>
+  
+          <details class="details-box" onclick="showContent('cc')">
+              <summary>Chaos Castle </summary>
+          </details>
+  
+          <details class="details-box" onclick="showContent('maya')">
+              <summary>Kanturu Event </summary>
+          </details>
+  
+          <details class="details-box" onclick="showContent('balgass')">
+              <summary>Crywolf Event</summary>
+          </details>
+       
+          <details class="details-box" onclick="showContent('ig')">
+              <summary>Imperial Guardian </summary>
+          </details>
+          <details class="details-box" onclick="showContent('dg')">
+              <summary>Double Goer </summary>
+          </details>
+          <details class="details-box" onclick="showContent('pandora')">
+              <summary>Pandora </summary>
+          </details>
+           <details class="details-box" onclick="showContent('killall')">
+              <summary>KILLALL </summary>
+          </details>
+
+          <details class="details-box" onclick="showContent('cs')">
+              <summary>Castle Siege </summary>
+          </details>
+      
+        
+
+         
+          </div>
+          <div id="content" class="content-container">  
+          </div>
+          </div>
+        
+                 
+              
+       </section>
+    
+      <div id="footer-container"></div>
+
+      <script src="js/jquery.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/aos.js"></script>
+      <script src="js/smoothscroll.js"></script>
+      <script src="js/custom.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+       <!-- jQuery laden -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+<!-- Schutz-Skript -->
+ <script src="js/protection.js"></script>
+       <script>
+  document.addEventListener("DOMContentLoaded", function () {
+      const loader = document.querySelector('.loader');
+
+      fetch('libraries.html?v=' + new Date().getTime())
+          .then(response => response.text())
+          .then(data => {
+              document.head.insertAdjacentHTML('beforeend', data);
+              return fetch('navbar.html?v=' + new Date().getTime());
+          })
+          .then(response => response.text())
+          .then(data => {
+              document.getElementById('navbar-container').innerHTML = data;
+              return fetch('footer.html?v=' + new Date().getTime());
+          })
+          .then(response => response.text())
+          .then(data => {
+              document.getElementById('footer-container').innerHTML = data;
+              showContent('info');
+              loader.style.display = 'none'; // Ladebildschirm ausblenden
+          })
+          .catch(error => console.error('Fehler beim Laden:', error));
+  });
+ </script>
+
+      <script>
+          function showContent(region) {
+              const content = document.getElementById("content");
+ 
+              const data = {
+              // Information
+              "info": `
+                 <div class="main-container">
+                     <h1 class="main-title">Events – PvP & PvE</h1>
+                 
+                     <p style="color: #f1c40f;">
+                         MU Hardcore offers a variety of **PvP and PvE events**, providing exciting battles, strategic gameplay, and valuable rewards. Whether you're a fighter or a team player, there’s always something happening!
+                     </p>
+                 
+                     <h1 class="main-title">🔥 PvP Events</h1>
+                     <ul style="color: #f1c40f;">
+                         <li><strong style="color: #49e410;">Chaos Castle</strong> – Survive against waves of enemies and be the last player standing.</li>
+                         <li><strong style="color: #49e410;">Kanturu Event</strong> – Team up to defeat **Nightmare** and unlock Kanturu Relics.</li>
+                         <li><strong style="color: #49e410;">Castle Siege</strong> – Join a guild and fight for control of the **Castle**.</li>
+                         <li><strong style="color: #49e410;">KILLALL </strong> – A free-for-all battle zone where players fight without restrictions.</li>
+                     </ul>
+                 
+                     <h1 class="main-title">🛡 PvE & Non-PvP Events</h1>
+                     <ul style="color: #f1c40f;">
+                         <li><strong style="color: #49e410;">Devil Square</strong> – Defeat endless monster waves and earn valuable rewards.</li>
+                         <li><strong style="color: #49e410;">Blood Castle</strong> – Destroy the gate, retrieve the Holy Scroll, and claim your rewards.</li>
+                         <li><strong style="color: #49e410;">Imperial Guardian</strong> – A multi-stage dungeon where players protect a gate from invading monsters.</li>
+                         <li><strong style="color: #49e410;">Crywolf</strong> – A massive **server-wide defense event** where players must protect the Crywolf altar from Balgass' forces.</li>
+                         <li><strong style="color: #49e410;">Double Goer (Gaion’s Order)</strong> – A high-level **party-based dungeon challenge**.</li>
+                     </ul><br>
+                 
+                 
+                 
+                     <h3 style="color: #49e410;font-size:20px">
+                         Participate in **daily and weekly events** to earn **Jewels, Boxes, and powerful gear**. 
+                         No matter your playstyle, MU Hardcore has the right challenge for you!
+                     </h3>
+                 
+                     <br>
+                 </div>
+
+
+                  ` 
+              ,
+              //Blood Castle
+              "bc": `
+                  <div class="main-container">
+                        <h1 class="main-title">Blood Castle</h1>
+
+                           <div style="display: flex; align-items: flex-start;">
+
+                      <div style="flex: 2; padding: 10px;">
+
+                          <p style="color: #f1c40f;">The Archangel, protector of MU, is overwhelmed by Kundun's army. Injured and without his
+                              Divine Weapon, he needs your
+                              help. Infiltrate the castle, defeat the invaders, and retrieve his weapon to save MU.
+                          </p>
+                          <p style="color: #f1c40f;">Cross the bridge, enter the castle, and complete your mission with the Cloak of
+                              Invisibility. Can you overcome the
+                              dangers and return victorious?</p>
+                      </div>
+
+                  </div>
+
+                  <div style="display: flex;">
+                      <div style="flex: 1; padding: 10px;">
+                          <h1 class="main-title">HOW TO PLAY</h1>
+                          <p style="color: #f1c40f;"><strong>Main Mission:</strong> Destroy the statue and return the weapon to its owner.</p>
+                          <ul style="color: #f1c40f;">
+                              <li>Kill the number of monsters indicated in the lower right corner. (The number of
+                                  monsters depends on the
+                                  number of participants.)</li>
+                              <li>Destroy the Castle Gate.</li>
+                              <li>Kill the number of 'Magic Skeleton' indicated in the lower right corner. (The number
+                                  of 'Magic Skeleton'
+                                  depends on the number of participants.)</li>
+                              <li>Destroy the crystal statue.</li>
+                              <li>Pick up the Archangel Weapon, which drops after destroying the Spirit Statue, and
+                                  return it to its
+                                  owner.</li>
+                          </ul>
+                          <p style="color: #f1c40f;">When you return the weapon the monsters will disappear, you decide if you want to
+                              continue hunting monsters
+                              or end the event.</p>
+                      </div>
+                      <div style="flex: 1; padding: 10px;">
+                              <div class="item-wrapper">
+                    <p style="line-height:140%; text-align:center;">
+                            <span style="color:#0ff150; line-height:19.6px;">
+                            <br><br>
+                                <img src="images/imagesGuide/entry.png" 
+                                     alt="image" 
+                                     class="item-thumb" 
+                                     style="vertical-align: middle; display: block; margin: 0 auto; width: 400px; height: 400px;">
+                            </span>
+                        </p>
+                    </div>
+                      </div>
+                  </div>
+
+                   <div class="item-wrapper">
+                          <p style="line-height:140%; text-align:center;">
+                              <span style="color:#0ff150; line-height:19.6px;">
+                                  <strong style="vertical-align: middle; display: inline-block;">Archangel Bow</strong><br>
+                                  <img src="images/imagesGuide/bow.png" 
+                                       alt="image" 
+                                       class="item-thumb" 
+                                       style="vertical-align: middle; display: block; margin: 0 auto; width: 180px; height: 180px; cursor: pointer;">
+                              </span>
+                          </p>
+                  </div>
+                  <div class="item-wrapper">
+                          <p style="line-height:140%; text-align:center;">
+                              <span style="color:#0ff150; line-height:19.6px;">
+                                  <strong style="vertical-align: middle; display: inline-block;">Archangel Sword</strong><br>
+                                  <img src="images/imagesGuide/sword.png" 
+                                       alt="image" 
+                                       class="item-thumb" 
+                                       style="vertical-align: middle; display: block; margin: 0 auto; width: 180px; height: 180px; cursor: pointer;">
+                              </span>
+                          </p>
+                  </div>
+                  <div class="item-wrapper">
+                          <p style="line-height:140%; text-align:center;">
+                              <span style="color:#0ff150; line-height:19.6px;">
+                                  <strong style="vertical-align: middle; display: inline-block;">Archangel Staff</strong><br>
+                                  <img src="images/imagesGuide/staff.png" 
+                                       alt="image" 
+                                       class="item-thumb" 
+                                       style="vertical-align: middle; display: block; margin: 0 auto; width: 180px; height: 180px; cursor: pointer;">
+                              </span>
+                          </p>
+                  </div>
+                  <br>
+
+                  <div style="display: flex; justify-content: space-between; padding: 10px;">
+                      <div style="flex: 2; padding-right: 20px;">
+                          <h1 class="main-title">HOW TO ENTER</h1>
+                          <p style="color: #f1c40f;">To enter the Blood Castle, you need a <strong>Cloak of Invisibility</strong> and go to
+                              Devias to talk to the
+                              NPC <strong>Messenger of Archangel</strong> who will send you to the event map, and you
+                              need to talk to the
+                              NPC <strong>Spirit of Archangel</strong>.</p>
+                          <p style="color: #f1c40f;">Another way to enter is through the command window. If you press <strong>M</strong> and
+                              select
+                              <strong>Event Square</strong>, you will be teleported to the event map where you can
+                              enter the main MU
+                              events. Additionally, you can enter the "Event Square" through the
+                              <strong>notification icon</strong> when
+                              the event is available.
+                          </p>
+                          <p style="color: #f1c40f;">Only the first 25 players who show the <strong>Cloak of Invisibility</strong> to the NPC
+                              <strong>Spirit of Archangel</strong> can enter.
+                          </p>
+                      </div>
+                      <div style="flex: 1; text-align: center;"><br<<br>
+                          <div class="item-wrapper">
+                          <p style="line-height:140%; text-align:center;">
+                              <span style="color:#0ff150; line-height:19.6px;">
+                                  <strong style="vertical-align: middle; display: inline-block;">Cloak of Invisibility</strong><br>
+                                  <img src="images/imagesGuide/bc.png" 
+                                       alt="image" 
+                                       class="item-thumb" 
+                                       style="vertical-align: middle; display: block; margin: 0 auto; width: 180px; height: 180px; cursor: pointer;">
+                              </span>
+                          </p>
+                  </div>
+                          <br>
+                          <p style="color: #f1c40f;"><br>Item used to enter the Blood Castle</p>
+                      </div>
+                  </div>
+                  <br>
+                  <div style="display: flex; justify-content: space-around; padding: 10px;">
+                      <div style="text-align: center;">
+                          <img src="images/bloodcastle/deviasentry.png" alt="Messenger of Archangel 1" style="width: 200px;">
+                          <p style="color: #f1c40f;"><strong>MESSENGER OF ARCHANGEL</strong><br>[Location]<br>Devias: (210, 29)</p>
+                      </div>
+                      <div style="text-align: center;">
+                          
+                          <img src="images/bloodcastle/devias2entry.png" alt="Messenger of Archangel 1" style="width: 200px;">
+                          <p style="color: #f1c40f;"><strong>MESSENGER OF ARCHANGEL</strong><br>[Location]<br>Devias: (218, 9)</p>
+                      </div>
+                  </div>
+                  <br>
+                  <div
+                      style="padding: 20px;  color: #49e410; font-family: Arial, sans-serif;">
+                      <h1 class="main-title">BLOOD CASTLE LEVEL RANGE</h1>
+                      <table
+                          style="width: 100%; border-collapse: collapse; text-align: center;  red; border: 1px solid #f1c40f;">
+                          <thead>
+                              <tr >
+                                  <th style="padding: 10px; border: 1px solid #f1c40f;color: #49e410;">BLOOD CASTLE</th>
+                                  <th style="padding: 10px; border: 1px solid #f1c40f;color: #49e410;">CHARACTER RESET</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410">Castle 1</td>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410">0 ~ 3</td>
+                              </tr>
+                              <tr>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410">Castle 2</td>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410">4 ~ 6</td>
+                              </tr>
+                              <tr>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410">Castle 3</td>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410">7 ~ 10</td>
+                              </tr>
+                              <tr>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410">Castle 4</td>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410">11 ~ 14</td>
+                              </tr>
+                              <tr>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410">Castle 5</td>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410">15 ~ 18</td>
+                              </tr>
+                              <tr>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410">Castle 6</td>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410">19 ~ 22</td>
+                              </tr>
+                              <tr>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410">Castle 7</td>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410">23 ~ 25</td>
+                              </tr>
+                             
+                          </tbody>
+                      </table>
+                  </div>
+                  
+
+                      <br>
+                      <br>
+                  </div>
+                  ` 
+              ,
+              // Devil Square
+              "ds": `
+                  <div class="main-container">
+                        <h1 class="main-title">Devil Square</h1>
+
+                         <div
+                      style="display: flex; justify-content: space-between; padding: 20px;  color: #000000; font-family: Arial, sans-serif;">
+                      <div style="flex: 2; padding-right: 20px;">
+                        
+                          <p style="color: #f1c40f;">In the history of MU, the Elf Tree stood in Noria. Though relocated, it remains a
+                              powerful symbol, created by Queen Aria of the Elves. The tree once had the power to
+                              produce Elves regularly.</p>
+                          <p style="color: #f1c40f;">But over time, Secrarrium, through deceit, learned the tree's location and corrupted it,
+                              turning it into the Immoral Tree, which now spawns monsters instead of Elves.</p>
+                          <p style="color: #f1c40f;">Monsters overwhelmed the MU continent, and the kingdoms had to join forces to trap the
+                              Immoral Tree in a void where monsters continually emerge. Eventually, Aria transformed
+                              the area into Devil Square—a deadly training ground for warriors.</p>
+                          <p style="color: #f1c40f;">As one of 10 MUTizens, you must face the endless waves of monsters that spawn here. Only
+                              the strongest will survive Devil Square. With a Devil Square Invitation, you can enter
+                              this arena and test your strength.</p>
+                      </div>
+
+                  </div>
+
+
+
+                  <div style="padding: 20px;  color: #000000; font-family: Arial, sans-serif;">
+                      <h1 class="main-title">HOW TO PLAY</h1>
+                      <p style="color: #f1c40f;"><strong>MAIN MISSION:</strong> Defeat the waves of monsters and survive the onslaught.</p>
+                      <ul style="color: #f1c40f;">
+                          <li>As soon as the event begins, monsters will immediately spawn all across the arena.</li>
+                          <li>Your goal is simple: eliminate as many monsters as you can.</li>
+                          <li>New waves of monsters will continue to spawn for a total duration of 15 minutes.</li>
+                          <li>With each wave, the monsters will gradually increase in strength and difficulty as time
+                              progresses.</li>
+                      </ul>
+                  </div>
+
+
+
+                  <div
+                      style="display: flex; justify-content: space-between; color: #000000; padding: 20px; font-family: Arial, sans-serif;">
+                      <div style="flex: 2; padding-right: 20px;">
+                          <h1 class="main-title">HOW TO GET THE DEVIL SQUARE INVITATION</h1><br>
+                          <p style="color: #f1c40f;">To get the Devil Square Invitation, you must go to the
+                              <strong>Chaos Goblin Machine</strong> and select the
+                              <strong>"Regular Combination"</strong> option and enter the following items:</p>
+
+                          <h1 class="main-title">REQUIRED COMBINATION MATERIAL:</h1><br>
+                          <ul style="color: #f1c40f;">
+                              <li>1 Devil's Key</li>
+                              <li>1 Devil's Eye</li>
+                              <li>1 Jewel of Chaos</li>
+                              <li>Zen</li>
+                          </ul>
+                          <p style="color: #f1c40f;"><em>* Only items of the same level can be combined to create the Devil Square Invitation for that specific Devil Square.</em>
+                          </p>
+
+
+                      </div>
+
+                      <div style="flex: 1; text-align: center;">
+                          <img src="images/bloodcastle/machine.png" alt="Chaos Goblin Machine" style="width: 100%;">
+                          <p style="color: #f1c40f;"><strong>CHAOS GOBLIN MACHINE</strong><br>[Location]<br>Noria: (180, 102)</p>
+                      </div>
+                  </div>
+                  <br>
+
+                  <div
+                      style="display: flex; justify-content: space-between; padding: 20px;  color: #000000; font-family: Arial, sans-serif;">
+                      <div style="flex: 2; padding-right: 20px;">
+                          <h1 class="main-title">HOW TO ENTER</h2>
+                          <p style="color: #f1c40f;">To enter Devil Square, you need a <strong>Devil Square Invitation</strong>. Speak to
+                              <strong>Charon</strong> in Noria to access the event map.</p>
+                          <p style="color: #f1c40f;">You can also teleport via the command window by pressing <strong>M</strong> and selecting
+                              <strong>Event Square</strong>. Use the <strong>notification icon</strong> when the event
+                              is active.</p>
+                          <p style="color: #f1c40f;">Only the first 10 players with an invitation can enter.</p>
+
+                      </div>
+                      <div style="flex: 1; text-align: center;">
+                       <div class="item-wrapper">
+                          <p style="line-height:140%; text-align:center;">
+                              <span style="color:#0ff150; line-height:19.6px;">
+                                  <strong style="vertical-align: middle; display: inline-block;">Devil Square Invitation</strong><br>
+                                  <img src="images/bloodcastle/ds.png" 
+                                       alt="image" 
+                                       class="item-thumb" 
+                                       style="vertical-align: middle; display: block; margin: 0 auto; width: 180px; height: 180px; cursor: pointer;">
+                              </span>
+                          </p>
+                  </div>
+                          <p style="color: #f1c40f;"><br>Required to enter Devil Square</p>
+                      </div>
+                  </div>
+                  <br>
+
+                  <div style="text-align: center; padding: 20px;  font-family: Arial, sans-serif;">
+                      <img src="images/devilsquare/dsentry.png" alt="Charon NPC" style="width: 200px;">
+                      <p style="color: #f1c40f;"><strong>CHARON</strong></p>
+                      <p style="color: #f1c40f;">[Location]<br>Noria: (172, 106)</p>
+                  </div>
+                  <br>
+
+                  <div style="padding: 20px;  font-family: Arial, sans-serif;">
+                      <h1 class="main-title">Devil Square LEVEL RANGE</h1>
+                    <table
+                          style="width: 100%; border-collapse: collapse; text-align: center;  red; border: 1px solid #f1c40f;">
+                          <thead>
+                              <tr >
+                                  <th style="padding: 10px; border: 1px solid #f1c40f;color: #49e410;">DEVIL SQUARE</th>
+                                  <th style="padding: 10px; border: 1px solid #f1c40f;color: #49e410;">CHARACTER RESET</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410">1</td>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410">0 ~ 4</td>
+                              </tr>
+                              <tr>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410"> 2</td>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410">5 ~ 8</td>
+                              </tr>
+                              <tr>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410"> 3</td>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410">9 ~ 13</td>
+                              </tr>
+                              <tr>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410"> 4</td>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410">14 ~ 17</td>
+                              </tr>
+                              <tr>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410"> 5</td>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410">18 ~ 21</td>
+                              </tr>
+                              <tr>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410"> 6</td>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410">22 ~ 25</td>
+                              </tr>
+                              
+                             
+                          </tbody>
+                      </table>
+                  </div>
+                  
+
+                      <br>
+                      <br>
+                  </div>
+                  ` 
+              ,
+              // Chaos Castle
+              "cc": `
+                  <div class="main-container">
+                        <h1 class="main-title">Chaos Castle</h1>
+                          <div style="padding: 20px;  color: #000000; font-family: Arial, sans-serif;">
+                      <p style="color: #f1c40f;">Chaos Castle was created by Lugard and Secrarium to balance good and evil. However, travelers
+                          began siding with Lugard, upsetting the balance.</p>
+                      <p style="color: #f1c40f;">To fix this, Secrarium introduced a rule that required all participants to wear guardsman's
+                          armor. Lugard agreed.</p>
+                      <p style="color: #f1c40f;">Secrarium predicted that travelers would eventually fight each other, and he was right. Chaos
+                          Castle descended into true chaos.</p>
+                  </div>
+
+                  <br>
+
+                  <div style="padding: 20px;  color: #000000; font-family: Arial, sans-serif;">
+                      <h1 class="main-title">HOW TO PLAY</h1>
+                      <p style="color: #f1c40f;"><strong>MAIN MISSION:</strong> Be the last player standing.</p>
+                      <ul style="color: #f1c40f;">
+                          <li>Monsters spawn immediately, looking like players. You must kill both monsters and
+                              players.</li>
+                          <li>Monsters can explode upon death, so be careful!</li>
+                          <li>Some monsters use a skill called Explosion, causing knock-back.</li>
+                          <li>Equip Ring or Pendant of Fire to reduce knock-back chances.</li>
+                          <li>Avoid falling off the stage, especially when the floor starts to disappear.</li>
+                          <li>To win, be the last survivor or have the most points by the end.</li>
+                      </ul>
+                  </div>
+
+                  <br>
+
+                  <div
+                      style="display: flex; justify-content: space-between; padding: 20px;  color: #000000; font-family: Arial, sans-serif;">
+                      <div style="flex: 2; padding-right: 20px;">
+                          <h1 class="main-title">HOW TO ENTER</h1>
+                          <p style="color: #f1c40f;">To enter Chaos Castle, you need an <strong>Armor of Guardsman</strong>. Right-click the
+                              item to enter.</p>
+                          <p style="color: #f1c40f;">Upon entry, you'll be sent to the corresponding castle based on your level, and some zen
+                              will be deducted.</p>
+                      </div>
+                      <div style="flex: 1; text-align: center;">
+                          <img src="images/chaoscastle/ticket.png" alt="Armor of Guardsman" style="width: 80%;">
+                          <p style="color: #f1c40f;"><br>Item used to enter Chaos Castle</p>
+                      </div>
+                  </div>
+                  <br>
+
+
+                  <div style="padding: 20px;  font-family: Arial, sans-serif;">
+                      <h1 class="main-title">Chaos Castle LEVEL RANGE</h1>
+                      <table
+                          style="width: 100%; border-collapse: collapse; text-align: center;  red; border: 1px solid #f1c40f;">
+                          <thead>
+                              <tr >
+                                  <th style="padding: 10px; border: 1px solid #f1c40f;color: #49e410;">CHAOS CASTLE</th>
+                                  <th style="padding: 10px; border: 1px solid #f1c40f;color: #49e410;">CHARACTER RESET</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410">1</td>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410">0 ~ 4</td>
+                              </tr>
+                              <tr>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410"> 2</td>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410">5 ~ 9</td>
+                              </tr>
+                              <tr>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410"> 3</td>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410">10 ~ 14</td>
+                              </tr>
+                              <tr>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410"> 4</td>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410">15 ~ 19</td>
+                              </tr>
+                              <tr>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410"> 5</td>
+                                  <td style="padding: 10px; border: 1px solid #f1c40f;color: #49e410">20 ~ 25</td>
+                              </tr>
+           
+                          </tbody>
+                      </table>
+                  </div>
+                  <br>
+                  <div style="padding: 20px;  color: #000000; font-family: Arial, sans-serif;">
+                      <h1 class="main-title">RULES</h1>
+                      <p style="color: #f1c40f;"><strong>MINIMUM PLAYERS:</strong> 2</p>
+                      <p style="color: #f1c40f;"><strong>MAXIMUM PLAYERS:</strong> 70</p>
+                      <ul style="color: #f1c40f;">
+                          <li>Players replaced by monsters if fewer than 70 enter the event.</li>
+                          <li>No party or chat during the event.</li>
+                          <li>Player damage is reduced by 50% inside Chaos Castle.</li>
+                          <li>Event points: 2 for a monster, 1 for a player kill.</li>
+                          <li>Win or lose, you'll be teleported to Devias.</li>
+                          <li>PK-status players cannot enter.</li>
+                          <li>Each player can enter Chaos Castle up to 4 times per day.</li>
+                          <li>No mounts or Transformation Rings allowed.</li>
+                          <li>The map narrows as the event progresses.</li>
+                      </ul>
+                  </div>
+
+                      <br>
+                      <br>
+                  </div>
+                  ` 
+              ,
+              // Nightmare
+              "maya": `
+                  <div class="main-container">
+                        <h1 class="main-title">Kanturu Event</h1>
+                          <div style="padding: 20px;  color: #000000; font-family: Arial, sans-serif;">
+                      <p style="color: #f1c40f;">The latest mixed life form created by the Kantru people, and the ultimate embodiment of horror.</p>
+                      <p style="color: #f1c40f;">Nightmare's power was too powerful and out of control, and it has been imprisoned within Maya since its inception.</p>
+                      <p style="color: #f1c40f;">When Kantru broke up and Maya lost control, it was a chance for Nightmare to return to this world again.</p>
+                  </div>
+
+                  <br>
+
+                  <div style="padding: 20px;  color: #000000; font-family: Arial, sans-serif;">
+                      <h1 class="main-title">How to get to the Kanturu Event</h1>
+                      <p style="color: #f1c40f;"><strong>Entrance:</strong>Kanturu Relics (141, 186)</p>
+                      <p style="color: #f1c40f;"><strong>Requirement:</strong>Moonstone Ring (equip in ring slot, drops in Kanturu Remains, durability decreases constantly, non-repairable).</p>
+                     <ul style="color: #f1c40f;">
+                          <span style="color: #49e410; font-size: 22px; font-weight: bold;">Access:</span>
+                          <li>Wait for the system notice: "1 minute left before Kanturu gate core opens."</li>
+                          <li>Go to the entrance, equip the Moonstone Ring, click the door, and select "Enter."</li>
+                          <li>If prep time is over, "Enter" is active; if not, wait.</li><br>
+                          <span style="color: #49e410; font-size: 22px; font-weight: bold;">Event Start:</span>
+                          <li>Enter with the Moonstone Ring equipped.</li>
+                          <li>If you remove it during the event, you’re sent to the Kanturu Remains safe zone.</li>
+                          <li>If you were the only player, the event resets in a few minutes.</li>
+                      </ul>
+
+                  </div>
+
+                  <br>
+
+                  <h1 class="main-title">Monsters & Bosses to Kill</h1><br>
+                  <h2 style="color: #49e410; font-size: 24px; font-weight: bold;">Wave 1 (15 min):</h2><br>
+                   <ul style="color: #f1c40f; text-align: center; list-style-position: inside;">
+                       <li style="display: inline-block; text-align: left;">
+                          
+                           <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                               <div style="text-align: center;">
+                                   <p style ="color :#d41aba">30 Blade Hunters</p>
+                                   <img src="images/monsters/kanturu/bladehunter.png" alt="Blade Hunter monster" style="max-width: 200px; margin: 0;" />
+                               </div>
+                               <div style="text-align: center;">
+                                   <p style ="color :#d41aba">10 Dread Fears</p>
+                                   <img src="images/monsters/kanturu/dreadfear.png" alt="Dread Fear monster" style="max-width: 200px; margin: 0;" />
+                               </div>
+                               <div style="text-align: center;">
+                                   <p style ="color :#d41aba">Boss: Hand of Maya (left)</p>
+                                   <img src="images/monsters/kanturu/handleft.png" alt="Hand of Maya (left) boss" style="max-width: 200px; margin: 0;" />
+                               </div>
+                           </div>
+                       </li><br>
+                       <h2 style="color: #49e410; font-size: 24px; font-weight: bold;">Wave 2 (15 min):</h2><br>
+                       <li style="display: inline-block; text-align: left;">
+                         
+                           <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                               <div style="text-align: center;">
+                                   <p style ="color :#d41aba">30 Blade Hunters</p>
+                                   <img src="images/monsters/kanturu/bladehunter.png" alt="Blade Hunter monster" style="max-width: 200px; margin: 0;" />
+                               </div>
+                               <div style="text-align: center;">
+                                   <p style ="color :#d41aba">10 Dread Fears</p>
+                                   <img src="images/monsters/kanturu/dreadfear.png" alt="Dread Fear monster" style="max-width: 200px; margin: 0;" />
+                               </div>
+                               <div style="text-align: center;">
+                                   <p style ="color :#d41aba">Boss: Hand of Maya (right)</p>
+                                   <img src="images/monsters/kanturu/handright.png" alt="Hand of Maya (right) boss" style="max-width: 200px; margin: 0;" />
+                               </div>
+                           </div>
+                       </li>
+                       <h2 style="color: #49e410; font-size: 24px; font-weight: bold;">Wave 3 (20 min):</h2><br>
+                       <li style="display: inline-block; text-align: left;">     
+                           <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                               <div style="text-align: center;">
+                                   <p style ="color :#d41aba">10 Dread Fears</p>
+                                   <img src="images/monsters/kanturu/dreadfear.png" alt="Dread Fear monster" style="max-width: 200px; margin: 0;" />
+                               </div>
+                               <div style="text-align: center;">
+                                   <p style ="color :#d41aba">10 Twin Tails</p>
+                                   <img src="images/monsters/kanturu/twintale.png" alt="Twin Tail monster" style="max-width: 160px; margin: 0;" />
+                               </div>
+                               <div style="text-align: center;">
+                                   <p style ="color :#d41aba">Bosses: Hand of Maya (left & right)</p>
+                                   <img src="images/monsters/kanturu/handleft.png" alt="Hand of Maya (left) boss" style="max-width: 200px; margin: 0;" />
+                                   <img src="images/monsters/kanturu/handright.png" alt="Hand of Maya (right) boss" style="max-width: 200px; margin: 0;" />
+                               </div>
+                           </div>
+                       </li>
+                       <h2 style="color: #49e410; font-size: 24px; font-weight: bold;">Wave 4 (20 min):</h2><br>
+                       <li style="display: inline-block; text-align: left;">
+                           <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                               <div style="text-align: center;">
+                                   <p style ="color :#d41aba">15 Genociders (optional)</p>
+                                   <img src="images/monsters/kanturu/genocider.png" alt="Genocider monster" style="max-width: 200px; margin: 0;" />
+                               </div>
+                               <div style="text-align: center;">
+                                   <p style ="color :#d41aba">15 Dread Fears (optional)</p>
+                                   <img src="images/monsters/kanturu/dreadfear.png" alt="Dread Fear monster" style="max-width: 200px; margin: 0;" />
+                               </div>
+                               <div style="text-align: center;">
+                                   <p style ="color :#d41aba">15 Personas (optional)</p>
+                                   <img src="images/monsters/kanturu/persona.png" alt="Persona monster" style="max-width: 200px; margin: 0;" />
+                               </div>
+                               <div style="text-align: center;">
+                                   <p style ="color :#d41aba">Boss: Nightmare (must be killed to win)</p>
+                                   <img src="images/monsters/kanturu/nightmare.png" alt="Nightmare boss" style="max-width: 200px; margin: 0;" />
+                               </div>
+                           </div>
+                       </li><br>
+                   
+                   </ul>
+                   <h3 style="color: #ffc107; font-size: 20px; font-weight: bold;"><strong>Goal:</strong> Defeat Nightmare in Wave 4 to unlock the Refinery Tower for 23 hours.</h3><br>
+                   
+
+
+  
+                 
+
+                      <br>
+                      <br>
+                  </div>
+                  ` 
+              ,
+              // Balgass
+              "balgass": `
+                 <div class="main-container">
+                     <h1 class="main-title">Crywolf Fortress - Balgass Event</h1>
+                 
+                     <div style="padding: 20px; color: #000000; font-family: Arial, sans-serif;">
+                         <p style="color: #f1c40f;">Kundun tasked his army, led by Balgass, to seize the Crywolf Fortress, a critical stronghold southeast of the Valley of Loren, to breach the server.</p>
+                         <p style="color: #f1c40f;">The fortress serves as a battlefield for humans and elves to defend against Kundun’s forces, with the Statue of the Holy Wolf as the key target.</p>
+                         <p style="color: #f1c40f;">Balgass attacks every Monday and Friday at 21:30 Server time, and players must stop him within 30 minutes.</p>
+                     </div>
+                 
+                     <br>
+                 
+                     <div style="padding: 20px; color: #000000; font-family: Arial, sans-serif;">
+                         <h1 class="main-title">How to Get to the Crywolf Event</h1>
+                         <p style="color: #f1c40f;"><strong>Entrance:</strong> Crywolf Fortress (accessed via Teleport Menu with hotkey "M")</p>
+                         <p style="color: #f1c40f;"><strong>Requirement:</strong>10 Resets and Level 350+</p>
+                         
+                         <ul style="color: #f1c40f;">
+                             <span style="color: #49e410; font-size: 22px; font-weight: bold;">Access:</span>
+                             <li>Wait for the announcement notifying the event start at 21:30 Server time every Monday and Friday.</li>
+                             <li>Press "M", select Crywolf Fortress, and teleport in.</li>
+                             <li>Ensure you meet the level requirement to participate.</li><br>
+                             <span style="color: #49e410; font-size: 22px; font-weight: bold;">Event Start:</span>
+                             <li>The peaceful zone becomes a combat zone at the start.</li>
+                             <li>Fallen heroes revive in a safe zone within Crywolf.</li>
+                             <li>Objective: Defend the Statue of the Holy Wolf and defeat Balgass.</li>
+                         </ul>
+                     </div>
+                 
+                     <br>
+                 
+                     <h1 class="main-title">Monsters & Bosses to Defeat</h1><br>
+                     <h2 style="color: #49e410; font-size: 24px; font-weight: bold;">Phase 1 - Dark Elf Army:</h2><br>
+                     <ul style="color: #f1c40f; text-align: center; list-style-position: inside;">
+                         <li style="display: inline-block; text-align: left;">
+                             <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                                 <div style="text-align: center;">
+                                     <p style="color: #d41aba">12 Dark Elves</p>
+                                     <img src="images/monsters/crywolf/darkelf.png" alt="Dark Elf monster" style="max-width: 200px; margin: 0;" />
+                                 </div>
+                             </div>
+                         </li><br>
+                         <p style="color: #f1c40f; text-align: center;">Drop: 100% chance for 1x Jewel of Guardian or Jewel of Harmony.</p>
+                     </ul>
+                 
+                     <h2 style="color: #49e410; font-size: 24px; font-weight: bold;">Phase 2 - Balgass (Final 5 min):</h2><br>
+                     <ul style="color: #f1c40f; text-align: center; list-style-position: inside;">
+                         <li style="display: inline-block; text-align: left;">
+                             <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                                 <div style="text-align: center;">
+                                     <p style="color: #d41aba">Balgass (Boss)</p>
+                                     <img src="images/monsters/crywolf/balgass.png" alt="Balgass boss" style="max-width: 200px; margin: 0;" />
+                                 </div>
+                             </div>
+                         </li><br>
+                         <p style="color: #f1c40f; text-align: center;">Drop: Excelent Weapon Box +3.</p>
+                         <p style="color: #f1c40f; text-align: center;">Note: Balgass uses a mass stun spell; his HP is shown on-screen. Defeat him within 5 minutes to win.</p>
+                     </ul>
+                 
+                     <h3 style="color: #ffc107; font-size: 20px; font-weight: bold;"><strong>Defense Role:</strong> Elves must link to 5 altars to boost the Statue’s health. If no altar is linked at the start, the battle is lost.</strong></h3><br>
+                     <h3 style="color: #ffc107; font-size: 20px; font-weight: bold;"><strong>Goal:</strong> Defeat Balgass and keep at least 1 altar active with the Statue intact to win.</strong></h3><br>
+               </div>
+                  ` 
+              ,
+              // PVP-Arena
+              "killall": `
+                  <div class="main-container">
+                        <h1 class="main-title">KILLALL</h1>
+
+
+                        
+                    <p style="color: #f1c40f;">
+                               KILLALL is a PvP event that provides players with an opportunity to test their skills. KILLALL features a unique reward calculation mechanism, where the last player standing with the most kills wins the arena. The event lasts 10 minutes, and players are allowed to die up to 5 times, after which they are automatically disqualified from the arena. The KILLALL EVENT is categorized by resets, with the first stage being 0-4 resets. The reward for the arena winner is a Jewel of Excellent. The event takes place every Monday, Wednesday, and Friday at 21:00 server time. To participate, you can register in Lorencia at the NPC.
+                            </p>
+
+                            <div style="text-align: center;">
+                                     <p style="color: #d41aba">Enter KILLALL</p>
+                                     <img src="images/killall.png" alt="Balgass boss" style="max-width: 200px; margin: 0;" />
+                                 </div>
+
+                      <br>
+                      <br>
+                  </div>
+                  ` 
+              ,
+              // Imperial Guardian
+              "ig": `
+
+               <div class="main-container">
+                      <h1 class="main-title">Imperial Guardian</h1>
+                        <div style="padding: 20px; color: #000000; font-family: Arial, sans-serif;">
+                          <p style="color: #f1c40f;">The "Fortress of the Imperial Guard" (also known as the Varka Event) in Mu Online is a popular event held on the Varka map.</p>
+                          <p style="color: #f1c40f;">It allows players to face challenging enemies and earn valuable rewards.</p>
+                          <p style="color: #f1c40f;">The event varies by day of the week, featuring different bosses and difficulty levels.</p>
+                          <p style="color: #f1c40f;">Players must gather specific entry items and meet requirements like a minimum level to participate.</p>
+                          <p style="color: #f1c40f;">It encourages teamwork, often played in groups, and offers a dynamic environment with changing map layouts and rewards.</p>
+                      </div>
+                  
+                      <div style="padding: 20px; color: #000000; font-family: Arial, sans-serif;">
+                          <h1 class="main-title">HOW TO ENTER</h1>
+                           <img src="images/imagesGuide/gaionentry.png" alt="Jerint The Assistant" style="width: 150px; height: auto; display: block; margin: 10px auto;">
+                          <div>
+                              <p style="color: #f1c40f;">
+                                  To enter the <b>Fortress of the Imperial Guard</b>, you need the <b>Gaion's Order</b> or the <b>Complete Secromicon</b> depending on the day you enter, and go to <b>Lorencia</b> to talk to the NPC <b>Jerint The Assistant</b>.
+                              </p>
+                              <ul style="color: #f1c40f;">
+                                  <li>Fortress of the Imperial Guard has no restrictions on the time and number of times to enter.</li>
+                                  <li>The entry item is consumed from inventory.</li>
+                                  <li>You must be at least level 331 to access the event.</li>
+                                  <li>You can enter as 1 player.</li>
+                              </ul>
+                             
+                          </div>
+                  
+                          <h1 class="main-title">Entry Items</h1>
+                          <div style="display: flex; flex-direction: column; gap: 20px;">
+                              <!-- Gaion's Order -->
+                              <div>
+                                  <p style="color: #f1c40f;"><b>Gaion's Order:</b> Item used to enter the Fortress of the Imperial Guard from <b>Monday to Saturday</b>.</p>
+                                  <img src="images/imagesGuide/gaiontiket.png" alt="Gaion's Order" style="width: 80px; height: auto; display: block; margin: 10px auto;">
+                              </div>
+                  
+                              <!-- Complete Secromicon -->
+                              <div>
+                                  <p style="color: #f1c40f;"><b>Complete Secromicon:</b> Item used to enter the Fortress of the Imperial Guard on <b>Sundays</b>.</p>
+                                  <img src="images/imagesGuide/secromicon.png" alt="Complete Secromicon" style="width: 80px; height: auto; display: block; margin: 10px auto;">
+                              </div>
+                          </div>
+                  
+                          <h1 class="main-title">How to Get the Gaion's Order?</h1>
+                          <div>
+                              <p style="color: #f1c40f;">To get the <b>Gaion's Order</b>, you must collect <b>5 Suspicious Scrap of Paper</b>.</p>
+                              <img src="images/imagesGuide/scrapofpaper.png" alt="Suspicious Scrap of Paper" style="width: 80px; height: auto; display: block; margin: 10px auto;">
+                              <ul style="color: #f1c40f;">
+                                  <li>The <b>Suspicious Scrap of Paper</b> is obtained by hunting level 95 or higher monsters.</li>
+                                  <li>When you get 5 <b>Suspicious Scrap of Paper</b>, it will automatically create the <b>Gaion's Order</b>.</li>
+                              </ul>
+                              
+                          </div>
+                  
+                          <h1 class="main-title">How to Get the Complete Secromicon?</h1>
+                          <div>
+                              <p style="color: #f1c40f;">To get the <b>Complete Secromicon</b>, you need <b>6 Secromicon Fragments</b>.</p>
+                              <img src="images/imagesGuide/secromiconfragment.png" alt="Secromicon Fragment" style="width: 80px; height: auto; display: block; margin: 10px auto;">
+                              <p style="color: #f1c40f;">The <b>Secromicon Fragments</b> are dropped by the Varka event bosses from Monday to Saturday. You have to kill them to get them.</p>
+                              <br>
+                              <p style="color: #f1c40f;">When you have 6 <b>Secromicon Fragments</b>, you must go to a Chaos Machine and insert the <b>6 Secromicon Fragments</b> + 1 <b>Jewel of Chaos</b> to create the <b>Complete Secromicon</b>.</p>
+                              
+                          </div>
+                  
+                          <h1 class="main-title">Reward</h1>
+                          <div>
+                              <p style="color: #f1c40f; text-align: center;">
+                                  Every day except <b>Sunday</b>, each boss has a <b>30%</b> chance to drop the <b>Talisman of Assembly</b>.
+                              </p>
+                              <p style="color: #f1c40f; text-align: center;">
+                                  On <b>Sunday</b>, defeating the boss guarantees a <b>100% chance</b> to drop the <b>Talisman of Assembly</b>.
+                              </p>
+                          </div>
+                      </div>
+
+                    <br><br>
+                </div>
+          
+                  ` 
+              ,
+               // Double Goer
+               "dg": `
+                 <div class="main-container">
+                    <h1 class="main-title">Doppelganger Event</h1>
+                
+                    <div style="padding: 20px; color: #000000; font-family: Arial, sans-serif;">
+                        <div>
+                            <p style="color: #f1c40f;">
+                                The Doppelganger Event is a dynamic Mu Online challenge where players defend a portal from waves of monsters across FIVE progressively difficult levels. Originating from a mystical rift, the event pits players against powerful bosses and requires strategic teamwork. The map adapts to the player’s resets range, offering unique layouts and increasing rewards with each successful defense. It’s a test of skill and coordination, with the ultimate goal of preventing monster breakthroughs to claim valuable treasure chests.
+                            </p>
+                        </div>
+                
+                        <h1 class="main-title">How to Enter</h1>
+                        <div>
+                            <p style="color: #f1c40f;">
+                                The Doppelganger Event is a thrilling challenge in Mu Online where players defend a portal against waves of monsters across five levels.You need the <b>Mirror of Dimensions</b> and must visit the NPC <b>Rugard</b> in Elbeland.
+                            </p>
+                            <ul style="color: #f1c40f;">
+                                <li>The entire party can enter if only 1 character has the <b>Mirror of Dimensions</b> (not required for all).</li>
+                                <li>When the character with the <b>Mirror of Dimensions</b> enters, the party automatically moves to the event.</li>
+                              <li> Don’t forget to pick up the quest from the NPC at the start of the event, which corresponds to your quest resets. There, you can choose the range based on resets: 0-4, 5-9, and so on.</li>
+         <li>Before the event starts, interact with the NPC, then return to claim your reward.</li>
+                                
+                            </ul>
+                            <img src="images/bloodcastle/rugard.png" alt="Rugard NPC" style="width: 150px; height: auto; display: block; margin: 10px auto;">
+                        </div>
+                
+                        <h2 class="main-title">Entry Items</h2>
+                        <div style="display: flex; flex-direction: column; gap: 20px;">
+                            <!-- Mirror of Dimensions -->
+                            <div>
+                                <p style="color: #f1c40f;"><b>Mirror of Dimensions:</b> Item used to enter the Doppelganger Event.</p>
+                                <img src="images/bloodcastle/mirror.png" alt="Mirror of Dimensions" style="width: 80px; height: auto; display: block; margin: 10px auto;">
+                            </div>
+                
+                            <!-- Sign of Dimensions -->
+                            <div>
+                                <p style="color: #f1c40f;"><b>Sign of Dimensions:</b> Item required to create the <b>Mirror of Dimensions</b>.</p>
+                                <img src="images/bloodcastle/sign.png" alt="Sign of Dimensions" style="width: 80px; height: auto; display: block; margin: 10px auto;">
+                            </div>
+                        </div>
+                
+                        <h2 class="main-title">How to Get the Mirror of Dimensions</h2>
+                        <div>
+                            <p style="color: #f1c40f;">
+                                To get the <b>Mirror of Dimensions</b>, you must collect <b>5 Sign of Dimensions</b>.
+                            </p>
+                            <ul style="color: #f1c40f;">
+                                <li>The <b>Sign of Dimensions</b> is obtained by hunting level 86+ or higher monsters.</li>
+                                <li>When you get 5 <b>Sign of Dimensions</b>, it will automatically create the <b>Mirror of Dimensions</b>.</li>
+                            </ul>
+                            <img src="images/bloodcastle/sign.png" alt="Sign of Dimensions" style="width: 80px; height: auto; display: block; margin: 10px auto;">
+                        </div>
+                
+                        <h2 class="main-title">Event Details</h2>
+                        <div>
+                            <p style="color: #f1c40f;">
+                                The Doppelganger Event features six levels, each with increasing difficulty. Players must defeat boss monsters to protect a portal, with the map adjusting to your character’s level range. The event includes a minimap to track progress.
+                            </p>
+                            <br>
+                            <p style="color: #f1c40f;">
+                                Success requires preventing more than 3 monsters from passing the Magical Barrier within the time limit. Rewards include Interim and Final Reward Chests based on performance.
+                            </p>
+                            <img src="images/bloodcastle/timer.png" alt="Minimap" style="width: 100%; max-width: 600px; height: auto; display: block; margin: 10px auto;">
+                            <ul style="color: #f1c40f;">
+                                <li><b>1</b>: Displays the number of monsters that have passed through the barrier and the remaining time.</li>
+                                <li><b>2</b>: Ice Walker location.</li>
+                                <li><b>3</b>: When the distance between the starting point and monster regeneration is the total progress bar length, the lower triangle shows positions:
+                                    <ul style="color: #f1c40f;">
+                                        <li>Blue Triangle - Your position.</li>
+                                        <li>Black Triangle - Party member's position.</li>
+                                    </ul>
+                                </li>
+                                <li><b>4</b>: A yellow bar indicates the forefront monster’s position, changing to orange or red based on monsters passed.</li>
+                            </ul>
+                        </div>
+                
+                        
+                        <h2 class="main-title">Reward</h2>
+                        <div>
+                            <p style="color: #f1c40f;">Success Conditions: Prevent more than 3 monsters from passing the Magical Barrier during the time limit.</p>
+                            <div style="display: flex; gap: 20px; margin-top: 20px;">
+                                <div>
+                                    <img src="images/bloodcastle/interim.png" alt="Interim Reward Chest" style="width: 150px; height: auto; display: block; margin: 10px auto;">
+                                    <p style="color: #f1c40f;"><b>INTERIM REWARD CHEST</b><br>If you kill all 3 bosses, you will receive a reward chest. This chest can contain 1 Jewel.</p>
+                                </div>
+                                <div>
+                                    <img src="images/bloodcastle/final.png" alt="Final Reward Chest" style="width: 150px; height: auto; display: block; margin: 10px auto;">
+                                    <p style="color: #f1c40f;"><b>FINAL REWARD CHEST</b><br>If you finish the event, you will be awarded a Final Reward Chest. This chest can contain Random Box of Kundun.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <br><br>
+                </div>
+                  ` 
+              ,
+               // TVT
+              "tvt": `
+                  <div class="main-container">
+                        <h1 class="main-title">TvT</h1>
+                  
+
+                      <br>
+                      <br>
+                  </div>
+                  ` 
+               ,
+               // GVG
+              "gvg": `
+                  <div class="main-container">
+                        <h1 class="main-title">GvG</h1>
+                  
+
+                      <br>
+                      <br>
+                  </div>
+                  ` 
+
+               ,
+               // CS
+              "cs": `
+                  <div class="main-container">
+                   
+                        <div style="margin-bottom: 20px; padding: 15px;  border-radius: 5px;">
+        <h1 class="main-title">What is Castle Siege Event?</h1>
+        <p>Castle Siege is an enormous PvP event between strongest guilds! Guilds fighting against each other to obtain Loren Castle & Land of Trials zones. Castle Siege is a weekly event that has multiple steps in preparation.</p>
+    </div>
+
+   <div style="margin-bottom: 20px; padding: 15px; border-radius: 5px; text-align: center; color: gold;">
+    <h1 class="main-title">Schedule of Stronghold Dominion Event:</h1>
+    <p>Monday to Thursday - Registration of Guilds</p>
+    <p>Friday to Saturday - Sign of Lord item Registration</p>
+    <p>Sunday 00:01 - Reveal list of participants</p>
+    <p>Sunday 18:00 - Castle Siege event (60 minutes duration)</p>
+</div>
+
+  <div style="margin-bottom: 20px; padding: 15px; border-radius: 5px; text-align: center; color: gold;">
+    <h1 class="main-title">Step #1 - How to Enroll Your Guild for the Castle Siege Event?</h1>
+    <p><strong>First Step - The Guild Leader must register the guild to participate in Castle Siege</strong></p>
+    <p><strong>Siege Readiness</strong></p>
+    <p>Registration is open from Monday to Thursday, as outlined in the Castle Siege schedule. To register, the Guild Leader must visit the Guardsman NPC, located in Valley of Loren.</p>
+    <p><strong>Guardsman Location:</strong></p>
+    <p>Valley of Loren, accessible via the Teleport menu - Hockey M</p>
+ 
+    <img src="images/guardsman.png" alt="Guardsman NPC" style="display: block; margin: 0 auto;">
+    <p><strong>Guardsman Coordinates:</strong><br>Valley of Loren (99, 61)</p>
+</div>
+
+    <div style="margin-bottom: 20px; padding: 15px;  border-radius: 5px;">
+        <h1 class="main-title">Step #2 - How to collect & Register Sign of Lord?</h1>
+        <p><strong>Second Step</strong> for participation in Castle Siege event is to gather the most possible amount of Sign of Lord.</p>
+        <p>This item is very crucial, all guilds that are willing to participate in Castle Siege will farm it very actively. To acquire Sign of Lord more effectively, setup your Mu Helper to pick up Sign of Lord. This setting will help you while you are hunting monsters.</p>
+     
+
+        <p>After obtaining Sign of Lord and registering your Guild to Castle Siege event, you will need to register Sign of Lord at Guardsman NPC.</p>
+        <p><strong>To register Sign of Lord</strong>, you need to visit Guardsman NPC on a scheduled day and use Sign of Lord via special button in NPC which will be opened on a scheduled day. Guilds that will register the most amount of Sign of Lord will participate in Castle Siege Event!</p>
+    </div>
+
+<div style="margin-bottom: 20px; padding: 15px; border-radius: 5px; text-align: center">
+    <h1 class="main-title">Step #3 - Fighting and the Point System</h1>
+    <p>On our server, we’ve implemented a point system for the Castle Siege to prevent anti-game tactics, such as capturing the crown in the last 5 seconds to win. Instead, points are now earned based on various actions: player kills, defending the castle, capturing the switch, and registering the castle. These points are tallied at the end, and the guild with the most points claims victory.</p>
+    <p><strong>Castle Siege Stages:</strong></p>
+    <p>The event begins with the first stage: destroying the gates and statues. Only after all statues are defeated can guilds gain access to the castle interior.</p>
+    <p><strong>Point System Breakdown:</strong></p>
+    <ul style="list-style-type: none; padding: 0;color: gold;">
+        <li>Regular player kill: 8 points</li>
+        <li>Guild Master kill: 32 points</li>
+        <li>Castle registration: 100 points</li>
+        <li>Defending the castle: 2 point per second</li>
+        <li>Capturing the switch: 1 point per second</li>
+    </ul>
+    <p>All points are accumulated throughout the event, and the guild with the highest total wins the castle!</p>
+</div>
+
+<div style="margin-bottom: 20px; padding: 15px; border-radius: 5px; text-align: center; color: gold;">
+    <h1 class="main-title">Step #4 - Rewards</h1>
+    <p>All participants in the Castle Siege will be rewarded. The top three guilds will receive WCoin rewards as follows:</p>
+    <ul style="list-style-type: none; padding: 0;">
+        <li>1st Place: 10,000 WCoin</li>
+        <li>2nd Place: 7,000 WCoin</li>
+        <li>3rd Place: 4,500 WCoin</li>
+    </ul>
+    <p>The Top Stamper and Top Killer will each receive 7 days of VIP status.</p>
+    <p>The winning guild gains access to Loren Deep, a special area with high-level monsters tailored to the current act. In this area, players can obtain Gemstones and Wing Elements corresponding to the act. Monsters and Wing Elements will be updated with each new act to match the current content.</p>
+    <p>Additionally, once per day, winners gain access to EROHIm, where they can obtain 1 Box of Ancient +3 and 2 Boxes of Ancient +2. They also gain access to a Jewelry Mix with crafting costs reduced by half.</p>
+</div>
+
+                      <br>
+                      <br>
+                  </div>
+                  ` 
+
+                ,
+              // Battle Royale
+              "br": `
+                  <div class="main-container">
+                        <h1 class="main-title">BR</h1>
+                  
+
+                      <br>
+                      <br>
+                  </div>
+                  ` 
+
+                ,
+
+                // Pandora
+              "pandora": `
+                  <div class="main-container">
+                      <h1 class="main-title">Pandora</h1>
+                      <div class="map-container">
+                          <div class="map-text-content">
+                             
+                             <div class="event-details">
+                          <p><span class="highlight">Pandora</span> starts at <span class="highlight">Fire Kalima</span>! This is a classic <span class="highlight">PvP Event</span>.</p>
+                          <p>If you win, the <span class="highlight">Final Reward Chest</span> is yours! 😉</p>
+                          <p>Players must capture the box in a special area at <span class="highlight">Fire Kalima</span>.</p>
+                          <p><strong>Event Location:</strong> Pandora Fire Kalima</p>
+                          <p><strong>Event Duration:</strong> 5 Minutes</p>
+                      </div>
+                      <div class="reward">
+                          <p><strong>Reward:</strong> 400 WCoin</p>
+                      </div>
+                          </div>
+                      </div>
+                      <br>
+                      <br>
+                  </div>
+                  ` 
+
+                ,
+              
+              
+
+        
+
+           
+             
+              };
+  
+              
+              content.innerHTML = data[region];
+              content.classList.add("active"); 
+          }
+          document.addEventListener("DOMContentLoaded", function() {
+         showContent('info');
+        });
+      
+
+      </script>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const tabToOpen = params.get('tab');
+    const popupToOpen = params.get('popup');
+  
+    if (tabToOpen) {
+      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
+    }
+  
+    if (popupToOpen) {
+      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
+    }
+  </script>
+          
+
+  </body>
+
+  </html>

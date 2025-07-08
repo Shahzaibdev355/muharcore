@@ -1,0 +1,606 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        //Disable cut copy paste
+        $('body').bind('cut copy paste', function (e) {
+            e.preventDefault();
+        });
+
+        //Disable mouse right click
+        $("body").on("contextmenu", function (e) {
+            return false;
+        });
+    });
+</script>
+<!DOCTYPE html>
+
+<body oncopy="return false" oncut="return false" onpaste="return false">
+    <html lang="en">
+
+    <head>
+
+        <title>Guides MU-HARDCORE</title>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+ <script>
+        fetch('libraries.html')
+            .then(response => response.text())
+            .then(data => {
+                document.head.insertAdjacentHTML('beforeend', data);
+            })
+            .catch(error => console.error('Fehler beim Laden der Libraries:', error));
+       </script>
+
+      <style>
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+       
+      </style>
+
+    </head>
+
+    <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+
+         <div class="loader">Loading...</div>
+          <div id="navbar-container"></div>
+
+
+        <section class="about section" id="about">
+            <h1 style="text-align:center;">🏠Questmap</h1>
+      
+                <div class="main-container">
+                <h1 class="main-title">Questmap Overview</h1>
+        
+              
+
+                                  <p style="color:#f1c40f">The <strong>Questmap</strong> is a quest system where you need to defeat monsters on a specific map. It is a combination of multiple monsters, making it a challenging and exciting experience.</p>
+                                  <p style="color:#f1c40f">Each quest offers a <strong>valuable reward</strong> that makes it worth completing. However, you can only complete this quest <strong>once</strong> during your gameplay.</p><br>
+                          
+        
+                               
+                                <!-- Losstower -->
+                                <div class="item-wrapper">
+                                  <p style="line-height:140%; text-align:center;">
+                                    <span style="color:#f1c40f; line-height:19.6px;">
+                                        <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Losttower</strong><br>
+
+                    
+                                      <img src="images/MAPS/losttower.png" 
+                                           alt="Losttower" 
+
+                                           class="item-thumb" 
+                                           style="vertical-align: middle; margin-left: 31px;width: 150px;height: 150;">
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" style="width: 300px;">
+                                    <div class="popup-header">Losttower</div>
+                                    <img src="images/MAPS/losttower.png" 
+                                    alt="Losttower" 
+                                    class="popup-im" 
+                                    style="vertical-align: middle; width: 120px;height: 120;">
+   
+                                    <div class="popup-name">Requisities </div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 2000 Shadows</div>
+
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 2000 Poison Shadows</div>
+
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 2000 Cows</div>
+
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 2000 Cursed Wizards</div>
+
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 2000 Death Gorgon</div>
+
+                        
+                                  </div>
+                                </div>
+                                <!-- Tarkan -->
+                                <div class="item-wrapper">
+                                  <p style="line-height:140%; text-align:center;">
+                                    <span style="color:#f1c40f; line-height:19.6px;">
+                                        <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Tarkan</strong><br>
+
+                    
+                                      <img src="images/MAPS/tarkan.png" 
+                                           alt="Tarkan" 
+
+                                           class="item-thumb" 
+                                           style="vertical-align: middle; margin-left: 31px;width: 150px;height: 150;">
+                                    </span>
+                                  </p>
+                                 <div class="popup-info" style="width: 300px;">
+                                 
+                                  <div class="popup-header">Tarkan</div>
+                                    <img src="images/MAPS/tarkan.png" 
+                                    alt="Tarkan" 
+                                    class="popup-im" 
+                                    style="vertical-align: middle; width: 120px;height: 120;">
+   
+                                    <div class="popup-name">Requisities </div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 2250 Mutans</div>
+
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 2250 Bloody Wolfs</div>
+
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 2250 Iron Wheels</div>
+
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 2250 Tantalos</div>
+
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 2250 Beam Knights </div>
+                                 </div>
+                                </div>
+                                <!-- Icarus -->
+                                <div class="item-wrapper">
+                                  <p style="line-height:140%; text-align:center;">
+                                    <span style="color:#f1c40f; line-height:19.6px;">
+                                        <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Icarus</strong><br>
+
+                    
+                                      <img src="images/MAPS/icarus.png" 
+                                           alt="Icarus" 
+
+                                           class="item-thumb" 
+                                           style="vertical-align: middle; margin-left: 31px;width: 150px;height: 150;">
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" style="width: 300px;">
+                                    <div class="popup-header">Icarus</div>
+                                    <img src="images/MAPS/icarus.png" 
+                                    alt="icarus" 
+                                    class="popup-im" 
+                                    style="vertical-align: middle; width: 120px;height: 120;">
+   
+                                    <div class="popup-name">Requisities </div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 2500 Mega Crusts</div>
+
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 2500 Queen Rainiers</div>
+
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 2500 Drakans</div>
+
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 2500 Alpha Crusts</div>
+
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 2500 Phantom Knights</div>
+
+                        
+                                  </div>
+                                </div>
+                                <!-- Kanturu -->
+                                <div class="item-wrapper">
+                                  <p style="line-height:140%; text-align:center;">
+                                    <span style="color:#f1c40f; line-height:19.6px;">
+                                        <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Kanturu</strong><br>
+
+                    
+                                      <img src="images/MAPS/kanturu.png" 
+                                           alt="Kanturu" 
+
+                                           class="item-thumb" 
+                                           style="vertical-align: middle; margin-left: 31px;width: 150px;height: 150;">
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" style="width: 300px;">
+                                    <div class="popup-header">Kanturu</div>
+                                    <img src="images/MAPS/kanturu.png" 
+                                    alt="Kanturu" 
+                                    class="popup-im" 
+                                    style="vertical-align: middle; width: 120px;height: 120;">
+   
+                                    <div class="popup-name">Requisities </div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 2750 Splinter Wolfs</div>
+
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 2750 Satyroses</div>
+
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 2750 Iron Riders</div>
+
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 2750 Blade Hunters</div>
+
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 2750 Kentauroses</div>
+
+
+                        
+                                  </div>
+                                </div>
+                                <!-- Karutan -->
+                                <div class="item-wrapper">
+                                  <p style="line-height:140%; text-align:center;">
+                                    <span style="color:#f1c40f; line-height:19.6px;">
+                                        <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Karutan</strong><br>
+
+                    
+                                      <img src="images/MAPS/karutan.png" 
+                                           alt="Karutan" 
+
+                                           class="item-thumb" 
+                                           style="vertical-align: middle; margin-left: 31px;width: 150px;height: 150;">
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" style="width: 300px;">
+                                    <div class="popup-header">Karutan</div>
+                                    <img src="images/MAPS/karutan.png" 
+                                    alt="Karutan" 
+                                    class="popup-im" 
+                                    style="vertical-align: middle; width: 120px;height: 120;">
+   
+                                    <div class="popup-name">Requisities </div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 3000 Chain Scorpions</div>
+
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 3000 Bone Scorpions</div>
+
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 3000 Orcuses</div>
+
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 3000 Golocks</div>
+
+                        
+                                  </div>
+                                </div>
+                                <!-- Crywolf -->
+                                <div class="item-wrapper">
+                                  <p style="line-height:140%; text-align:center;">
+                                    <span style="color:#f1c40f; line-height:19.6px;">
+                                        <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;"> Crywolf</strong><br>
+
+                    
+                                      <img src="images/MAPS/crywolf.png" 
+                                           alt="Crywolf" 
+
+                                           class="item-thumb" 
+                                           style="vertical-align: middle; margin-left: 31px;width: 150px;height: 150;">
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" style="width: 300px;">
+                                    <div class="popup-header">Crywolf</div>
+                                    <img src="images/MAPS/crywolf.png" 
+                                    alt="Crywolf" 
+                                    class="popup-im" 
+                                    style="vertical-align: middle; width: 120px;height: 120;">
+   
+                                    <div class="popup-name">Requisities </div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 3250 Hammer Scouts</div>
+
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 3250 Lance Scouts</div>
+
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 3250 Bow Scouts</div>
+
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 3250 Werewolfs</div>
+
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 3250 Scout(HERO)</div>
+
+
+                        
+                                  </div>
+                                </div>
+                                <!-- Kanturu Relics -->
+                                <div class="item-wrapper">
+                                  <p style="line-height:140%; text-align:center;">
+                                    <span style="color:#f1c40f; line-height:19.6px;">
+                                        <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;"> Kanturu Relics</strong><br>
+
+                    
+                                      <img src="images/MAPS/kantururelics.png" 
+                                           alt="Kanturu Relics" 
+
+                                           class="item-thumb" 
+                                           style="vertical-align: middle; margin-left: 31px;width: 150px;height: 150;">
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" style="width: 300px;">
+                                    <div class="popup-header">Kanturu Relics</div>
+                                    <img src="images/MAPS/kantururelics.png" 
+                                    alt="Kanturu Relics" 
+                                    class="popup-im" 
+                                    style="vertical-align: middle; width: 120px;height: 120;">
+   
+                                    <div class="popup-name">Requisities </div>
+
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 3500 Twin Tales</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 3500 Personas</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 3500 Dreadfears</div>
+
+
+                        
+                                  </div>
+                                </div>
+                                <!-- Kanturu Underground -->
+                                <div class="item-wrapper">
+                                  <p style="line-height:140%; text-align:center;">
+                                    <span style="color:#f1c40f; line-height:19.6px;">
+                                        <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;"> Kanturu Underground</strong><br>
+
+                    
+                                      <img src="images/MAPS/underground.png" 
+                                           alt="Kanturu Underground" 
+
+                                           class="item-thumb" 
+                                           style="vertical-align: middle; margin-left: 31px;width: 150px;height: 150;">
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" style="width: 300px;">
+                                    <div class="popup-header">Kanturu Underground</div>
+                                    <img src="images/MAPS/underground.png" 
+                                    alt="Kanturu Underground" 
+                                    class="popup-im" 
+                                    style="vertical-align: middle; width: 120px;height: 120;">
+   
+                                    <div class="popup-name">Requisities </div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 3750 Berserker Warrior</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 3750 Kentauros Warrior</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 3750 Gigantis Warrior</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 3750 Genocider Warrior</div>
+
+
+                        
+                                  </div>
+                                </div>
+                                <!-- Vulcanos -->
+                                <div class="item-wrapper">
+                                  <p style="line-height:140%; text-align:center;">
+                                    <span style="color:#f1c40f; line-height:19.6px;">
+                                        <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;"> Vulcanos</strong><br>
+
+                    
+                                      <img src="images/MAPS/vulcanos.png" 
+                                           alt="Vulcanos" 
+
+                                           class="item-thumb" 
+                                           style="vertical-align: middle; margin-left: 31px;width: 150px;height: 150;">
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" style="width: 300px;">
+                                    <div class="popup-header">Vulcanos</div>
+                                    <img src="images/MAPS/vulcanos.png" 
+                                    alt="Vulcanos" 
+                                    class="popup-im" 
+                                    style="vertical-align: middle; width: 120px;height: 120;">
+   
+                                    <div class="popup-name">Requisities </div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 4000 Zombie Fighter</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 4000 Resurrected Gladiator</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 4000 Ash Slaughterer</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 4000 Burning Lava Giant</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 4000 Ruthless Lava Giant</div>
+
+
+                        
+                                  </div>
+                                </div>
+                                <!-- Raklion -->
+                                <div class="item-wrapper">
+                                  <p style="line-height:140%; text-align:center;">
+                                    <span style="color:#f1c40f; line-height:19.6px;">
+                                        <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Raklion</strong><br>
+
+                    
+                                      <img src="images/MAPS/raklion.png" 
+                                           alt="Raklion" 
+
+                                           class="item-thumb" 
+                                           style="vertical-align: middle; margin-left: 31px;width: 150px;height: 150;">
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" style="width: 300px;">
+                                    <div class="popup-header">Raklion</div>
+                                    <img src="images/MAPS/raklion.png" 
+                                    alt="Raklion" 
+                                    class="popup-im" 
+                                    style="vertical-align: middle; width: 120px;height: 120;">
+   
+                                    <div class="popup-name">Requisities </div>
+
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 4250 Ice Walker</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 4250 Giant Mammoth</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 4250 Ice Giant</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 4250 Coolutin</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 4250 Iron Knight</div>
+
+
+                        
+                                  </div>
+                                </div>
+                                <!-- Swamp of Calmness -->
+                                <div class="item-wrapper">
+                                  <p style="line-height:140%; text-align:center;">
+                                    <span style="color:#f1c40f; line-height:19.6px;">
+                                        <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Swamp of Calmness</strong><br>
+
+                    
+                                      <img src="images/MAPS/swamp.png" 
+                                           alt="Swamp of Calmness" 
+
+                                           class="item-thumb" 
+                                           style="vertical-align: middle; margin-left: 31px;width: 150px;height: 150;">
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" style="width: 300px;">
+                                    <div class="popup-header">Swamp of Calmness</div>
+                                    <img src="images/MAPS/swamp.png" 
+                                    alt="Swamp of Calmness" 
+                                    class="popup-im" 
+                                    style="vertical-align: middle; width: 120px;height: 120;">
+   
+                                    <div class="popup-name">Requisities </div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 4500 Sapi-Duo</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 4500 Shadow Pawn</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 4500 Thunder Napin</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 4500 Ghost Napin</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 4500 Ice Napin</div>
+                                   
+
+
+                        
+                                  </div>
+                                </div>
+                                <!-- Ferea -->
+                                <div class="item-wrapper">
+                                  <p style="line-height:140%; text-align:center;">
+                                    <span style="color:#f1c40f; line-height:19.6px;">
+                                        <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Ferea</strong><br>
+
+                    
+                                      <img src="images/MAPS/ferea.png" 
+                                           alt="Ferea" 
+
+                                           class="item-thumb" 
+                                           style="vertical-align: middle; margin-left: 31px;width: 150px;height: 150;">
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" style="width: 300px;">
+                                    <div class="popup-header">Ferea</div>
+                                    <img src="images/MAPS/ferea.png" 
+                                    alt="Ferea" 
+                                    class="popup-im" 
+                                    style="vertical-align: middle; width: 120px;height: 120;">
+                                    <div class="popup-name">Requisities </div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 4750 Ferea Knight</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 4750 Ferea Archer</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 4750 Ferea Fighter</div>
+                                  </div>
+                                </div>
+                                <!-- Swamp of Darkness -->
+                                <div class="item-wrapper">
+                                  <p style="line-height:140%; text-align:center;">
+                                    <span style="color:#f1c40f; line-height:19.6px;">
+                                        <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Swamp of Darkness</strong><br>
+
+                    
+                                      <img src="images/MAPS/swampofdarkness.png" 
+                                           alt="Swamp of Darkness" 
+
+                                           class="item-thumb" 
+                                           style="vertical-align: middle; margin-left: 31px;width: 150px;height: 150;">
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" style="width: 300px;">
+                                    <div class="popup-header">Swamp of Darkness</div>
+                                    <img src="images/MAPS/swampofdarkness.png" 
+                                    alt="Swamp of Darkness" 
+                                    class="popup-im" 
+                                    style="vertical-align: middle; width: 120px;height: 120;">
+   
+                                    <div class="popup-name">Requisities </div>
+
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 5000 Swamp Ent</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 5000 Wooden Beast</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 5000 Swamp Wizard</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 5000 Mutanlite</div>
+                                  </div>
+                                </div>
+                                <!-- Nixies Lake -->
+                                <div class="item-wrapper">
+                                  <p style="line-height:140%; text-align:center;">
+                                    <span style="color:#f1c40f; line-height:19.6px;">
+                                        <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Nixies Lake</strong><br>
+
+                    
+                                      <img src="images/MAPS/nixis.png" 
+                                           alt="Nixies Lake" 
+
+                                           class="item-thumb" 
+                                           style="vertical-align: middle; margin-left: 31px;width: 150px;height: 150;">
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" style="width: 300px;">
+                                    <div class="popup-header">Nixies Lake</div>
+                                    <img src="images/MAPS/nixis.png" 
+                                    alt="Nixies Lake" 
+                                    class="popup-im" 
+                                    style="vertical-align: middle; width: 120px;height: 120;">
+   
+                                    <div class="popup-name">Requisities </div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 5250 Paraca</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 5250 Bass</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);">Kill 5250 Vasuki</div>
+
+
+                        
+                                  </div>
+                                </div>
+            </div>
+        
+          
+                   
+                
+         </section>
+       <div id="footer-container"></div>
+
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/aos.js"></script>
+        <script src="js/smoothscroll.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+         <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loader = document.querySelector('.loader');
+        fetch('libraries.html?v=' + new Date().getTime())
+            .then(response => response.text())
+            .then(data => {
+                document.head.insertAdjacentHTML('beforeend', data);
+                return fetch('navbar.html?v=' + new Date().getTime());
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+                return fetch('footer.html?v=' + new Date().getTime()); // Load footer
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+                loader.style.display = 'none'; // Hide loading screen
+            })
+            .catch(error => console.error('Fehler beim Laden:', error));
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const tabToOpen = params.get('tab');
+  const popupToOpen = params.get('popup');
+
+  if (tabToOpen) {
+    document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
+  }
+
+  if (popupToOpen) {
+    document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
+  }
+</script>
+     
+
+
+    </body>
+
+    </html>

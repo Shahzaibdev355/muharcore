@@ -1,0 +1,117 @@
+/* ============================= */
+/* Summary-Buttons oben */
+/* ============================= */
+.summary-container {
+  display: flex;
+  max-width: 1050px;
+  margin: 0 auto; /* Zentriert den Container */
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center; /* Elemente horizontal zentrieren */
+  align-items: center; /* Falls notwendig, vertikal zentrieren */
+  text-align: center; /* Text innerhalb von Buttons/Elementen zentrieren */
+}
+
+.details-box {
+  display: inline-block;
+  text-align: center;
+}
+
+/* ============================= */
+/* Styling für Summary (Button) */
+/* ============================= */
+summary {
+  font-size: 15px;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 12px 16px;
+  display: inline-block;
+  cursor: pointer;
+  background: linear-gradient(135deg, #d89d54, #df6f47); /* Farbverlauf von Orange zu Rot */
+  color: white;
+  font-weight: bold;
+  transition: transform 0.2s; /* Nur Transform wird animiert, keine Farbänderung */
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3); /* Schatten für 3D-Effekt */
+}
+
+/* Hover-Effekt */
+summary:hover {
+  transform: scale(1.05); /* Leichtes Vergrößern beim Hover */
+  background: linear-gradient(135deg, #d89d54, #df6f47); /* Gleicher Farbverlauf wie oben */
+  color: white; /* Gleiche Farbe wie oben */
+}
+
+/* Wenn <details> geöffnet wird */
+.details-box[open] summary {
+  background: linear-gradient(135deg, #d89d54, #df6f47); /* Gleicher Farbverlauf wie oben */
+  border: 2px solid black; /* Gleiche Border-Farbe */
+  color: white; /* Gleiche Textfarbe */
+}
+
+/* Popup-Container, der beim Hover erscheint */
+.popup-info {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 250px;
+  height: auto;
+  border-radius: 15px;
+  background-color: grey;
+  padding: 10px;
+  box-sizing: border-box;
+  font-family: Calibri, sans-serif;
+  color: #fff;
+  z-index: 10;
+}
+
+/* Popup anzeigen, wenn der Mauszeiger über den Wrapper fährt */
+.item-wrapper:hover .popup-info {
+  display: block;
+}
+
+/* Überschrift im Popup */
+.popup-header {
+  font-size: 20px;
+  font-weight: 900;
+  color: #f1c40f;
+  text-align: center;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Inneres Bild im Popup */
+.popup-img {
+  display: block;
+  margin: 0 auto;
+  width: 60px;
+  height: 60px;
+}
+
+/* Name im Popup */
+.popup-name {
+  text-align: center;
+  color: #4cd964;
+  margin-top: 5px;
+  font-size: 18px;
+  font-weight: 900;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Loot-Text im Popup */
+.popup-loot {
+  text-align: center;
+  margin-top: 5px;
+  color: #5ac8fa;
+  font-size: 17px;
+  font-weight: 900;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.divider {
+  border: none;
+  border-top: 2px solid #000; /* schwarze Linie, 2px breit */
+  margin: 20px 0; /* Abstand oben und unten */
+}

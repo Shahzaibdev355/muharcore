@@ -1,0 +1,791 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        //Disable cut copy paste
+        $('body').bind('cut copy paste', function (e) {
+            e.preventDefault();
+        });
+
+        //Disable mouse right click
+        $("body").on("contextmenu", function (e) {
+            return false;
+        });
+    });
+</script>
+<!DOCTYPE html>
+
+<body oncopy="return false" oncut="return false" onpaste="return false">
+    <html lang="en">
+
+    <head>
+
+        <title>Guides MU-HARDCORE</title>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+      <style>
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+       
+      </style>
+
+
+    </head>
+
+    <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+
+           <div class="loader">Loading...</div>
+          <div id="navbar-container"></div>
+
+
+        <section class="about section" id="about">
+          
+      
+            <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+            
+            <h1 style="text-align: center;"> 🛡 Items Bonus </h1>
+            <br>
+  
+            <!-- Alle Details-Buttons bleiben oben -->
+            <div class="summary-container">
+             <details class="details-box"  open onclick="showContent('info')">
+                 <summary>Information</summary>
+             </details>
+            </div><br>
+                <div class="summary-container">
+            <details class="details-box"  open onclick="showContent('wings')">
+                <summary>WINGS</summary>
+            </details>        
+            <details class="details-box"  open onclick="showContent('items')">
+                <summary>ITEMS</summary>
+            </details>
+    
+            <details class="details-box" onclick="showContent('weapons')">
+                <summary>WEAPONS </summary>
+            </details>
+            </div>
+            <div id="content" class="content-container">  
+            </div>
+            </div>
+          
+                   
+                
+         </section>
+
+         <div id="footer-container"></div>
+       
+
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/aos.js"></script>
+        <script src="js/smoothscroll.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- jQuery laden -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+<!-- Schutz-Skript -->
+<script src="js/protection.js"></script>
+        <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loader = document.querySelector('.loader');
+
+        fetch('libraries.html?v=' + new Date().getTime())
+            .then(response => response.text())
+            .then(data => {
+                document.head.insertAdjacentHTML('beforeend', data);
+                return fetch('navbar.html?v=' + new Date().getTime());
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+                return fetch('footer.html?v=' + new Date().getTime());
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+                showContent('info');
+                loader.style.display = 'none'; // Ladebildschirm ausblenden
+            })
+            .catch(error => console.error('Fehler beim Laden:', error));
+    });
+</script>
+
+
+        <script>
+            function showContent(region) {
+                const content = document.getElementById("content");
+   
+                const data = {
+                // Information
+               "info": `
+                           <div class="main-container">
+                               <h1 class="main-title">Items Bonus Overview</h1>
+                       
+                       
+                               <p style="color: #f1c40f;">Invictus <span class="highlight">[MU HARDCORE]</span> has an unique system that rewards players who risk enhancing their gear.</p>
+                               <p style="color: #f1c40f;">Various <span class="highlight-text">bonus options</span> will open to those who upgrade their items, above and beyond the default defence bonus.</p>
+                               <p style="color: #f1c40f;">Whether you’re upgrading <span class="highlight-text">weapons</span>, <span class="highlight-text">armour</span>, or <span class="highlight-text">accessories</span>, these bonuses provide extra <span class="highlight-text">damage</span>, <span class="highlight-text">resistance</span>, and exclusive effects, making your character stronger and giving you an edge in both <span class="highlight-text">PvE</span> and <span class="highlight-text">PvP</span> battles.</p>
+                               
+                           
+                       
+                               <br>
+                               <br>
+                           </div>
+                       `
+,
+                // Wings
+                "wings": `
+                     <div class="main-container">
+                                
+                                <h1 class="main-title">WINGS EVOLUTION</h1>
+                                <div class="item-wrapper">
+                                  <p style="line-height:140%; text-align:center;">
+                                    <span style="color:#f1c40f; line-height:19.6px;">
+                                        <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Wings lvl 1</strong><br>
+
+                    
+                                      <img src="images/wings/wings1dw.png" 
+                                           alt="WINGS1" 
+
+                                           class="item-thumb" 
+                                           style="vertical-align: middle; margin-left: 31px;width: 120px;height: 120;">
+                                    </span>
+                                  </p>
+                                  <div class="popup-info" style="width: 200px; height: auto;">
+                                    <div class="popup-header">Wings lvl 1</div>
+                                    <img src="images/wings/wings1.gif" 
+                                    alt="WINGS1" 
+                                    class="popup-im" 
+                                    style="vertical-align: middle; width: 120px;height: 120;">
+   
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+11 </span>Attack Speed +5</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+12 </span>Critical Damage +5%</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+13 </span>Excelent Damage Rate 5%</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+14 </span>Defense +75</div>        
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+15 </span>+200 HP</div>
+
+                                    
+                        
+                                  </div>
+                                </div>
+                                <div class="item-wrapper">
+                                    <p style="line-height:140%; text-align:center;">
+                                      <span style="color:#f1c40f; line-height:19.6px;">
+                                          <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Wings lvl 2</strong><br>
+  
+                      
+                                        <img src="images/wings/wings2dw.png" 
+                                             alt="WINGS2" 
+  
+                                             class="item-thumb" 
+                                             style="vertical-align: middle; margin-left: 31px;width: 120px;height: 120;">
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" style="width: 200px; height: auto;">
+                                      <div class="popup-header">Wings lvl 2</div>
+                                      <img src="images/wings/wings2.gif" 
+                                      alt="WINGS2" 
+                                      class="popup-im" 
+                                      style="vertical-align: middle; width: 120px;height: 120;">
+
+                                      
+                                    <div class="popup-name">Options</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+11 </span>Attack Speed +10</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+12 </span>Critical Damage +8%</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+13 </span>Excelent Damage Rate 6%</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+14 </span>Defense +130</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+15 </span>+500 HP</div>
+
+                                    
+     
+
+                                    </div>
+                                </div>
+                                <div class="item-wrapper">
+                                    <p style="line-height:140%; text-align:center;">
+                                      <span style="color:#f1c40f; line-height:19.6px;">
+                                          <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Wings lvl 2.5</strong><br>
+  
+                      
+                                        <img src="images/wings/wings2.5dw.png" 
+                                             alt="WINGS2.5" 
+  
+                                             class="item-thumb" 
+                                             style="vertical-align: middle; margin-left: 31px;width: 120px;height: 120;">
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" style="width: 200px; height: auto;">
+                                      <div class="popup-header">Wings lvl 2.5</div>
+                                      <img src="images/wings/wings2.5dw.png" 
+                                      alt="WINGS2.5" 
+                                      class="popup-im" 
+                                      style="vertical-align: middle; width: 120px;height: 120;">
+     
+                                      <div class="popup-name">Options</div>
+                                       <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+11 </span>Attack Speed +15</div>
+                                      <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+12 </span>Critical Damage +9%</div>
+                                      <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+13 </span>Excelent Damage Rate +7%</div>
+                                      <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+14 </span>Defense +150</div>
+                                      <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+15 </span>+1000 HP</div>
+  
+                                      
+                          
+                                    </div>
+                                </div>
+                                <div class="item-wrapper">
+                                    <p style="line-height:140%; text-align:center;">
+                                      <span style="color:#f1c40f; line-height:19.6px;">
+                                          <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Wings lvl 3</strong><br>
+  
+                      
+                                        <img src="images/wings/wings3dw.png" 
+                                             alt="WINGS3" 
+  
+                                             class="item-thumb" 
+                                             style="vertical-align: middle; margin-left: 31px;width: 120px;height: 120;">
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" style="width: 200px; height: auto;">
+                                      <div class="popup-header">Wings lvl 3</div>
+                                      <img src="images/wings/wings3dw.png" 
+                                      alt="WINGS3" 
+                                      class="popup-im" 
+                                      style="vertical-align: middle; width: 120px;height: 120;">
+     
+                                     
+                                    <div class="popup-name">Options</div>
+                                     <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+11 </span>Attack Speed +20</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+12 </span>Critical Damage +11%</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+13 </span>Excelent Damage Rate 8%</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+14 </span>Defense +200</div>
+                                    <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+15 </span>+1500 HP</div>
+
+                                    
+                          
+                                    </div>
+                                </div>
+                                <div class="item-wrapper">
+                                    <p style="line-height:140%; text-align:center;">
+                                      <span style="color:#f1c40f; line-height:19.6px;">
+                                          <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Wings lvl 4</strong><br>
+  
+                      
+                                        <img src="images/wings/wings4dw.png" 
+                                             alt="WINGS4" 
+  
+                                             class="item-thumb" 
+                                             style="vertical-align: middle; margin-left: 31px;width: 120px;height: 120;">
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" style="width: 200px; height: auto;">
+                                      <div class="popup-header">Wings lvl 4</div>
+                                      <img src="images/wings/wings4dw.png" 
+                                      alt="WINGS4" 
+                                      class="popup-im" 
+                                      style="vertical-align: middle; width: 120px;height: 120;">
+     
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+11 </span>Attack Speed +25</div>
+                                      <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+12 </span>Critical Damage +13%</div>
+                                      <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+13 </span>Excelent Damage Rate +9%</div>
+                                      <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+14 </span>Defense +250</div>
+                                      <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+15 </span>+2000 HP</div>
+  
+                                      
+                          
+                                    </div>
+                                </div>
+
+                                     <div class="item-wrapper">
+                                    <p style="line-height:140%; text-align:center;">
+                                      <span style="color:#f1c40f; line-height:19.6px;">
+                                          <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Wings lvl 5</strong><br>
+  
+                      
+                                        <img src="images/wings/wings5dw.png" 
+                                             alt="WINGS5" 
+  
+                                             class="item-thumb" 
+                                             style="vertical-align: middle; margin-left: 31px;width: 120px;height: 120;">
+                                      </span>
+                                    </p>
+                                    <div class="popup-info" style="width: 200px; height: auto;">
+                                      <div class="popup-header">Wings lvl 5</div>
+                                      <img src="images/wings/wings5dw.png" 
+                                      alt="WINGS5" 
+                                      class="popup-im" 
+                                      style="vertical-align: middle; width: 120px;height: 120;">
+     
+                                      <div class="popup-name">Options</div>
+                                      <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+11 </span>Attack Speed +30</div>
+                                      <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+12 </span>Critical Damage +15%</div>
+                                      <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+13 </span>Excelent Damage Rate +10%</div>
+                                      <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+14 </span>Defense +300</div>
+                                      <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+15 </span>+2500 HP</div>
+  
+                                      
+                          
+                                    </div>
+                                </div>
+                             
+                             
+                                <br>
+                                <br>
+                              
+                                
+                            </div>
+                    ` 
+                ,
+                // Items
+                "items": `
+                       <div class="main-container">
+                        
+                        <h1 class="main-title">ITEMS EVOLUTION</h1>
+                        <div class="item-wrapper">
+                          <p style="line-height:140%; text-align:center;">
+                            <span style="color:#f1c40f; line-height:19.6px;">
+                                <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Helm</strong><br>
+
+            
+                              <img src="images/items/helm.gif" 
+                                   alt="Helm" 
+
+                                   class="item-thumb" 
+                                   style="vertical-align: middle; margin-left: 31px;width: 120px;height: 120;">
+                            </span>
+                          </p>
+                          <div class="popup-info" style="width: 200px; height: auto;">
+                            <div class="popup-header">Helm</div>
+                            <img src="images/items/helm.gif"  
+                            alt="Helm" 
+                            class="popup-im" 
+                            style="vertical-align: middle; width: 120px;height: 120;">
+
+                            <div class="popup-name">Options</div>
+                            <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+11 </span>Critical Damage +5%</div>
+                            <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+12 </span>Excelent Damage Rate 5%</div>
+                            <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+13 </span>Defense +75</div>
+                            <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+14 </span>Increase SD +5%</div>
+                            <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+15 </span>+200 HP</div>
+
+                            
+                
+                          </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                              <span style="color:#f1c40f; line-height:19.6px;">
+                                  <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Armor</strong><br>
+  
+              
+                                <img src="images/items/armor.gif" 
+                                     alt="Armor" 
+  
+                                     class="item-thumb" 
+                                     style="vertical-align: middle; margin-left: 31px;width: 120px;height: 120;">
+                              </span>
+                            </p>
+                            <div class="popup-info" style="width: 300px; height: auto;">
+                              <div class="popup-header">Armor</div>
+                              <img src="images/items/armor.gif"  
+                              alt="Armor" 
+                              class="popup-im" 
+                              style="vertical-align: middle; width: 120px;height: 120;">
+  
+                              <div class="popup-name">Options</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+14 </span>Increase HP +4%</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+15 </span>Increase Defense +3%</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">Full set bonus</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+14 set </span>Resist Excellent Damage Rate +10%</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+15 set</span>+1000 HP</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+15 set</span>Hp full recovery defensive +1%</div>
+  
+                              
+                  
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                              <span style="color:#f1c40f; line-height:19.6px;">
+                                  <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Gloves</strong><br>
+  
+              
+                                <img src="images/items/gloves.gif" 
+                                     alt="Gloves" 
+  
+                                     class="item-thumb" 
+                                     style="vertical-align: middle; margin-left: 31px;width: 120px;height: 120;">
+                              </span>
+                            </p>
+                            <div class="popup-info" style="width: 200px; height: auto;">
+                              <div class="popup-header">Gloves</div>
+                              <img src="images/items/gloves.gif"  
+                              alt="gloves" 
+                              class="popup-im" 
+                              style="vertical-align: middle; width: 120px;height: 120;">
+  
+                              <div class="popup-name">Options</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+14 </span>Increase HP +4%</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+15 </span>Increase Defense +3%</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">Full set bonus</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+14 set </span>Resist Excellent Damage Rate +10%</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+15 set</span>+1000 HP</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+15 set</span>Hp full recovery defensive +1%</div>
+  
+                              
+                  
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                              <span style="color:#f1c40f; line-height:19.6px;">
+                                  <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Pants</strong><br>
+  
+              
+                                <img src="images/items/gloves.gif" 
+                                     alt="pants" 
+  
+                                     class="item-thumb" 
+                                     style="vertical-align: middle; margin-left: 31px;width: 120px;height: 120;">
+                              </span>
+                            </p>
+                            <div class="popup-info" style="width: 200px; height: auto;">
+                              <div class="popup-header">Pants</div>
+                              <img src="images/items/pants.gif"  
+                              alt="Pants" 
+                              class="popup-im" 
+                              style="vertical-align: middle; width: 120px;height: 120;">
+  
+                              <div class="popup-name">Options</div>
+                                <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+14 </span>Increase HP +4%</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+15 </span>Increase Defense +3%</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">Full set bonus</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+14 set </span>Resist Excellent Damage Rate +10%</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+15 set</span>+1000 HP</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+15 set</span>Hp full recovery defensive +1%</div>
+  
+                              
+                  
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                              <span style="color:#f1c40f; line-height:19.6px;">
+                                  <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Boots</strong><br>
+  
+              
+                                <img src="images/items/boots.gif" 
+                                     alt="Boots" 
+  
+                                     class="item-thumb" 
+                                     style="vertical-align: middle; margin-left: 31px;width: 120px;height: 120;">
+                              </span>
+                            </p>
+                            <div class="popup-info" style="width: 200px; height: auto;">
+                              <div class="popup-header">Boots</div>
+                              <img src="images/items/boots.gif"  
+                              alt="Boots" 
+                              class="popup-im" 
+                              style="vertical-align: middle; width: 120px;height: 120;">
+  
+                              <div class="popup-name">Options</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+14 </span>Increase HP +4%</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+15 </span>Increase Defense +3%</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">Full set bonus</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+14 set </span>Resist Excellent Damage Rate +10%</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+15 set</span>+1000 HP</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+15 set</span>Hp full recovery defensive +1%</div>
+  
+                              
+                  
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                              <span style="color:#f1c40f; line-height:19.6px;">
+                                  <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Shield</strong><br>
+  
+              
+                                <img src="images/items/shield.gif" 
+                                     alt="Shield" 
+  
+                                     class="item-thumb" 
+                                     style="vertical-align: middle; margin-left: 31px;width: 120px;height: 120;">
+                              </span>
+                            </p>
+                            <div class="popup-info" style="width: 200px; height: auto;">
+                              <div class="popup-header">Shield</div>
+                              <img src="images/items/shield.gif"  
+                              alt="Shield" 
+                              class="popup-im" 
+                              style="vertical-align: middle; width: 120px;height: 120;">
+  
+                              <div class="popup-name">Options</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+14 </span>Defense Succes Rate +10%</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+15 </span>Increase Defense 100</div>
+                              
+  
+                              
+                  
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                      
+                        
+                    </div>
+                    ` 
+                ,
+                // Weapons
+                "weapons": `
+                       <div class="main-container">
+                        <h1 class="main-title">WEAPONS EVOLUTION</h1>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                              <span style="color:#f1c40f; line-height:19.6px;">
+                                  <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Staff</strong><br>
+  
+              
+                                <img src="images/items/staff.gif" 
+                                     alt="Staff" 
+  
+                                     class="item-thumb" 
+                                     style="vertical-align: middle; margin-left: 31px;width: 60px;height: 120;">
+                              </span>
+                            </p>
+                            <div class="popup-info" style="width: 200px; height: auto;">
+                              <div class="popup-header">Staff</div>
+                              <img src="images/items/staff.gif"  
+                              alt="Staff" 
+                              class="popup-im" 
+                              style="vertical-align: middle; width: 40px;height: 60;">
+  
+                              <div class="popup-name">Options</div>
+                              
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+14 </span>Excelent Damage Rate 5%</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+15 </span>Increase Damage +3%</div>
+                       
+  
+                              
+                  
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                              <span style="color:#f1c40f; line-height:19.6px;">
+                                  <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Stick</strong><br>
+  
+              
+                                <img src="images/items/stick.gif" 
+                                     alt="Stick" 
+  
+                                     class="item-thumb" 
+                                     style="vertical-align: middle; margin-left: 31px;width: 60px;height: 120;">
+                              </span>
+                            </p>
+                            <div class="popup-info" style="width: 200px; height: auto;">
+                              <div class="popup-header">Stick</div>
+                              <img src="images/items/stick.gif"  
+                              alt="Stick" 
+                              class="popup-im" 
+                              style="vertical-align: middle; width: 40px;height: 60;">
+  
+                              <div class="popup-name">Options</div>
+                               <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+14 </span>Excelent Damage Rate 5%</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+15 </span>Increase Damage +3%</div>
+  
+                              
+                  
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                              <span style="color:#f1c40f; line-height:19.6px;">
+                                  <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Bow</strong><br>
+  
+              
+                                <img src="images/items/bow.gif" 
+                                     alt="Bow" 
+  
+                                     class="item-thumb" 
+                                     style="vertical-align: middle; margin-left: 31px;width: 60px;height: 120;">
+                              </span>
+                            </p>
+                            <div class="popup-info" style="width: 200px; height: auto;">
+                              <div class="popup-header">Bow</div>
+                              <img src="images/items/bow.gif"  
+                              alt="Bow" 
+                              class="popup-im" 
+                              style="vertical-align: middle; width: 40px;height: 60;">
+  
+                              <div class="popup-name">Options</div>
+                                <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+14 </span>Excelent Damage Rate 5%</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+15 </span>Increase Damage +3%</div>
+  
+                              
+                  
+                            </div>
+                        </div>
+                        <br>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                              <span style="color:#f1c40f; line-height:19.6px;">
+                                  <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Sword</strong><br>
+  
+              
+                                <img src="images/items/sword.gif" 
+                                     alt="Sword" 
+  
+                                     class="item-thumb" 
+                                     style="vertical-align: middle; margin-left: 31px;width: 60px;height: 120;">
+                              </span>
+                            </p>
+                            <div class="popup-info" style="width: 200px; height: auto;">
+                              <div class="popup-header">Sword</div>
+                              <img src="images/items/sword.gif"  
+                              alt="Sword" 
+                              class="popup-im" 
+                              style="vertical-align: middle; width: 40px;height: 60;">
+  
+                              <div class="popup-name">Options</div>
+                               <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+14 </span>Excelent Damage Rate 5%</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+15 </span>Increase Damage +3%</div>
+  
+                              
+                  
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                              <span style="color:#f1c40f; line-height:19.6px;">
+                                  <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Scepter</strong><br>
+  
+              
+                                <img src="images/items/scepter.gif" 
+                                     alt="Scepter" 
+  
+                                     class="item-thumb" 
+                                     style="vertical-align: middle; margin-left: 31px;width: 60px;height: 120;">
+                              </span>
+                            </p>
+                            <div class="popup-info" style="width: 200px; height: auto;">
+                              <div class="popup-header">Scepter</div>
+                              <img src="images/items/scepter.gif"  
+                              alt="Scepter" 
+                              class="popup-im" 
+                              style="vertical-align: middle; width: 40px;height: 60;">
+  
+                              <div class="popup-name">Options</div>
+                               <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+14 </span>Excelent Damage Rate 5%</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+15 </span>Increase Damage +3%</div>
+  
+                              
+                  
+                            </div>
+                        </div>
+                        <div class="item-wrapper">
+                            <p style="line-height:140%; text-align:center;">
+                              <span style="color:#f1c40f; line-height:19.6px;">
+                                  <strong style="vertical-align: middle; margin-left: 31px; margin-bottom: 12px; display: inline-block;">Claw</strong><br>
+  
+              
+                                <img src="images/items/claw.gif" 
+                                     alt="Claw" 
+  
+                                     class="item-thumb" 
+                                     style="vertical-align: middle; margin-left: 31px;width: 60px;height: 120;">
+                              </span>
+                            </p>
+                            <div class="popup-info" style="width: 200px; height: auto;">
+                              <div class="popup-header">Claw</div>
+                              <img src="images/items/claw.gif"  
+                              alt="Claw" 
+                              class="popup-im" 
+                              style="vertical-align: middle; width: 40px;height: 60;">
+  
+                              <div class="popup-name">Options</div>
+                                <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+14 </span>Excelent Damage Rate 5%</div>
+                              <div class="popup-loot" style="color: rgb(103, 185, 240);"><span style="color: #49e410;">+15 </span>Increase Damage +3%</div>
+  
+                              
+                  
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                    </div>
+                   
+                    ` 
+                ,
+             
+              
+               
+               
+                };
+    
+                
+                content.innerHTML = data[region];
+                content.classList.add("active"); 
+            }
+            document.addEventListener("DOMContentLoaded", function() {
+           showContent('info');
+          });
+        
+  
+        </script>
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <script>
+      const params = new URLSearchParams(window.location.search);
+      const tabToOpen = params.get('tab');
+      const popupToOpen = params.get('popup');
+    
+      if (tabToOpen) {
+        document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
+      }
+    
+      if (popupToOpen) {
+        document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
+      }
+    </script>
+
+
+    </body>
+
+    </html>

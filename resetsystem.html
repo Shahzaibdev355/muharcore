@@ -1,0 +1,385 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Disable cut, copy, paste
+        $('body').bind('cut copy paste', function (e) {
+            e.preventDefault();
+        });
+
+        // Disable mouse right-click
+        $("body").on("contextmenu", function (e) {
+            return false;
+        });
+    });
+</script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Guides MU-HARDCORE</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <style>
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+         .main-container {
+        background-color: #1f0000;
+        padding: 20px;
+        width: 90%;
+        max-width: 1200px;
+        box-sizing: border-box;
+        text-align: center;
+        margin: 50px auto;
+        border-radius: 15px;
+        box-shadow: 0 0px 100px #93330b7a;
+        border: 1px solid #93330b;
+    }
+
+    /* Card Container for Reset Levels */
+.reset-card-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+/* Individual Reset Card */
+.reset-card {
+    background-color: #2f2f2f; /* Dunkles Grau als Hintergrund */
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 4px;
+    width: 175px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #ddd;
+    flex-shrink: 0;
+}
+
+/* Hover Effect for Cards */
+.reset-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(255, 140, 0, 0.5); /* Orangefarbener Schimmer beim Hover */
+}
+
+/* Reset Info Styling */
+.reset-info {
+    font-family: Calibri, sans-serif;
+    margin: 5px 0;
+}
+
+.reset-level {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff8c00; /* Helles Orange */
+}
+
+.reset-stats {
+    font-size: 18px;
+    color: #00e6e6; /* Helles Cyan */
+}
+
+.reset-zen {
+    font-size: 18px;
+    color: #ffd700; /* Helles Gelb */
+}
+
+.reset-ticket {
+    font-size: 18px;
+    color: #ff00ff; /* Helles Magenta */
+}
+
+/* Responsive Design */
+@media (max-width: 850px) {
+    .reset-card-container {
+        flex-wrap: wrap;
+    }
+    .reset-card {
+        width: 140px;
+        flex-shrink: 1;
+    }
+}
+    </style>
+</head>
+
+<body oncopy="return false" oncut="return false" onpaste="return false" data-spy="scroll" data-target="#navbarNav" data-offset="50">
+    <div class="loader">Loading...</div>
+    <div id="navbar-container"></div>
+
+    <section class="about section" id="about">
+        <h1 style="text-align:center">Reset System</h1>
+        <div class="main-container">
+            <div class="reset-system-description">
+                <h1 class="main-title">Information </h1><br>
+                <p style=" color: #ffc436;">The Invictus <span class="highlight">[MU HARDCORE]</span> server will have the following reset specifications:</p>
+        <ul ul style="color: #f1c40f; text-align: left; list-style-position: inside;">
+            <li><strong style="color: #49e410;">Level up points</strong> will be preserved from one reset to another</li>
+            <li><strong style="color: #49e410;">Main currency to complete a reset</strong> – ACT specific <span class="highlight-text">reset tickets</span> & <span class="highlight-text">Zen</span>. Both currencies can be farmed from <span class="highlight-text">invasions</span> & <span class="highlight-text">quest system</span>.</li>
+        </ul>
+            </div><br>
+
+            <h1 class="main-title">Reset requirements</h1><br>
+
+            <!-- ACT I -->
+            <h3 class="act-header"  style="color: #FFD700;">ACT I</h3>
+            <div class="reset-card-container">
+                <div class="reset-card">
+                    <div class="reset-info reset-level">Reset 1</div>
+                    <div class="reset-info reset-stats">Level: 400</div>
+                    <div class="reset-info reset-zen">Zen: 10,000,000</div>
+                    <div class="reset-info reset-ticket">3 Reset Ticket ACT I</div>
+                </div>
+                <div class="reset-card">
+                    <div class="reset-info reset-level">Reset 2</div>
+                    <div class="reset-info reset-stats">Level: 400</div>
+                    <div class="reset-info reset-zen">Zen: 15,000,000</div>
+                    <div class="reset-info reset-ticket">5 Reset Ticket ACT I</div>
+                </div>
+                <div class="reset-card">
+                    <div class="reset-info reset-level">Reset 3</div>
+                    <div class="reset-info reset-stats">Level: 400</div>
+                    <div class="reset-info reset-zen">Zen: 20,000,000</div>
+                    <div class="reset-info reset-ticket">7 Reset Ticket ACT I</div>
+                </div>
+                <div class="reset-card">
+                    <div class="reset-info reset-level">Reset 4</div>
+                    <div class="reset-info reset-stats">Level: 400</div>
+                    <div class="reset-info reset-zen">Zen: 25,000,000</div>
+                    <div class="reset-info reset-ticket">9 Reset Ticket ACT I</div>
+                </div>
+                <div class="reset-card">
+                    <div class="reset-info reset-level">Reset 5</div>
+                    <div class="reset-info reset-stats">Level: 400</div>
+                    <div class="reset-info reset-zen">Zen: 30,000,000</div>
+                    <div class="reset-info reset-ticket">11 Reset Ticket ACT I</div>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <!-- ACT II -->
+            <h3 class="act-header"  style="color: #FFD700;">ACT II</h2>
+            <div class="reset-card-container">
+                <div class="reset-card">
+                    <div class="reset-info reset-level">Reset 6</div>
+                    <div class="reset-info reset-stats">Level: 400</div>
+                    <div class="reset-info reset-zen">Zen: 35,000,000</div>
+                    <div class="reset-info reset-ticket">3 Reset Ticket ACT II</div>
+                </div>
+                <div class="reset-card">
+                    <div class="reset-info reset-level">Reset 7</div>
+                    <div class="reset-info reset-stats">Level: 400</div>
+                    <div class="reset-info reset-zen">Zen: 40,000,000</div>
+                    <div class="reset-info reset-ticket">5 Reset Ticket ACT II</div>
+                </div>
+                <div class="reset-card">
+                    <div class="reset-info reset-level">Reset 8</div>
+                    <div class="reset-info reset-stats">Level: 400</div>
+                    <div class="reset-info reset-zen">Zen: 45,000,000</div>
+                    <div class="reset-info reset-ticket">7 Reset Ticket ACT II</div>
+                </div>
+                <div class="reset-card">
+                    <div class="reset-info reset-level">Reset 9</div>
+                    <div class="reset-info reset-stats">Level: 400</div>
+                    <div class="reset-info reset-zen">Zen: 50,000,000</div>
+                    <div class="reset-info reset-ticket">9 Reset Ticket ACT II</div>
+                </div>
+                <div class="reset-card">
+                    <div class="reset-info reset-level">Reset 10</div>
+                    <div class="reset-info reset-stats">Level: 400</div>
+                    <div class="reset-info reset-zen">Zen: 55,000,000</div>
+                    <div class="reset-info reset-ticket">11 Reset Ticket ACT II</div>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <!-- ACT III -->
+            <h3 class="act-header"  style="color: #FFD700;">ACT III</h2>
+            <div class="reset-card-container">
+                <div class="reset-card">
+                    <div class="reset-info reset-level">Reset 11</div>
+                    <div class="reset-info reset-stats">Level: 400</div>
+                    <div class="reset-info reset-zen">Zen: 60,000,000</div>
+                    <div class="reset-info reset-ticket">3 Reset Ticket ACT III</div>
+                </div>
+                <div class="reset-card">
+                    <div class="reset-info reset-level">Reset 12</div>
+                    <div class="reset-info reset-stats">Level: 400</div>
+                    <div class="reset-info reset-zen">Zen: 65,000,000</div>
+                    <div class="reset-info reset-ticket">5 Reset Ticket ACT III</div>
+                </div>
+                <div class="reset-card">
+                    <div class="reset-info reset-level">Reset 13</div>
+                    <div class="reset-info reset-stats">Level: 400</div>
+                    <div class="reset-info reset-zen">Zen: 70,000,000</div>
+                    <div class="reset-info reset-ticket">7 Reset Ticket ACT III</div>
+                </div>
+                <div class="reset-card">
+                    <div class="reset-info reset-level">Reset 14</div>
+                    <div class="reset-info reset-stats">Level: 400</div>
+                    <div class="reset-info reset-zen">Zen: 75,000,000</div>
+                    <div class="reset-info reset-ticket">9 Reset Ticket ACT III</div>
+                </div>
+                <div class="reset-card">
+                    <div class="reset-info reset-level">Reset 15</div>
+                    <div class="reset-info reset-stats">Level: 400</div>
+                    <div class="reset-info reset-zen">Zen: 80,000,000</div>
+                    <div class="reset-info reset-ticket">11 Reset Ticket ACT III</div>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <!-- ACT IV -->
+            <h3 class="act-header"  style="color: #FFD700;">ACT IV</h2>
+            <div class="reset-card-container">
+                <div class="reset-card">
+                    <div class="reset-info reset-level">Reset 16</div>
+                    <div class="reset-info reset-stats">Level: 400</div>
+                    <div class="reset-info reset-zen">Zen: 85,000,000</div>
+                    <div class="reset-info reset-ticket">3 Reset Ticket ACT IV</div>
+                </div>
+                <div class="reset-card">
+                    <div class="reset-info reset-level">Reset 17</div>
+                    <div class="reset-info reset-stats">Level: 400</div>
+                    <div class="reset-info reset-zen">Zen: 90,000,000</div>
+                    <div class="reset-info reset-ticket">5 Reset Ticket ACT IV</div>
+                </div>
+                <div class="reset-card">
+                    <div class="reset-info reset-level">Reset 18</div>
+                    <div class="reset-info reset-stats">Level: 400</div>
+                    <div class="reset-info reset-zen">Zen: 95,000,000</div>
+                    <div class="reset-info reset-ticket">7 Reset Ticket ACT IV</div>
+                </div>
+                <div class="reset-card">
+                    <div class="reset-info reset-level">Reset 19</div>
+                    <div class="reset-info reset-stats">Level: 400</div>
+                    <div class="reset-info reset-zen">Zen: 100,000,000</div>
+                    <div class="reset-info reset-ticket">9 Reset Ticket ACT IV</div>
+                </div>
+                <div class="reset-card">
+                    <div class="reset-info reset-level">Reset 20</div>
+                    <div class="reset-info reset-stats">Level: 400</div>
+                    <div class="reset-info reset-zen">Zen: 105,000,000</div>
+                    <div class="reset-info reset-ticket">11 Reset Ticket ACT IV</div>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <!-- ACT V -->
+            <h2 class="act-header"  style="color: #FFD700;">ACT V</h2>
+            <div class="reset-card-container">
+                <div class="reset-card">
+                    <div class="reset-info reset-level">Reset 21</div>
+                    <div class="reset-info reset-stats">Level: 400</div>
+                    <div class="reset-info reset-zen">Zen: 110,000,000</div>
+                    <div class="reset-info reset-ticket">3 Reset Ticket ACT V</div>
+                </div>
+                <div class="reset-card">
+                    <div class="reset-info reset-level">Reset 22</div>
+                    <div class="reset-info reset-stats">Level: 400</div>
+                    <div class="reset-info reset-zen">Zen: 115,000,000</div>
+                    <div class="reset-info reset-ticket">5 Reset Ticket ACT V</div>
+                </div>
+                <div class="reset-card">
+                    <div class="reset-info reset-level">Reset 23</div>
+                    <div class="reset-info reset-stats">Level: 400</div>
+                    <div class="reset-info reset-zen">Zen: 120,000,000</div>
+                    <div class="reset-info reset-ticket">7 Reset Ticket ACT V</div>
+                </div>
+                <div class="reset-card">
+                    <div class="reset-info reset-level">Reset 24</div>
+                    <div class="reset-info reset-stats">Level: 400</div>
+                    <div class="reset-info reset-zen">Zen: 125,000,000</div>
+                    <div class="reset-info reset-ticket">9 Reset Ticket ACT V</div>
+                </div>
+                <div class="reset-card">
+                    <div class="reset-info reset-level">Reset 25</div>
+                    <div class="reset-info reset-stats">Level: 400</div>
+                    <div class="reset-info reset-zen">Zen: 130,000,000</div>
+                    <div class="reset-info reset-ticket">11 Reset Ticket ACT V</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+            <!-- jQuery laden -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+<!-- Schutz-Skript -->
+<script src="js/protection.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loader = document.querySelector('.loader');
+        fetch('libraries.html?v=' + new Date().getTime())
+            .then(response => response.text())
+            .then(data => {
+                document.head.insertAdjacentHTML('beforeend', data);
+                return fetch('navbar.html?v=' + new Date().getTime());
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+                return fetch('footer.html?v=' + new Date().getTime()); // Load footer
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+                loader.style.display = 'none'; // Hide loading screen
+            })
+            .catch(error => console.error('Fehler beim Laden:', error));
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const tabToOpen = params.get('tab');
+    const popupToOpen = params.get('popup');
+  
+    if (tabToOpen) {
+      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
+    }
+  
+    if (popupToOpen) {
+      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
+    }
+  </script>
+</body>
+</html>

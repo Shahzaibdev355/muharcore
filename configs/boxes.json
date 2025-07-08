@@ -1,0 +1,1187 @@
+{
+  "goldens": [
+    {
+      "name": "Box of Kundun +1",
+      "image": "images/boxes_img/+1.gif",
+      "popupWidth": 400,
+      "popupHeight": 530,
+      "dropFrom": ["Golden Goblin", "Quest"],
+      "excellentSets": ["Pad", "Bone", "Leather", "Bronze", "Scale", "Vine", "Silk", "Violent"],
+      "excellentWeapons": [
+        "Mace",
+        "Morning Star",
+        "Blade",
+        "Gladius",
+        "Falchion",
+        "Serpent Sword",
+        "Sword of Salamander",
+        "Light Saber",
+        "Tomahawk",
+        "Short Sword",
+        "Kris",
+        "Short Bow",
+        "Bow",
+        "Elven Bow",
+        "Light Crossbow",
+        "Mystery Stick",
+        "Battle Scepter",
+        "Skull Staff",
+        "Angelic Staff",
+        "Thunder Staff"
+      ],
+      "excellentShields": ["Buckler", "Kite Shield", "Horn Shield", "Small Shield"]
+    },
+    {
+      "name": "Box of Kundun +2",
+      "image": "images/boxes_img/+2.gif",
+      "popupWidth": 400,
+      "popupHeight": 530,
+      "dropFrom": ["Golden Titan", "Golden Vepar", "Quest"],
+      "excellentSets": ["Brass", "Plate", "Sphinx", "Wind", "Spirit", "Light Plate"],
+      "excellentWeapons": [
+        "Master Scepter",
+        "Violent Wind Stick",
+        "Book of Samut",
+        "Silver Bow",
+        "Bluewing Crossbow",
+        "Double Blade",
+        "Nikea Axe",
+        "Larkan Axe",
+        "Crescent Axe",
+        "Legendary Staff",
+        "Gorgon Staff",
+        "Battle Scepter",
+        "Skull Staff",
+        "Angelic Staff",
+        "Thunder Staff"
+      ],
+      "excellentShields": ["Tower Shield", "Skull Shield", "Dragon Slayer Shield"]
+    },
+    {
+      "name": "Box of Kundun +3",
+      "image": "images/boxes_img/+3.gif",
+      "popupWidth": 400,
+      "popupHeight": 530,
+      "dropFrom": ["Golden Tantalos", "Golden Crust", "Quest"],
+      "excellentSets": ["Legendary","Eclipse", "Guardian", "Iris", "Dragon","Ashcrow", "Adamantine","Dark Steel", "Storm Crow","Valiant", "Sacred Fire", "Red Wing"],
+      "excellentWeapons": [
+        "Saint Crossbow",
+        "Great Scepter",
+        "Lighting Sword",
+        "Crystal Sword",
+        "Helical Sword",
+        "Great Scythe",
+        "Staff of Resurrection",
+        "Red Wing Stick",
+        "Book of Neil",
+        "Sacred Gloves"
+      ],
+      "excellentShields": ["Serpent Shield", "Legendary Shield", "Spiked Shield"]
+    },
+    {
+      "name": "Box of Kundun +4",
+      "image": "images/boxes_img/+4.gif",
+      "popupWidth": 400,
+      "popupHeight": 530,
+      "dropFrom": ["Golden Satyros", "Quest"],
+      "excellentSets": ["Grand Soul", "Black Dragon ", "Divine", "Glorius", "Thunder Hawk", "Ancient", "Storm Zahard"],
+      "excellentWeapons": [
+       "Rune Blade",
+       "Ancient Stick",
+       "Book of Neil",
+       "Staff of Destruction",
+       "Dragon Soul Staff",
+       "Dragon Spear",
+       "Sword of Destruction", 
+       "Dark Breaker",
+       "Great Reign Crossbow",
+       "Sword of Dancer",
+       "Lord Scepter",
+       "Celestial Bow",
+       "Holly Storm Claws"
+      ],
+      "excellentShields": ["-------- "]
+    },
+    {
+      "name": "Box of Kundun +5",
+      "image": "images/boxes_img/+5.gif",
+      "popupWidth": 400,
+      "popupHeight": 530,
+      "dropFrom": ["Golden Twin Tale", "Quest"],
+      "excellentSets": ["Dark Soul", "Dark Phoenix", "Dragon", "Great Dragon", "Red Spirit", "Huricane", "Dark Master", "Piercing", "Demonic","Apex"],
+      "excellentWeapons": [
+       "Divine Staff of Archangel",
+       "Divine Sword of Archangel",
+       "Divine Scepter of Archangel",
+       "Divine Claw of Archangel",
+       "Divine Stick of Archangel",
+       "Divine Crossbow of Archangel",
+       "Kundun Staff",
+       "Thunder Blade",
+       "Albatross Bow",
+       "Shining Scepter",
+       "Daybreak",
+       "Holly Storm Claws",
+       "Demonic Stick",
+       "Book of Lagle"
+      ],
+      "excellentShields": ["Grand Soul Shield", "Dragon Shield", "Bronze Shield"]
+    },
+     {
+      "name": "Box of Kundun +6",
+      "image": "images/boxes_img/+5.gif",
+      "popupWidth": 400,
+      "popupHeight": 530,
+      "dropFrom": ["Golden Satyros", "Quest"],
+      "excellentSets": ["Venom Mist", "Dragon Knight", "Sylphid Ray", "Volcano", "Sunlight", "Phoenix Soul", "Strom Blitz"],
+      "excellentWeapons": ["-------- "],
+      "excellentShields": ["-------- "]
+    },
+    {
+      "name": "Box of Kundun +7",
+      "image": "images/boxes_img/+5.gif",
+      "popupWidth": 400,
+      "popupHeight": 530,
+      "dropFrom": ["Golden Twin Tale", "Quest"],
+      "excellentSets": ["Hades", "Titan", "Brave", "Seraphim", "Phantom ", "Destroy", "Royal", "Bloody Dragon", "Eternal Wing"],
+      "excellentWeapons": [ "-------- "],
+      "excellentShields": [ "-------- "]
+    },
+    {
+      "name": "Star of Christmas",
+      "image": "images/boxes_img/star.gif",
+      "popupWidth": 300,
+      "popupHeight": 380,
+      "dropFrom": ["Golden Dragon", "Quest"],
+      "description": "Drop one excellent ring or pendant Level 0-4",
+      "excellentRings": ["Ice", "Poison", "Fire", "Earth", "Wind", "Magic"],
+      "excellentPendents": ["Ice", "Poison", "Fire", "Earth", "Wind", "Magic"]
+    },
+    {
+      "name": "Box of Luck",
+      "image": "images/boxes_img/box heaven.gif",
+      "popupWidth": 250,
+      "popupHeight": 330,
+      "dropFrom": ["Golden Rabbit"],
+      "description": "Drop one Broken Jewel:",
+      "brokenJewels": ["Broken Luck", "Broken Option", "Broken Excellent"]
+    }
+  ],
+  "farm": [
+    {
+      "name": "Box of Heaven",
+      "image": "images/boxes_img/box heaven.gif",
+      "popupWidth": 200,
+      "popupHeight": 300,
+      "dropFrom": ["Monsters", "Rabbits", "Quest"],
+      "description": "Drop one random Jewel:",
+      "items": ["Jewel of Bless", "Jewel of Soul", "Jewel of Chaos"]
+    },
+    {
+      "name": "Heart of Love",
+      "image": "images/boxes_img/Heart of love.gif",
+      "popupWidth": 400,
+      "popupHeight": 550,
+      "dropFrom": ["Monsters", "Quest"],
+      "dropInfo": "Items drop +8-11",
+      "sets": ["Pad", "Bone", "Leather", "Bronze", "Scale", "Vine", "Silk", "Violent"],
+      "weapons": [
+        "Mace",
+        "Morning Star",
+        "Blade",
+        "Gladius",
+        "Falchion",
+        "Serpent Sword",
+        "Sword of Salamander",
+        "Light Saber",
+        "Tomahawk",
+        "Short Sword",
+        "Kris",
+        "Short Bow",
+        "Bow",
+        "Elven Bow",
+        "Light Crossbow",
+        "Mystery Stick",
+        "Battle Scepter",
+        "Skull Staff",
+        "Angelic Staff",
+        "Thunder Staff"
+      ],
+      "shields": ["Buckler", "Kite Shield", "Horn Shield", "Small Shield"]
+    },
+    {
+      "name": "Silver Medal",
+      "image": "images/boxes_img/silver medal.gif",
+      "popupWidth": 380,
+      "popupHeight": 570,
+      "dropFrom": ["Monsters", "Quest", "Death Bone"],
+      "dropInfo": "Items drop +8-11",
+      "sets": ["Brass", "Plate", "Sphinx", "Wind", "Spirit", "Light Plate"],
+      "weapons": [
+        "Master Scepter",
+        "Violent Wind Stick",
+        "Book of Samut",
+        "Silver Bow",
+        "Bluewing Crossbow",
+        "Double Blade",
+        "Nikea Axe",
+        "Larkan Axe",
+        "Crescent Axe",
+        "Legendary Staff",
+        "Gorgon Staff",
+        "Battle Scepter",
+        "Skull Staff",
+        "Angelic Staff",
+        "Thunder Staff"
+      ],
+      "shields": ["Tower Shield", "Skull Shield", "Dragon Slayer Shield"]
+    },
+    {
+      "name": "Gold Medal",
+      "image": "images/boxes_img/gold medal.gif",
+      "popupWidth": 400,
+      "popupHeight": 560,
+      "dropFrom": ["Monsters", "Quest", "Death King"],
+      "dropInfo": "Items drop +8-11",
+      "sets": ["Legendary", "Guardian", "Dragon", "Adamantine", "Storm Crow", "Sacred Fire", "Red Wing"],
+      "weapons": [
+        "Saint Crossbow",
+        "Great Scepter",
+        "Lighting Sword",
+        "Crystal Sword",
+        "Helical Sword",
+        "Great Scythe",
+        "Staff of Resurrection",
+        "Red Wing Stick",
+        "Book of Neil",
+        "Sacred Gloves"
+      ],
+      "shields": ["Dragon Slayer Shield", "Spiked Shield"]
+    }
+  ],
+  "winged": [
+    {
+      "name": "Winged Boxes +1",
+      "image": "images/boxes_img/wingedbox.png",
+      "popupWidth": 320,
+      "popupHeight": 420,
+      "dropFrom": ["Quest"],
+      "description": "Drop random wings:",
+      "items": [
+        "Small Cape of Lord",
+        "Small Wing of Curse",
+        "Small Wings of Elf",
+        "Small Wings of Heaven",
+        "Small Wings of Satan",
+        "Small Cloak of Warrior"
+      ]
+    },
+    {
+      "name": "Winged Boxes +2",
+      "image": "images/boxes_img/wingedbox.png",
+      "popupWidth": 320,
+      "popupHeight": 420,
+      "dropFrom": ["Quest"],
+      "description": "Drop random wings:",
+      "items": ["Wings of Elf", "Wings of Heaven", "Wings of Satan", "Wings of Curse"]
+    },
+    {
+      "name": "Winged Boxes +3",
+      "image": "images/boxes_img/wingedbox.png",
+      "popupWidth": 320,
+      "popupHeight": 420,
+      "dropFrom": ["Quest"],
+      "description": "Drop random wings:",
+      "items": [
+        "Wings of Spirit",
+        "Wings of Dragon",
+        "Wings of Soul",
+        "Wings of Darkness",
+        "Wings of Despair",
+        "Wings of Despair",
+        "Cape of Lord",
+        "Cape of Fighter"
+      ]
+    },
+    {
+      "name": "Winged Boxes +4",
+      "image": "images/boxes_img/wingedbox.png",
+      "popupWidth": 320,
+      "popupHeight": 420,
+      "dropFrom": ["Quest"],
+      "description": "Drop random wings:",
+      "items": [
+        "Wings of Spirit",
+        "Wings of Dragon",
+        "Wings of Soul",
+        "Wings of Darkness",
+        "Wings of Despair",
+        "Cape of Fighter"
+      ]
+    },
+    {
+      "name": "Winged Boxes +5",
+      "image": "images/boxes_img/wingedbox.png",
+      "popupWidth": 320,
+      "popupHeight": 490,
+      "dropFrom": ["Quest"],
+      "description": "Drop random wings:",
+      "items": [
+        "Wing of Storm",
+        "Wing of Eternal",
+        "Wing of Illusion",
+        "Wing of Ruin",
+        "Emperor's Cape",
+        "Wing of Curse",
+        "Wind of Despair",
+        "Wing of Dimension"
+      ]
+    }
+  ],
+  "hardbox": [
+    {
+      "name": "HARDBOX +1",
+      "image": "images/boxes_img/hardbox.png",
+      "popupWidth": 320,
+      "popupHeight": 420,
+      "dropFrom": ["Events", "Quest", "Bosses"],
+      "description": "Random Drop:",
+      "items": [
+        "Winged Box +2",
+        "Ancient Box +1",
+        "Random Excellent Ring +(0-3)",
+        "Bundle Jewel of Bless(10)",
+        "Bundle Jewel of Soul(10)",
+        "Magic Backpack",
+        "Loch's Feather",
+        "Crest of Monarch",
+        "Talisman of Chaos Assembly",
+        "Daedalus ACT I"
+      ]
+    },
+    {
+      "name": "HARDBOX +2",
+      "image": "images/boxes_img/hardbox.png",
+      "popupWidth": 320,
+      "popupHeight": 420,
+      "dropFrom": ["Events", "Quest", "Bosses"],
+      "description": "Random Drop:",
+      "items": [
+        
+        "Random Excellent Ring +(0-3)",
+        "Bundle Jewel of Gemstone(10)",
+        "Bundle Jewel of Chaos(10)",
+        "Bundle Jewel of Creation(10)",
+        "Magic Backpack",
+        "Ancient Box +2",
+        "Jewel +10",
+        "Daedalus ACT II",
+        "Dark Phoenix Flame"
+      ]
+    },
+    {
+      "name": "HARDBOX +3",
+      "image": "images/boxes_img/hardbox.png",
+      "popupWidth": 320,
+      "popupHeight": 420,
+      "dropFrom": ["Events", "Quest", "Bosses"],
+      "description": "Random Drop:",
+      "items": [
+        "Winged Box +2",
+        "Random Excellent Ring +(0-3)",
+         "Bundle Jewel of Bless(20)",
+        "Bundle Jewel of Soul(20)",
+        "Bundle Jewel of Harmony(10)",
+        "Condor Flame",
+        "Condor Feather",
+        "Daedalus ACT III",
+        "Jewel of Excelent",
+        "Ancient Box +2",
+        "Jewel +11"
+       
+      ]
+    },
+    {
+      "name": "HARDBOX +4",
+      "image": "images/boxes_img/hardbox.png",
+      "popupWidth": 320,
+      "popupHeight": 420,
+      "dropFrom": ["Events", "Quest", "Bosses"],
+      "description": "Random Drop:",
+      "items": [
+        "Bundle Jewel of Gemstone(20)",
+        "Bundle Jewel of Chaos(20)",
+        "Bundle Jewel of Creation(20)",
+        "Bundle Jewel of Guardian(10)",
+        "Phoenix Flame",
+        "Daedalus ACT IV",
+        "Jewel of Kundun",
+        "Jewel of Excelent",
+        "Fragment of Horn",
+        "Jewel +12"
+      ]
+    },
+    {
+      "name": "HARDBOX +5",
+      "image": "images/boxes_img/hardbox.png",
+      "popupWidth": 320,
+      "popupHeight": 420,
+      "dropFrom": ["Events", "Quest", "Bosses"],
+      "description": "Random Drop:",
+      "items": [
+        "Bundle Jewel of Gemstone(30)",
+        "Bundle Jewel of Creation(30)",
+        "Garudas Flame",
+        "Daedalus ACT V",
+        "Jewel of Kundun",
+        "Broken Horn",
+        "Jewel +13",
+        "Jewel of Excelent",
+        "Seeds"
+      ]
+    }
+  ],
+  "bc": [
+    {
+      "name": "BC BOX +1",
+      "image": "images/boxes_img/bcbox.png",
+      "popupWidth": 250,
+      "popupHeight": 250,
+      "dropFrom": ["Blood Castle 1"],
+      "description": "Reward for win Event",
+      "items": ["3x random jewels:", "Jewel of Bless", "Jewel of Soul", "Jewel of Chaos"],
+      "additionalDrop": "Additional Drop 7% :",
+      "additionalInfo": "HARDBOX +1"
+
+    },
+    {
+      "name": "BC BOX +2",
+      "image": "images/boxes_img/bcbox.png",
+      "popupWidth": 250,
+      "popupHeight": 250,
+       "dropFrom": ["Blood Castle 2"],
+      "description": "Reward for win Event",
+      "items": ["4x random jewels:", "Jewel of Bless", "Jewel of Soul", "Jewel of Chaos"],
+      "additionalDrop": "Additional Drop 10% :",
+      "additionalInfo": "HARDBOX +1"
+    },
+    {
+      "name": "BC BOX +3",
+      "image": "images/boxes_img/bcbox.png",
+      "popupWidth": 250,
+      "popupHeight": 250,
+       "dropFrom": ["Blood Castle 3"],
+      "description": "Reward for win Event",
+      "items": ["4x random jewels:", "Jewel of Bless", "Jewel of Soul", "Jewel of Chaos", "Jewel of Life"],
+      "additionalDrop": "Additional Drop 7% :",
+      "additionalInfo": "HARDBOX +2"
+    },
+    {
+      "name": "BC BOX +4",
+      "image": "images/boxes_img/bcbox.png",
+      "popupWidth": 250,
+      "popupHeight": 250,
+       "dropFrom": ["Blood Castle 4"],
+      "description": "Reward for win Event",
+      "items": ["4x random jewels:", "Jewel of Bless", "Jewel of Soul", "Jewel of Chaos", "Jewel of Life","Gemstone","Jewel of Creation"],
+      "additionalDrop": "Additional Drop 10% :",
+      "additionalInfo": "HARDBOX +2"
+    },
+    {
+      "name": "BC BOX +5",
+      "image": "images/boxes_img/bcbox.png",
+      "popupWidth": 250,
+      "popupHeight": 250,
+      "dropFrom": ["Blood Castle 5"],
+      "description": "Reward for win Event",
+      "items": ["5x random jewels:", "Jewel of Bless", "Jewel of Soul", "Jewel of Chaos", "Jewel of Life","Gemstone","Jewel of Creation"],
+      "additionalDrop": "Additional Drop 7% :",
+      "additionalInfo": "HARDBOX +3"
+    },
+    {
+      "name": "BC BOX +6",
+      "image": "images/boxes_img/bcbox.png",
+      "popupWidth": 250,
+      "popupHeight": 250,
+       "dropFrom": ["Blood Castle 6"],
+      "description": "Reward for win Event",
+      "items": ["5x random jewels:",  "Jewel of Chaos","Gemstone","Jewel of Creation"],
+      "additionalDrop": "Additional Drop 10% :",
+      "additionalInfo": "HARDBOX +3"
+    },
+    {
+      "name": "BC BOX +7",
+      "image": "images/boxes_img/bcbox.png",
+      "popupWidth": 250,
+      "popupHeight": 250,
+      "dropFrom": ["Blood Castle 7"],
+      "description": "Reward for win Event",
+      "items": ["5x random jewels:",  "Jewel of Chaos","Gemstone","Jewel of Creation"],
+      "additionalDrop": "Additional Drop 10% :",
+      "additionalInfo": "HARDBOX +4"
+    }
+  ],
+  "cc": [
+    {
+      "name": "CC BOX +1",
+      "image": "images/boxes_img/ccbox.png",
+      "popupWidth": 250,
+      "popupHeight": 250,
+      "description": "First drop:",
+      "items": ["Ancient Box  +2"],
+      "additionalDrop": "Second drop:",
+      "additionalInfo": "HARDBOX +1/Daedalus ACT I"
+    },
+    {
+      "name": "CC BOX +2",
+      "image": "images/boxes_img/ccbox.png",
+      "popupWidth": 250,
+      "popupHeight": 250,
+      "description": "First drop:",
+      "items": ["Ancient Box  +2"],
+      "additionalDrop": "Second drop:",
+      "additionalInfo": "HARDBOX +2/Daedalus ACT II"
+    },
+    {
+      "name": "CC BOX +3",
+      "image": "images/boxes_img/ccbox.png",
+      "popupWidth": 250,
+      "popupHeight": 250,
+      "description": "First drop:",
+      "items": ["Ancient Box  +3"],
+      "additionalDrop": "Second drop:",
+      "additionalInfo": "HARDBOX +3/Daedalus ACT III"
+    },
+    {
+      "name": "CC BOX +4",
+      "image": "images/boxes_img/ccbox.png",
+      "popupWidth": 250,
+      "popupHeight": 250,
+      "description": "Drop two boxes:",
+      "items": ["Ancient Box (+2 and +3)"],
+      "additionalDrop": "Second drop:",
+      "additionalInfo": "HARDBOX +4/Daedalus ACT IV"
+    },
+    {
+      "name": "CC BOX +5",
+      "image": "images/boxes_img/ccbox.png",
+      "popupWidth": 250,
+      "popupHeight": 250,
+      "description": "Drop three boxes:",
+      "items": ["Ancient Box +2"],
+      "additionalDrop": "Second drop:",
+      "additionalInfo": "HARDBOX +5/Daedalus ACT V"
+    }
+  ],
+  "kalima": [
+    {
+      "name": "Kalima BOX +1",
+      "image": "images/boxes_img/kalimabox.png",
+      "popupWidth": 250,
+      "popupHeight": 250,
+      "description": "5X random jewels:",
+      "items": [ "Jewel of Chaos","Jewel of Bless","Jewel of Soul"],
+      "description1": "2X random items",
+      "items1": ["Broken Summon 1",  "Broken Summon 2","Reset Ticket ACT 1"],
+      "description2": "Additionaly Drop 100% :",
+      "items2": ["Ancient Box  +1"],
+      "additionalDrop": "Additional Drop 25% :",
+      "additionalInfo": "HARDBOX +1"
+    },
+    {
+      "name": "Kalima BOX +2",
+      "image": "images/boxes_img/kalimabox.png",
+      "popupWidth": 250,
+      "popupHeight": 250,
+      "description": "5X random jewels:",
+      "items": [ "Jewel of Chaos","Jewel of Bless","Jewel of Soul"],
+      "description1": "2X random items",
+      "items1": ["Broken Summon 2",  "Broken Summon 3","Reset Ticket ACT I"],
+      "description2": "Additionaly Drop 100% :",
+      "items2": ["Ancient Box  +1"],
+      "description3": "Additionaly Drop 100% :",
+      "items3": ["Broken Jewellery"],
+      "additionalDrop": "Additional Drop 60% :",
+      "additionalInfo": "HARDBOX +1"
+    },
+    {
+      "name": "Kalima BOX +3",
+      "image": "images/boxes_img/kalimabox.png",
+      "popupWidth": 250,
+      "popupHeight": 250,
+      "description": "5X random jewels:",
+      "items": [ "Jewel of Chaos","Jewel of Bless","Jewel of Soul","Jewel of Life"],
+      "description1": "2X random items",
+      "items1": [ "Broken Summon 4","Reset Ticket ACT II"],
+      "description2": "Additionaly x2 Drop 100% :",
+      "items2": ["Ancient Box  +2"],
+      "description3": "Additionaly Drop 100% :",
+      "items3": ["Broken Jewellery"],
+      "additionalDrop": "Additional Drop 30% :",
+      "additionalInfo": "HARDBOX +2"
+    },
+    {
+      "name": "Kalima BOX +4",
+      "image": "images/boxes_img/kalimabox.png",
+      "popupWidth": 250,
+      "popupHeight": 250,
+      "description": "5X random jewels:",
+      "items": [ "Jewel of Chaos","Jewel of Bless","Jewel of Soul","Jewel of Life"],
+      "description1": "2X random items",
+      "items1": [ "Broken Summon 4","Reset Ticket ACT II"],
+      "description2": "Additionaly Drop 100% :",
+      "items2": ["Ancient Box  +1"],
+      "description3": "Additionaly Drop 100% :",
+      "items3": ["Ancient Box  +2"],
+      "additionalDrop": "Additional Drop 60% :",
+      "additionalInfo": "HARDBOX +2"
+    },
+    {
+      "name": "Kalima BOX +5",
+      "image": "images/boxes_img/kalimabox.png",
+      "popupWidth": 250,
+      "popupHeight": 250,
+      "description": "5X random jewels:",
+      "items": [ "Gemstone","Jewel of Creation"],
+      "description1": "2X random items",
+      "items1": [ "Broken Summon 5","Reset Ticket ACT III"],
+      "description2": "Additionaly Drop 100% :",
+      "items2": ["Ancient Box  +3"],
+      "description3": "Additionaly Drop 100% :",
+      "items3": ["Ancient Box  +2"],
+      "additionalDrop": "Additional Drop 50% :",
+      "additionalInfo": "HARDBOX +3"
+    },
+    {
+      "name": "Kalima BOX +6",
+      "image": "images/boxes_img/kalimabox.png",
+      "popupWidth": 250,
+      "popupHeight": 250,
+       "description": "5X random jewels:",
+      "items": [ "Harmony","Jewel of Creation","Jewel of Guardian"],
+      "description1": "2X random items",
+      "items1": [ "Broken Summon 6","Reset Ticket ACT IV"],
+      "description2": "Additionaly Drop 100% :",
+      "items2": ["Ancient Box  +3"],
+      "description3": "x2 Additionaly Drop 100% :",
+      "items3": ["Ancient Box  +2"],
+      "additionalDrop": "Additional Drop 50% :",
+      "additionalInfo": "HARDBOX +4"
+    },
+    {
+      "name": "Kalima BOX +7",
+      "image": "images/boxes_img/kalimabox.png",
+      "popupWidth": 250,
+      "popupHeight": 250,
+       "description": "5X random jewels:",
+      "items": [ "Harmony","Jewel of Creation"],
+      "description1": "2X random items",
+      "items1": [ "Broken Summon 7","Reset Ticket ACT IV"],
+      "description2": "Additionaly Drop 100% :",
+      "items2": ["Ancient Box  +3"],
+      "description3": "x3 Additionaly Drop 100% :",
+      "items3": ["Ancient Box  +2"],
+      "additionalDrop": "Additional Drop 50% :",
+      "additionalInfo": "HARDBOX +5"
+    }
+
+  ],
+  "weapon": [
+    {
+      "name": "Weapon BOX +1",
+      "image": "images/boxes_img/weaponbox.png",
+      "popupWidth": 270,
+      "popupHeight": 450,
+      "description": "Drop one random Weapon:",
+      "items": [
+        "Staff of Destruction",
+        "Dragon Soul Staff",
+        "Celestial Bow",
+        "Sword of Destruction",
+        "Lord Scepter",
+        "Rune Blade",
+        "Ancient Stick",
+        "Holly Storm"
+      ],
+      "additionalDrop": "Additional luk skill!"
+    },
+    {
+      "name": "Weapon BOX +2",
+      "image": "images/boxes_img/weaponbox.png",
+      "popupWidth": 320,
+      "popupHeight": 410,
+      "description": "Drop one random Weapon:",  
+      "items": [
+        "Kundun Staff",
+        "Thunder Blade",
+        "Albatross Bow",
+        "Shining Scepter",
+        "Daybreak",
+        "Demonic Stick"
+        
+      ],
+      "additionalDrop": "Additional luk skill!"
+    },
+    {
+      "name": "Weapon BOX +3",
+      "image": "images/boxes_img/weaponbox.png",
+      "popupWidth": 280,
+      "popupHeight": 350,
+      "description": "Drop one random Weapon:",
+      "items": [
+        "Platina Staff",   
+        "Dark Reign Blade",
+        "Arrow Viper Bow",
+        "Great Lord Scepter",
+        "Knight Blade",
+        "Miracle Stick",
+        "Piercing Glove",
+        "Miracle Stick"
+        ],
+      "additionalDrop": "Additional luk skill!"
+    },
+    {
+      "name": "Weapon BOX +4",
+      "image": "images/boxes_img/weaponbox.png",
+      "popupWidth": 280,
+      "popupHeight": 410,
+      "description": "Drop one random Weapon:",
+      "items": [
+        
+        "Aileen Bow", "Brova", "Striker", "Chromatic Staff", "Raven Stick"
+      
+      ],
+      "additionalDrop": "Additional luk skill!"
+    },
+    {
+      "name": "Weapon BOX +5",
+      "image": "images/boxes_img/weaponbox.png",
+      "popupWidth": 280,
+      "popupHeight": 410,
+      "description": "Drop one random Weapon:",
+      "items": [
+        "Bone Blade",
+        "Explosion Blade",
+        "Phoenix Soul Star",
+        "Soleil Scepter",
+        "Sylph Wind Bow",
+        "Grand Viper Staff",
+        "Storm Blitz Stick",
+        "Apex Staff",
+        "Bright Blade"
+      ],
+      "additionalDrop": "Additional luk skill!"
+    },
+    {
+      "name": "Weapon BOX +6",
+      "image": "images/boxes_img/weaponbox.png",
+      "popupWidth": 280,
+      "popupHeight": 410,
+      "description": "Drop one random Weapon:",
+      "items": [
+        "Flameberge",
+        "Sword Breaker",
+        "Rune Bastard",
+        "Inberial Staff",
+        "Deadly Staff",
+        "Summon Spirit Stick",
+        "Absolute Scepter",
+        "Dark Stinger"
+      ],
+      "additionalDrop": "Additional luk skill!"
+    }
+  ],
+  "exeweapon": [
+    {
+      "name": "EXE Weapon BOX +1",
+      "image": "images/boxes_img/excelentweaponbox.png",
+      "popupWidth": 270,
+      "popupHeight": 480,
+      "description": "Drop one random Excellent Weapon:",
+      "items": [
+        "Staff of Destruction",
+        "Dragon Soul Staff",
+        "Celestial Bow",
+        "Sword of Destruction",
+        "Lord Scepter",
+        "Rune Blade",
+        "Ancient Stick",
+        "Holly Storm Claw",
+        "Sword of Destruction",
+        "Dark Breaker"
+      ]
+    },
+    {
+      "name": "EXE Weapon BOX +2",
+      "image": "images/boxes_img/excelentweaponbox.png",
+      "popupWidth": 270,
+      "popupHeight": 450,
+      "description": "Drop one random Excellent Weapon:",
+      "items": [
+        "Divine Sword of Archangel",
+        "Divine Scepter of Archangel",
+        "Divine Crossbow of Archangel",
+        "Divine Staff of Archangel",
+        "Divine Stick of Archangel",
+        "Great Reign Crossbow",
+        "Kundun Staff",
+        "Thunder Blade",
+        "Albatross Bow",
+        "Shining Scepter",
+        "Daybreak",
+        "Holly Storm Claws",
+        "Demonic Stick"
+      ]
+    },
+    {
+      "name": "EXE Weapon BOX +3",
+      "image": "images/boxes_img/excelentweaponbox.png",
+      "popupWidth": 270,
+      "popupHeight": 450,
+      "description": "Drop one random Excellent Weapon:",
+      "items": [
+        "Dark Reign Blade",
+        "Platina Staff",
+        "Arrow Viper Bow",
+        "Great Lord Scepter",
+        "Knight Blade",
+        "Piercing Glove",
+        "Asura",
+        "Chromatic Staff",
+        "Ailen Bow",
+        "Striker Scepter",
+        "Brova",
+        "Thunder Blade",
+        "Raven Stick"
+      
+      ]
+    },
+    {
+      "name": "EXE Weapon BOX +4",
+      "image": "images/boxes_img/excelentweaponbox.png",
+      "popupWidth": 270,
+      "popupHeight": 450,
+      "description": "Drop one random Excellent Weapon:",
+      "items": [
+        "Bone Blade",
+        "Bright Blade",
+        "Explosion Blade",
+        "Phoenix Soul Star",
+        "Soleil Scepter",
+        "Sylph Wind Bow",
+        "Grand Viper Staff",
+        "Storm Blitz Stick",
+        "Apex Staff"
+      ]
+    },
+    {
+      "name": "EXE Weapon BOX +5",
+      "image": "images/boxes_img/excelentweaponbox.png",
+      "popupWidth": 270,
+      "popupHeight": 450,
+      "description": "Drop one random Excellent Weapon:",
+      "items": [
+        "Flameberge",
+        "Sword Breaker",
+        "Rune Bastard",
+        "Inberial Staff",
+        "Deadly Staff",
+        "Summon Spirit Stick",
+        "Absolute Scepter",
+        "Dark Stinger"
+      ]
+    }
+  ],
+  "ww": [
+    {
+      "name": "White Wizard BOX +1",
+      "image": "images/boxes_img/wwbox.png",
+      "popupWidth": 270,
+      "popupHeight": 380,
+      "description": "First drop 100% one item:",
+      "items": ["Bundled Jewel of Bless", "Bundled Jewel of Soul", "Bundled Jewel of Chaos"],
+      "additionalDrop": "Second drop 20%: HARDBOX +1"
+    },
+    {
+      "name": "White Wizard BOX +2",
+      "image": "images/boxes_img/wwbox.png",
+      "popupWidth": 270,
+      "popupHeight": 380,
+      "description": "First drop 100% one random item:",
+      "items": ["Jewel of Bless", "Jewel of Soul", "Jewel of Chaos", "Wizards Ring"],
+      "additionalDrop": "Additionally: 1.000.000 zen"
+    }
+  ],
+  "skill": [
+    {
+      "name": "Skill BOX +1",
+      "image": "images/boxes_img/skillbox.png",
+      "popupWidth": 270,
+      "popupHeight": 380,
+      "description": "Drop random skill:",
+      "items": [
+        "Scroll of Evil Spirit",
+        "Chain Lightning Parchment",
+        "Dark Side Parchment",
+        "Orb of Twisting Slash",
+        "Orb of Penetration",
+        "Scroll of FireBurst"
+      ]
+    },
+    {
+      "name": "Skill BOX +2",
+      "image": "images/boxes_img/skillbox.png",
+      "popupWidth": 270,
+      "popupHeight": 480,
+      "description": "Drop random skill:",
+      "items": [
+        "Scroll of Soul Barrier",
+        "Orb of Rageful Blow",
+        "Orb of Fire Slash",
+        "Orb of Greater Fortitude",
+        "Orb of Ice Arrow",
+        "Orb of Death Stab",
+        "Scroll of Critical Damage",
+        "Damage Reflection Parchment",
+        "Berserker Parchment",
+        "Chain Driver Parchment"
+      ]
+    },
+    {
+      "name": "Skill BOX +2",
+      "image": "images/boxes_img/skillbox.png",
+      "popupWidth": 410,
+      "popupHeight": 480,
+      "description": "Drop random skill:",
+      "items": [
+        "Crystal of Multi-Shot",
+        "Crystal of Destruction",
+        "Scroll of Wizardry Enhance",
+        "Scroll of Chaotic Diseier",
+        "Lightning Shock Parchment",
+        "Weakness Parchment",
+        "Innovation Parchment",
+        "Scroll of Gigantic Storm",
+        "Crystal of Flame Strike",
+        "Defense Rate Parchment"
+      ]
+    }
+  ],
+  "christmas": [
+    {
+      "name": "Christmas BOX +1",
+      "image": "images/boxes_img/christmasbox.png",
+      "popupWidth": 270,
+      "popupHeight": 380,
+      "description": "Drop random skill:",
+      "items": [
+        "Scroll of Evil Spirit",
+        "Chain Lightning Parchment",
+        "Dark Side Parchment",
+        "Orb of Twisting Slash",
+        "Orb of Penetration",
+        "Scroll of FireBurst"
+      ]
+    },
+    {
+      "name": "Christmas BOX +2",
+      "image": "images/boxes_img/christmasbox.png",
+      "popupWidth": 270,
+      "popupHeight": 380,
+      "description": "Drop random skill:",
+      "items": [
+        "Scroll of Evil Spirit",
+        "Chain Lightning Parchment",
+        "Dark Side Parchment",
+        "Orb of Twisting Slash",
+        "Orb of Penetration",
+        "Scroll of FireBurst"
+      ]
+    }
+  ],
+  "evolution": [
+    {
+      "name": "Evolution BOX +1",
+      "image": "images/boxes_img/evobox.png",
+      "popupWidth": 270,
+      "popupHeight": 380,
+      "description": "Drop random skill:",
+      "items": [
+        "Scroll of Evil Spirit",
+        "Chain Lightning Parchment",
+        "Dark Side Parchment",
+        "Orb of Twisting Slash",
+        "Orb of Penetration",
+        "Scroll of FireBurst"
+      ]
+    },
+    {
+      "name": "Evolution BOX +2",
+      "image": "images/boxes_img/evobox.png",
+      "popupWidth": 270,
+      "popupHeight": 380,
+      "description": "Drop random skill:",
+      "items": [
+        "Scroll of Evil Spirit",
+        "Chain Lightning Parchment",
+        "Dark Side Parchment",
+        "Orb of Twisting Slash",
+        "Orb of Penetration",
+        "Scroll of FireBurst"
+      ]
+    },
+    {
+      "name": "Evolution BOX +3",
+      "image": "images/boxes_img/evobox.png",
+      "popupWidth": 270,
+      "popupHeight": 380,
+      "description": "Drop random skill:",
+      "items": [
+        "Scroll of Evil Spirit",
+        "Chain Lightning Parchment",
+        "Dark Side Parchment",
+        "Orb of Twisting Slash",
+        "Orb of Penetration",
+        "Scroll of FireBurst"
+      ]
+    },
+    {
+      "name": "Evolution BOX +4",
+      "image": "images/boxes_img/evobox.png",
+      "popupWidth": 270,
+      "popupHeight": 380,
+      "description": "Drop random skill:",
+      "items": [
+        "Scroll of Evil Spirit",
+        "Chain Lightning Parchment",
+        "Dark Side Parchment",
+        "Orb of Twisting Slash",
+        "Orb of Penetration",
+        "Scroll of FireBurst"
+      ]
+    },
+    {
+      "name": "Evolution BOX +5",
+      "image": "images/boxes_img/evobox.png",
+      "popupWidth": 270,
+      "popupHeight": 380,
+      "description": "Drop random skill:",
+      "items": [
+        "Scroll of Evil Spirit",
+        "Chain Lightning Parchment",
+        "Dark Side Parchment",
+        "Orb of Twisting Slash",
+        "Orb of Penetration",
+        "Scroll of FireBurst"
+      ]
+    }
+  ],
+  "dota": [
+    {
+      "name": "DOTA BOX +1",
+      "image": "images/boxes_img/dotabox.png",
+      "popupWidth": 270,
+      "popupHeight": 380,
+      "description": "First Drop :",
+      "items": [ "Excelent Weapon Box +1"],
+      "description1": "Second Drop random:",
+      "items1": [ "Bundle of Bless(10)","Bundle of Soul(10)"],
+      "description2": "Third Drop :",
+      "items2": ["x2 Box of Kundun +3"]
+ 
+    },
+    {
+      "name": "DOTA BOX +2",
+      "image": "images/boxes_img/dotabox.png",
+      "popupWidth": 270,
+      "popupHeight": 380,
+      "description": "First Drop :",
+      "items": [ "Excelent Weapon Box +2"],
+      "description1": "Second Drop random:",
+      "items1": [ "Bundle of Chaos(10)","Bundle of Life(10)"],
+      "description2": "Third Drop :",
+      "items2": ["x2 Box of Kundun +4"]
+    },
+    {
+      "name": "DOTA BOX +3",
+      "image": "images/boxes_img/dotabox.png",
+      "popupWidth": 270,
+      "popupHeight": 380,
+    "description": "First Drop :",
+      "items": [ "Excelent Weapon Box +3"],
+      "description1": "Second Drop random:",
+      "items1": [ "Bundle of Gemstone(10)","Bundle of Creation(10)"],
+      "description2": "Third Drop :",
+      "items2": ["x2 Box of Kundun +5"]
+    },
+    {
+      "name": "DOTA BOX +4",
+      "image": "images/boxes_img/dotabox.png",
+      "popupWidth": 270,
+      "popupHeight": 380,
+     "description": "First Drop :",
+      "items": [ "Excelent Weapon Box +4"],
+      "description1": "Second Drop random:",
+      "items1": [ "Bundle of Harmony(10)","Bundle of Guardian(10)"],
+      "description2": "Third Drop :",
+      "items2": ["x2 Box of Kundun +6"]
+    },
+    {
+      "name": "DOTA BOX +5",
+      "image": "images/boxes_img/dotabox.png",
+      "popupWidth": 270,
+      "popupHeight": 380,
+     "description": "First Drop :",
+      "items": [ "Excelent Weapon Box +5"],
+      "description1": "Second Drop:",
+      "items1": [ "HARDBOX +5"],
+      "description2": "Third Drop :",
+      "items2": ["x2 Box of Kundun +7"]
+    }
+  ],
+  "dragon": [
+    {
+      "name": "Dragon BOX +1",
+      "image": "images/boxes_img/dragonbox.png",
+      "popupWidth": 270,
+      "popupHeight": 380,
+      "description": "First Drop :",
+      "items": [ "Excelent Weapon Box +1"],
+      "description1": "Additionaly 50%:",
+      "items1": [ "HARDBOX +1"]
+      
+    },
+    {
+      "name": "Dragon BOX +2",
+      "image": "images/boxes_img/dragonbox.png",
+      "popupWidth": 270,
+      "popupHeight": 380,
+      "description": "First Drop :",
+      "items": [ "Excelent Weapon Box +2"],
+      "description1": "Additionaly 50%:",
+      "items1": [ "HARDBOX +2"]
+    },
+    {
+      "name": "Dragon BOX +3",
+      "image": "images/boxes_img/dragonbox.png",
+      "popupWidth": 270,
+      "popupHeight": 380,
+      "description": "First Drop :",
+      "items": [ "Excelent Weapon Box +3"],
+      "description1": "Additionaly 50%:",
+      "items1": [ "HARDBOX +3"]
+    },
+    {
+      "name": "Dragon BOX +4",
+      "image": "images/boxes_img/dragonbox.png",
+      "popupWidth": 270,
+      "popupHeight": 380,
+     "description": "First Drop :",
+      "items": [ "Excelent Weapon Box +4"],
+      "description1": "Additionaly 50%:",
+      "items1": [ "HARDBOX +4"]
+    }
+   
+  ]
+
+}

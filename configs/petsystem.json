@@ -1,0 +1,700 @@
+{
+  "info": {
+    "description": "Our server features a unique Pet System where pets are mortal but have high durability. They can be healed in the Chaos Machine for Zen. Be very careful and heal your pets on time, as they can die if they reach 0 HP and will disappear immediately! At the start, you can receive a Guardian Angel from the 21 Quest System. Upgrading pets requires a Pet Jewel, found in various acts. For instance, in Act 1, Golden Vepar in Atlans drops Inferior Pet Jewel ACT I. Collect 20 pieces to form a complete Pet Jewel ACT I, which is used for upgrading and evolution. Each act offers opportunities to upgrade your pet, requiring specific jewels farmed from higher-level monsters. These upgrades enhance your pet’s strength and abilities, making them a key asset in your journey. Petul: In each act, it can be upgraded into another pet, but within an act, you are allowed to evolve the pet only twice. To upgrade a pet, you need the previous pet along with all the required stones and Zen. To evolve the current pet, you need the Pet Jewel of the current act. For each evolution, you need 1 Pet Jewel, and the pet evolves once you upgrade it using this stone on the item, similar to how you use a Jewel of Bless. To upgrade to the next pet, you must first evolve the pet to its final level, V3, which then unlocks the opportunity to upgrade to the next pet."
+  },
+  "damage": {
+    "pets": [
+      {
+        "name": "Satan",
+        "act": "ACT I",
+        "image": "images/pets/satan.png",
+        "evolutions": [
+          {
+            "level": "Evolution 1",
+            "options": [
+              "ATTACK SPEED +5",
+              "DAMAGE INCREASE +3%",
+              "EXCELLENT DAMAGE RATE +1%"
+            ]
+          },
+          {
+            "level": "Evolution 2",
+            "options": [
+              "ATTACK SPEED +10",
+              "DAMAGE INCREASE +4%",
+              "EXCELLENT DAMAGE RATE +2%"
+            ]
+          },
+          {
+            "level": "Evolution 3",
+            "options": [
+              "ATTACK SPEED +15",
+              "DAMAGE INCREASE +5%",
+              "EXCELLENT DAMAGE RATE +3%"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Desdomus",
+        "act": "ACT II",
+        "image": "images/pets/desdomus.png",
+        "evolutions": [
+          {
+            "level": "Evolution 1",
+            "options": [
+              "ATTACK SPEED +20",
+              "DAMAGE INCREASE +6%",
+              "EXCELLENT DAMAGE RATE +4%",
+              "IGNORE DEFENSE RATE +1%"
+            ]
+          },
+          {
+            "level": "Evolution 2",
+            "options": [
+              "ATTACK SPEED +25",
+              "DAMAGE INCREASE +7%",
+              "EXCELLENT DAMAGE RATE +5%",
+              "IGNORE DEFENSE RATE +1%"
+            ]
+          },
+          {
+            "level": "Evolution 3",
+            "options": [
+              "ATTACK SPEED +30",
+              "DAMAGE INCREASE +8%",
+              "EXCELLENT DAMAGE RATE +6%",
+              "IGNORE DEFENSE RATE +1%"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Mars",
+        "act": "ACT III",
+        "image": "images/pets/Mars.png",
+        "evolutions": [
+          {
+            "level": "Evolution 1",
+            "options": [
+              "ATTACK SPEED +35",
+              "DAMAGE INCREASE +9%",
+              "EXCELLENT DAMAGE RATE +7%",
+              "IGNORE DEFENSE RATE +1%"
+            ]
+          },
+          {
+            "level": "Evolution 2",
+            "options": [
+              "ATTACK SPEED +40",
+              "DAMAGE INCREASE +10%",
+              "EXCELLENT DAMAGE RATE +8%",
+              "IGNORE DEFENSE RATE +1%"
+            ]
+          },
+          {
+            "level": "Evolution 3",
+            "options": [
+              "ATTACK SPEED +45",
+              "DAMAGE INCREASE +11%",
+              "EXCELLENT DAMAGE RATE +9%",
+              "IGNORE DEFENSE RATE +1%"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Amnemis",
+        "act": "ACT IV (PET)",
+        "image": "images/pets/amnemis.png",
+        "evolutions": [
+          {
+            "level": "Evolution 1",
+            "options": [
+              "ATTACK SPEED +50",
+              "DAMAGE INCREASE +13%",
+              "EXCELLENT DAMAGE RATE +10%",
+              "DOUBLE DAMAGE RATE +1%",
+              "IGNORE DEFENSE RATE +1%"
+            ]
+          },
+          {
+            "level": "Evolution 2",
+            "options": [
+              "ATTACK SPEED +75",
+              "DAMAGE INCREASE +15%",
+              "EXCELLENT DAMAGE RATE +11%",
+              "DOUBLE DAMAGE RATE +2%",
+              "IGNORE DEFENSE RATE +2%"
+            ]
+          },
+          {
+            "level": "Evolution 3",
+            "options": [
+              "ATTACK SPEED +100",
+              "DAMAGE INCREASE +20%",
+              "EXCELLENT DAMAGE RATE +12%",
+              "DOUBLE DAMAGE RATE +3%",
+              "IGNORE DEFENSE RATE +3%"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Drogon",
+        "act": "ACT IV (MOUNT)",
+        "image": "images/pets/drogon.png",
+        "evolutions": [
+          {
+            "level": "Evolution 1",
+            "options": [
+              "ATTACK SPEED +50",
+              "DAMAGE INCREASE +13%",
+              "EXCELLENT DAMAGE RATE +10%",
+              "DOUBLE DAMAGE RATE +1%",
+              "IGNORE DEFENSE RATE +1%"
+            ]
+          },
+          {
+            "level": "Evolution 2",
+            "options": [
+              "ATTACK SPEED +75",
+              "DAMAGE INCREASE +15%",
+              "EXCELLENT DAMAGE RATE +11%",
+              "DOUBLE DAMAGE RATE +2%",
+              "IGNORE DEFENSE RATE +2%"
+            ]
+          },
+          {
+            "level": "Evolution 3",
+            "options": [
+              "ATTACK SPEED +100",
+              "DAMAGE INCREASE +20%",
+              "EXCELLENT DAMAGE RATE +12%",
+              "DOUBLE DAMAGE RATE +3%",
+              "IGNORE DEFENSE RATE +3%"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "defense": {
+    "pets": [
+      {
+        "name": "Fairy King",
+        "act": "ACT I",
+        "image": "images/pets/fairyking.png",
+        "evolutions": [
+          {
+            "level": "Evolution 1",
+            "options": [
+              "HP +500",
+              "Excelent Damage Resist 1%",
+              "DEFENSE INCREASE +6%"
+            ]
+          },
+          {
+            "level": "Evolution 2",
+            "options": [
+              "HP +600",
+              "Excelent Damage Resist 2%",
+              "DEFENSE INCREASE +7%"
+            ]
+          },
+          {
+            "level": "Evolution 3",
+            "options": [
+              "HP +700",
+              "Excelent Damage Resist 3%",
+              "DEFENSE INCREASE +8%"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Fairy Queen",
+        "act": "ACT II",
+        "image": "images/pets/fairyqueen.png",
+        "evolutions": [
+          {
+            "level": "Evolution 1",
+            "options": [
+              "HP +700",
+              "Excelent Damage Resist 4%",
+              "DEFENSE INCREASE +9%"
+            ]
+          },
+          {
+            "level": "Evolution 2",
+            "options": [
+              "HP +800",
+              "Excelent Damage Resist 5%",
+              "DEFENSE INCREASE +10%"
+            ]
+          },
+          {
+            "level": "Evolution 3",
+            "options": [
+              "HP +900",
+              "Excelent Damage Resist 6%",
+              "DEFENSE INCREASE +11%"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rayner Queen",
+        "act": "ACT III",
+        "image": "images/pets/raynerqueen.png",
+        "evolutions": [
+          {
+            "level": "Evolution 1",
+            "options": [
+              "HP +900",
+              "Excelent Damage Resist 7%",
+              "DEFENSE INCREASE +12%"
+            ]
+          },
+          {
+            "level": "Evolution 2",
+            "options": [
+              "HP +1000",
+              "Excelent Damage Resist 8%",
+              "DEFENSE INCREASE +13%"
+            ]
+          },
+          {
+            "level": "Evolution 3",
+            "options": [
+              "HP +1100",
+              "Excelent Damage Resist 9%",
+              "DEFENSE INCREASE +14%"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Doryo",
+        "act": "ACT IV (PET)",
+        "image": "images/pets/doryo.png",
+        "evolutions": [
+          {
+            "level": "Evolution 1",
+            "options": [
+              "HP +1200",
+              "Excelent Damage Resist +10%",
+              "Double Damage Rate +1%",
+              "DEFENSE INCREASE +15%"
+            ]
+          },
+          {
+            "level": "Evolution 2",
+            "options": [
+              "HP +1300",
+              "Excelent Damage Resist +11%",
+              "Double Damage Rate +2%",
+              "DEFENSE INCREASE +17%"
+            ]
+          },
+          {
+            "level": "Evolution 3",
+            "options": [
+              "HP +1500",
+              "Excelent Damage Resist +12%",
+              "Double Damage Rate +3%",
+              "DEFENSE INCREASE +20%"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Winter Wyvern",
+        "act": "ACT IV (MOUNT)",
+        "image": "images/pets/winterwyvern.png",
+        "evolutions": [
+          {
+            "level": "Evolution 1",
+            "options": [
+              "HP +1700",
+              "Excelent Damage Resist +13%",
+              "Double Damage Rate +4%",
+              "DEFENSE INCREASE +22%"
+            ]
+          },
+          {
+            "level": "Evolution 2",
+            "options": [
+              "HP +1800",
+              "Excelent Damage Resist +14%",
+              "Double Damage Rate +5%",
+              "DEFENSE INCREASE +23%"
+            ]
+          },
+          {
+            "level": "Evolution 3",
+            "options": [
+              "HP +2000",
+              "Excelent Damage Resist +15%",
+              "Double Damage Rate +6%",
+              "DEFENSE INCREASE +25%"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "horse": {
+    "pets": [
+      {
+        "name": "Ghost Horse",
+        "act": "ACT I",
+        "image": "images/pets/ghosthorse.png",
+        "evolutions": [
+          {
+            "level": "Evolution 1",
+            "options": [
+              "DAMAGE INCREASE +1%",
+              "DEFENSE INCREASE +20%"
+            ]
+          },
+          {
+            "level": "Evolution 2",
+            "options": [
+              "DAMAGE INCREASE +2%",
+              "DEFENSE INCREASE +22%"
+            ]
+          },
+          {
+            "level": "Evolution 3",
+            "options": [
+              "DAMAGE INCREASE +3%",
+              "DEFENSE INCREASE +25%"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Ice Horse",
+        "act": "ACT II",
+        "image": "images/pets/icehorse.png",
+        "evolutions": [
+          {
+            "level": "Evolution 1",
+            "options": [
+              "DAMAGE INCREASE +4%",
+              "DEFENSE INCREASE +25%"
+            ]
+          },
+          {
+            "level": "Evolution 2",
+            "options": [
+              "DAMAGE INCREASE +5%",
+              "DEFENSE INCREASE +27%"
+            ]
+          },
+          {
+            "level": "Evolution 3",
+            "options": [
+              "DAMAGE INCREASE +6%",
+              "DEFENSE INCREASE +30%"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Ember Horse",
+        "act": "ACT III",
+        "image": "images/pets/emberhorse.png",
+        "evolutions": [
+          {
+            "level": "Evolution 1",
+            "options": [
+              "DAMAGE INCREASE +7%",
+              "DEFENSE INCREASE +30%"
+            ]
+          },
+          {
+            "level": "Evolution 2",
+            "options": [
+              "DAMAGE INCREASE +8%",
+              "DEFENSE INCREASE +32%"
+            ]
+          },
+          {
+            "level": "Evolution 3",
+            "options": [
+              "DAMAGE INCREASE +9%",
+              "DEFENSE INCREASE +35%"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Flame Horse",
+        "act": "ACT IV",
+        "image": "images/pets/flamehorse.png",
+        "evolutions": [
+          {
+            "level": "Evolution 1",
+            "options": [
+              "DAMAGE INCREASE +10%",
+              "DEFENSE INCREASE +35%",
+              "IGNORE DEFENSE RATE +1%"
+            ]
+          },
+          {
+            "level": "Evolution 2",
+            "options": [
+              "DAMAGE INCREASE +11%",
+              "DEFENSE INCREASE +37%",
+              "IGNORE DEFENSE RATE +2%"
+            ]
+          },
+          {
+            "level": "Evolution 3",
+            "options": [
+              "DAMAGE INCREASE +12%",
+              "DEFENSE INCREASE +40%",
+              "IGNORE DEFENSE RATE +3%"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "farm": {
+    "pets": [
+      {
+        "name": "William",
+        "act": "ACT I",
+        "image": "images/pets/william.png",
+        "evolutions": [
+          {
+            "level": "Evolution 1",
+            "options": [
+              "EXPERIENCE +1%",
+              "ZEN DROP +10%"
+            ]
+          },
+          {
+            "level": "Evolution 2",
+            "options": [
+              "EXPERIENCE +2%",
+              "ZEN DROP +15%"
+            ]
+          },
+          {
+            "level": "Evolution 3",
+            "options": [
+              "EXPERIENCE +3%",
+              "ZEN DROP +20%"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Tibetton",
+        "act": "ACT II",
+        "image": "images/pets/tribeton.png",
+        "evolutions": [
+          {
+            "level": "Evolution 1",
+            "options": [
+              "EXPERIENCE +3%",
+              "ZEN DROP +20%",
+              "MONSTER KILL +LIFE/25"
+            ]
+          },
+          {
+            "level": "Evolution 2",
+            "options": [
+              "EXPERIENCE +4%",
+              "ZEN DROP +25%",
+              "MONSTER KILL +LIFE/20"
+            ]
+          },
+          {
+            "level": "Evolution 3",
+            "options": [
+              "EXPERIENCE +5%",
+              "ZEN DROP +30%",
+              "MONSTER KILL +LIFE/15"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "mix": {
+    "pets": [
+        {
+            "name": "Fox",
+            "act": "ACT I",
+            "image": "images/pets/fox.png",
+            "evolutions": [
+                {
+                    "level": "Evolution 1",
+                    "options": [
+                        "DAMAGE INCREASE +1%",
+                        "DEFENSE INCREASE +1%"
+                    ]
+                },
+                {
+                    "level": "Evolution 2",
+                    "options": [
+                        "DAMAGE INCREASE +2%",
+                        "DEFENSE INCREASE +2%"
+                    ]
+                },
+                {
+                    "level": "Evolution 3",
+                    "options": [
+                        "DAMAGE INCREASE +3%",
+                        "DEFENSE INCREASE +3%"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Wolf",
+            "act": "ACT II",
+            "image": "images/pets/wolf.png",
+            "evolutions": [
+                {
+                    "level": "Evolution 1",
+                    "options": [
+                        "ATTACK SPEED +5",
+                        "DAMAGE INCREASE +4%",
+                        "DEFENSE INCREASE +4%"
+                    ]
+                },
+                {
+                    "level": "Evolution 2",
+                    "options": [
+                        "ATTACK SPEED +10",
+                        "DAMAGE INCREASE +5%",
+                        "DEFENSE INCREASE +5%"
+                    ]
+                },
+                {
+                    "level": "Evolution 3",
+                    "options": [
+                        "ATTACK SPEED +15",
+                        "DAMAGE INCREASE +6%",
+                        "DEFENSE INCREASE +6%"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Tiger",
+            "act": "ACT III",
+            "image": "images/pets/tiger.png",
+            "evolutions": [
+                {
+                    "level": "Evolution 1",
+                    "options": [
+                        "HP +500",
+                        "ATTACK SPEED +20",
+                        "DAMAGE INCREASE +7%",
+                        "DEFENSE INCREASE +7%"
+                    ]
+                },
+                {
+                    "level": "Evolution 2",
+                    "options": [
+                        "HP +600",
+                        "ATTACK SPEED +25",
+                        "DAMAGE INCREASE +8%",
+                        "DEFENSE INCREASE +8%"
+                    ]
+                },
+                {
+                    "level": "Evolution 3",
+                    "options": [
+                        "HP +700",
+                        "ATTACK SPEED +30",
+                        "DAMAGE INCREASE +9%",
+                        "DEFENSE INCREASE +9%"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Phoenix",
+            "act": "ACT IV (PET)",
+            "image": "images/pets/phoenix.png",
+            "evolutions": [
+                {
+                    "level": "Evolution 1",
+                    "options": [
+                        "HP +800",
+                        "ATTACK SPEED +40",
+                        "DAMAGE INCREASE +10%",
+                        "DEFENSE INCREASE +10%",
+                        "IGNORE DEFENSE RATE +1%"
+                    ]
+                },
+                {
+                    "level": "Evolution 2",
+                    "options": [
+                        "HP +900",
+                        "ATTACK SPEED +50",
+                        "DAMAGE INCREASE +11%",
+                        "DEFENSE INCREASE +11%",
+                        "IGNORE DEFENSE RATE +2%"
+                    ]
+                },
+                {
+                    "level": "Evolution 3",
+                    "options": [
+                        "HP +1000",
+                        "ATTACK SPEED +60",
+                        "DAMAGE INCREASE +12%",
+                        "DEFENSE INCREASE +12%",
+                        "IGNORE DEFENSE RATE +3%"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Rhaegal",
+            "act": "ACT IV (MOUNT)",
+            "image": "images/pets/rhaergal.png",
+            "evolutions": [
+                {
+                    "level": "Evolution 1",
+                    "options": [
+                        "HP +800",
+                        "ATTACK SPEED +40",
+                        "DAMAGE INCREASE +10%",
+                        "DEFENSE INCREASE +10%",
+                        "IGNORE DEFENSE RATE +1%"
+                    ]
+                },
+                {
+                    "level": "Evolution 2",
+                    "options": [
+                        "HP +900",
+                        "ATTACK SPEED +50",
+                        "DAMAGE INCREASE +11%",
+                        "DEFENSE INCREASE +11%",
+                        "IGNORE DEFENSE RATE +2%"
+                    ]
+                },
+                {
+                    "level": "Evolution 3",
+                    "options": [
+                        "HP +1000",
+                        "ATTACK SPEED +60",
+                        "DAMAGE INCREASE +12%",
+                        "DEFENSE INCREASE +12%",
+                        "IGNORE DEFENSE RATE +3%"
+                    ]
+                }
+            ]
+        }
+    ]
+}
+}

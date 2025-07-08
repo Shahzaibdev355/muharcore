@@ -1,0 +1,900 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        //Disable cut copy paste
+        $('body').bind('cut copy paste', function (e) {
+            e.preventDefault();
+        });
+
+        //Disable mouse right click
+        $("body").on("contextmenu", function (e) {
+            return false;
+        });
+    });
+</script>
+<!DOCTYPE html>
+
+<body oncopy="return false" oncut="return false" onpaste="return false">
+    <html lang="en">
+
+    <head>
+
+        <title>Guides MU-HARDCORE</title>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <style>
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        p {
+        color: #f1c40f;
+        }
+        .item-container {
+            background-color: #1f0000;
+            padding: 10px;
+            width: 90%; /* Beibehalten, wird aber durch max-width eingeschränkt */
+            max-width: 150px; /* Feste maximale Breite */
+            box-sizing: border-box;
+            text-align: center; /* Horizontale Zentrierung */
+            border-radius: 15px;
+            box-shadow: 0 0px 100px #93330b7a;
+            border: 1px solid #93330b;
+            display: flex; /* Flexbox für vertikale Zentrierung */
+            flex-direction: column; /* Stapelt Kinder vertikal */
+            justify-content: center; /* Vertikale Zentrierung */
+            align-items: center; /* Horizontale Zentrierung innerhalb Flex */
+            height: 200px; /* Feste Höhe für Konsistenz und Zentrierung */
+        }
+        .item-wrapper { 
+            text-align: center; /* Zentriert Text und Bild */
+        }
+        .item-thumb { 
+            width: 120px; /* Angepasst an deine Inline-Styles */
+            height: 120px; 
+            display: block; 
+            margin: 0 auto; 
+        }
+        .items-row {
+            display: flex; /* Horizontale Anordnung */
+            justify-content: center; /* Zentriert die Container */
+            gap: 10px; /* Abstand zwischen den Containern */
+            flex-wrap: nowrap; /* Verhindert Umbruch */
+        }
+
+
+    </style>
+
+    </head>
+
+    <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+
+        <div class="loader">Loading...</div>
+
+            <div id="navbar-container"></div>
+
+        <section class="about section" id="about">
+          
+      
+            <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+            
+            <h1 style="text-align: center;"> 🛡 Custom Jewels</h1>
+            <br>
+  
+            <!-- Alle Details-Buttons bleiben oben -->
+            <div class="summary-container">
+             <details class="details-box"  open onclick="showContent('info')">
+                 <summary>Information</summary>
+             </details>
+            </div><br>
+                <div class="summary-container">
+            <details class="details-box"  open onclick="showContent('upgrade')">
+                <summary>UPGRADE</summary>
+            </details>        
+            <details class="details-box"  open onclick="showContent('wings')">
+                <summary>WINGS</summary>
+            </details>
+            <details class="details-box"  open onclick="showContent('daedalus')">
+                <summary>Jewel of Daedalus</summary>
+            </details>
+            <details class="details-box"  open onclick="showContent('pet')">
+                <summary>Pet</summary>
+            </details>
+    
+  
+
+            </div>
+            <div id="content" class="content-container">  
+            </div>
+            </div>
+          
+                   
+                
+         </section>
+
+         <div id="footer-container"></div>
+        
+
+
+      
+            
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/aos.js"></script>
+        <script src="js/smoothscroll.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- jQuery laden -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+<!-- Schutz-Skript -->
+<script src="js/protection.js"></script>
+      
+       <script>
+         document.addEventListener("DOMContentLoaded", function () {
+        const loader = document.querySelector('.loader');
+
+        fetch('libraries.html?v=' + new Date().getTime())
+            .then(response => response.text())
+            .then(data => {
+                document.head.insertAdjacentHTML('beforeend', data);
+                return fetch('navbar.html?v=' + new Date().getTime());
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+                return fetch('footer.html?v=' + new Date().getTime());
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+                showContent('info');
+                loader.style.display = 'none'; // Ladebildschirm ausblenden
+            })
+            .catch(error => console.error('Fehler beim Laden:', error));
+                });
+        </script>
+
+        <script>
+            function showContent(region) {
+                const content = document.getElementById("content");
+   
+                const data = {
+                // Information
+                "info": `
+                   <div class="main-container">
+                     <h1 class="main-title">Custom Jewels</h1>
+    
+                    <p>
+                        On the <strong>INVICTUS</strong> server, new content has been created based on the experience gained 
+                        from the previous server, with many ideas further developed. After gathering extensive player feedback, 
+                        several <strong>custom jewels</strong> have been introduced. These jewels can be used both for upgrading 
+                        your own equipment and for trading.
+                    </p>
+                
+                    <p>
+                        These jewels can be obtained through <strong>crafting, events, quests,</strong> and <strong>bosses</strong>. 
+                        We offer all players the opportunity to access these valuable items.
+                    </p>
+                
+                    <br>
+                    <br>
+                </div>
+
+                    ` 
+                ,
+                // Updrade
+                "upgrade": `
+                    <div class="main-container">
+                       <h2 class="main-title">Jewel of Level</h2>
+                       <p><strong style="color:#4cffd5;">Jewel of Level</strong> - can only be used on armor and will be gradually added to the XShop throughout different ACTS. For example, in ACT I, the maximum level available will be +10, in the next ACT it will be +11, and the highest level Jewel that will be sold is +12 in ACT II. These Jewels can be obtained from events and quests.  However, the +10 and +11 Jewels can also be added to Wings, but not beyond that.</p>
+                            <div class="items-row">
+                                 <div class="item-container">
+                                    <div class="item-wrapper">
+                                     <p style="line-height:140%; text-align:center;">
+                                     <span style="color:#4cffd5; line-height:19.6px;">
+                                         <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Jewel of +10</strong><br>
+                                         <img src="images/custom/Jewel of +10.png" 
+                                              alt="Jewel of +10" 
+                                              class="item-thumb">
+                                     </span>
+                                         </p>
+                                     </div>
+                                 </div>
+                                 <div class="item-container">
+                                     <div class="item-wrapper">
+                                         <p style="line-height:140%; text-align:center;">
+                                             <span style="color:#4cffd5; line-height:19.6px;">
+                                                 <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Jewel of +11</strong><br>
+                                                 <img src="images/custom/jewel of +11.png" 
+                                                      alt="Jewel of +11" 
+                                                      class="item-thumb">
+                                             </span>
+                                         </p>
+                                     </div>
+                                 </div>
+                                 <div class="item-container">
+                                     <div class="item-wrapper">
+                                         <p style="line-height:140%; text-align:center;">
+                                             <span style="color:#4cffd5; line-height:19.6px;">
+                                                 <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Jewel of +12</strong><br>
+                                                 <img src="images/custom/jewel of +12.png" 
+                                                      alt="Jewel of +12" 
+                                                      class="item-thumb">
+                                             </span>
+                                         </p>
+                                     </div>
+                                 </div>
+                                 <div class="item-container">
+                                     <div class="item-wrapper">
+                                         <p style="line-height:140%; text-align:center;">
+                                             <span style="color:#4cffd5; line-height:19.6px;">
+                                                 <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Jewel of +13</strong><br>
+                                                 <img src="images/custom/jewel of +13.png" 
+                                                      alt="Jewel of +13" 
+                                                      class="item-thumb">
+                                             </span>
+                                         </p>
+                                     </div>
+                                 </div>
+                                 <div class="item-container">
+                                     <div class="item-wrapper">
+                                         <p style="line-height:140%; text-align:center;">
+                                             <span style="color:#4cffd5; line-height:19.6px;">
+                                                 <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Jewel of +14</strong><br>
+                                                 <img src="images/custom/jewel of +14.png" 
+                                                      alt="Jewel of +14" 
+                                                      class="item-thumb">
+                                             </span>
+                                         </p>
+                                     </div>
+                                 </div>
+                                 <div class="item-container">
+                                     <div class="item-wrapper">
+                                         <p style="line-height:140%; text-align:center;">
+                                     <span style="color:#4cffd5; line-height:19.6px;">
+                                         <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Jewel of +15</strong><br>
+                                         <img src="images/custom/jewel of +15.png" 
+                                              alt="Jewel of +15" 
+                                              class="item-thumb">
+                                     </span>
+                                         </p>
+                                    </div>
+                                 </div>
+                                      
+                             </div><br>
+                            
+                                <h2 class="main-title">Jewels for Upgrade Items</h2>
+                                <p><strong  style="color:#4cffd5;">Jewel of Excellent</strong> - can only be used on items to add an Excellent option. A maximum of 3 Excellent options can be added to an item. This Jewel can be crafted in the Chaos Machine or ollected from quests. Additionally, during theGolden Invasion, it drops from Golden Rabbits as Broken Excellent. After collecting 10 Broken Excellent, you receive one Jewel of Excellent.</p> 
+                                <p><strong  style="color:#4cffd5;">Jewel of Option</strong> - adds the final additional option to an item (**+16 to +28**) with 100% success. It can be obtained from quests, events and Golden Rabbits, which drop Broken Option. Collect 10 Broken Option to receive one Jewel of Option.</p>
+                                <p><strong  style="color:#4cffd5;">Jewel of Luck</strong> - adds luck to item  with 100% success. It can be obtained from quests, events and Golden Rabbits, which drop Broken Luck. Collect 10 Broken Luck to receive one Jewel of Luck.</p>  
+                                <p><strong  style="color:#4cffd5;">Jewel of Socket</strong> - adds a socket slot to armor and items. It can be obtained from quests, events and mix on Chaos Machine.</p>  
+                                <p><strong  style="color:#4cffd5;">Jewel of Kundun</strong> - this stone raises the level of rings and pendants, with a maximum level of +4. This stone is very rare and can only be obtained from the final bosses.</p>  
+                              <div class="items-row">
+                                         <div class="item-container">
+                                            <div class="item-wrapper">
+                                             <p style="line-height:140%; text-align:center;">
+                                             <span style="color:#4cffd5; line-height:19.6px;">
+                                                 <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Jewel of Excelent</strong><br>
+                                                 <img src="images/custom/Jewel of Excellent.png" 
+                                                      alt="Jewel of Excelent" 
+                                                      class="item-thumb">
+                                             </span>
+                                                 </p>
+                                             </div>
+                                         </div>
+                                         <div class="item-container">
+                                             <div class="item-wrapper">
+                                                 <p style="line-height:140%; text-align:center;">
+                                                     <span style="color:#4cffd5; line-height:19.6px;">
+                                                         <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Jewel of Option</strong><br>
+                                                         <img src="images/custom/Jewel of Option.png" 
+                                                              alt="Jewel of Option" 
+                                                              class="item-thumb">
+                                                     </span>
+                                                 </p>
+                                             </div>
+                                         </div>
+                                         <div class="item-container">
+                                             <div class="item-wrapper">
+                                                 <p style="line-height:140%; text-align:center;">
+                                                     <span style="color:#4cffd5; line-height:19.6px;">
+                                                         <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Jewel of Luck</strong><br>
+                                                         <img src="images/custom/Jewel of Luck.png" 
+                                                              alt="Jewel of Luck1" 
+                                                              class="item-thumb">
+                                                     </span>
+                                                 </p>
+                                             </div>
+                                         </div>
+                                         <div class="item-container">
+                                            <div class="item-wrapper">
+                                                 <p style="line-height:140%; text-align:center;">
+                                                     <span style="color:#4cffd5; line-height:19.6px;">
+                                                         <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Jewel of Socket</strong><br>
+                                                         <img src="images/custom/Jewel_of_Socket.png" 
+                                                              alt="Jewel of Luck1" 
+                                                              class="item-thumb">
+                                                     </span>
+                                                 </p>
+                                             </div>
+                                         </div>
+                                         <div class="item-container">
+                                            <div class="item-wrapper">
+                                                 <p style="line-height:140%; text-align:center;">
+                                                     <span style="color:#4cffd5; line-height:19.6px;">
+                                                         <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Jewel of Kundun</strong><br>
+                                                         <img src="images/custom/Jewel of Kundun (Jewellery).png" 
+                                                              alt="Jewel of Luck1" 
+                                                              class="item-thumb">
+                                                     </span>
+                                                 </p>
+                                             </div>
+                                         </div>
+                                        
+                                         
+                                      
+                                              
+                            </div>
+
+                        <br>
+                        <br>
+                    </div>
+                    ` 
+                ,
+                // Wings
+                "wings": `
+                  <div class="main-container">
+                     <h1 class="main-title">Wings lvl 2</h1>
+                     <p>Wing elements have been implemented to balance the drop rate and to be used as rewards in quests, events, and monster drops. The Feather Element is an item that can be collected, and once you gather 10/10, it automatically transforms into Icarus Feather, which drops 50/50 either Crest of Monarch or Loch’s Feather. This element drops from Icarus or from the Feather Invasion in Pharaoh.</p> <br>
+                     <div class="item-wrapper">
+                       <p style="line-height:140%; text-align:center;">
+                        
+                         <span style="color:#4cffd5; line-height:19.6px;">
+                             <strong style="vertical-align: middle;margin-bottom: 12px; display: inline-block;">Feather Element</strong><br>
+                           <img src="images/jewels/featherelement.png" 
+                                alt="Feather Element" 
+                
+                                class="item-thumb" 
+                                style="display: block; margin: 0 auto; width: 120px;height: 120;">
+                         </span>
+                       </p>
+                
+                      
+                     </div>
+                     <div class="item-wrapper">
+                         <p style="line-height:140%; text-align:center;">
+                          
+                           <span style="color:#4cffd5; line-height:19.6px;">
+                               <strong style="vertical-align: middle;margin-bottom: 12px; display: inline-block;">Icar's Feather</strong><br>
+                               <img src="images/jewels/icarfeather.png"  
+                                  alt="Icar's Feather" 
+                
+                                  class="item-thumb" 
+                                  style="display: block; margin: 0 auto; width: 120px;height: 120;">
+                           </span>
+                         </p>
+                
+                        
+                     </div>
+                     <h1 class="main-title">Wings LVL 2.5</h1>
+                     <p>To obtain Level 2.5 Wings, you need two items: **Dark Phoenix Flame** and **Deadfear Soul**. The elements for these items can be obtained from quests, monster drops, and invasions. **Dark Phoenix Flame** elements can be acquired from **Fallen Angel in Kanturu**, which appears in **ACT II**. Additionally, **Dark Phoenix Flame** can be crafted in the **Chaos Machine**. For the mix recipe, please check **GUIDES > CHAOS MIX > WINGS**, where you will find the required combination. **Deadfear Soul** elements can be obtained from monsters in **Kanturu Underground and Kanturu Relics**.</p> 
+                     <div class="item-wrapper">
+                         <p style="line-height:140%; text-align:center;">
+                          
+                           <span style="color:#4cffd5; line-height:19.6px;">
+                               <strong style="vertical-align: middle;margin-bottom: 12px; display: inline-block;">Dark Phoenix Flame Element</strong><br>
+                               <img src="images/jewels/darkphoenixflameelement.png"   
+                                  alt="Dark Phoenix Flame Element" 
+                
+                                  class="item-thumb" 
+                                  style="display: block; margin: 0 auto; width: 120px;height: 120;">
+                           </span>
+                         </p>
+                
+                    
+                     </div>
+                     <div class="item-wrapper">
+                         <p style="line-height:140%; text-align:center;">
+                          
+                           <span style="color:#4cffd5; line-height:19.6px;">
+                               <strong style="vertical-align: middle;margin-bottom: 12px; display: inline-block;">Dark Phoenix Flame</strong><br>
+                               <img src="images/jewels/darkphoenixflame.png"   
+                                  alt="Dark Phoenix Flame" 
+                
+                                  class="item-thumb" 
+                                  style="display: block; margin: 0 auto; width: 120px;height: 120;">
+                           </span>
+                         </p>
+                
+                        
+                     </div><br>
+                     <div class="item-wrapper">
+                         <p style="line-height:140%; text-align:center;">
+                          
+                           <span style="color:#4cffd5; line-height:19.6px;">
+                               <strong style="vertical-align: middle;margin-bottom: 12px; display: inline-block;">Deadfear Soul Element</strong><br>
+                               <img src="images/jewels/dreadfearsoul.png" 
+                                  alt="Deadfear Soul Element" 
+                
+                                  class="item-thumb" 
+                                  style="display: block; margin: 0 auto; width: 120px;height: 120;">
+                           </span>
+                         </p>
+                
+                        
+                     </div>
+                     <div class="item-wrapper">
+                         <p style="line-height:140%; text-align:center;">
+                          
+                           <span style="color:#4cffd5; line-height:19.6px;">
+                               <strong style="vertical-align: middle;margin-bottom: 12px; display: inline-block;">Deadfear Soul</strong><br>
+                               <img src="images/jewels/dreadfearsoul.png" 
+                                  alt="Deadfear Soul" 
+                
+                                  class="item-thumb" 
+                                  style="display: block; margin: 0 auto; width: 120px;height: 120;">
+                           </span>
+                         </p>
+                
+                     </div>
+                     <h1 class="main-title">Wings LVL 3</h1>
+                     <p> To obtain **Level 3 Wings**, you need **Condor Feather** and **Condor Flame**. The elements required to obtain these items can be acquired through **quests** or **drops**. For example, **Condor Feather Element** can be obtained from quests or from **Silver** at **Feather Invasion in Raklion (ACT III)**. Likewise, **Condor Flame Element** drops from **monsters in Raklion**.</p>
+                     <div class="item-wrapper">
+                         <p style="line-height:140%; text-align:center;">
+                          
+                           <span style="color:#4cffd5; line-height:19.6px;">
+                               <strong style="vertical-align: middle;margin-bottom: 12px; display: inline-block;">Condor Flame Element</strong><br>
+                               <img src="images/custom/Condor Flame Element (3 Level Wing).png" 
+                                  alt="Condor Flame Element" 
+                
+                                  class="item-thumb" 
+                                  style="display: block; margin: 0 auto; width: 80px;height: 80;">
+                           </span>
+                         </p>
+                
+                       
+                     </div>
+                     <div class="item-wrapper">
+                         <p style="line-height:140%; text-align:center;">
+                          
+                           <span style="color:#4cffd5; line-height:19.6px;">
+                               <strong style="vertical-align: middle;margin-bottom: 12px; display: inline-block;">Condor Flame</strong><br>
+                               <img src="images/jewels/condorflame.png" 
+                                  alt="Condor Flame" 
+                
+                                  class="item-thumb" 
+                                  style="display: block; margin: 0 auto; width: 120px;height: 120;">
+                           </span>
+                         </p>
+                
+                      
+                     </div><br>
+                     <div class="item-wrapper">
+                         <p style="line-height:140%; text-align:center;">
+                          
+                           <span style="color:#4cffd5; line-height:19.6px;">
+                               <strong style="vertical-align: middle;margin-bottom: 12px; display: inline-block;">Condor Feather Element</strong><br>
+                               <img src="images/jewels/condorfeatherelement.png" 
+                                  alt="Condor Feather Element" 
+                
+                                  class="item-thumb" 
+                                  style="display: block; margin: 0 auto; width: 120px;height: 120;">
+                           </span>
+                         </p>
+                
+                        
+                     </div>
+                     <div class="item-wrapper">
+                         <p style="line-height:140%; text-align:center;">
+                          
+                           <span style="color:#4cffd5; line-height:19.6px;">
+                               <strong style="vertical-align: middle;margin-bottom: 12px; display: inline-block;">Condor Feather</strong><br>
+                               <img src="images/jewels/condorfeather.png" 
+                                  alt="Condor Feather" 
+                
+                                  class="item-thumb" 
+                                  style="display: block; margin: 0 auto; width: 120px;height: 120;">
+                           </span>
+                         </p>
+                
+                         
+                     </div>
+                     <h1 class="main-title">Wings LVL 4</h1>
+                     <p> To create **Level 4 Wings**, you need **Phoenix Flame** and **Phoenix Feather**. These items can be obtained through **quests, monster drops, and invasions**. **Phoenix Feather Element** can be acquired from **Phoenix Spirit in Ferea during the Feather Invasion**, while **Phoenix Flame Element** drops from **monsters in Ferea**.</p>
+                      <div class="item-wrapper">
+                         <p style="line-height:140%; text-align:center;">
+                          
+                           <span style="color:#4cffd5; line-height:19.6px;">
+                               <strong style="vertical-align: middle;margin-bottom: 12px; display: inline-block;">Phoenix Flame Element</strong><br>
+                               <img src="images/custom/Phoenix Flame Element (4 Level Wing).png" 
+                                  alt="Phoenix Flame Element" 
+                
+                                  class="item-thumb" 
+                                  style="display: block; margin: 0 auto; width: 80px;height: 80;">
+                           </span>
+                         </p>
+                
+                        
+                     </div>
+                
+                     <div class="item-wrapper">
+                         <p style="line-height:140%; text-align:center;">
+                          
+                           <span style="color:#4cffd5; line-height:19.6px;">
+                               <strong style="vertical-align: middle;margin-bottom: 12px; display: inline-block;">Phoenix Flame</strong><br>
+                               <img src="images/custom/Phoenix Flame (4 Level Wing).png" 
+                                  alt="Phoenix Flame" 
+                
+                                  class="item-thumb" 
+                                  style="display: block; margin: 0 auto; width: 80px;height: 80;">
+                           </span>
+                         </p>
+                
+                       
+                     </div><br>
+                
+                      <div class="item-wrapper">
+                         <p style="line-height:140%; text-align:center;">
+                          
+                           <span style="color:#4cffd5; line-height:19.6px;">
+                               <strong style="vertical-align: middle;margin-bottom: 12px; display: inline-block;">Phoenix Feather Element</strong><br>
+                               <img src="images/custom/Phoenix Feather Element (4 Level Wing).png" 
+                                  alt="Phoenix Feather Element" 
+                
+                                  class="item-thumb" 
+                                  style="display: block; margin: 0 auto; width: 120px;height: 120;">
+                           </span>
+                         </p>
+                
+                        
+                     </div>
+                
+                     <div class="item-wrapper">
+                         <p style="line-height:140%; text-align:center;">
+                          
+                           <span style="color:#4cffd5; line-height:19.6px;">
+                               <strong style="vertical-align: middle;margin-bottom: 12px; display: inline-block;">Phoenix Feather</strong><br>
+                               <img src="images/custom/Phoenix of Feather (4 Level Wing).png" 
+                                  alt="Phoenix Feather" 
+                
+                                  class="item-thumb" 
+                                  style="display: block; margin: 0 auto; width: 120px;height: 120;">
+                           </span>
+                         </p>
+                
+                       
+                     </div>
+                
+                
+                     <h1 class="main-title">Wings LVL 5</h1>
+                
+                      <div class="item-wrapper">
+                         <p style="line-height:140%; text-align:center;">
+                          
+                           <span style="color:#4cffd5; line-height:19.6px;">
+                               <strong style="vertical-align: middle;margin-bottom: 12px; display: inline-block;">Garuda Flame Element</strong><br>
+                               <img src="images/jewels/garudaflame.png" 
+                                  alt="Garuda Flame Element" 
+                
+                                  class="item-thumb" 
+                                  style="display: block; margin: 0 auto; width: 70px;height: 70;">
+                           </span>
+                         </p>
+                
+                       
+                     </div>
+                    
+                      <div class="item-wrapper">
+                         <p style="line-height:140%; text-align:center;">
+                          
+                           <span style="color:#4cffd5; line-height:19.6px;">
+                               <strong style="vertical-align: middle;margin-bottom: 12px; display: inline-block;">Garuda Flame</strong><br>
+                               <img src="images/jewels/garudaflame.png" 
+                                  alt="Garuda Flame" 
+                
+                                  class="item-thumb" 
+                                  style="display: block; margin: 0 auto; width: 120px;height: 120;">
+                           </span>
+                         </p>
+                
+                        
+                     </div><br>
+                
+                     <div class="item-wrapper">
+                         <p style="line-height:140%; text-align:center;">
+                          
+                           <span style="color:#4cffd5; line-height:19.6px;">
+                               <strong style="vertical-align: middle;margin-bottom: 12px; display: inline-block;">Garuda Feather Element</strong><br>
+                               <img src="images/jewels/garudafeatherelement.png" 
+                                  alt="Garuda Feather Element" 
+                
+                                  class="item-thumb" 
+                                  style="display: block; margin: 0 auto; width: 120px;height: 120;">
+                           </span>
+                         </p>
+                
+                        
+                     </div>
+                     <div class="item-wrapper">
+                         <p style="line-height:140%; text-align:center;">
+                          
+                           <span style="color:#4cffd5; line-height:19.6px;">
+                               <strong style="vertical-align: middle;margin-bottom: 12px; display: inline-block;">Garuda Feather</strong><br>
+                               <img src="images/jewels/garudafeather.png" 
+                                  alt="Garuda Feather" 
+                
+                                  class="item-thumb" 
+                                  style="display: block; margin: 0 auto; width: 120px;height: 120;">
+                           </span>
+                         </p>
+                
+                       
+                     </div>
+                    <br>
+                    <br>
+                  </div>
+               
+                    ` 
+                ,
+                // Jewel of Daedalus
+                "daedalus": `
+                    <div class="main-container">
+
+                    <div style="font-family: Arial, sans-serif; color: black;">
+                        <h1 class="main-title">Jewel of Daedalus</h1>
+                        <p>
+                            <strong  style="color:#4cffd5;">Jewel of Daedalus</strong> is an essential item that can be obtained in the game 
+                            and is used to create wings specific to your race. To evolve this jewel, you need to upgrade it, 
+                            as each Act introduces new wings.
+                        </p>
+                        <p>
+                            Starting from <strong>Level 2 wings</strong>, you will need the Jewel of Daedalus to craft 
+                            wings tailored for your race. This jewel plays a crucial role in the progression of your 
+                            character’s abilities, ensuring that you have the best possible wings as you advance in the game.
+                        </p>
+                    </div><br>
+
+                    <p><strong style="color:#4cffd5;">Daedalus ACT I</strong> - You can obtain it from Icar in Icarus during the Feather Invasion. This stone is used in the Level 2 Wings mix.</p>
+                    <p><strong style="color:#4cffd5;">Daedalus ACT II</strong> - You can obtain it by crafting Daedalus ACT I. This stone is used in the Level 2.5 Wings mix.</p>
+                    <p><strong style="color:#4cffd5;">Daedalus ACT III</strong> - You can obtain it by crafting Daedalus ACT II. This stone is used in the Level 3 Wings mix.</p>
+                    <p><strong style="color:#4cffd5;">Daedalus ACT IV</strong> - You can obtain it by crafting Daedalus ACT III. This stone is used in the Level 4 Wings mix.</p>
+                    <p><strong style="color:#4cffd5;">Daedalus ACT V</strong> - You can obtain it by crafting Daedalus ACT IV. This stone is used in the Level 5 Wings mix.</p>
+
+                    <div class="items-row">
+                                 <div class="item-container">
+                                    <div class="item-wrapper">
+                                     <p style="line-height:140%; text-align:center;">
+                                     <span style="color:#4cffd5; line-height:19.6px;">
+                                         <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Daedalus ACT I</strong><br>
+                                         <img src="images/custom/Daedalus act 1.png" 
+                                              alt="Daedalus ACT I" 
+                                              class="item-thumb">
+                                     </span>
+                                         </p>
+                                     </div>
+                                 </div>
+                                 <div class="item-container">
+                                     <div class="item-wrapper">
+                                         <p style="line-height:140%; text-align:center;">
+                                             <span style="color:#4cffd5; line-height:19.6px;">
+                                                 <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Daedalus ACT II</strong><br>
+                                                 <img src="images/custom/daedalus act 2.png" 
+                                                      alt="Daedalus ACT II" 
+                                                      class="item-thumb">
+                                             </span>
+                                         </p>
+                                     </div>
+                                 </div>
+                                 <div class="item-container">
+                                     <div class="item-wrapper">
+                                         <p style="line-height:140%; text-align:center;">
+                                             <span style="color:#4cffd5; line-height:19.6px;">
+                                                 <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Daedalus ACT III</strong><br>
+                                                 <img src="images/custom/daedalus act 3.png" 
+                                                      alt="Daedalus ACT III" 
+                                                      class="item-thumb">
+                                             </span>
+                                         </p>
+                                     </div>
+                                 </div>
+                                 <div class="item-container">
+                                     <div class="item-wrapper">
+                                         <p style="line-height:140%; text-align:center;">
+                                             <span style="color:#4cffd5; line-height:19.6px;">
+                                                 <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Daedalus ACT IV</strong><br>
+                                                 <img src="images/custom/daedalus act 4.png" 
+                                                      alt="Daedalus ACT IV" 
+                                                      class="item-thumb">
+                                             </span>
+                                         </p>
+                                     </div>
+                                 </div>
+                                 <div class="item-container">
+                                     <div class="item-wrapper">
+                                         <p style="line-height:140%; text-align:center;">
+                                             <span style="color:#4cffd5; line-height:19.6px;">
+                                                 <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Daedalus ACT V</strong><br>
+                                                 <img src="images/custom/daedalus act 5.png" 
+                                                      alt="Daedalus ACT V" 
+                                                      class="item-thumb">
+                                             </span>
+                                         </p>
+                                     </div>
+                                 </div>
+   
+                                      
+                             </div><br>
+                            
+                     
+                        <br>
+                        <br>
+                    </div>
+                    ` 
+                ,
+                // Pet
+                "pet": `
+                    <div class="main-container">
+                         <div style="font-family: Arial, sans-serif; color: black;">
+                        <h1 class="main-title">Pet Jewels</h1>
+                        <p><strong style="color:#4cffd5;">Pet Jewels</strong> - Obtained from Pet Invasion by collecting 20 Inferior Pet Jewels. Used for Pet Upgrade in mix and for Evolution like applying a Jewel of Bless on item. Three are needed per pet. Each act has its own jewel.</p>
+                    </div><br>
+
+                    <p><strong style="color:#4cffd5;">Pet Jewel ACT I</strong> - Obtained from Shark in Lorencia during Pet Invasion.</p>
+                    <p><strong style="color:#4cffd5;">Pet Jewel ACT II</strong> - Obtained from Bone in Kanturu during Pet Invasion.</p>
+                    <p><strong style="color:#4cffd5;">Pet Jewel ACT III</strong> - Obtained from Troll in Raklion during Pet Invasion.</p>
+                    <p><strong style="color:#4cffd5;">Pet Jewel ACT IV</strong> - Obtained from Doom in Ferea during Pet Invasion.</p>
+                    <p><strong style="color:#4cffd5;">Pet Jewel ACT V</strong> - Obtained from Gremlin in Nixis during Pet Invasion.</p>
+                   
+
+                    <div class="items-row">
+                                 <div class="item-container">
+                                    <div class="item-wrapper">
+                                     <p style="line-height:140%; text-align:center;">
+                                     <span style="color:#4cffd5; line-height:19.6px;">
+                                         <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Pet Jewel ACT I</strong><br>
+                                         <img src="images/custom/Pet Jewel Act 1.png" 
+                                              alt="Pet Jewel ACT I" 
+                                              class="item-thumb">
+                                     </span>
+                                         </p>
+                                     </div>
+                                 </div>
+                                 <div class="item-container">
+                                     <div class="item-wrapper">
+                                         <p style="line-height:140%; text-align:center;">
+                                             <span style="color:#4cffd5; line-height:19.6px;">
+                                                 <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Pet Jewel ACT II</strong><br>
+                                                 <img src="images/custom/Pet Jewel Act 2.png" 
+                                                      alt="Pet Jewel ACT II" 
+                                                      class="item-thumb">
+                                             </span>
+                                         </p>
+                                     </div>
+                                 </div>
+                                 <div class="item-container">
+                                     <div class="item-wrapper">
+                                         <p style="line-height:140%; text-align:center;">
+                                             <span style="color:#4cffd5; line-height:19.6px;">
+                                                 <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Pet Jewel ACT III</strong><br>
+                                                 <img src="images/custom/Pet Jewel Act 3.png" 
+                                                      alt="Pet Jewel ACT III" 
+                                                      class="item-thumb">
+                                             </span>
+                                         </p>
+                                     </div>
+                                 </div>
+                                 <div class="item-container">
+                                     <div class="item-wrapper">
+                                         <p style="line-height:140%; text-align:center;">
+                                             <span style="color:#4cffd5; line-height:19.6px;">
+                                                 <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Pet Jewel ACT IV</strong><br>
+                                                 <img src="images/custom/Pet Jewel Act 4.png" 
+                                                      alt="Pet Jewel ACT IV" 
+                                                      class="item-thumb">
+                                             </span>
+                                         </p>
+                                     </div>
+                                 </div>
+                                 <div class="item-container">
+                                     <div class="item-wrapper">
+                                         <p style="line-height:140%; text-align:center;">
+                                             <span style="color:#4cffd5; line-height:19.6px;">
+                                                 <strong style="vertical-align: middle; margin-bottom: 12px; display: inline-block; font-size: 14px;">Pet Jewel ACT V</strong><br>
+                                                 <img src="images/custom/Pet Jewel Act 5.png" 
+                                                      alt="Pet Jewel ACT V" 
+                                                      class="item-thumb">
+                                             </span>
+                                         </p>
+                                     </div>
+                                 </div>
+   
+                                      
+                             </div><br>
+                            
+                        <br>
+                        <br>
+                    </div>
+                    ` 
+                ,
+                // FARM
+                "farm": `
+                    <div class="main-container">
+                       
+
+                        <br>
+                        <br>
+                    </div>
+                    ` 
+                ,
+              
+               
+               
+                };
+    
+                
+                content.innerHTML = data[region];
+                content.classList.add("active"); 
+            }
+            document.addEventListener("DOMContentLoaded", function() {
+           showContent('info');
+          });
+        
+  
+        </script>
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const tabToOpen = params.get('tab');
+    const popupToOpen = params.get('popup');
+  
+    if (tabToOpen) {
+      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
+    }
+  
+    if (popupToOpen) {
+      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
+    }
+  </script>
+
+    </body>
+
+    </html>

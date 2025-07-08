@@ -1,0 +1,800 @@
+{
+  "info": {
+    "content": "Allgemeine Informationen über die Skills."
+  },
+  "dw": {
+    "skills": [
+      {
+        "evolution": "Dark Wizard",
+        "name": "Poison",
+        "image": "images/PNG/scroll.png",
+        "description": "Deal poison damage to the target. It has a chance to deal additional poison damage over time.",
+        "requiredLevel": 1,
+        "requiredStats": {
+          "ENE": 140
+        },
+        "dropFrom": [
+          "Captain Grizzly (Elbeland)",
+          "Elite Yeti (Devias)",
+          "Cyclops (Dungeon)",
+          "Necron (K1)"
+        ]
+      },
+      {
+        "name": "Meteorite",
+        "image": "images/PNG/scroll.png",
+        "description": "Calls down a meteor from the sky at the target causing damage.",
+        "requiredLevel": 1,
+        "requiredStats": {
+          "ENE": 104
+        },
+        "dropFrom": [
+          "Rogue Centurion (K1)",
+          "Aegis (K1)",
+          "Skeleton (Lorencia)",
+          "Assassin (Devias)",
+          "Ice Monster (Devias)",
+          "Hommerd (Devias)"
+        ]
+      },
+      {
+        "name": "Lightning",
+        "image": "images/PNG/scroll.png",
+        "description": "A streak of lighting which deals damage and has a chance to knockback the target.",
+        "requiredLevel": 1,
+        "requiredStats": {
+          "ENE": 72
+        },
+        "dropFrom": [
+          "Lich (Lorencia)",
+          "Elite Bull Fighter (Lorencia)",
+          "Werewolf (Elbeland)",
+          "Cursed Lich (Elbeland)",
+          "Forest Monster (Noria)",
+          "Hunter (Noria)",
+          "Lich (Lorencia)",
+          "Giant (Lorencia)"
+        ]
+      },
+      {
+        "name": "Fire Ball",
+        "image": "images/PNG/scroll.png",
+        "description": "Hurls a flaming stone at the target, dealing damage.",
+        "requiredLevel": 1,
+        "requiredStats": {
+          "ENE": 40
+        },
+        "dropFrom": [        
+          "Budge Dragon (Lorencia)",
+          "Bull Fighter (Lorencia)",
+          "Goblin (Noria)",
+          "Chain Scorpion (Noria)",
+          "Strange Rabbit (Noria)"
+        ]
+      },
+      {
+        "name": "Flame",
+        "image": "images/PNG/scroll.png",
+        "description": "Create a pillar of fire on the target that deals damage to the target and nearby enemies.",
+        "requiredLevel": 1,
+        "requiredStats": {
+          "ENE": 160
+        },
+        "dropFrom": [
+          "Death Centurion (Kalima1)",
+          "Skeleton Archer (Dungeon)"
+        ]
+      },
+      { 
+        "name": "Teleport",
+        "image": "images/PNG/scroll.png",
+        "description": "Hide your body for a while and move it to another location.",
+        "requiredLevel": 1,
+        "requiredStats": {
+          "ENE": 88
+        },
+        "dropFrom": [
+          "Agon (Noria)",
+          "Stone Golem (Noria)",
+          "Totem Golem (Elbeland)",
+          "Worm (Devias)"
+        ]
+      },
+      {  
+        "name": "Ice",
+        "image": "images/PNG/scroll.png",
+        "description": "Deal damage to the target with an ice attack which also has a chance to slow the target's movement speed.",
+        "requiredLevel": 1,
+        "requiredStats": {
+          "ENE": 120
+        },
+        "dropFrom": [
+          "Yeti (Devias)",
+          "Larva (Dungeon)",
+          "Blood Soldier (K1)",
+          "Death Angel (K1)"
+        ]
+      },
+      {
+        "name": "Twister",
+        "image": "images/PNG/scroll.png",
+        "description": "Send out a Twister towards the target area which deals damage to multiple enemies in its path.",
+        "requiredLevel": 1,
+        "requiredStats": {
+          "ENE": 180
+        },
+        "dropFrom": [  
+          "Hell Spider (Dungeon)",
+          "Schriker (Kalima1)"
+        ]
+      },
+      {
+        "name": "Evil Spirit",
+        "image": "images/PNG/scroll.png",
+        "description": "Release the energy of darkness to deal damage to multiple enemies near you.",
+        "requiredLevel": 1,
+        "requiredStats": {
+          "ENE": 220
+        },
+        "dropFrom": [  
+          "Dark Knight (Dungeon)",
+          "Shadow (Losstower)",
+          "Poison Shadow (Losttower)",
+          "Aegis (K2)",
+          "Rogue Centurion (K2)"
+        ]
+      },
+      {
+        "name": "Hellfire",
+        "image": "images/PNG/scroll.png",
+        "description": "Light the ground in flames with you as the center, dealing damage to multiple enemies.",
+        "requiredLevel": 1,
+        "requiredStats": {
+          "ENE": 260
+        },
+        "dropFrom": [ 
+          "Death Cow (Losstower)",
+          "Death Angel (K2)",
+          "Devil (Losstower)",
+          "Necron (K2)"
+        ]
+      },
+      {
+        "name": "Power Wave",
+        "image": "images/PNG/scroll.png",
+        "description": "Sends out an electrical wave that causes damage to the target.",
+        "requiredLevel": 1,
+        "requiredStats": {
+          "ENE": 56
+        },
+        "dropFrom": [
+          "Elite Goblin (Noria)",
+          "Beetle Monster (Noria)",
+          "Hideous Rabbit (Elbeland)",
+          "Polluted Butterfly (Elbeland)",
+          "Hound (Lorencia)",
+          "Elite Bull Fighter (Lorencia)"
+        ]
+      },
+      {
+        "name": "Aqua Beam",
+        "image": "images/PNG/scroll.png",
+        "description": "Deal water damage to enemies in a straight line of the targeted direction.",
+        "requiredLevel": 1,
+        "requiredStats": {
+          "ENE": 345
+        },
+        "dropFrom": [ 
+          "Mutant (Tarkan)",
+          "Balrog (Losstower)",
+          "Death Tree (Aida)",
+          "Hydra (Atlans)",
+          "Aegis (K3)"
+        ]
+      },
+      { 
+        "name": "Cometfall",
+        "image": "images/PNG/scroll.png",
+        "description": "Calls down light from the sky to the selected target and enemies near it to deal damage.",
+        "requiredLevel": 1,
+        "requiredStats": {
+          "ENE": 500
+        },
+        "dropFrom": [
+          "Bloody wolf (Tarkan)",
+          "Rogue Centurion (K3)",
+          "Death Rider (Aida)",
+          "Alquamos (Icarus)"
+        ]
+      },
+      { 
+        "name": "Inferno",
+        "image": "images/PNG/scroll.png",
+        "description": "Embrace yourself in a ring of fire that damages nearby enemies.",
+        "requiredLevel": 1,
+        "requiredStats": {
+          "ENE": 724
+        },
+        "dropFrom": [
+     
+          "Necron (K3)",
+          "Witch Queen (Aida)",
+          "Queen Rainier (Icarus)",
+          "Iron Rider (Kanturu)",
+          "Beam Knight (Tarkan)",
+          "Rogue Centurion (K4)"
+        ]
+      },
+      { 
+        "name": "Teleport Ally",
+        "image": "images/PNG/scroll.png",
+        "description": "Forcibly bring an ally that is far away from you to your location.",
+        "requiredLevel": 1,
+        "requiredStats": {
+          "ENE": 644
+        },
+        "dropFrom": [
+          "Iron Wheel (Tarkan)",
+          "Blood Soldier (K3)",
+          "Blue Golem (Aida)",
+          "Mega Crust (Icarus)",
+          "Aegis (K4)"
+        ]
+      },
+      {
+        "name": "Soul Barrier",
+        "image": "images/PNG/scroll.png",
+        "description": "Soul Barrier creates a magical shield that redirects a percentage of incoming damage to mana instead of HP.",
+        "requiredLevel": "",
+        "requiredStats": {},
+        "dropFrom": [
+          "Forest Orc(Aida)"
+        ]
+      },
+      {
+        "name": "Decay", 
+        "image": "images/PNG/scroll.png",
+        "description": "Unleashes a toxic wave that deals magic damage to enemies in an area. Effective for crowd control.",
+        "requiredLevel": "",
+        "requiredStats": {},
+        "dropFrom": [
+          "Death Beam Knight (Tarkan)",
+          "Schriker (K3)",
+          "Bloody Witch Queen (Aida)",
+          "Death Centurion (K4)",
+          "Blood Soldier (K5)"
+        ]
+      },
+      {
+        "name": "Ice Storm",  
+        "image": "images/PNG/scroll.png",
+        "description": "Summons an icy storm that deals magic damage and slows enemies in the area. Useful for crowd control.",
+        "requiredLevel": "",
+        "requiredStats": {},
+        "dropFrom": [
+          "Bloody Golem(Aida)",
+          "Necron (K4)",
+          "Satyros (Kanturu)",
+          "Rogue Centurion (K5)"
+        ]
+      },
+      {
+        "name": "Nova",
+        "image": "images/PNG/scroll.png",
+        "description": "Charges energy and releases a powerful explosion, dealing high magic damage to all nearby enemies. Damage increases with charge time.",
+        "requiredLevel": "",
+        "requiredStats": {},
+        "dropFrom": [
+          "Schriker  (K4)",
+          "Kentauros (Kanturu)",
+          "Death Angel (K5)",
+          "Bone Scorpion(Kanturu)"
+        ]
+      },
+      {
+        "name": "Wizardy Enhance", 
+        "image": "images/PNG/scroll.png",
+        "description": "Boosts the caster's wizardry power for a duration, increasing magic damage. Useful for amplifying spell effectiveness in PvE and PvP.",
+        "requiredLevel": "",
+        "requiredStats": {},
+        "dropFrom": [
+          "Phantom Knight(Icarus)",
+          "Schriker (K4)",
+          "Kentauros (Kanturu)",
+          "Death Angel (K5)",
+          "Bone Scorpion (Karutan)",
+          "Red Dragon",
+          "Quests"
+        ]
+      }
+    ]
+  },
+  "dk": {
+    "skills": [
+      {
+        "name": "Twisting Slash", 
+        "image": "images/PNG/orbyelllow.png",
+        "description": "Unleashes a spinning attack, dealing AoE damage to nearby enemies. Effective for farming and PvP.",
+        "requiredLevel": "",
+        "requiredStats": {},
+        "dropFrom": [
+          "Poison Bull Fighter (Lorencia)",
+          "Shadow (Losstower)",
+          "Dark Knight (Dungeon)",
+          "Aegis (K2)"
+        
+        ]
+      },
+      {
+        "name": "  Rageful Blow", 
+        "image": "images/PNG/orbyelllow.png",
+        "description": "Delivers a powerful strike that deals high damage to multiple enemies. Strong against grouped foes.",
+        "requiredLevel": "",
+        "requiredStats": {},
+        "dropFrom": [
+          "Rogue Centurion (K3)",
+          "Death Rider (Kanturu)",
+          "Bloody Wolf (Tarkan)",
+          "Alquamos (Icarus)"
+
+        ]
+      },
+      {
+        "name": "  Greater Fortitude",
+        "image": "images/PNG/orblue.png",
+        "description": "Temporarily increases max HP, improving survivability in battle.",
+        "requiredLevel": "",
+        "requiredStats": {},
+        "dropFrom": [  
+          "Devil (Losstower)",
+          "Necron (K2)"
+        ]
+      },
+      {
+        "name": "  Death Stab",
+        "image": "images/PNG/orbyelllow.png",
+        "description": "A fast and strong single-target attack with high damage and critical hit potential. Ideal for PvP and boss fights.",
+        "requiredLevel": "",
+        "requiredStats": {},
+        "dropFrom": [
+          "Hydra (Atlans)",
+          "Balrog (Losttower)",
+          "Death Tree (Aida)"
+        ]
+      },
+      {
+        "name": "Crystal of Destruction",
+        "image": "images/PNG/orbyelllow.png",
+        "description": "A fast and strong single-target attack with high damage and critical hit potential. Ideal for PvP and boss fights.",
+        "requiredLevel": "",
+        "requiredStats": {},
+        "dropFrom": [
+          "Phantom Knight(Icarus)",
+          "Schriker (K4)",
+          "Kentauros (Kanturu)",
+          "Death Angel (K5)",
+          "Bone Scorpion (Karutan)",
+          "Red Dragon"
+        ]
+      }
+    ]
+  },
+  "elf": {
+    "skills": [
+      {
+        "name": "  Penetration", 
+        "image": "images/PNG/orbyelllow.png",
+        "description": "Launches a powerful energy spear that pierces through enemies, dealing high magic damage. Effective for both PvE and PvP.",
+        "requiredLevel": "130",
+        "requiredStats": {},
+        "dropFrom": [
+          "Great Bahamut (Atlans)",
+          "Death Knight (Dungeon)",
+          "Death Gorgon (Losstower)",
+          "Death Centurion (K2)",
+          "Schriker (K2)"
+        ]
+      },
+      {
+        "name": "  Ice Arrow", 
+        "image": "images/PNG/orbyelllow.png",
+        "description": "Shoots a freezing arrow that deals damage and temporarily immobilizes the target. Useful for controlling enemies in both PvE and PvP.",
+        "requiredLevel": "1",
+        "requiredStats": {
+              "ENE": 3500
+        },
+        "dropFrom": [
+          "Death Rider (Aida)",
+          "Blood Soldier (K3)",
+          "Iron Wheel (Tarkan)",
+          "Alquamos (Icarus)"
+        ]
+      }
+      ,
+      {
+        "name": "Multi Shot",
+        "image": "images/PNG/orbyelllow.png",
+        "description": "Fires multiple arrows simultaneously, hitting multiple enemies in a spread pattern. Effective for farming and crowd control.",
+        "requiredLevel": "220",
+        "requiredStats": {},
+        "dropFrom": [
+           "Phantom Knight(Icarus)",
+          "Schriker (K4)",
+          "Kentauros (Kanturu)",
+          "Death Angel (K5)",
+          "Bone Scorpion (Karutan)",
+          "Red Dragon"
+        ]
+      }
+    ]
+  },
+  "mg": {
+    "skills": [
+      {
+        "name": "  Fire Slash",
+        "image": "images/PNG/orbyelllow.png",
+        "description": "Unleashes a fiery slash that deals both physical and elemental damage, burning enemies over time.",
+        "requiredLevel": "1",
+        "requiredStats": {
+              "STR": 596
+        },
+        "dropFrom": [
+             "Devil (Losstower)",
+          "Necron (K2)"
+        ]
+      },
+      {
+        "name": "  Gigantic Storm",
+        "image": "images/PNG/scroll.png",
+        "description": "Summons a massive lightning strike that deals high damage to enemies in a targeted area.",
+        "requiredLevel": "220",
+        "requiredStats": {
+              "ENE": 1058
+        },
+        "dropFrom": [
+           "Phantom Knight(Icarus)",
+          "Schriker (K4)",
+          "Kentauros (Kanturu)",
+          "Death Angel (K5)",
+          "Bone Scorpion (Karutan)",
+          "Red Dragon"
+        ]
+      },
+      {
+        "name": "Flame Strike",
+        "image": "images/PNG/orbyelllow.png",
+        "description": "Slams the ground, releasing a wave of fire that damages and burns multiple enemies in front.",
+        "requiredLevel": "220",
+        "requiredStats": {},
+        "dropFrom": [
+           "Phantom Knight(Icarus)",
+          "Schriker (K4)",
+          "Kentauros (Kanturu)",
+          "Death Angel (K5)",
+          "Bone Scorpion (Karutan)",
+          "Red Dragon"
+        ]
+      }
+    ]
+  },
+  "dl": {
+    "skills": [
+      {
+        "name": "  FireBurst",
+        "image": "images/PNG/fireburst.png",
+        "description": "Unleashes an explosive fire attack, dealing AoE magic damage to nearby enemies.",
+        "requiredLevel": "1",
+        "requiredStats": {
+              "ENE": 79
+        },
+        "dropFrom": [
+          "Hydra (Atlans)",
+          "Mutant (Tarkan)",
+          "Aegis (K3)",
+          "Death Tree (Aida)"
+        ]
+      },
+      {
+        "name": "  Summon",
+        "image": "images/PNG/fireburst.png",
+        "description": "Summons creatures to assist in battle, providing support or additional damage.",
+        "requiredLevel": "1",
+        "requiredStats": {
+              "ENE": 153,
+              "COM": 400
+        },
+        "dropFrom": [
+          "Death Beam Knight (Tarkan)",
+          "Schriker (K3)",
+          "Bloody Witch Queen (Aida)",
+          "Death Centurion  (K4)",
+          "Blood Soldier (K5)"
+        ]
+      },
+      {
+        "name": "  Critical Damage",
+        "image": "images/PNG/fireburst.png",
+        "description": "Temporarily increases the character's critical damage rate, enhancing attack power.",
+        "requiredLevel": "1",
+        "requiredStats": {
+              "ENE": 102,
+              "COM": 300
+        },
+        "dropFrom": [
+          "Iron Wheel (Tarkan)",
+          "Blood Soldier (K3)"
+        ]
+      },
+      {
+        "name": "  Electric Spark",
+        "image": "images/PNG/fireburst.png",
+        "description": "Releases an electric shockwave that deals AoE damage to surrounding enemies.",
+        "requiredLevel": "1",
+        "requiredStats": {
+            "ENE": 126,
+            "COM": 340
+        },
+        "dropFrom": [
+          "Death Centurion (K3)",
+          "Bloody Death Rider (Aida)",
+          "Drakan (Icarus)",
+          "Death Angel  (K4)",
+          "Satyros (Kanturu)",
+          "Aegis (K5)"
+        ]
+      },
+      {
+        "name": "  Fire Scream",
+        "image": "images/PNG/fireburst.png",
+        "description": "Launches a fiery projectile that chains between enemies, dealing continuous damage.",
+        "requiredLevel": "1",
+        "requiredStats": {
+            "ENE": 150,
+            "COM": 70
+        },
+        "dropFrom": [
+          "Phantom Knight (Icarus)",
+          "Schriker (K4)",
+          "Kentauros (Kanturu)",
+          "Death Angel (K5)",
+          "Ice Walker (Raklion)",
+          "Bone Scorpion (Karutan)"
+
+        ]
+      },
+      {
+        "name": "  Chaotic",
+        "image": "images/PNG/fireburst.png",
+        "description": "Casts a dark spell that deals high damage and may reduce the target's stats.",
+        "requiredLevel": "220",
+        "requiredStats": {
+            "ENE": 84
+        },
+        "dropFrom": [
+           "Phantom Knight(Icarus)",
+          "Schriker (K4)",
+          "Kentauros (Kanturu)",
+          "Death Angel (K5)",
+          "Bone Scorpion (Karutan)",
+          "Red Dragon"
+        ]
+      }
+    ]
+  },
+  "sum": {
+    "skills": [
+      {
+        "name": "Chain Lightning   ",
+        "image": "images/PNG/parchment.png",
+        "description": "Releases a lightning bolt that jumps between multiple enemies, dealing magic damage.",
+        "requiredLevel": "1",
+        "requiredStats": {
+            "ENE": 245
+        },
+        "dropFrom": [
+          "Mutant (Tarkan)",
+          "Aegis (K3)",
+          "Forest Orc (Aida)"
+        ]
+      },
+      {
+        "name": "Drain Life   ",
+        "image": "images/PNG/parchment.png",
+        "description": "Steals HP from the enemy, restoring a portion of the caster's health.",
+        "requiredLevel": "1",
+        "requiredStats": {
+             "ENE": 150
+        },
+        "dropFrom": [
+          "Skeleton Archer (Dungeon)",
+          "Death Centurion (K1)"
+        ]
+      },
+      {
+        "name": "Lightning Shock   ",
+        "image": "images/PNG/parchment.png",
+        "description": "Unleashes a powerful electric surge, damaging and stunning enemies in an area.",
+        "requiredLevel": "1",
+        "requiredStats": { 
+             "ENE": 823
+        },
+        "dropFrom": [
+          "Bloody Golem (Aida)",
+          "Necron (K4)",
+          "Satyros (Kanturu)",
+          "Rogue Centurion (K5)"
+        ]
+      },
+      { 
+        "name": "Damage Reflection   ",
+        "image": "images/PNG/parchment.png",
+        "description": "Creates a magical barrier that reflects a percentage of received damage back to the attacker.",
+        "requiredLevel": "1",
+        "requiredStats": {
+             "ENE": 375
+        },
+        "dropFrom": [
+          "Death Rider (Aida)",
+          "Alquamos (Icarus)"
+        ]
+      },
+      {
+        "name": "Berserker   ",  
+        "image": "images/PNG/parchment.png",
+        "description": "Temporarily increases the Summoner’s attack power while reducing defense.",
+        "requiredLevel": "1",
+        "requiredStats": {
+             "ENE": 300
+        },
+        "dropFrom": [
+          "Iron Wheel (Tarkan)",
+          "Blood Soldier (K3)",
+          "Blue Golem (Aida)",
+          "Mega Crust (Icarus)",
+          "Aegis (K4)"
+        ]
+      },
+      {
+        "name": "Sleep   ",
+        "image": "images/PNG/parchment.png",
+        "description": "Puts the target into a sleep state, preventing movement and attacks for a short time.",
+        "requiredLevel": "1",
+        "requiredStats": {
+             "ENE": 180
+        },
+        "dropFrom": [
+          "Schriker (K1)",
+          "Hell Spider (Dungeon)"
+        ]
+      },
+      { 
+        "name": "Weakness   ",
+        "image": "images/PNG/parchment.png",
+        "description": "Decreases the enemy’s attack power, making them deal less damage.",
+        "requiredLevel": "1",
+        "requiredStats": {
+             "ENE": 663
+        },
+        "dropFrom": [
+          "Death Centurion (K3)",
+          "Bloody Death Rider(Aida)",
+          "Drakan(Icarus)",
+          "Death Angel (K4)",
+          "Satyros (Kanturu)",
+          "Aegis (K5)"
+        ]
+      },
+      {
+        "name": "Innovation   ", 
+        "image": "images/PNG/parchment.png",
+        "description": "Reduces the target's defense, making them more vulnerable to attacks.",
+        "requiredLevel": "1",
+        "requiredStats": {
+             "ENE": 912
+        },
+        "dropFrom": [
+          "Genocider(Kanturu)",
+          "Schriker (K5)",
+          "Hammer Scout (Crywolf)",
+           "Bow Scout (Crywolf)",
+             "Blood Soldier (K6)"
+
+        ]
+      }
+    ]
+  },
+  "rf": {
+    "skills": [ 
+      {
+        "name": "Chain Driver   ",
+        "image": "images/PNG/parchment.png",
+        "description": "Performs a rapid chain attack, dealing physical damage to multiple enemies.",
+        "requiredLevel": "150",
+        "requiredStats": {},
+        "dropFrom": [
+          "Bloody wolf (Tarkan)",
+          "Rogue Centurion (K3)",
+          "Death Rider (Aida)",
+          "Alquamos (Icarus)"
+        ]
+      },
+      {
+        "name": "Dark Side   ",
+        "image": "images/PNG/parchment.png",
+        "description": "Unleashes a dark energy wave that strikes multiple targets at once.",
+        "requiredLevel": "180",
+        "requiredStats": {},
+        "dropFrom": [
+          "Dark Knight (Dungeon)",
+          "Shadow (Losstower)",
+          "Poison Shadow (Losttower)",
+          "Aegis (K2)",
+          "Rogue Centurion (K2)"
+        ]
+      },
+      {
+        "name": "Dragon Roar   ",
+        "image": "images/PNG/parchment.png",
+        "description": "Summons a powerful dragon spirit that deals massive AoE damage.",
+        "requiredLevel": "150",
+        "requiredStats": {},
+        "dropFrom": [
+          "Death Angel (Kalima4)",
+          "Blade Hunter (Kanturu)",
+          "Zaikan (Tarkan)",
+          "Giant Ogre (Blood Castle 5)",
+          "Chief Skeleton Warrior (Blood Castle 6)",
+          "Alpha Crust (Icarus)",
+          "Death Beam Knight (Tarkan)",
+          "Kentauros (Kanturu)"
+        ]
+      },  
+      {
+        "name": "Red Armor Ignore   ",
+        "image": "images/PNG/parchment.png",
+        "description": "Ignores a portion of the enemy's defense, dealing direct damage.",
+        "requiredLevel": "120",
+        "requiredStats": {
+            "ENE": 404
+        },
+        "dropFrom": [
+          "Phantom Knight(Icarus)",
+          "Schriker (K4)",
+          "Kentauros (Kanturu)",
+          "Death Angel (K5)",
+          "Bone Scorpion (Karutan)",
+          "Red Dragon",
+          "Quests"
+        ]
+      },
+      {
+        "name": "Fitness   ", 
+        "image": "images/PNG/parchment.png",
+        "description": "Increases the user's maximum HP for a limited time.",
+        "requiredLevel": "80",
+        "requiredStats": {
+             "ENE": 132
+        },
+        "dropFrom": [
+         "Bloody Orc (Aida)",
+          "Blood Soldier  (K4)",
+          "Iron Rider (Kanturu)"
+
+        ]
+      },
+      {
+        "name": "Defense Rate   ", 
+        "image": "images/PNG/parchment.png",
+        "description": "Boosts the user's defense rate, reducing the chance of being hit by attacks.",
+        "requiredLevel": "50",
+        "requiredStats": {
+             "ENE": 80
+        },
+        "dropFrom": [
+          "Lizard King(Atlans)",
+          "Balrog(Losttower)"
+        ]
+      }
+    ]
+  }
+}
