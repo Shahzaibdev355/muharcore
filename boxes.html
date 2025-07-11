@@ -140,6 +140,10 @@
             })
             .then(response => response.json())
             .then(boxData => {
+
+                console.log(boxData);
+                
+
                 window.boxData = boxData; // Store JSON data globally
                 showContent('goldens'); // Display "goldens" content by default
                 loader.style.display = 'none'; // Hide loading screen

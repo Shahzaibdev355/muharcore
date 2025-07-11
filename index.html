@@ -13,7 +13,7 @@
 </script>
 <!DOCTYPE html>
 
-<body oncopy="return false" oncut="return false" >
+<body oncopy="return false" oncut="return false">
     <html lang="en">
 
     <head>
@@ -84,35 +84,35 @@
         </style>
 
 
-<style>
-    #autocomplete-results {
-      
-      max-height: 200px;
-      overflow-y: auto;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      position: absolute;
-      background: white;
-      width: 500px;
-      z-index: 1000;
-    }
+        <style>
+            #autocomplete-results {
 
-    #autocomplete-results li {
-      padding: 8px;
-      cursor: pointer;
-    }
+                max-height: 200px;
+                overflow-y: auto;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                position: absolute;
+                background: white;
+                width: 500px;
+                z-index: 1000;
+            }
 
-    #autocomplete-results li:hover {
-      background: #eee;
-    }
+            #autocomplete-results li {
+                padding: 8px;
+                cursor: pointer;
+            }
 
-    #search-box {
-      width: 300px;
-      padding: 8px;
-      font-size: 16px;
-    }
-  </style>
+            #autocomplete-results li:hover {
+                background: #eee;
+            }
+
+            #search-box {
+                width: 300px;
+                padding: 8px;
+                font-size: 16px;
+            }
+        </style>
 
     </head>
 
@@ -138,8 +138,9 @@
                             <img src="https://i.imgur.com/nmihhYQ.png" alt="MU HARDCORE!" style="margin-left: 00px;">
 
 
-                            <input type="text" id="search-box" placeholder="Search..." autocomplete="off" style="border: 3px solid yellow;" />
-  <ul id="autocomplete-results"></ul>
+                            <input type="text" id="search-box" placeholder="Search..." autocomplete="off"
+                                style="border: 3px solid yellow;" />
+                            <ul id="autocomplete-results"></ul>
 
                             <h3 class="feature-title"
                                 style="text-align: center;font-size: 40px;font-family: cinzel;font-weight: 800;color: #ffc436;text-shadow: 0 0 15px rgb(251 104 0);">
@@ -206,20 +207,35 @@
                 .then(data => {
                     console.log(data);
 
+                    // flatIndex = Object.entries(data).map(([pageKey, pageData]) => ({
+                    //     pageKey,
+                    //     url: pageData.url,
+                    //     content: pageData.content
+                    // }));
+
+
                     flatIndex = Object.entries(data).map(([pageKey, pageData]) => ({
-                        pageKey,
+                        title: pageData.title || '',
                         url: pageData.url,
-                        content: pageData.content
+                        content: pageData.content || '',
+                        tags: pageData.tags || []
                     }));
 
+
                     fuse = new Fuse(flatIndex, {
-  keys: ['content'],
-  threshold: 0.4,
-  minMatchCharLength: 2,
-  ignoreLocation: true,
-  includeMatches: true,
-  useExtendedSearch: true
-});
+                        // keys: ['content'],
+                        keys: [
+        { name: 'title', weight: 0.7 },
+        { name: 'tags', weight: 0.2 },
+        { name: 'content', weight: 0.1 }
+    ],
+                        threshold: 0.3,
+                        minMatchCharLength: 1,
+                        ignoreLocation: true,
+                        includeMatches: true,
+                        useExtendedSearch: true,
+                        
+                    });
 
                 });
 
