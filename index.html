@@ -234,6 +234,7 @@
                         ignoreLocation: true,
                         includeMatches: true,
                         useExtendedSearch: true,
+                        includeScore: true,
                         
                     });
 
@@ -242,27 +243,67 @@
             const searchBox = document.getElementById('search-box');
             const resultsList = document.getElementById('autocomplete-results');
 
-            searchBox.addEventListener('input', () => {
-                const query = searchBox.value.trim();
-                resultsList.innerHTML = '';
+//             searchBox.addEventListener('input', () => {
+//                 const query = searchBox.value.trim();
+//                 resultsList.innerHTML = '';
 
-                if (!query || !fuse) return;
+//                 if (!query || !fuse) return;
 
-                const results = fuse.search(query).slice(0, 12);
+//                 // const results = fuse.search(query).slice(0, 12);
 
-                results.forEach(result => {
-                    const li = document.createElement('li');
-                    const snippet = result.item.content.slice(0, 150).replace(/\s+/g, ' ') + '...';
-                    li.textContent = `${result.item.url} - ${snippet}`;
-                    li.addEventListener('click', () => {
-                        const searchParam = encodeURIComponent(query);
-                        //   window.location.href = `${result.item.url}?q=${searchParam}`;
-                        // Inside li click handler, if you want to include state
-                        window.location.href = `${result.item.url}?q=${searchParam}&tab=bonuses`;
-                    });
-                    resultsList.appendChild(li);
-                });
-            });
+//                 const results = fuse.search(query)
+//   .filter(result => result.score < 0.2) // keep only strong matches
+//   .slice(0, 12);
+
+//                 results.forEach(result => {
+//                     const li = document.createElement('li');
+//                     const snippet = result.item.content.slice(0, 150).replace(/\s+/g, ' ') + '...';
+//                     li.textContent = `${result.item.url} - ${snippet}`;
+//                     li.addEventListener('click', () => {
+//                         const searchParam = encodeURIComponent(query);
+//                         //   window.location.href = `${result.item.url}?q=${searchParam}`;
+//                         // Inside li click handler, if you want to include state
+//                         window.location.href = `${result.item.url}?q=${searchParam}&tab=bonuses`;
+//                     });
+//                     resultsList.appendChild(li);
+//                 });
+//             });
+
+
+
+searchBox.addEventListener('input', () => {
+    const query = searchBox.value.trim().toLowerCase();
+    resultsList.innerHTML = '';
+    if (!query || !fuse) return;
+
+    // First, look for exact matches in title or tags
+    const exactResults = flatIndex.filter(item =>
+        item.title.toLowerCase().includes(query) ||
+        item.tags.some(tag => tag.toLowerCase().includes(query))
+    );
+
+    let finalResults;
+
+    if (exactResults.length > 0) {
+        finalResults = exactResults.map(item => ({ item }));
+    } else {
+        finalResults = fuse.search(query)
+            .filter(result => result.score < 0.3) // fallback fuzzy search
+            .slice(0, 12);
+    }
+
+    finalResults.forEach(result => {
+        const li = document.createElement('li');
+        const snippet = result.item.content.slice(0, 150).replace(/\s+/g, ' ') + '...';
+        li.textContent = `${result.item.url} - ${snippet}`;
+        li.addEventListener('click', () => {
+            const searchParam = encodeURIComponent(query);
+            window.location.href = `${result.item.url}?q=${searchParam}&tab=bonuses`;
+        });
+        resultsList.appendChild(li);
+    });
+});
+
 
             // Close results when clicking outside
             document.addEventListener('click', (e) => {
