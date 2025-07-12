@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     $(document).ready(function () {
         //Disable cut copy paste
         $('body').bind('cut copy paste', function (e) {
@@ -10,254 +10,272 @@
             return false;
         });
     });
-</script>
+</script> -->
 <!DOCTYPE html>
 
-<body oncopy="return false" oncut="return false" onpaste="return false">
-<html lang="en">
+<body>
+    <html lang="en">
 
-<head>
+    <head>
 
-    <title>Guides MU-HARDCORE</title>
+        <title>Guides MU-HARDCORE</title>
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-
-
-   <style>
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #000;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-        .section-container {
-            background-color: #1f0000;
-            padding: 20px;
-            width: 90%;
-            max-width: 450px; /* Halbe Breite, da zwei Container nebeneinander kommen */
-            box-sizing: border-box;
-            text-align: center;
-            margin: 50px 10px; /* Abstand zwischen Containern */
-            border-radius: 15px;
-            box-shadow: 0 0 100px #93330b7a;
-            border: 1px solid #93330b;
-            font-family: Arial, sans-serif;
-            display: inline-block; /* Nebeneinander anzeigen */
-            vertical-align: top; /* Oben ausrichten */
-        }
-
-        .video-wrapper {
-            background-color: #1a1a1a;
-            border-radius: 8px;
-            padding: 10px;
-            margin-bottom: 20px; /* Abstand zwischen Video und Tabelle */
-        }
-
-        .video-title {
-            color: #fff;
-            text-align: center;
-            margin: 10px 0;
-            font-size: 1.5em;
-        }
-
-        .video-frame {
-            position: relative;
-            width: 100%;
-            height: 0;
-            padding-bottom: 56.25%;
-            background-color: black;
-            border: 8px solid #333;
-            border-radius: 8px;
-        }
-
-        .video-frame iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .modern-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin: 0 auto;
-            background-color: #ffffff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .modern-table th {
-            padding: 14px;
-            background-color: #93330b;
-            color: #fff;
-            font-weight: bold;
-            border-bottom: 2px solid #7a2a09;
-            font-size: 1.4em; /* Größere Schrift für die Kopfzeile */
-        }
-
-        .modern-table td {
-            padding: 14px;
-            color: #ff6f00; /* Akzentuierte Farbe: leuchtendes Orange */
-            font-size: 1.3em; /* Größere Schriftgröße für die Zellen */
-            transition: background-color 0.3s;
-        }
-
-        .modern-table tr:nth-child(odd) td {
-            background-color: #f9f9f9;
-        }
-
-        .modern-table tr:nth-child(even) td {
-            background-color: #fff;
-        }
-
-        .modern-table tr:last-child td {
-            background-color: #e8f5e9;
-            color: #2a7a2a; /* Grün für "Success 70%" bleibt erhalten */
-            font-weight: bold;
-            font-size: 1.3em;
-        }
-
-        .modern-table td:hover {
-            background-color: #e0e0e0 !important;
-        }
-
-        /* Flex-Container für Dark Phoenix Flame */
-        .flex-container {
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-            width: 100%;
-            flex-wrap: wrap; /* Responsiv für Mobilgeräte */
-        }
-
-        .flex-video-wrapper {
-            flex: 1;
-            min-width: 200px; /* Mindestbreite für Video */
-        }
-
-        .flex-table-wrapper {
-            flex: 1;
-            min-width: 200px; /* Mindestbreite für Tabelle */
-        }
-      
-    </style>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-</head>
+        <style>
+            .loader {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #000;
+                color: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+            }
 
-<body data-spy="scroll" data-target="#navbarNav" data-offset="50">
-<div class="loader">Loading...</div>
-<div id="navbar-container"></div>
+            .section-container {
+                background-color: #1f0000;
+                padding: 20px;
+                width: 90%;
+                max-width: 450px;
+                /* Halbe Breite, da zwei Container nebeneinander kommen */
+                box-sizing: border-box;
+                text-align: center;
+                margin: 50px 10px;
+                /* Abstand zwischen Containern */
+                border-radius: 15px;
+                box-shadow: 0 0 100px #93330b7a;
+                border: 1px solid #93330b;
+                font-family: Arial, sans-serif;
+                display: inline-block;
+                /* Nebeneinander anzeigen */
+                vertical-align: top;
+                /* Oben ausrichten */
+            }
+
+            .video-wrapper {
+                background-color: #1a1a1a;
+                border-radius: 8px;
+                padding: 10px;
+                margin-bottom: 20px;
+                /* Abstand zwischen Video und Tabelle */
+            }
+
+            .video-title {
+                color: #fff;
+                text-align: center;
+                margin: 10px 0;
+                font-size: 1.5em;
+            }
+
+            .video-frame {
+                position: relative;
+                width: 100%;
+                height: 0;
+                padding-bottom: 56.25%;
+                background-color: black;
+                border: 8px solid #333;
+                border-radius: 8px;
+            }
+
+            .video-frame iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: none;
+            }
+
+            .modern-table {
+                width: 100%;
+                border-collapse: separate;
+                border-spacing: 0;
+                margin: 0 auto;
+                background-color: #ffffff;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .modern-table th {
+                padding: 14px;
+                background-color: #93330b;
+                color: #fff;
+                font-weight: bold;
+                border-bottom: 2px solid #7a2a09;
+                font-size: 1.4em;
+                /* Größere Schrift für die Kopfzeile */
+            }
+
+            .modern-table td {
+                padding: 14px;
+                color: #ff6f00;
+                /* Akzentuierte Farbe: leuchtendes Orange */
+                font-size: 1.3em;
+                /* Größere Schriftgröße für die Zellen */
+                transition: background-color 0.3s;
+            }
+
+            .modern-table tr:nth-child(odd) td {
+                background-color: #f9f9f9;
+            }
+
+            .modern-table tr:nth-child(even) td {
+                background-color: #fff;
+            }
+
+            .modern-table tr:last-child td {
+                background-color: #e8f5e9;
+                color: #2a7a2a;
+                /* Grün für "Success 70%" bleibt erhalten */
+                font-weight: bold;
+                font-size: 1.3em;
+            }
+
+            .modern-table td:hover {
+                background-color: #e0e0e0 !important;
+            }
+
+            /* Flex-Container für Dark Phoenix Flame */
+            .flex-container {
+                display: flex;
+                align-items: flex-start;
+                gap: 20px;
+                width: 100%;
+                flex-wrap: wrap;
+                /* Responsiv für Mobilgeräte */
+            }
+
+            .flex-video-wrapper {
+                flex: 1;
+                min-width: 200px;
+                /* Mindestbreite für Video */
+            }
+
+            .flex-table-wrapper {
+                flex: 1;
+                min-width: 200px;
+                /* Mindestbreite für Tabelle */
+            }
+        </style>
 
 
-<section class="about section" id="about">
+
+    </head>
+
+    <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+        <div class="loader">Loading...</div>
+        <div id="navbar-container"></div>
 
 
-    
-
-        <h1 style="text-align: center;"> 🛡 Wings Chaos Mix </h1>
-        <br>
-
-        <!-- Alle Details-Buttons bleiben oben -->
-        <div class="summary-container">
-            <details class="details-box"  open onclick="showContent('info')">
-                <summary>Information</summary>
-            </details>
-        </div><br>
-        <div class="summary-container">
-            <details class="details-box"  open onclick="showContent('1')">
-                <summary>Wings 1</summary>
-            </details>
-            <details class="details-box"  open onclick="showContent('2')">
-                <summary>Wings 2</summary>
-            </details>
-
-            <details class="details-box" onclick="showContent('2.5')">
-                <summary>Wings 2.5</summary>
-            </details>
-
-            <details class="details-box" onclick="showContent('3')">
-                <summary>Wings 3</summary>
-            </details>
-
-            <details class="details-box" onclick="showContent('4')">
-                <summary>Wings 4</summary>
-            </details>
-            <details class="details-box" onclick="showContent('5')">
-                <summary>Wings 5</summary>
-            </details>
-
-        </div>
-        <div id="content" class="content-container">
-        </div>
-    </div>
+        <section class="about section" id="about">
 
 
 
-</section>
 
-   <div id="footer-container"></div>
+            <h1 style="text-align: center;"> 🛡 Wings Chaos Mix </h1>
+            <br>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/aos.js"></script>
-<script src="js/smoothscroll.js"></script>
-<script src="js/custom.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-         <!-- jQuery laden -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        
-<!-- Schutz-Skript -->
-<script src="js/protection.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const loader = document.querySelector('.loader');
+            <!-- Alle Details-Buttons bleiben oben -->
+            <div class="summary-container">
+                <details class="details-box" onclick="showContent('info')">
+                    <summary>Information</summary>
+                </details>
+            </div><br>
+            <div class="summary-container">
+                <details class="details-box" onclick="showContent('1')">
+                    <summary>Wings 1</summary>
+                </details>
+                <details class="details-box" onclick="showContent('2')">
+                    <summary>Wings 2</summary>
+                </details>
 
-        fetch('libraries.html?v=' + new Date().getTime())
-            .then(response => response.text())
-            .then(data => {
-                document.head.insertAdjacentHTML('beforeend', data);
-                return fetch('navbar.html?v=' + new Date().getTime());
-            })
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar-container').innerHTML = data;
-                return fetch('footer.html?v=' + new Date().getTime());
-            })
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-container').innerHTML = data;
-                showContent('info');
-                loader.style.display = 'none'; // Ladebildschirm ausblenden
-            })
-            .catch(error => console.error('Fehler beim Laden:', error));
-    });
-</script>
-<script>
-    function showContent(region) {
-        const content = document.getElementById("content");
+                <details class="details-box" onclick="showContent('2.5')">
+                    <summary>Wings 2.5</summary>
+                </details>
 
-        const data = {
-            // Information
-            "info": `
+                <details class="details-box" onclick="showContent('3')">
+                    <summary>Wings 3</summary>
+                </details>
+
+                <details class="details-box" onclick="showContent('4')">
+                    <summary>Wings 4</summary>
+                </details>
+                <details class="details-box" onclick="showContent('5')">
+                    <summary>Wings 5</summary>
+                </details>
+
+            </div>
+            <div id="content" class="content-container">
+            </div>
+            </div>
+
+
+
+        </section>
+
+        <div id="footer-container"></div>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/aos.js"></script>
+        <script src="js/smoothscroll.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- jQuery laden -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <!-- Schutz-Skript -->
+        <!-- <script src="js/protection.js"></script> -->
+
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const loader = document.querySelector('.loader');
+
+                fetch('libraries.html?v=' + new Date().getTime())
+                    .then(response => response.text())
+                    .then(data => {
+                        document.head.insertAdjacentHTML('beforeend', data);
+                        return fetch('navbar.html?v=' + new Date().getTime());
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('navbar-container').innerHTML = data;
+                        return fetch('footer.html?v=' + new Date().getTime());
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('footer-container').innerHTML = data;
+
+                        // showContent('info');
+
+                        loader.style.display = 'none'; // Ladebildschirm ausblenden
+                    })
+                    .catch(error => console.error('Fehler beim Laden:', error));
+            });
+        </script>
+
+
+        <script>
+            function showContent(region, pushState = true) {
+                const content = document.getElementById("content");
+
+                const data = {
+                    // Information
+                    "info": `
                         
                                     <div class="main-container">
                             <h1 class="main-title">Information</h1>
@@ -272,9 +290,9 @@
                         </div>
                     
                     `
-            ,
-            // Wings lvl 1
-            "1": `
+                    ,
+                    // Wings lvl 1
+                    "1": `
                    <div class="main-container">
                           <h1 class="main-title">Wings lvl 1</h1>
 
@@ -494,9 +512,9 @@
                         <br>
                     </div>
                     `
-            ,
-            // Wings lvl 2
-            "2": `
+                    ,
+                    // Wings lvl 2
+                    "2": `
                     <div class="main-container">
                         <h1 class="main-title">Wings & Cloaks lvl 2</h1>
 
@@ -793,9 +811,9 @@
                      <br>
                  </div>
                     `
-            ,
-            // Wings lvl 2.5
-            "2.5": `
+                    ,
+                    // Wings lvl 2.5
+                    "2.5": `
                     <div class="main-container">
                       <h1 class="main-title">Wings & Cloaks lvl 2.5</h1>
 
@@ -1123,9 +1141,9 @@
                         <br>
                     </div>
                     `
-            ,
-            // Wings lvl 3
-            "3": `
+                    ,
+                    // Wings lvl 3
+                    "3": `
                     <div class="main-container">
 
                      <h1 class="main-title">Wings & Cloaks lvl 3</h1>
@@ -1483,9 +1501,9 @@
                         <br>
                     </div>
                     `
-            ,
-            // Wings lvl 4
-            "4": `
+                    ,
+                    // Wings lvl 4
+                    "4": `
                     <div class="main-container">
 
                           <h1 class="main-title">Wings & Cloaks lvl 4</h1>
@@ -1842,9 +1860,9 @@
                         <br>
                     </div>
                     `
-            ,
-            // Wings lvl 5
-            "5": `
+                    ,
+                    // Wings lvl 5
+                    "5": `
                     <div class="main-container">
                         <h1 class="main-title">Wings & Cloaks lvl 5</h1>
 
@@ -2193,49 +2211,112 @@
                         <br>
                     </div>
                     `
-            ,
-        };
+                    ,
+                };
 
 
-        content.innerHTML = data[region];
-        content.classList.add("active");
-    }
-    document.addEventListener("DOMContentLoaded", function() {
-        showContent('info');
-    });
+                // let test= content.innerHTML = data[region]
+                // console.log(test);
 
 
-</script>
+                content.innerHTML = data[region] || `<div class="main-container"><h1 class="main-title">Not Found</h1></div>`;
+                content.classList.add("active");
 
 
 
 
 
+                // ✅ Remove open from all
+                document.querySelectorAll('details.details-box').forEach(d => d.removeAttribute('open'));
+
+                // ✅ Find the matching one and set open
+                const matchingDetails = Array.from(document.querySelectorAll('details.details-box')).find(d => {
+                    const onclickAttr = d.getAttribute('onclick') || "";
+                    // Normalize single quotes and remove spaces
+                    const cleanAttr = onclickAttr.replace(/\s/g, '').replace(/"/g, "'");
+                    return cleanAttr === `showContent('${region}')`;
+                });
+
+                console.log(matchingDetails);
+                
+
+                if (matchingDetails) {
+    setTimeout(() => {
+        matchingDetails.setAttribute('open', 'true');
+    }, 0);
+}
+
+
+
+                // ✅ Update URL without page reload
+                if (pushState) {
+                    const newUrl = `${window.location.pathname}?q=${encodeURIComponent(region)}`;
+                    history.pushState({ region }, '', newUrl);
+                }
+
+            }
+
+            window.addEventListener('popstate', function (event) {
+                const region = event.state?.region || 'info';
+                showContent(region, false); // Don't push again
+            });
+
+        </script>
 
 
 
 
+        <script>
+            function autoDetectSection(query) {
+                query = query.toLowerCase();
+                const sectionIdMap = {
+                    "wings 1": "1",
+                    "wings 2": "2",
+                    "wings 2.5": "2.5",
+                    "wings 3": "3",
+                    "wings 4": "4",
+                    "wings 5": "5",
+                    "information": "info"
+                };
+
+                // ✅ NEW: if query is a section ID directly
+                if (Object.values(sectionIdMap).includes(query)) {
+                    console.log(`Direct section ID match: ${query}`);
+                    return query;
+                }
+
+                for (const tag in sectionIdMap) {
+                    if (query.includes(tag)) {
+                        console.log(`Matched query "${query}" → section: ${sectionIdMap[tag]}`);
+                        return sectionIdMap[tag];
+                    }
+                }
+
+                console.warn("No matching section found, defaulting to 'info'");
+                return 'info';
+            }
 
 
+            document.addEventListener("DOMContentLoaded", function () {
+                const params = new URLSearchParams(window.location.search);
+                const q = params.get("q") || "info";
+                console.log("Query param received:", q);
+                const section = autoDetectSection(q);
+                showContent(section, false);
 
 
+            });
 
-<script>
-    const params = new URLSearchParams(window.location.search);
-    const tabToOpen = params.get('tab');
-    const popupToOpen = params.get('popup');
-  
-    if (tabToOpen) {
-      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
-    }
-  
-    if (popupToOpen) {
-      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
-    }
-  </script>
+        </script>
 
 
+        <!-- // Optional scroll to summary button if it exists
+                // const summary = document.querySelector(`details[onclick="showContent('${sectionToShow}')"]`);
+                // if (summary) {
+                //     summary.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // } -->
 
-</body>
 
-</html>
+    </body>
+
+    </html>
