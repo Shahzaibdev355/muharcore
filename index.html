@@ -209,11 +209,18 @@
 
 
 
+                    // flatIndex = Object.entries(data).map(([pageKey, pageData]) => ({
+                    //     title: pageData.title || '',
+                    //     url: pageData.url,
+                    //     content: pageData.content || '',
+                    //     tags: pageData.tags || []
+                    // }));
+
                     flatIndex = Object.entries(data).map(([pageKey, pageData]) => ({
-                        title: pageData.title || '',
-                        url: pageData.url,
-                        content: pageData.content || '',
-                        tags: pageData.tags || []
+                        title: (pageData.title || '').toLowerCase(),
+                        url: (pageData.url || '').toLowerCase(),
+                        content: (pageData.content || '').toLowerCase(),
+                        tags: (pageData.tags || []).map(tag => tag.toLowerCase())
                     }));
 
 
@@ -247,79 +254,325 @@
                 resultsList.innerHTML = '';
                 if (!query || !fuse) return;
 
-                // First, look for exact matches in title or tags
                 const exactResults = flatIndex.filter(item =>
-                    item.title.toLowerCase().includes(query) ||
-                    item.tags.some(tag => tag.toLowerCase().includes(query))
+                    item.title.includes(query) ||
+                    item.tags.some(tag => tag.includes(query))
                 );
 
-                let finalResults;
+                const fuzzyResults = fuse.search(query).slice(0, 20); // keep top 20
 
-                if (exactResults.length > 0) {
-                    finalResults = exactResults.map(item => ({ item }));
-                } else {
-                    finalResults = fuse.search(query)
-                        .filter(result => result.score < 0.3) // fallback fuzzy search
-                        .slice(0, 12);
-                }
+                //                 const rawResults = fuse.search(query);
+                // rawResults.forEach(result => {
+                //     console.log(`Matched: ${result.item.url} | Score: ${result.score}`);
+                // });
+
+
+
+                const combined = [...exactResults.map(item => ({ item })), ...fuzzyResults];
+
+                const seen = new Set();
+                const finalResults = combined.filter(res => {
+                    const id = res.item.url;
+                    if (seen.has(id)) return false;
+                    seen.add(id);
+                    return true;
+                }).slice(0, 12);
 
                 finalResults.forEach(result => {
                     const li = document.createElement('li');
                     const snippet = result.item.content.slice(0, 150).replace(/\s+/g, ' ') + '...';
                     li.textContent = `${result.item.url} - ${snippet}`;
 
-
-                    // li.addEventListener('click', () => {
-                    //     const searchParam = encodeURIComponent(query);
-                    //     // console.log(searchParam);
-
-                    //     window.location.href = `${result.item.url}?q=${searchParam}&tab=bonuses`;
-                    // });
-
-                    // li.addEventListener('click', () => {
-                    //         const searchQuery = result.item.title; // e.g., "Wings 2"
-                    //         window.location.href = `${result.item.url}?q=${encodeURIComponent(searchQuery)}`;
-                    // });
+                    // const sectionIdMap = {
+                    //     "information": "info",
+                    //     "wings 1": "1",
+                    //     "wings 2": "2",
+                    //     "wings 2.5": "2.5",
+                    //     "wings 3": "3",
+                    //     "wings 4": "4",
+                    //     "wings 5": "5"
+                    // };
 
 
-                    // li.addEventListener('click', (e) => {
-                    //     e.preventDefault();
-                    //     const searchQuery = result.item.title;
-                    //     console.log("Clicked search result:", searchQuery); // ✅ Debug log
-                    //     const targetURL = `${result.item.url}?q=${encodeURIComponent(searchQuery)}`;
-                    //     console.log("Navigating to:", targetURL); // ✅ Debug log
-                    //     window.location.href = targetURL;
-                    // });
+                    const sectionMapByPage = {
+                        "wings.html": {
+                            "information": "info",
+                            "wings 1": "1",
+                            "wings 2": "2",
+                            "wings 2.5": "2.5",
+                            "wings 3": "3",
+                            "wings 4": "4",
+                            "wings 5": "5"
+                        },
+                        "boxes.html": {
+                            "golden invasion": "goldens",
+                            "monster farm": "farm",
+                            "winged": "winged",
+                            "hardboxes": "hardbox",
+                            "blood castle": "bc",
+                            "chaos castle": "cc",
+                            "kalima": "kalima",
+                            "weapon": "weapon",
+                            "excellent weapon": "exeweapon",
+                            "white wizard": "ww",
+                            "skill": "skill",
+                            "christmas": "christmas",
+                            "evolution": "evolution",
+                            "dota": "dota",
+                            "dragon": "dragon"
+                        },
+                        "pets.html": {
+                            "information": "info",
+                            "damage": "damage",
+                            "defense": "defense",
+                            "mix": "mix",
+                            "horse": "horse",
+                            "farm": "farm"
+                        },
 
-                    const sectionIdMap = {
-                        "information": "info",
-                        "wings 1": "1",
-                        "wings 2": "2",
-                        "wings 2.5": "2.5",
-                        "wings 3": "3",
-                        "wings 4": "4",
-                        "wings 5": "5"
+                        "jewels.html": {
+                            "information": "info",
+                            "upgrade": "upgrade",
+                            "jewel of daedalus": "daedalus",
+                            "earrings": "earrings"
+                        },
+                        "customjewels.html": {
+                            "information": "info",
+                            "upgrade": "upgrade",
+                            "wings": "wings",
+                            "jewel of daedalus": "daedalus",
+                            "pet": "pet"
+                        },
+
+                        "skills.html": {
+                            "information": "info",
+                            "dark wizard": "dw",
+                            "dark knight": "dk",
+                            "fairy elf": "elf",
+                            "summoner": "sum",
+                            "rage fighter": "rf",
+                            "magic gladiator": "mg",
+                            "dark lord": "dl"
+                        },
+                        "invasions.html": {
+                            "information": "info",
+                            "farm": "farm",
+                            "golden": "golden",
+                            "goblin": "goblin",
+                            "white wizard": "ww",
+                            "king": "king",
+                            "lorencia warrior": "warrior",
+                            "pet": "pet",
+                            "feather": "feather",
+                            "weapon": "weapon",
+                            "kalima": "kalima",
+                            "skill": "skill",
+                            "skills": "skill",        // alternate for plural
+                            "christmas": "christmas",
+                            "evolution": "evolution",
+                            "dota": "dota",
+                            "dragon": "dragon",
+                            "summon dragon": "sdragon"
+                        },
+                        "events.html": {
+                            "information": "info",
+                            "blood castle": "bc",
+                            "devil square": "ds",
+                            "chaos castle": "cc",
+                            "kanturu event": "maya",
+                            "crywolf event": "balgass",
+                            "imperial guardian": "ig",
+                            "double goer": "dg",
+                            "pandora": "pandora",
+                            "killall": "killall",
+                            "castle siege": "cs"
+                        },
+                        "characters.html": {
+                            "information": "information",
+                            "dark wizard": "darkwizard",
+                            "fairy elf": "fairyelf",
+                            "dragon knight": "dragonknight",
+                            "summoner": "summoner",
+                            "rage fighter": "ragefighter",
+                            "magic gladiator": "magicgladiator",
+                            "dark lord": "darklord"
+                        },
+                        "maps.html": {
+                            "information": "info",
+                            "lorencia": "lorencia",
+                            "noria": "noria",
+                            "devias": "devias",
+                            "dungeon": "dungeon",
+                            "atlans": "atlans",
+                            "tarkan": "tarkan",
+                            "aida": "aida",
+                            "kalima": "kalima",
+                            "icarus": "icarus",
+                            "kanturu ruins": "kantururuins",
+                            "kanturu underground": "kanturuunderground",
+                            "kanturu relics": "kantururelics",
+                            "raklion": "raklion",
+                            "crywolf": "crywolf",
+                            "barraks of balgas": "baraks",
+                            "karutan": "karutan",
+                            "swamp of peace": "swamp",
+                            "gray aida": "grayaida",
+                            "nixies lake": "nixis",
+                            "ferea": "ferea",
+                            "deep dungeon": "deep",
+                            "swamp of darkness": "swampofdarkness",
+                            "atlans abbys": "atlansabbys"
+                        },
+
+
+
+                        "game.html": {
+                            "information": "info",
+                            "quest": "quest",
+                            "market": "market",
+                            "market place": "market",
+                            "battle pass": "battle",
+                            "battle": "battle",
+                            "hunt log": "hunt",
+                            "hunt": "hunt",
+                            "daily reward": "dailyreward",
+                            "offattack": "offattack"
+                        },
+
+                        "actsystem.html": {
+                            "information": "info",
+                            "act 1": "1",
+                            "act i": "1",
+                            "act 2": "2",
+                            "act ii": "2",
+                            "act 3": "3",
+                            "act iii": "3",
+                            "act 4": "4",
+                            "act iv": "4",
+                            "act 5": "5",
+                            "act v": "5"
+                        },
+
+                        "options-bonus.html": {
+                            "information": "info",
+                            "harmony": "harmony",
+                            "380": "380",
+                            "socket": "socket"
+                        },
+
+                        "achievements.html": {
+                            "information": "info",
+                            "my bonus": "mybonus",
+                            "general": "general",
+                            "monsters": "monsters",
+                            "items": "items"
+                        },
+
+                        "classevolution.html": {
+                            "information": "info",
+                            "sebina the priest": "2",
+                            "marlon": "220",
+                            "3rd class": "3",
+                            "third class": "3"
+                        },
+
+
+                        "quest.html": {
+                            "information": "info",
+                            "act i": "act1",
+                            "act 1": "act1",
+                            "act ii": "act2",
+                            "act 2": "act2",
+                            "act iii": "act3",
+                            "act 3": "act3",
+                            "act iv": "act4",
+                            "act 4": "act4",
+                            "act v": "act5",
+                            "act 5": "act5",
+                        },
+
+                        "petsystem.html": {
+                            "information": "info",
+                            "damage": "damage",
+                            "defense": "defense",
+                            "mix": "mix",
+                            "horse": "horse",
+                            "farm": "farm"
+                        },
+
+
+                        "earrings.html": {
+                            "information": "info",
+                            "earrings": "damage"
+                        },
+
+                        "itemsbonus.html": {
+                            "information": "info",
+                            "wings": "wings",
+                            "items": "items",
+                            "weapons": "weapons"
+                        },
+
+                        "pvm.html": {
+                            "information": "info",
+                            "farm": "farm",
+                            "feather": "feather",
+                            "golden invasion": "goldens",
+                            "kalima invasion": "kalima",
+                            "world bosses": "world"
+                        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        // Add more pages here
                     };
 
 
                     li.addEventListener('click', () => {
-                        const title = result.item.title.toLowerCase();
-                        const query = document.getElementById("search-box").value.toLowerCase();
-                        const tags = result.item.tags.map(t => t.toLowerCase());
 
-                        // Try to match user query with one of the tags
-                        const matchedTag = tags.find(tag => query.includes(tag));
-                        const sectionId = matchedTag ? sectionIdMap[matchedTag] : null;
+
+                        const page = result.item.url.split('/').pop(); // extract like "wings.html"
+                        const title = result.item.title.toLowerCase();
+                        const sectionMap = sectionMapByPage[page] || {};
+
+
+                        // 👇 FIX: match against full query instead of tags only
+                        const queryValue = document.getElementById("search-box").value.toLowerCase();
+                        const matchedKey = Object.keys(sectionMap).find(key => queryValue.includes(key));
+                        const sectionId = matchedKey ? sectionMap[matchedKey] : null;
 
                         const finalQuery = sectionId ? `q=${encodeURIComponent(sectionId)}` : `q=${encodeURIComponent(title)}`;
-
                         window.location.href = `${result.item.url}?${finalQuery}`;
-                    });
 
+
+
+
+
+                        // const query = document.getElementById("search-box").value.toLowerCase();
+                        // const tags = result.item.tags.map(t => t.toLowerCase());
+                        // const matchedTag = tags.find(tag => query.includes(tag));
+                        // const sectionId = matchedTag ? sectionIdMap[matchedTag] : null;
+                        // const finalQuery = sectionId ? `q=${encodeURIComponent(sectionId)}` : `q=${encodeURIComponent(title)}`;
+                        // window.location.href = `${result.item.url}?${finalQuery}`;
+                    });
 
                     resultsList.appendChild(li);
                 });
             });
+
 
 
             // Close results when clicking outside

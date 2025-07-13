@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -28,23 +29,28 @@
             align-items: center;
             z-index: 1000;
         }
+
         .highlight-text {
             color: #f1c40f;
             font-weight: bold;
         }
+
         @media screen and (max-width: 768px) {
             .map-image {
                 width: 80%;
-                max-width: 250px; 
+                max-width: 250px;
                 height: auto;
             }
+
             .map-container {
-                flex-direction: column; 
+                flex-direction: column;
             }
         }
     </style>
 </head>
-<body oncopy="return false" oncut="return false" onpaste="return false" data-spy="scroll" data-target="#navbarNav" data-offset="50">
+
+<body oncopy="return false" oncut="return false" onpaste="return false" data-spy="scroll" data-target="#navbarNav"
+    data-offset="50">
     <div class="loader">Loading...</div>
 
     <div id="navbar-container"></div>
@@ -138,9 +144,9 @@
     <div id="footer-container"></div>
     <!-- jQuery laden -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-            
+
     <!-- Schutz-Skript -->
-    <script src="js/protection.js"></script>
+    <!-- <script src="js/protection.js"></script> -->
     <script>
         // jQuery-Skript für Cut/Copy/Paste und Rechtsklick deaktivieren
         $(document).ready(function () {
@@ -172,7 +178,7 @@
                 .then(data => {
                     document.getElementById('footer-container').innerHTML = data;
                     // Seite öffnet standardmäßig auf "info"
-                    showContent('info');
+                    // showContent('info');
                 })
                 .catch(error => {
                     console.error('Fehler beim Laden:', error);
@@ -181,7 +187,7 @@
         });
 
         // Funktion zum Anzeigen der Inhalte basierend auf der Region
-        function showContent(region) {
+        function showContent(region, pushState = true) {
             const content = document.getElementById("content");
             const loader = document.querySelector('.loader');
 
@@ -200,6 +206,8 @@
 
                 content.innerHTML = html;
                 loader.style.display = 'none'; // Ladeanzeige ausblenden
+
+                finalizeContentState(region, pushState);
             } else {
                 // Lade die Map-Daten aus monsters.json
                 fetch('configs/monsters.json')
@@ -209,6 +217,7 @@
                         if (!regionData || !regionData.monsters || regionData.monsters.length === 0) {
                             content.innerHTML = `<p>Keine Daten für ${region} gefunden.</p>`;
                             loader.style.display = 'none';
+                            finalizeContentState(region, pushState);
                             return;
                         }
 
@@ -254,47 +263,120 @@
                         html += '</div>';
                         content.innerHTML = html;
                         loader.style.display = 'none'; // Ladeanzeige ausblenden
+
+                        finalizeContentState(region, pushState);
+
                     })
                     .catch(error => {
                         console.error('Fehler beim Laden von monsters.json:', error);
                         content.innerHTML = `<p>Fehler beim Laden der Daten.</p>`;
                         loader.style.display = 'none';
+
+
+                        finalizeContentState(region, pushState);
                     });
             }
         }
+
+
+        window.addEventListener('popstate', function (event) {
+            const region = event.state?.region || 'info';
+            showContent(region, false); // Don't push again
+        });
+
+
+        function finalizeContentState(region, pushState = true) {
+            // ✅ Remove open from all
+            document.querySelectorAll('details.details-box').forEach(d => d.removeAttribute('open'));
+
+            // ✅ Find the matching one and set open
+            const matchingDetails = Array.from(document.querySelectorAll('details.details-box')).find(d => {
+                const onclickAttr = d.getAttribute('onclick') || "";
+                const cleanAttr = onclickAttr.replace(/\s/g, '').replace(/"/g, "'");
+                return cleanAttr === `showContent('${region}')`;
+            });
+
+            console.log("Matching <details>:", matchingDetails);
+
+            if (matchingDetails) {
+                setTimeout(() => {
+                    matchingDetails.setAttribute('open', 'true');
+                }, 0);
+            }
+
+            // ✅ Update URL without reload
+            if (pushState) {
+                const newUrl = `${window.location.pathname}?q=${encodeURIComponent(region)}`;
+                history.pushState({ region }, '', newUrl);
+            }
+        }
+
     </script>
 
 
 
 
 
+    <script>
+        function autoDetectSection(query) {
+            query = query.toLowerCase();
+            const sectionIdMap = {
+                "information": "info",
+                "lorencia": "lorencia",
+                "noria": "noria",
+                "devias": "devias",
+                "dungeon": "dungeon",
+                "atlans": "atlans",
+                "tarkan": "tarkan",
+                "aida": "aida",
+                "kalima": "kalima",
+                "icarus": "icarus",
+                "kanturu ruins": "kantururuins",
+                "kanturu underground": "kanturuunderground",
+                "kanturu relics": "kantururelics",
+                "raklion": "raklion",
+                "crywolf": "crywolf",
+                "barraks of balgas": "baraks",
+                "karutan": "karutan",
+                "swamp of peace": "swamp",
+                "gray aida": "grayaida",
+                "nixies lake": "nixis",
+                "ferea": "ferea",
+                "deep dungeon": "deep",
+                "swamp of darkness": "swampofdarkness",
+                "atlans abbys": "atlansabbys"
+
+            };
+
+            // ✅ NEW: if query is a section ID directly
+            if (Object.values(sectionIdMap).includes(query)) {
+                console.log(`Direct section ID match: ${query}`);
+                return query;
+            }
+
+            for (const tag in sectionIdMap) {
+                if (query.includes(tag)) {
+                    console.log(`Matched query "${query}" → section: ${sectionIdMap[tag]}`);
+                    return sectionIdMap[tag];
+                }
+            }
+
+            console.warn("No matching section found, defaulting to 'info'");
+            return 'info';
+        }
 
 
+        document.addEventListener("DOMContentLoaded", function () {
+            const params = new URLSearchParams(window.location.search);
+            const q = params.get("q") || "info";
+            console.log("Query param received:", q);
+            const section = autoDetectSection(q);
+            showContent(section, false);
 
 
+        });
 
-
-
-
-
-
-
-
-
-
-
-<script>
-    const params = new URLSearchParams(window.location.search);
-    const tabToOpen = params.get('tab');
-    const popupToOpen = params.get('popup');
-  
-    if (tabToOpen) {
-      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
-    }
-  
-    if (popupToOpen) {
-      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
-    }
-  </script>
+    </script>
 </body>
+
 </html>

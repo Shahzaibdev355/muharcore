@@ -27,156 +27,156 @@
         <meta name="author" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
- 
 
-    <style>
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #000;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
 
-        /* ========================================================================== */
-        /* Allgemeine Stile für den Body                                              */
-        /* ========================================================================== */
-        body {
-            margin: 0;
-            background-color: #f5f5f5;
-        }
+        <style>
+            .loader {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #000;
+                color: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+            }
 
-        /* ========================================================================== */
-        /* Hauptcontainer für Map-Details                                             */
-        /* ========================================================================== */
-        .main-container {
-            background-color: #1f0000;
-            padding: 20px;
-            width: 90%;
-            max-width: 1000px;
-            box-sizing: border-box;
-            text-align: center;
-            margin: 50px auto;
-            border-radius: 15px;
-            box-shadow: 0 0px 100px #93330b7a;
-            border: 1px solid #93330b;
-        }
+            /* ========================================================================== */
+            /* Allgemeine Stile für den Body                                              */
+            /* ========================================================================== */
+            body {
+                margin: 0;
+                background-color: #f5f5f5;
+            }
 
-        /* ========================================================================== */
-        /* Überschrift im Hauptcontainer                                              */
-        /* ========================================================================== */
-        .main-title {
-            font-family: Calibri, sans-serif;
-            font-size: 36px;
-            font-weight: 900;
-            color: rgb(255, 94, 0);
-            margin-bottom: 20px;
-        }
+            /* ========================================================================== */
+            /* Hauptcontainer für Map-Details                                             */
+            /* ========================================================================== */
+            .main-container {
+                background-color: #1f0000;
+                padding: 20px;
+                width: 90%;
+                max-width: 1000px;
+                box-sizing: border-box;
+                text-align: center;
+                margin: 50px auto;
+                border-radius: 15px;
+                box-shadow: 0 0px 100px #93330b7a;
+                border: 1px solid #93330b;
+            }
 
-        /* ========================================================================== */
-        /* Wrapper für Bild und Popup                                                 */
-        /* ========================================================================== */
-        .item-wrapper {
-            position: relative;
-            display: inline-block;
-            text-align: center;
-            margin: 0 30px;
-        }
+            /* ========================================================================== */
+            /* Überschrift im Hauptcontainer                                              */
+            /* ========================================================================== */
+            .main-title {
+                font-family: Calibri, sans-serif;
+                font-size: 36px;
+                font-weight: 900;
+                color: rgb(255, 94, 0);
+                margin-bottom: 20px;
+            }
 
-        /* ========================================================================== */
-        /* Dauerhaft sichtbares Vorschaubild                                          */
-        /* ========================================================================== */
-        .item-thumb {
-            width: 52px;
-            height: 52px;
-            display: block;
-            cursor: pointer;
-        }
+            /* ========================================================================== */
+            /* Wrapper für Bild und Popup                                                 */
+            /* ========================================================================== */
+            .item-wrapper {
+                position: relative;
+                display: inline-block;
+                text-align: center;
+                margin: 0 30px;
+            }
 
-        /* ========================================================================== */
-        /* Popup-Container (erscheint bei Hover)                                      */
-        /* ========================================================================== */
-        .popup-info {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translate(-50%, 0);
-            width: 250px;
-            height: auto;
-            background-color: grey;
-            padding: 10px;
-            box-sizing: border-box;
-            font-family: Calibri, sans-serif;
-            color: #fff;
-            z-index: 10;
-        }
+            /* ========================================================================== */
+            /* Dauerhaft sichtbares Vorschaubild                                          */
+            /* ========================================================================== */
+            .item-thumb {
+                width: 52px;
+                height: 52px;
+                display: block;
+                cursor: pointer;
+            }
 
-        /* ========================================================================== */
-        /* Popup sichtbar machen bei Hover                                            */
-        /* ========================================================================== */
-        .item-wrapper:hover .popup-info {
-            display: block;
-        }
+            /* ========================================================================== */
+            /* Popup-Container (erscheint bei Hover)                                      */
+            /* ========================================================================== */
+            .popup-info {
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translate(-50%, 0);
+                width: 250px;
+                height: auto;
+                background-color: grey;
+                padding: 10px;
+                box-sizing: border-box;
+                font-family: Calibri, sans-serif;
+                color: #fff;
+                z-index: 10;
+            }
 
-        /* ========================================================================== */
-        /* Überschrift im Popup                                                       */
-        /* ========================================================================== */
-        .popup-header {
-            font-size: 20px;
-            font-weight: 900;
-            color: #f1c40f;
-            text-align: center;
-            margin-bottom: 10px;
-        }
+            /* ========================================================================== */
+            /* Popup sichtbar machen bei Hover                                            */
+            /* ========================================================================== */
+            .item-wrapper:hover .popup-info {
+                display: block;
+            }
 
-        /* ========================================================================== */
-        /* Inneres Bild im Popup                                                      */
-        /* ========================================================================== */
-        .popup-img {
-            display: block;
-            margin: 0 auto;
-            width: 60px;
-            height: 60px;
-        }
+            /* ========================================================================== */
+            /* Überschrift im Popup                                                       */
+            /* ========================================================================== */
+            .popup-header {
+                font-size: 20px;
+                font-weight: 900;
+                color: #f1c40f;
+                text-align: center;
+                margin-bottom: 10px;
+            }
 
-        /* ========================================================================== */
-        /* Name im Popup                                                              */
-        /* ========================================================================== */
-        .popup-name {
-            text-align: center;
-            color: #4cd964;
-            margin-top: 5px;
-            font-size: 18px;
-            font-weight: 900;
-        }
+            /* ========================================================================== */
+            /* Inneres Bild im Popup                                                      */
+            /* ========================================================================== */
+            .popup-img {
+                display: block;
+                margin: 0 auto;
+                width: 60px;
+                height: 60px;
+            }
 
-        /* ========================================================================== */
-        /* Loot-Text im Popup                                                         */
-        /* ========================================================================== */
-        .popup-loot {
-            text-align: center;
-            margin-top: 5px;
-            color: #5ac8fa;
-            font-size: 17px;
-            font-weight: 900;
-        }
+            /* ========================================================================== */
+            /* Name im Popup                                                              */
+            /* ========================================================================== */
+            .popup-name {
+                text-align: center;
+                color: #4cd964;
+                margin-top: 5px;
+                font-size: 18px;
+                font-weight: 900;
+            }
 
-        /* ========================================================================== */
-        /* Trennlinie                                                                 */
-        /* ========================================================================== */
-        .divider {
-            border: none;
-            border-top: 2px solid #000;
-            margin: 20px 0;
-        }
-    </style>
+            /* ========================================================================== */
+            /* Loot-Text im Popup                                                         */
+            /* ========================================================================== */
+            .popup-loot {
+                text-align: center;
+                margin-top: 5px;
+                color: #5ac8fa;
+                font-size: 17px;
+                font-weight: 900;
+            }
+
+            /* ========================================================================== */
+            /* Trennlinie                                                                 */
+            /* ========================================================================== */
+            .divider {
+                border: none;
+                border-top: 2px solid #000;
+                margin: 20px 0;
+            }
+        </style>
 
     </head>
 
@@ -188,83 +188,83 @@
 
 
         <section class="about section" id="about">
-          
-      
+
+
             <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
-            
-            <h1 style="text-align: center;"> 🛡 Invasions </h1>
-            <br>
-  
-            <!-- Alle Details-Buttons bleiben oben -->
-            <div class="summary-container">
-                <details class="details-box"  open onclick="showContent('info')">
-                    <summary>Information</summary>
-                </details>
-            </div><br>
+
+                <h1 style="text-align: center;"> 🛡 Invasions </h1>
+                <br>
+
+                <!-- Alle Details-Buttons bleiben oben -->
                 <div class="summary-container">
-            <details class="details-box"  open onclick="showContent('farm')">
-                <summary>Farm</summary>
-            </details>
-    
-            <details class="details-box" onclick="showContent('golden')">
-                <summary>Golden </summary>
-            </details>
-    
-            <details class="details-box" onclick="showContent('goblin')">
-                <summary>Goblin </summary>
-            </details>
-    
-            <details class="details-box" onclick="showContent('ww')">
-                <summary>White Wizard</summary>
-            </details>
-            <details class="details-box" onclick="showContent('king')">
-                <summary>King </summary>
-            </details>
-            <details class="details-box" onclick="showContent('warrior')">
-                <summary>Lorencia Warrior </summary>
-            </details>
-            <details class="details-box" onclick="showContent('pet')">
-                <summary>Pet </summary>
-            </details>
-            <details class="details-box" onclick="showContent('feather')">
-                <summary>Feather </summary>
-            </details>
-            <details class="details-box" onclick="showContent('weapon')">
-              <summary>Weapon</summary>
-            </details>
-            <details class="details-box" onclick="showContent('kalima')">
-            <summary>Kalima </summary>
-            </details>
-            <details class="details-box" onclick="showContent('ww')">
-            <summary>White Wizard</summary>
-            </details>
-            <details class="details-box" onclick="showContent('skill')">
-            <summary>Skills </summary>
-            </details>
-            <details class="details-box" onclick="showContent('christmas')">
-            <summary>Christmas </summary>
-            </details>
-            <details class="details-box" onclick="showContent('evolution')">
-            <summary>Evolution </summary>
-            </details>
-            <details class="details-box" onclick="showContent('dota')">
-              <summary>Dota</summary>
-              </details>
-              <details class="details-box" onclick="showContent('dragon')">
-                <summary>Dragon </summary>
-                </details>
-                <details class="details-box" onclick="showContent('sdragon')">
-                    <summary>Summon Dragon </summary>
+                    <details class="details-box" open onclick="showContent('info')">
+                        <summary>Information</summary>
                     </details>
-        
+                </div><br>
+                <div class="summary-container">
+                    <details class="details-box" open onclick="showContent('farm')">
+                        <summary>Farm</summary>
+                    </details>
+
+                    <details class="details-box" onclick="showContent('golden')">
+                        <summary>Golden </summary>
+                    </details>
+
+                    <details class="details-box" onclick="showContent('goblin')">
+                        <summary>Goblin </summary>
+                    </details>
+
+                    <details class="details-box" onclick="showContent('ww')">
+                        <summary>White Wizard</summary>
+                    </details>
+                    <details class="details-box" onclick="showContent('king')">
+                        <summary>King </summary>
+                    </details>
+                    <details class="details-box" onclick="showContent('warrior')">
+                        <summary>Lorencia Warrior </summary>
+                    </details>
+                    <details class="details-box" onclick="showContent('pet')">
+                        <summary>Pet </summary>
+                    </details>
+                    <details class="details-box" onclick="showContent('feather')">
+                        <summary>Feather </summary>
+                    </details>
+                    <details class="details-box" onclick="showContent('weapon')">
+                        <summary>Weapon</summary>
+                    </details>
+                    <details class="details-box" onclick="showContent('kalima')">
+                        <summary>Kalima </summary>
+                    </details>
+                    <details class="details-box" onclick="showContent('ww')">
+                        <summary>White Wizard</summary>
+                    </details>
+                    <details class="details-box" onclick="showContent('skill')">
+                        <summary>Skills </summary>
+                    </details>
+                    <details class="details-box" onclick="showContent('christmas')">
+                        <summary>Christmas </summary>
+                    </details>
+                    <details class="details-box" onclick="showContent('evolution')">
+                        <summary>Evolution </summary>
+                    </details>
+                    <details class="details-box" onclick="showContent('dota')">
+                        <summary>Dota</summary>
+                    </details>
+                    <details class="details-box" onclick="showContent('dragon')">
+                        <summary>Dragon </summary>
+                    </details>
+                    <details class="details-box" onclick="showContent('sdragon')">
+                        <summary>Summon Dragon </summary>
+                    </details>
+
+                </div>
+                <div id="content" class="content-container">
+                </div>
             </div>
-            <div id="content" class="content-container">  
-            </div>
-            </div>
-          
-                   
-                
-         </section>
+
+
+
+        </section>
         <div id="footer-container"></div>
 
 
@@ -274,44 +274,44 @@
         <script src="js/smoothscroll.js"></script>
         <script src="js/custom.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-         <!-- jQuery laden -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        
-<!-- Schutz-Skript -->
-<script src="js/protection.js"></script>
-         <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const loader = document.querySelector('.loader');
+        <!-- jQuery laden -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-        fetch('libraries.html?v=' + new Date().getTime())
-            .then(response => response.text())
-            .then(data => {
-                document.head.insertAdjacentHTML('beforeend', data);
-                return fetch('navbar.html?v=' + new Date().getTime());
-            })
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar-container').innerHTML = data;
-                return fetch('footer.html?v=' + new Date().getTime());
-            })
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-container').innerHTML = data;
-                showContent('info');
-                loader.style.display = 'none'; // Ladebildschirm ausblenden
-            })
-            .catch(error => console.error('Fehler beim Laden:', error));
-    });
-</script>
+        <!-- Schutz-Skript -->
+        <script src="js/protection.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const loader = document.querySelector('.loader');
+
+                fetch('libraries.html?v=' + new Date().getTime())
+                    .then(response => response.text())
+                    .then(data => {
+                        document.head.insertAdjacentHTML('beforeend', data);
+                        return fetch('navbar.html?v=' + new Date().getTime());
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('navbar-container').innerHTML = data;
+                        return fetch('footer.html?v=' + new Date().getTime());
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('footer-container').innerHTML = data;
+                        // showContent('info');
+                        loader.style.display = 'none'; // Ladebildschirm ausblenden
+                    })
+                    .catch(error => console.error('Fehler beim Laden:', error));
+            });
+        </script>
 
 
         <script>
-            function showContent(region) {
+            function showContent(region, pushState = true) {
                 const content = document.getElementById("content");
-   
+
                 const data = {
-                // Information
-                "info": `
+                    // Information
+                    "info": `
                     <div class="main-container">
                           <h1 class="main-title">Information</h1>
                           <p style="color: #f1c40f;">An “invasion” typically refers to a dynamic, server-wide event where a horde of hostile mobs or enemy forces suddenly appears in a specific area of the game world. Here’s a detailed breakdown of what that means:</p>
@@ -327,10 +327,10 @@
                         <br>
                         <br>
                     </div>
-                    ` 
-                ,
-                //Golden
-                "golden": `
+                    `
+                    ,
+                    //Golden
+                    "golden": `
                       <div class="main-container">
                           <h1 class="main-title">Golden Invasion</h1>
                     <h3 class="main-title" style="font-size: 22;">Invasion Time : <span class="popup-name" style="font-size: 22;">02:20,06:20,10:20,14:20,18:20,22:20</span></h2><br>
@@ -722,9 +722,9 @@
                         <br>
                     </div>
                     `
-                ,
-                // Farm
-                "farm": `
+                    ,
+                    // Farm
+                    "farm": `
                     <div class="main-container">
                           <h1 class="main-title">Farm</h1>
                     <div class="item-wrapper">
@@ -815,10 +815,10 @@
                         <br>
                         <br>
                     </div>
-                    ` 
-                ,
-                // Goblin
-                "goblin": `
+                    `
+                    ,
+                    // Goblin
+                    "goblin": `
                         <div class="main-container">
                           <h1 class="main-title">Goblin Invasion</h1>
                     <h3 class="main-title" style="font-size: 22;">Invasion Time : <span class="popup-name" style="font-size: 22;">02:45:30,05:45:30,08:45:30,11:45:30,13:45:30,15:45:30,17:45:30,20:45:30,23:45:30</span></h2><br>
@@ -933,9 +933,9 @@
                         <br>
                     </div>
                   `
-                ,
-                // White Wizard
-                "ww": `
+                    ,
+                    // White Wizard
+                    "ww": `
                   <div class="main-container">
 
                      <h1 class="main-title">White Wizard</h1>
@@ -1001,9 +1001,9 @@
                         <br>
                     </div>
                      `
-                ,
-                // King
-                "king":  `
+                    ,
+                    // King
+                    "king": `
                 <div class="main-container">
                               
                       <h1 class="main-title">King Invasion</h1>
@@ -1060,9 +1060,9 @@
                         <br>
                     </div>
                     `
-                ,
-                 // Lorencia Warrior
-                "warrior":  `
+                    ,
+                    // Lorencia Warrior
+                    "warrior": `
                 <div class="main-container">
                               
                       <h1 class="main-title">Lorencia Warrior Invasion</h1>
@@ -1093,9 +1093,9 @@
                         <br>
                     </div>
                     `
-                ,
-                // Weapon
-                "weapon":  `
+                    ,
+                    // Weapon
+                    "weapon": `
                 <div class="main-container">
                          <h1 class="main-title">Weapon Invasion</h1>
                     <h3 class="main-title" style="font-size: 22;">Invasion Time : <span class="popup-name" style="font-size: 22;">01:10,04:10,07:10,10:10,13:10,16:10,19:10,22:10</span></h2><br>
@@ -1252,9 +1252,9 @@
                         <br>
                     </div>
                     `
-                ,
-                // Pet
-                "pet":  `
+                    ,
+                    // Pet
+                    "pet": `
                 <div class="main-container">
                      <h1 class="main-title">Pet Invasion</h1>
                     <h3 class="main-title" style="font-size: 22;">Invasion Time : <span class="popup-name" style="font-size: 22;">00:51,02:51,04:51,06:51,08:51,10:51,12:51,14:51,16:51,18:51,20:51,22:51</span></h2><br>
@@ -1381,9 +1381,9 @@
                         <br>
                     </div>
                     `
-                ,
-                // Feather
-                "feather":  `
+                    ,
+                    // Feather
+                    "feather": `
                 <div class="main-container">
                       <h1 class="main-title">Feather Invasion</h1>
                     <h3 class="main-title" style="font-size: 22;">Invasion Time : <span class="popup-name" style="font-size: 22;">03:46,09:46,15:46,21:46</span></h2><br>
@@ -1541,9 +1541,9 @@
                         <br>
                     </div>
                     `
-                ,
-                 // Kalima
-                 "kalima":  `
+                    ,
+                    // Kalima
+                    "kalima": `
                 <div class="main-container">
                       <h1 class="main-title">Kalima Invasion</h1>
                     <h3 class="main-title" style="font-size: 22;">Invasion Time : <span class="popup-name" style="font-size: 22;">07:30,19:30</span></h2><br>
@@ -1801,9 +1801,9 @@
                         <br>
                     </div>
                     `
-                ,
-                // Skill
-                "skill":  `
+                    ,
+                    // Skill
+                    "skill": `
                 <div class="main-container">
                       <h1 class="main-title">Skills Invasion</h1>
                     <h3 class="main-title" style="font-size: 22;">Invasion Time : <span class="popup-name" style="font-size: 22;">02:15,08:15,14:15,20:15</span></h2><br>
@@ -1908,9 +1908,9 @@
                         <br>
                     </div>
                     `
-                ,
-                 // Christmas
-                 "christmas":  `
+                    ,
+                    // Christmas
+                    "christmas": `
                 <div class="main-container">
                            <h1 class="main-title">Christmas Invasion</h1>
                     <h3 class="main-title" style="font-size: 22;">Invasion Time : <span class="popup-name" style="font-size: 22;">05:20:30,11:20:30,17:20:30,23:20:30
@@ -1969,9 +1969,9 @@
                         <br>
                     </div>
                     `
-                ,
-                // Evolution
-                "evolution":  `
+                    ,
+                    // Evolution
+                    "evolution": `
                 <div class="main-container">
                      <h1 class="main-title">EVOLUTION Invasion</h1>
                     <h3 class="main-title" style="font-size: 22;">Invasion Time : <span class="popup-name" style="font-size: 22;">08:00,20:00</span></h2><br>
@@ -2509,9 +2509,9 @@
                         <br>
                     </div>
                     `
-                ,
-                // Dota
-                "dota":  `
+                    ,
+                    // Dota
+                    "dota": `
                 <div class="main-container">
                         <h1 class="main-title">DOTA Invasion</h1>
                     <h3 class="main-title" style="font-size: 22;">Invasion Time : <span class="popup-name" style="font-size: 22;">08:30,20:30</span></h2><br>
@@ -2622,9 +2622,9 @@
                         <br>
                     </div>
                     `
-                ,
-                // Dragon
-                "dragon":  `
+                    ,
+                    // Dragon
+                    "dragon": `
                 <div class="main-container">
                           <h1 class="main-title">DRAGON Invasion</h1>
                     <h3 class="main-title" style="font-size: 22;">Invasion Time : <span class="popup-name" style="font-size: 22;">08:30,20:30</span></h2><br>
@@ -2734,9 +2734,9 @@
                         <br>
                     </div>
                     `
-                ,
-                 // Summon Dragon
-                 "sdragon":  `
+                    ,
+                    // Summon Dragon
+                    "sdragon": `
                 <div class="main-container">
                        <h1 class="main-title">Summon Dragon</h1>
                     <h3 class="main-title" style="font-size: 22;">Invasion Time : <span class="popup-name" style="font-size: 22;">The dragon appears when you summon it.</span></h2><br>
@@ -3103,24 +3103,57 @@
                         <br>
                     </div>
                     `
-                ,
-               
-               
-               
+                    ,
+
+
+
                 };
-    
-                
-                content.innerHTML = data[region];
-                content.classList.add("active"); 
+
+
+                content.innerHTML = data[region] || `<div class="main-container"><h1 class="main-title">Not Found</h1></div>`;
+                content.classList.add("active");
+
+
+
+
+
+                // ✅ Remove open from all
+                document.querySelectorAll('details.details-box').forEach(d => d.removeAttribute('open'));
+
+                // ✅ Find the matching one and set open
+                const matchingDetails = Array.from(document.querySelectorAll('details.details-box')).find(d => {
+                    const onclickAttr = d.getAttribute('onclick') || "";
+                    // Normalize single quotes and remove spaces
+                    const cleanAttr = onclickAttr.replace(/\s/g, '').replace(/"/g, "'");
+                    return cleanAttr === `showContent('${region}')`;
+                });
+
+                console.log(matchingDetails);
+
+
+                if (matchingDetails) {
+                    setTimeout(() => {
+                        matchingDetails.setAttribute('open', 'true');
+                    }, 0);
+                }
+
+
+
+                // ✅ Update URL without page reload
+                if (pushState) {
+                    const newUrl = `${window.location.pathname}?q=${encodeURIComponent(region)}`;
+                    history.pushState({ region }, '', newUrl);
+                }
+
             }
-            document.addEventListener("DOMContentLoaded", function() {
-           showContent('info');
-          });
-        
-  
+            window.addEventListener('popstate', function (event) {
+                const region = event.state?.region || 'info';
+                showContent(region, false); // Don't push again
+            });
+
+
         </script>
 
-   
 
 
 
@@ -3130,20 +3163,63 @@
 
 
 
-<script>
-    const params = new URLSearchParams(window.location.search);
-    const tabToOpen = params.get('tab');
-    const popupToOpen = params.get('popup');
-  
-    if (tabToOpen) {
-      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
-    }
-  
-    if (popupToOpen) {
-      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
-    }
-  </script>
-            
+
+        <script>
+            function autoDetectSection(query) {
+                query = query.toLowerCase();
+                const sectionIdMap = {
+
+                    "information": "info",
+                    "farm": "farm",
+                    "golden": "golden",
+                    "goblin": "goblin",
+                    "white wizard": "ww",
+                    "king": "king",
+                    "lorencia warrior": "warrior",
+                    "pet": "pet",
+                    "feather": "feather",
+                    "weapon": "weapon",
+                    "kalima": "kalima",
+                    "skill": "skill",
+                    "skills": "skill",        // alternate for plural
+                    "christmas": "christmas",
+                    "evolution": "evolution",
+                    "dota": "dota",
+                    "dragon": "dragon",
+                    "summon dragon": "sdragon"
+
+                };
+
+                // ✅ NEW: if query is a section ID directly
+                if (Object.values(sectionIdMap).includes(query)) {
+                    console.log(`Direct section ID match: ${query}`);
+                    return query;
+                }
+
+                for (const tag in sectionIdMap) {
+                    if (query.includes(tag)) {
+                        console.log(`Matched query "${query}" → section: ${sectionIdMap[tag]}`);
+                        return sectionIdMap[tag];
+                    }
+                }
+
+                console.warn("No matching section found, defaulting to 'info'");
+                return 'info';
+            }
+
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const params = new URLSearchParams(window.location.search);
+                const q = params.get("q") || "info";
+                console.log("Query param received:", q);
+                const section = autoDetectSection(q);
+                showContent(section, false);
+
+
+            });
+
+        </script>
+
 
     </body>
 

@@ -27,57 +27,74 @@
         <meta name="author" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <style>
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #000;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-        p {
-        color: #f1c40f;
-        }
-        .item-container {
-            background-color: #1f0000;
-            padding: 10px;
-            width: 90%; /* Beibehalten, wird aber durch max-width eingeschränkt */
-            max-width: 150px; /* Feste maximale Breite */
-            box-sizing: border-box;
-            text-align: center; /* Horizontale Zentrierung */
-            border-radius: 15px;
-            box-shadow: 0 0px 100px #93330b7a;
-            border: 1px solid #93330b;
-            display: flex; /* Flexbox für vertikale Zentrierung */
-            flex-direction: column; /* Stapelt Kinder vertikal */
-            justify-content: center; /* Vertikale Zentrierung */
-            align-items: center; /* Horizontale Zentrierung innerhalb Flex */
-            height: 200px; /* Feste Höhe für Konsistenz und Zentrierung */
-        }
-        .item-wrapper { 
-            text-align: center; /* Zentriert Text und Bild */
-        }
-        .item-thumb { 
-            width: 120px; /* Angepasst an deine Inline-Styles */
-            height: 120px; 
-            display: block; 
-            margin: 0 auto; 
-        }
-        .items-row {
-            display: flex; /* Horizontale Anordnung */
-            justify-content: center; /* Zentriert die Container */
-            gap: 10px; /* Abstand zwischen den Containern */
-            flex-wrap: nowrap; /* Verhindert Umbruch */
-        }
+        <style>
+            .loader {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #000;
+                color: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+            }
 
+            p {
+                color: #f1c40f;
+            }
 
-    </style>
+            .item-container {
+                background-color: #1f0000;
+                padding: 10px;
+                width: 90%;
+                /* Beibehalten, wird aber durch max-width eingeschränkt */
+                max-width: 150px;
+                /* Feste maximale Breite */
+                box-sizing: border-box;
+                text-align: center;
+                /* Horizontale Zentrierung */
+                border-radius: 15px;
+                box-shadow: 0 0px 100px #93330b7a;
+                border: 1px solid #93330b;
+                display: flex;
+                /* Flexbox für vertikale Zentrierung */
+                flex-direction: column;
+                /* Stapelt Kinder vertikal */
+                justify-content: center;
+                /* Vertikale Zentrierung */
+                align-items: center;
+                /* Horizontale Zentrierung innerhalb Flex */
+                height: 200px;
+                /* Feste Höhe für Konsistenz und Zentrierung */
+            }
+
+            .item-wrapper {
+                text-align: center;
+                /* Zentriert Text und Bild */
+            }
+
+            .item-thumb {
+                width: 120px;
+                /* Angepasst an deine Inline-Styles */
+                height: 120px;
+                display: block;
+                margin: 0 auto;
+            }
+
+            .items-row {
+                display: flex;
+                /* Horizontale Anordnung */
+                justify-content: center;
+                /* Zentriert die Container */
+                gap: 10px;
+                /* Abstand zwischen den Containern */
+                flex-wrap: nowrap;
+                /* Verhindert Umbruch */
+            }
+        </style>
 
     </head>
 
@@ -85,53 +102,53 @@
 
         <div class="loader">Loading...</div>
 
-            <div id="navbar-container"></div>
+        <div id="navbar-container"></div>
 
         <section class="about section" id="about">
-          
-      
+
+
             <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
-            
-            <h1 style="text-align: center;"> 🛡 Custom Jewels</h1>
-            <br>
-  
-            <!-- Alle Details-Buttons bleiben oben -->
-            <div class="summary-container">
-             <details class="details-box"  open onclick="showContent('info')">
-                 <summary>Information</summary>
-             </details>
-            </div><br>
+
+                <h1 style="text-align: center;"> 🛡 Custom Jewels</h1>
+                <br>
+
+                <!-- Alle Details-Buttons bleiben oben -->
                 <div class="summary-container">
-            <details class="details-box"  open onclick="showContent('upgrade')">
-                <summary>UPGRADE</summary>
-            </details>        
-            <details class="details-box"  open onclick="showContent('wings')">
-                <summary>WINGS</summary>
-            </details>
-            <details class="details-box"  open onclick="showContent('daedalus')">
-                <summary>Jewel of Daedalus</summary>
-            </details>
-            <details class="details-box"  open onclick="showContent('pet')">
-                <summary>Pet</summary>
-            </details>
-    
-  
+                    <details class="details-box" open onclick="showContent('info')">
+                        <summary>Information</summary>
+                    </details>
+                </div><br>
+                <div class="summary-container">
+                    <details class="details-box" open onclick="showContent('upgrade')">
+                        <summary>UPGRADE</summary>
+                    </details>
+                    <details class="details-box" open onclick="showContent('wings')">
+                        <summary>WINGS</summary>
+                    </details>
+                    <details class="details-box" open onclick="showContent('daedalus')">
+                        <summary>Jewel of Daedalus</summary>
+                    </details>
+                    <details class="details-box" open onclick="showContent('pet')">
+                        <summary>Pet</summary>
+                    </details>
 
+
+
+                </div>
+                <div id="content" class="content-container">
+                </div>
             </div>
-            <div id="content" class="content-container">  
-            </div>
-            </div>
-          
-                   
-                
-         </section>
-
-         <div id="footer-container"></div>
-        
 
 
-      
-            
+
+        </section>
+
+        <div id="footer-container"></div>
+
+
+
+
+
 
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
@@ -140,43 +157,43 @@
         <script src="js/custom.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- jQuery laden -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        
-<!-- Schutz-Skript -->
-<script src="js/protection.js"></script>
-      
-       <script>
-         document.addEventListener("DOMContentLoaded", function () {
-        const loader = document.querySelector('.loader');
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-        fetch('libraries.html?v=' + new Date().getTime())
-            .then(response => response.text())
-            .then(data => {
-                document.head.insertAdjacentHTML('beforeend', data);
-                return fetch('navbar.html?v=' + new Date().getTime());
-            })
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar-container').innerHTML = data;
-                return fetch('footer.html?v=' + new Date().getTime());
-            })
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-container').innerHTML = data;
-                showContent('info');
-                loader.style.display = 'none'; // Ladebildschirm ausblenden
-            })
-            .catch(error => console.error('Fehler beim Laden:', error));
-                });
+        <!-- Schutz-Skript -->
+        <script src="js/protection.js"></script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const loader = document.querySelector('.loader');
+
+                fetch('libraries.html?v=' + new Date().getTime())
+                    .then(response => response.text())
+                    .then(data => {
+                        document.head.insertAdjacentHTML('beforeend', data);
+                        return fetch('navbar.html?v=' + new Date().getTime());
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('navbar-container').innerHTML = data;
+                        return fetch('footer.html?v=' + new Date().getTime());
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('footer-container').innerHTML = data;
+                        // showContent('info');
+                        loader.style.display = 'none'; // Ladebildschirm ausblenden
+                    })
+                    .catch(error => console.error('Fehler beim Laden:', error));
+            });
         </script>
 
         <script>
-            function showContent(region) {
+            function showContent(region, pushState = true) {
                 const content = document.getElementById("content");
-   
+
                 const data = {
-                // Information
-                "info": `
+                    // Information
+                    "info": `
                    <div class="main-container">
                      <h1 class="main-title">Custom Jewels</h1>
     
@@ -196,10 +213,10 @@
                     <br>
                 </div>
 
-                    ` 
-                ,
-                // Updrade
-                "upgrade": `
+                    `
+                    ,
+                    // Updrade
+                    "upgrade": `
                     <div class="main-container">
                        <h2 class="main-title">Jewel of Level</h2>
                        <p><strong style="color:#4cffd5;">Jewel of Level</strong> - can only be used on armor and will be gradually added to the XShop throughout different ACTS. For example, in ACT I, the maximum level available will be +10, in the next ACT it will be +11, and the highest level Jewel that will be sold is +12 in ACT II. These Jewels can be obtained from events and quests.  However, the +10 and +11 Jewels can also be added to Wings, but not beyond that.</p>
@@ -355,10 +372,10 @@
                         <br>
                         <br>
                     </div>
-                    ` 
-                ,
-                // Wings
-                "wings": `
+                    `
+                    ,
+                    // Wings
+                    "wings": `
                   <div class="main-container">
                      <h1 class="main-title">Wings lvl 2</h1>
                      <p>Wing elements have been implemented to balance the drop rate and to be used as rewards in quests, events, and monster drops. The Feather Element is an item that can be collected, and once you gather 10/10, it automatically transforms into Icarus Feather, which drops 50/50 either Crest of Monarch or Loch’s Feather. This element drops from Icarus or from the Feather Invasion in Pharaoh.</p> <br>
@@ -650,10 +667,10 @@
                     <br>
                   </div>
                
-                    ` 
-                ,
-                // Jewel of Daedalus
-                "daedalus": `
+                    `
+                    ,
+                    // Jewel of Daedalus
+                    "daedalus": `
                     <div class="main-container">
 
                     <div style="font-family: Arial, sans-serif; color: black;">
@@ -745,10 +762,10 @@
                         <br>
                         <br>
                     </div>
-                    ` 
-                ,
-                // Pet
-                "pet": `
+                    `
+                    ,
+                    // Pet
+                    "pet": `
                     <div class="main-container">
                          <div style="font-family: Arial, sans-serif; color: black;">
                         <h1 class="main-title">Pet Jewels</h1>
@@ -830,35 +847,70 @@
                         <br>
                         <br>
                     </div>
-                    ` 
-                ,
-                // FARM
-                "farm": `
+                    `
+                    ,
+                    // FARM
+                    "farm": `
                     <div class="main-container">
                        
 
                         <br>
                         <br>
                     </div>
-                    ` 
-                ,
-              
-               
-               
+                    `
+                    ,
+
+
+
                 };
-    
-                
-                content.innerHTML = data[region];
-                content.classList.add("active"); 
+
+
+                content.innerHTML = data[region] || `<div class="main-container"><h1 class="main-title">Not Found</h1></div>`;
+                content.classList.add("active");
+
+
+
+
+
+                // ✅ Remove open from all
+                document.querySelectorAll('details.details-box').forEach(d => d.removeAttribute('open'));
+
+                // ✅ Find the matching one and set open
+                const matchingDetails = Array.from(document.querySelectorAll('details.details-box')).find(d => {
+                    const onclickAttr = d.getAttribute('onclick') || "";
+                    // Normalize single quotes and remove spaces
+                    const cleanAttr = onclickAttr.replace(/\s/g, '').replace(/"/g, "'");
+                    return cleanAttr === `showContent('${region}')`;
+                });
+
+                console.log(matchingDetails);
+
+
+                if (matchingDetails) {
+                    setTimeout(() => {
+                        matchingDetails.setAttribute('open', 'true');
+                    }, 0);
+                }
+
+
+
+                // ✅ Update URL without page reload
+                if (pushState) {
+                    const newUrl = `${window.location.pathname}?q=${encodeURIComponent(region)}`;
+                    history.pushState({ region }, '', newUrl);
+                }
+
             }
-            document.addEventListener("DOMContentLoaded", function() {
-           showContent('info');
-          });
-        
-  
+
+            window.addEventListener('popstate', function (event) {
+                const region = event.state?.region || 'info';
+                showContent(region, false); // Don't push again
+            });
+
+
+
         </script>
 
-            
 
 
 
@@ -871,29 +923,47 @@
 
 
 
+        <script>
+            function autoDetectSection(query) {
+                query = query.toLowerCase();
+                const sectionIdMap = {
+
+                    "information": "info",
+                    "upgrade": "upgrade",
+                    "wings": "wings",
+                    "jewel of daedalus": "daedalus",
+                    "pet": "pet"
+                };
+
+                // ✅ NEW: if query is a section ID directly
+                if (Object.values(sectionIdMap).includes(query)) {
+                    console.log(`Direct section ID match: ${query}`);
+                    return query;
+                }
+
+                for (const tag in sectionIdMap) {
+                    if (query.includes(tag)) {
+                        console.log(`Matched query "${query}" → section: ${sectionIdMap[tag]}`);
+                        return sectionIdMap[tag];
+                    }
+                }
+
+                console.warn("No matching section found, defaulting to 'info'");
+                return 'info';
+            }
 
 
+            document.addEventListener("DOMContentLoaded", function () {
+                const params = new URLSearchParams(window.location.search);
+                const q = params.get("q") || "info";
+                console.log("Query param received:", q);
+                const section = autoDetectSection(q);
+                showContent(section, false);
 
 
+            });
 
-
-
-
-
-
-<script>
-    const params = new URLSearchParams(window.location.search);
-    const tabToOpen = params.get('tab');
-    const popupToOpen = params.get('popup');
-  
-    if (tabToOpen) {
-      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
-    }
-  
-    if (popupToOpen) {
-      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
-    }
-  </script>
+        </script>
 
     </body>
 

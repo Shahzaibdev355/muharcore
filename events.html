@@ -1,167 +1,166 @@
 <script type="text/javascript">
-  $(document).ready(function () {
-      //Disable cut copy paste
-      $('body').bind('cut copy paste', function (e) {
-          e.preventDefault();
-      });
+    $(document).ready(function () {
+        //Disable cut copy paste
+        $('body').bind('cut copy paste', function (e) {
+            e.preventDefault();
+        });
 
-      //Disable mouse right click
-      $("body").on("contextmenu", function (e) {
-          return false;
-      });
-  });
+        //Disable mouse right click
+        $("body").on("contextmenu", function (e) {
+            return false;
+        });
+    });
 </script>
 <!DOCTYPE html>
 
 <body oncopy="return false" oncut="return false" onpaste="return false">
-  <html lang="en">
+    <html lang="en">
 
-  <head>
+    <head>
 
-      <title>Guides MU-HARDCORE</title>
+        <title>Guides MU-HARDCORE</title>
 
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-      <meta name="description" content="">
-      <meta name="keywords" content="">
-      <meta name="author" content="">
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-   <style>
-      .loader {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: #000;
-          color: #fff;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          z-index: 1000;
-      }
-
-  </style>
-  
-
-  </head>
-
-  <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
-
-      <div class="loader">Loading...</div>
-
-      <div id="navbar-container"></div>
+        <style>
+            .loader {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #000;
+                color: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+            }
+        </style>
 
 
-      <section class="about section" id="about">
-        
-    
-          <div style="max-width: 1200px; margin: 0 auto; padding: 20px; ">
-          
-          <h1 style="text-align: center;"> 🛡 Events </h1>
-          <br>
+    </head>
 
-          <!-- Alle Details-Buttons bleiben oben -->
-          <div class="summary-container">
-           <details class="details-box"  open onclick="showContent('info')">
-               <summary>Information</summary>
-           </details>
-          </div><br>
-              <div class="summary-container">
-          <details class="details-box"  open onclick="showContent('bc')">
-              <summary>Blood Castle</summary>
-          </details>        
-          <details class="details-box"  open onclick="showContent('ds')">
-              <summary>Devil Square</summary>
-          </details>
-  
-          <details class="details-box" onclick="showContent('cc')">
-              <summary>Chaos Castle </summary>
-          </details>
-  
-          <details class="details-box" onclick="showContent('maya')">
-              <summary>Kanturu Event </summary>
-          </details>
-  
-          <details class="details-box" onclick="showContent('balgass')">
-              <summary>Crywolf Event</summary>
-          </details>
-       
-          <details class="details-box" onclick="showContent('ig')">
-              <summary>Imperial Guardian </summary>
-          </details>
-          <details class="details-box" onclick="showContent('dg')">
-              <summary>Double Goer </summary>
-          </details>
-          <details class="details-box" onclick="showContent('pandora')">
-              <summary>Pandora </summary>
-          </details>
-           <details class="details-box" onclick="showContent('killall')">
-              <summary>KILLALL </summary>
-          </details>
+    <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
 
-          <details class="details-box" onclick="showContent('cs')">
-              <summary>Castle Siege </summary>
-          </details>
-      
-        
+        <div class="loader">Loading...</div>
 
-         
-          </div>
-          <div id="content" class="content-container">  
-          </div>
-          </div>
-        
-                 
-              
-       </section>
-    
-      <div id="footer-container"></div>
+        <div id="navbar-container"></div>
 
-      <script src="js/jquery.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
-      <script src="js/aos.js"></script>
-      <script src="js/smoothscroll.js"></script>
-      <script src="js/custom.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-       <!-- jQuery laden -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        
-<!-- Schutz-Skript -->
- <script src="js/protection.js"></script>
-       <script>
-  document.addEventListener("DOMContentLoaded", function () {
-      const loader = document.querySelector('.loader');
 
-      fetch('libraries.html?v=' + new Date().getTime())
-          .then(response => response.text())
-          .then(data => {
-              document.head.insertAdjacentHTML('beforeend', data);
-              return fetch('navbar.html?v=' + new Date().getTime());
-          })
-          .then(response => response.text())
-          .then(data => {
-              document.getElementById('navbar-container').innerHTML = data;
-              return fetch('footer.html?v=' + new Date().getTime());
-          })
-          .then(response => response.text())
-          .then(data => {
-              document.getElementById('footer-container').innerHTML = data;
-              showContent('info');
-              loader.style.display = 'none'; // Ladebildschirm ausblenden
-          })
-          .catch(error => console.error('Fehler beim Laden:', error));
-  });
- </script>
+        <section class="about section" id="about">
 
-      <script>
-          function showContent(region) {
-              const content = document.getElementById("content");
- 
-              const data = {
-              // Information
-              "info": `
+
+            <div style="max-width: 1200px; margin: 0 auto; padding: 20px; ">
+
+                <h1 style="text-align: center;"> 🛡 Events </h1>
+                <br>
+
+                <!-- Alle Details-Buttons bleiben oben -->
+                <div class="summary-container">
+                    <details class="details-box" open onclick="showContent('info')">
+                        <summary>Information</summary>
+                    </details>
+                </div><br>
+                <div class="summary-container">
+                    <details class="details-box" open onclick="showContent('bc')">
+                        <summary>Blood Castle</summary>
+                    </details>
+                    <details class="details-box" open onclick="showContent('ds')">
+                        <summary>Devil Square</summary>
+                    </details>
+
+                    <details class="details-box" onclick="showContent('cc')">
+                        <summary>Chaos Castle </summary>
+                    </details>
+
+                    <details class="details-box" onclick="showContent('maya')">
+                        <summary>Kanturu Event </summary>
+                    </details>
+
+                    <details class="details-box" onclick="showContent('balgass')">
+                        <summary>Crywolf Event</summary>
+                    </details>
+
+                    <details class="details-box" onclick="showContent('ig')">
+                        <summary>Imperial Guardian </summary>
+                    </details>
+                    <details class="details-box" onclick="showContent('dg')">
+                        <summary>Double Goer </summary>
+                    </details>
+                    <details class="details-box" onclick="showContent('pandora')">
+                        <summary>Pandora </summary>
+                    </details>
+                    <details class="details-box" onclick="showContent('killall')">
+                        <summary>KILLALL </summary>
+                    </details>
+
+                    <details class="details-box" onclick="showContent('cs')">
+                        <summary>Castle Siege </summary>
+                    </details>
+
+
+
+
+                </div>
+                <div id="content" class="content-container">
+                </div>
+            </div>
+
+
+
+        </section>
+
+        <div id="footer-container"></div>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/aos.js"></script>
+        <script src="js/smoothscroll.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- jQuery laden -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <!-- Schutz-Skript -->
+        <script src="js/protection.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const loader = document.querySelector('.loader');
+
+                fetch('libraries.html?v=' + new Date().getTime())
+                    .then(response => response.text())
+                    .then(data => {
+                        document.head.insertAdjacentHTML('beforeend', data);
+                        return fetch('navbar.html?v=' + new Date().getTime());
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('navbar-container').innerHTML = data;
+                        return fetch('footer.html?v=' + new Date().getTime());
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('footer-container').innerHTML = data;
+                        // showContent('info');
+                        loader.style.display = 'none'; // Ladebildschirm ausblenden
+                    })
+                    .catch(error => console.error('Fehler beim Laden:', error));
+            });
+        </script>
+
+        <script>
+            function showContent(region, pushState = true) {
+                const content = document.getElementById("content");
+
+                const data = {
+                    // Information
+                    "info": `
                  <div class="main-container">
                      <h1 class="main-title">Events – PvP & PvE</h1>
                  
@@ -197,10 +196,10 @@
                  </div>
 
 
-                  ` 
-              ,
-              //Blood Castle
-              "bc": `
+                  `
+                    ,
+                    //Blood Castle
+                    "bc": `
                   <div class="main-container">
                         <h1 class="main-title">Blood Castle</h1>
 
@@ -388,10 +387,10 @@
                       <br>
                       <br>
                   </div>
-                  ` 
-              ,
-              // Devil Square
-              "ds": `
+                  `
+                    ,
+                    // Devil Square
+                    "ds": `
                   <div class="main-container">
                         <h1 class="main-title">Devil Square</h1>
 
@@ -539,10 +538,10 @@
                       <br>
                       <br>
                   </div>
-                  ` 
-              ,
-              // Chaos Castle
-              "cc": `
+                  `
+                    ,
+                    // Chaos Castle
+                    "cc": `
                   <div class="main-container">
                         <h1 class="main-title">Chaos Castle</h1>
                           <div style="padding: 20px;  color: #000000; font-family: Arial, sans-serif;">
@@ -645,10 +644,10 @@
                       <br>
                       <br>
                   </div>
-                  ` 
-              ,
-              // Nightmare
-              "maya": `
+                  `
+                    ,
+                    // Nightmare
+                    "maya": `
                   <div class="main-container">
                         <h1 class="main-title">Kanturu Event</h1>
                           <div style="padding: 20px;  color: #000000; font-family: Arial, sans-serif;">
@@ -767,10 +766,10 @@
                       <br>
                       <br>
                   </div>
-                  ` 
-              ,
-              // Balgass
-              "balgass": `
+                  `
+                    ,
+                    // Balgass
+                    "balgass": `
                  <div class="main-container">
                      <h1 class="main-title">Crywolf Fortress - Balgass Event</h1>
                  
@@ -832,10 +831,10 @@
                      <h3 style="color: #ffc107; font-size: 20px; font-weight: bold;"><strong>Defense Role:</strong> Elves must link to 5 altars to boost the Statue’s health. If no altar is linked at the start, the battle is lost.</strong></h3><br>
                      <h3 style="color: #ffc107; font-size: 20px; font-weight: bold;"><strong>Goal:</strong> Defeat Balgass and keep at least 1 altar active with the Statue intact to win.</strong></h3><br>
                </div>
-                  ` 
-              ,
-              // PVP-Arena
-              "killall": `
+                  `
+                    ,
+                    // PVP-Arena
+                    "killall": `
                   <div class="main-container">
                         <h1 class="main-title">KILLALL</h1>
 
@@ -853,10 +852,10 @@
                       <br>
                       <br>
                   </div>
-                  ` 
-              ,
-              // Imperial Guardian
-              "ig": `
+                  `
+                    ,
+                    // Imperial Guardian
+                    "ig": `
 
                <div class="main-container">
                       <h1 class="main-title">Imperial Guardian</h1>
@@ -934,10 +933,10 @@
                     <br><br>
                 </div>
           
-                  ` 
-              ,
-               // Double Goer
-               "dg": `
+                  `
+                    ,
+                    // Double Goer
+                    "dg": `
                  <div class="main-container">
                     <h1 class="main-title">Doppelganger Event</h1>
                 
@@ -1032,10 +1031,10 @@
                 
                     <br><br>
                 </div>
-                  ` 
-              ,
-               // TVT
-              "tvt": `
+                  `
+                    ,
+                    // TVT
+                    "tvt": `
                   <div class="main-container">
                         <h1 class="main-title">TvT</h1>
                   
@@ -1043,10 +1042,10 @@
                       <br>
                       <br>
                   </div>
-                  ` 
-               ,
-               // GVG
-              "gvg": `
+                  `
+                    ,
+                    // GVG
+                    "gvg": `
                   <div class="main-container">
                         <h1 class="main-title">GvG</h1>
                   
@@ -1054,11 +1053,11 @@
                       <br>
                       <br>
                   </div>
-                  ` 
+                  `
 
-               ,
-               // CS
-              "cs": `
+                    ,
+                    // CS
+                    "cs": `
                   <div class="main-container">
                    
                         <div style="margin-bottom: 20px; padding: 15px;  border-radius: 5px;">
@@ -1128,11 +1127,11 @@
                       <br>
                       <br>
                   </div>
-                  ` 
+                  `
 
-                ,
-              // Battle Royale
-              "br": `
+                    ,
+                    // Battle Royale
+                    "br": `
                   <div class="main-container">
                         <h1 class="main-title">BR</h1>
                   
@@ -1140,12 +1139,12 @@
                       <br>
                       <br>
                   </div>
-                  ` 
+                  `
 
-                ,
+                    ,
 
-                // Pandora
-              "pandora": `
+                    // Pandora
+                    "pandora": `
                   <div class="main-container">
                       <h1 class="main-title">Pandora</h1>
                       <div class="map-container">
@@ -1166,30 +1165,9 @@
                       <br>
                       <br>
                   </div>
-                  ` 
+                  `
 
-                ,
-              
-              
-
-        
-
-           
-             
-              };
-  
-              
-              content.innerHTML = data[region];
-              content.classList.add("active"); 
-          }
-          document.addEventListener("DOMContentLoaded", function() {
-         showContent('info');
-        });
-      
-
-      </script>
-
-    
+                    ,
 
 
 
@@ -1197,27 +1175,117 @@
 
 
 
+                };
+
+
+                content.innerHTML = data[region] || `<div class="main-container"><h1 class="main-title">Not Found</h1></div>`;
+                content.classList.add("active");
+
+
+
+
+
+                // ✅ Remove open from all
+                document.querySelectorAll('details.details-box').forEach(d => d.removeAttribute('open'));
+
+                // ✅ Find the matching one and set open
+                const matchingDetails = Array.from(document.querySelectorAll('details.details-box')).find(d => {
+                    const onclickAttr = d.getAttribute('onclick') || "";
+                    // Normalize single quotes and remove spaces
+                    const cleanAttr = onclickAttr.replace(/\s/g, '').replace(/"/g, "'");
+                    return cleanAttr === `showContent('${region}')`;
+                });
+
+                console.log(matchingDetails);
+
+
+                if (matchingDetails) {
+                    setTimeout(() => {
+                        matchingDetails.setAttribute('open', 'true');
+                    }, 0);
+                }
+
+
+
+                // ✅ Update URL without page reload
+                if (pushState) {
+                    const newUrl = `${window.location.pathname}?q=${encodeURIComponent(region)}`;
+                    history.pushState({ region }, '', newUrl);
+                }
+
+            }
+            window.addEventListener('popstate', function (event) {
+                const region = event.state?.region || 'info';
+                showContent(region, false); // Don't push again
+            });
+
+
+
+        </script>
 
 
 
 
 
 
-<script>
-    const params = new URLSearchParams(window.location.search);
-    const tabToOpen = params.get('tab');
-    const popupToOpen = params.get('popup');
-  
-    if (tabToOpen) {
-      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
-    }
-  
-    if (popupToOpen) {
-      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
-    }
-  </script>
-          
 
-  </body>
 
-  </html>
+
+
+
+
+
+
+
+        <script>
+            function autoDetectSection(query) {
+                query = query.toLowerCase();
+                const sectionIdMap = {
+
+                    "information": "info",
+                    "blood castle": "bc",
+                    "devil square": "ds",
+                    "chaos castle": "cc",
+                    "kanturu event": "maya",
+                    "crywolf event": "balgass",
+                    "imperial guardian": "ig",
+                    "double goer": "dg",
+                    "pandora": "pandora",
+                    "killall": "killall",
+                    "castle siege": "cs"
+
+                };
+
+                // ✅ NEW: if query is a section ID directly
+                if (Object.values(sectionIdMap).includes(query)) {
+                    console.log(`Direct section ID match: ${query}`);
+                    return query;
+                }
+
+                for (const tag in sectionIdMap) {
+                    if (query.includes(tag)) {
+                        console.log(`Matched query "${query}" → section: ${sectionIdMap[tag]}`);
+                        return sectionIdMap[tag];
+                    }
+                }
+
+                console.warn("No matching section found, defaulting to 'info'");
+                return 'info';
+            }
+
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const params = new URLSearchParams(window.location.search);
+                const q = params.get("q") || "info";
+                console.log("Query param received:", q);
+                const section = autoDetectSection(q);
+                showContent(section, false);
+
+
+            });
+
+        </script>
+
+    </body>
+
+    </html>

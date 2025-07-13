@@ -29,211 +29,235 @@
 
 
 
-  <style>
+        <style>
+            .loader {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #000;
+                color: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+            }
 
-.loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
+            /* Hauptcontainer */
+            .jewel-container {
+                width: 100%;
+                max-width: 1100px;
+                margin: 10px auto;
+                padding: 20px;
+                background-color: #1f0000;
+                /* Dunkles Rot */
+                border: 3px solid #49e410;
+                /* Grüne Umrandung */
+                border-radius: 10px;
+                box-shadow: 0px 0px 15px rgba(73, 228, 16, 0.5);
+                text-align: center;
+                box-sizing: border-box;
+            }
 
-    /* Hauptcontainer */
-.jewel-container {
-    width: 100%;
-    max-width: 1100px;
-    margin: 10px auto;
-    padding: 20px;
-    background-color: #1f0000; /* Dunkles Rot */
-    border: 3px solid #49e410; /* Grüne Umrandung */
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(73, 228, 16, 0.5);
-    text-align: center;
-    box-sizing: border-box;
-}
+            /* Flex-Container */
+            .flex-container {
+                display: flex;
+                align-items: flex-start;
+                gap: 20px;
+                /* Abstand zwischen Video und Item */
+                width: 100%;
+                flex-wrap: wrap;
+                /* Responsiv für Mobilgeräte */
+                justify-content: center;
+                /* Zentriert die Inhalte */
+            }
 
-/* Flex-Container */
-.flex-container {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px; /* Abstand zwischen Video und Item */
-    width: 100%;
-    flex-wrap: wrap; /* Responsiv für Mobilgeräte */
-    justify-content: center; /* Zentriert die Inhalte */
-}
+            /* Item-Wrapper */
+            .flex-table-wrapper {
+                flex: 1;
+                min-width: 300px;
+                /* Mindestbreite für Item-Liste */
+                position: relative;
+                /* Für Popup-Positionierung */
+            }
 
-/* Item-Wrapper */
-.flex-table-wrapper {
-    flex: 1;
-    min-width: 300px; /* Mindestbreite für Item-Liste */
-    position: relative; /* Für Popup-Positionierung */
-}
+            .item-wrapper {
+                text-align: center;
+            }
 
-.item-wrapper {
-    text-align: center;
-}
+            /* Video-Wrapper */
+            .flex-video-wrapper {
+                flex: 1;
+                min-width: 500px;
+                /* Größeres Video */
+            }
 
-/* Video-Wrapper */
-.flex-video-wrapper {
-    flex: 1;
-    min-width: 500px; /* Größeres Video */
-}
+            .video-wrapper {
+                background-color: #1a1a1a;
+                border-radius: 12px;
+                padding: 15px;
+            }
 
-.video-wrapper {
-    background-color: #1a1a1a;
-    border-radius: 12px;
-    padding: 15px;
-}
+            .video-frame {
+                position: relative;
+                width: 100%;
+                height: 0;
+                padding-bottom: 56.25%;
+                /* 16:9 Seitenverhältnis */
+                background-color: black;
+                border: 12px solid #333;
+                /* Größere Borders */
+                border-radius: 12px;
+            }
 
-.video-frame {
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-bottom: 56.25%; /* 16:9 Seitenverhältnis */
-    background-color: black;
-    border: 12px solid #333; /* Größere Borders */
-    border-radius: 12px;
-}
+            .video-frame iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
 
-.video-frame iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
+            .flex-table-wrapper:hover .popup-info {
+                display: block;
+                /* Bei Hover anzeigen */
+            }
 
-.flex-table-wrapper:hover .popup-info {
-    display: block; /* Bei Hover anzeigen */
-}
+            .item-thumb {
+                width: 250px;
+                height: 250px;
+                display: block;
+                margin: 0 auto;
+            }
 
-.item-thumb {
-    width: 250px;
-    height: 250px;
-    display: block;
-    margin: 0 auto;
-}
+            .popup-im {
+                width: 120px;
+                height: 120px;
+                display: block;
+                margin: 0 auto;
+            }
 
-.popup-im {
-    width: 120px;
-    height: 120px;
-    display: block;
-    margin: 0 auto;
-}
+            .popup-header {
+                font-size: 26px;
+            }
 
-.popup-header {
-    font-size: 26px;
-}
+            .popup-name {
+                font-size: 22px;
+            }
 
-.popup-name {
-    font-size: 22px;
-}
+            .popup-loot {
+                font-size: 22px;
+            }
 
-.popup-loot {
-    font-size: 22px;
-}
+            /* Mobile Anpassungen */
+            @media only screen and (max-width: 768px) {
+                .jewel-container {
+                    padding: 10px;
+                    /* Weniger Padding auf Mobile */
+                    margin: 5px auto;
+                }
 
-/* Mobile Anpassungen */
-@media only screen and (max-width: 768px) {
-    .jewel-container {
-        padding: 10px; /* Weniger Padding auf Mobile */
-        margin: 5px auto;
-    }
+                .flex-container {
+                    flex-direction: column;
+                    /* Stapelt Inhalte vertikal */
+                    gap: 10px;
+                }
 
-    .flex-container {
-        flex-direction: column; /* Stapelt Inhalte vertikal */
-        gap: 10px;
-    }
+                .flex-table-wrapper {
+                    min-width: 100%;
+                    /* Volle Breite */
+                    padding: 0;
+                }
 
-    .flex-table-wrapper {
-        min-width: 100%; /* Volle Breite */
-        padding: 0;
-    }
+                .flex-video-wrapper {
+                    min-width: 100%;
+                    /* Volle Breite */
+                    padding: 0;
+                }
 
-    .flex-video-wrapper {
-        min-width: 100%; /* Volle Breite */
-        padding: 0;
-    }
+                .video-wrapper {
+                    padding: 5px;
+                    /* Weniger Padding */
+                }
 
-    .video-wrapper {
-        padding: 5px; /* Weniger Padding */
-    }
+                .video-frame {
+                    border: 6px solid #333;
+                    /* Kleinere Borders */
+                    padding-bottom: 56.25%;
+                    /* Beibehalten des Seitenverhältnisses */
+                }
 
-    .video-frame {
-        border: 6px solid #333; /* Kleinere Borders */
-        padding-bottom: 56.25%; /* Beibehalten des Seitenverhältnisses */
-    }
+                .item-thumb {
+                    width: 150px;
+                    /* Kleiner für Mobile */
+                    height: 150px;
+                }
 
-    .item-thumb {
-        width: 150px; /* Kleiner für Mobile */
-        height: 150px;
-    }
+                .popup-im {
+                    width: 80px;
+                    /* Kleiner für Mobile */
+                    height: 80px;
+                }
 
-    .popup-im {
-        width: 80px; /* Kleiner für Mobile */
-        height: 80px;
-    }
+                .popup-header {
+                    font-size: 20px;
+                    /* Kleinere Schrift */
+                }
 
-    .popup-header {
-        font-size: 20px; /* Kleinere Schrift */
-    }
+                .popup-name {
+                    font-size: 18px;
+                }
 
-    .popup-name {
-        font-size: 18px;
-    }
+                .popup-loot {
+                    font-size: 16px;
+                }
 
-    .popup-loot {
-        font-size: 16px;
-    }
+                /* Sicherstellen, dass nichts abgeschnitten wird */
+                body,
+                html {
+                    overflow-x: hidden;
+                    width: 100%;
+                }
 
-    /* Sicherstellen, dass nichts abgeschnitten wird */
-    body, html {
-        overflow-x: hidden;
-        width: 100%;
-    }
+                /* Hover-Effekt auf Mobile deaktivieren (Touch-Geräte) */
+                .flex-table-wrapper:hover .popup-info {
+                    display: none;
+                    /* Popup nicht bei Hover, da Touch */
+                }
 
-    /* Hover-Effekt auf Mobile deaktivieren (Touch-Geräte) */
-    .flex-table-wrapper:hover .popup-info {
-        display: none; /* Popup nicht bei Hover, da Touch */
-    }
+                /* Optional: Popup bei Touch sichtbar machen, falls gewünscht */
+                .flex-table-wrapper:active .popup-info {
+                    display: block;
+                }
+            }
 
-    /* Optional: Popup bei Touch sichtbar machen, falls gewünscht */
-    .flex-table-wrapper:active .popup-info {
-        display: block;
-    }
-}
+            /* Zusätzliche Anpassung für Querformat */
+            @media only screen and (max-width: 768px) and (orientation: landscape) {
+                .item-thumb {
+                    width: 120px;
+                    /* Noch kleiner im Querformat */
+                    height: 120px;
+                }
 
-/* Zusätzliche Anpassung für Querformat */
-@media only screen and (max-width: 768px) and (orientation: landscape) {
-    .item-thumb {
-        width: 120px; /* Noch kleiner im Querformat */
-        height: 120px;
-    }
+                .popup-im {
+                    width: 60px;
+                    height: 60px;
+                }
 
-    .popup-im {
-        width: 60px;
-        height: 60px;
-    }
-
-    .video-frame {
-        padding-bottom: 40%; /* Anpassung für Querformat */
-    }
-} 
-  </style>
+                .video-frame {
+                    padding-bottom: 40%;
+                    /* Anpassung für Querformat */
+                }
+            }
+        </style>
 
     </head>
 
     <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
 
         <div class="loader">Loading...</div>
-             <div id="navbar-container"></div>
+        <div id="navbar-container"></div>
 
 
         <section class="about section" id="about">
@@ -273,7 +297,7 @@
         </section>
 
         <div id="footer-container"></div>
-      
+
 
 
         <script src="js/jquery.min.js"></script>
@@ -282,38 +306,38 @@
         <script src="js/smoothscroll.js"></script>
         <script src="js/custom.js"></script>
         <!-- jQuery laden -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        
-<!-- Schutz-Skript -->
-<script src="js/protection.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-            <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const loader = document.querySelector('.loader');
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-        fetch('libraries.html?v=' + new Date().getTime())
-            .then(response => response.text())
-            .then(data => {
-                document.head.insertAdjacentHTML('beforeend', data);
-                return fetch('navbar.html?v=' + new Date().getTime());
-            })
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar-container').innerHTML = data;
-                return fetch('footer.html?v=' + new Date().getTime());
-            })
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-container').innerHTML = data;
-                showContent('info');
-                loader.style.display = 'none'; // Ladebildschirm ausblenden
-            })
-            .catch(error => console.error('Fehler beim Laden:', error));
-    });
-</script>
+        <!-- Schutz-Skript -->
+        <script src="js/protection.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const loader = document.querySelector('.loader');
+
+                fetch('libraries.html?v=' + new Date().getTime())
+                    .then(response => response.text())
+                    .then(data => {
+                        document.head.insertAdjacentHTML('beforeend', data);
+                        return fetch('navbar.html?v=' + new Date().getTime());
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('navbar-container').innerHTML = data;
+                        return fetch('footer.html?v=' + new Date().getTime());
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('footer-container').innerHTML = data;
+                        // showContent('info');
+                        loader.style.display = 'none'; // Ladebildschirm ausblenden
+                    })
+                    .catch(error => console.error('Fehler beim Laden:', error));
+            });
+        </script>
 
         <script>
-            function showContent(region) {
+            function showContent(region, pushState = true) {
                 const content = document.getElementById("content");
 
                 const data = {
@@ -599,7 +623,7 @@
                     </div>
                     `
                     ,
-                     // Earrings
+                    // Earrings
                     "earrings": `
                     <div class="main-container">
                          
@@ -750,22 +774,57 @@
                     </div>
                     `
                     ,
-                  
+
 
                 };
 
 
-                content.innerHTML = data[region];
+                content.innerHTML = data[region] || `<div class="main-container"><h1 class="main-title">Not Found</h1></div>`;
                 content.classList.add("active");
+
+
+
+
+
+                // ✅ Remove open from all
+                document.querySelectorAll('details.details-box').forEach(d => d.removeAttribute('open'));
+
+                // ✅ Find the matching one and set open
+                const matchingDetails = Array.from(document.querySelectorAll('details.details-box')).find(d => {
+                    const onclickAttr = d.getAttribute('onclick') || "";
+                    // Normalize single quotes and remove spaces
+                    const cleanAttr = onclickAttr.replace(/\s/g, '').replace(/"/g, "'");
+                    return cleanAttr === `showContent('${region}')`;
+                });
+
+                console.log(matchingDetails);
+
+
+                if (matchingDetails) {
+                    setTimeout(() => {
+                        matchingDetails.setAttribute('open', 'true');
+                    }, 0);
+                }
+
+
+
+                // ✅ Update URL without page reload
+                if (pushState) {
+                    const newUrl = `${window.location.pathname}?q=${encodeURIComponent(region)}`;
+                    history.pushState({ region }, '', newUrl);
+                }
+
             }
-            document.addEventListener("DOMContentLoaded", function () {
-                showContent('info');
+
+            window.addEventListener('popstate', function (event) {
+                const region = event.state?.region || 'info';
+                showContent(region, false); // Don't push again
             });
+
 
 
         </script>
 
- 
 
 
 
@@ -775,30 +834,46 @@
 
 
 
+        <script>
+            function autoDetectSection(query) {
+                query = query.toLowerCase();
+                const sectionIdMap = {
+
+                    "information": "info",
+                    "upgrade": "upgrade",
+                    "jewel of daedalus": "daedalus",
+                    "earrings": "earrings"
+                };
+
+                // ✅ NEW: if query is a section ID directly
+                if (Object.values(sectionIdMap).includes(query)) {
+                    console.log(`Direct section ID match: ${query}`);
+                    return query;
+                }
+
+                for (const tag in sectionIdMap) {
+                    if (query.includes(tag)) {
+                        console.log(`Matched query "${query}" → section: ${sectionIdMap[tag]}`);
+                        return sectionIdMap[tag];
+                    }
+                }
+
+                console.warn("No matching section found, defaulting to 'info'");
+                return 'info';
+            }
 
 
+            document.addEventListener("DOMContentLoaded", function () {
+                const params = new URLSearchParams(window.location.search);
+                const q = params.get("q") || "info";
+                console.log("Query param received:", q);
+                const section = autoDetectSection(q);
+                showContent(section, false);
 
 
+            });
 
-
-
-
-
-
-
-<script>
-    const params = new URLSearchParams(window.location.search);
-    const tabToOpen = params.get('tab');
-    const popupToOpen = params.get('popup');
-  
-    if (tabToOpen) {
-      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
-    }
-  
-    if (popupToOpen) {
-      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
-    }
-  </script>
+        </script>
 
 
     </body>

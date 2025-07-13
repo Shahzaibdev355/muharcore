@@ -26,140 +26,182 @@
         <meta name="keywords" content="">
         <meta name="author" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-   <style>
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #000;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-        p {
-            color: #f1c40f;
-        }
-        .item-container {
-            background-color: #1f0000;
-            padding: 10px;
-            width: 90%; /* Beibehalten, wird aber durch max-width eingeschränkt */
-            max-width: 150px; /* Feste maximale Breite */
-            box-sizing: border-box;
-            text-align: center; /* Horizontale Zentrierung */
-            border-radius: 15px;
-            box-shadow: 0 0px 100px #93330b7a;
-            border: 1px solid #93330b;
-            display: flex; /* Flexbox für vertikale Zentrierung */
-            flex-direction: column; /* Stapelt Kinder vertikal */
-            justify-content: center; /* Vertikale Zentrierung */
-            align-items: center; /* Horizontale Zentrierung innerhalb Flex */
-            height: 200px; /* Feste Höhe für Konsistenz und Zentrierung */
-        }
-        .item-wrapper { 
-            text-align: center; /* Zentriert Text und Bild */
-        }
-        .item-thumb { 
-            width: 120px; /* Angepasst an deine Inline-Styles */
-            height: 120px; 
-            display: block; 
-            margin: 0 auto; 
-        }
-        .items-row {
-            display: flex; /* Horizontale Anordnung */
-            justify-content: center; /* Zentriert die Container */
-            gap: 10px; /* Abstand zwischen den Containern */
-            flex-wrap: nowrap; /* Verhindert Umbruch */
-        }
-        /* Neues Tabellen-Styling */
-        table {
-            width: 100%;
-            max-width: 600px;
-            margin: 20px auto;
-            border-collapse: collapse;
-            background-color: #1f0000;
-            border: 1px solid #93330b;
-            border-radius: 8px;
-            box-shadow: 0 0 20px #93330b7a;
-        }
-        th, td {
-            padding: 12px;
-            text-align: center;
-            border-bottom: 1px solid #93330b;
-            color: #f1c40f;
-        }
-        th {
-            background-color: #2c3e50;
-            color: #4cffd5;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-        tr:nth-child(even) {
-            background-color: #2a0a0a;
-        }
-        tr:hover {
-            background-color: #3a1a1a;
-            transition: background-color 0.3s ease;
-        }
-        td {
-            font-size: 16px;
-        }
-        /* Mobile Anpassungen */
-    @media (max-width: 768px) {
-        /* Items-Row für mobile Geräte umbrechen */
-        .items-row {
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        /* Item-Container auf mobilen Geräten anpassen */
-        .item-container {
-            max-width: 120px;
-            height: 180px;
-        }
-        .item-thumb {
-            width: 100px;
-            height: 100px;
-        }
-        /* Tabelle für mobile Geräte anpassen */
-        table {
-            max-width: 100%;
-            margin: 10px auto;
-            font-size: 14px; /* Kleinere Schriftgröße für bessere Lesbarkeit */
-        }
-        th, td {
-            padding: 8px; /* Weniger Padding für kleinere Bildschirme */
-            font-size: 14px;
-        }
-        /* Container für horizontales Scrollen der Tabelle */
-        .table-container {
-            width: 100%;
-            overflow-x: auto; /* Ermöglicht horizontales Scrollen */
-        }
-        /* Tabelle innerhalb des Containers */
-        .table-container table {
-            min-width: 600px; /* Stellt sicher, dass die Tabelle ihre Mindestbreite behält */
-        }
-    }
+        <style>
+            .loader {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #000;
+                color: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+            }
 
-    /* Für sehr kleine Bildschirme (z. B. < 480px) */
-    @media (max-width: 480px) {
-        .item-container {
-            max-width: 100px;
-            height: 160px;
-        }
-        .item-thumb {
-            width: 80px;
-            height: 80px;
-        }
-        th, td {
-            padding: 6px;
-            font-size: 12px;
-        }
-    }
-    </style>
+            p {
+                color: #f1c40f;
+            }
+
+            .item-container {
+                background-color: #1f0000;
+                padding: 10px;
+                width: 90%;
+                /* Beibehalten, wird aber durch max-width eingeschränkt */
+                max-width: 150px;
+                /* Feste maximale Breite */
+                box-sizing: border-box;
+                text-align: center;
+                /* Horizontale Zentrierung */
+                border-radius: 15px;
+                box-shadow: 0 0px 100px #93330b7a;
+                border: 1px solid #93330b;
+                display: flex;
+                /* Flexbox für vertikale Zentrierung */
+                flex-direction: column;
+                /* Stapelt Kinder vertikal */
+                justify-content: center;
+                /* Vertikale Zentrierung */
+                align-items: center;
+                /* Horizontale Zentrierung innerhalb Flex */
+                height: 200px;
+                /* Feste Höhe für Konsistenz und Zentrierung */
+            }
+
+            .item-wrapper {
+                text-align: center;
+                /* Zentriert Text und Bild */
+            }
+
+            .item-thumb {
+                width: 120px;
+                /* Angepasst an deine Inline-Styles */
+                height: 120px;
+                display: block;
+                margin: 0 auto;
+            }
+
+            .items-row {
+                display: flex;
+                /* Horizontale Anordnung */
+                justify-content: center;
+                /* Zentriert die Container */
+                gap: 10px;
+                /* Abstand zwischen den Containern */
+                flex-wrap: nowrap;
+                /* Verhindert Umbruch */
+            }
+
+            /* Neues Tabellen-Styling */
+            table {
+                width: 100%;
+                max-width: 600px;
+                margin: 20px auto;
+                border-collapse: collapse;
+                background-color: #1f0000;
+                border: 1px solid #93330b;
+                border-radius: 8px;
+                box-shadow: 0 0 20px #93330b7a;
+            }
+
+            th,
+            td {
+                padding: 12px;
+                text-align: center;
+                border-bottom: 1px solid #93330b;
+                color: #f1c40f;
+            }
+
+            th {
+                background-color: #2c3e50;
+                color: #4cffd5;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+            tr:nth-child(even) {
+                background-color: #2a0a0a;
+            }
+
+            tr:hover {
+                background-color: #3a1a1a;
+                transition: background-color 0.3s ease;
+            }
+
+            td {
+                font-size: 16px;
+            }
+
+            /* Mobile Anpassungen */
+            @media (max-width: 768px) {
+
+                /* Items-Row für mobile Geräte umbrechen */
+                .items-row {
+                    flex-wrap: wrap;
+                    gap: 8px;
+                }
+
+                /* Item-Container auf mobilen Geräten anpassen */
+                .item-container {
+                    max-width: 120px;
+                    height: 180px;
+                }
+
+                .item-thumb {
+                    width: 100px;
+                    height: 100px;
+                }
+
+                /* Tabelle für mobile Geräte anpassen */
+                table {
+                    max-width: 100%;
+                    margin: 10px auto;
+                    font-size: 14px;
+                    /* Kleinere Schriftgröße für bessere Lesbarkeit */
+                }
+
+                th,
+                td {
+                    padding: 8px;
+                    /* Weniger Padding für kleinere Bildschirme */
+                    font-size: 14px;
+                }
+
+                /* Container für horizontales Scrollen der Tabelle */
+                .table-container {
+                    width: 100%;
+                    overflow-x: auto;
+                    /* Ermöglicht horizontales Scrollen */
+                }
+
+                /* Tabelle innerhalb des Containers */
+                .table-container table {
+                    min-width: 600px;
+                    /* Stellt sicher, dass die Tabelle ihre Mindestbreite behält */
+                }
+            }
+
+            /* Für sehr kleine Bildschirme (z. B. < 480px) */
+            @media (max-width: 480px) {
+                .item-container {
+                    max-width: 100px;
+                    height: 160px;
+                }
+
+                .item-thumb {
+                    width: 80px;
+                    height: 80px;
+                }
+
+                th,
+                td {
+                    padding: 6px;
+                    font-size: 12px;
+                }
+            }
+        </style>
 
     </head>
 
@@ -167,60 +209,60 @@
 
         <div class="loader">Loading...</div>
 
-            <div id="navbar-container"></div>
+        <div id="navbar-container"></div>
 
         <section class="about section" id="about">
-          
-      
+
+
             <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
-            
-            <h1 style="text-align: center;"> 🆘Game Features</h1>
-            <br>
-  
-            <!-- Alle Details-Buttons bleiben oben -->
-            <div class="summary-container">
-             <details class="details-box"  open onclick="showContent('info')">
-                 <summary>Information</summary>
-             </details>
-            </div><br>
+
+                <h1 style="text-align: center;"> 🆘Game Features</h1>
+                <br>
+
+                <!-- Alle Details-Buttons bleiben oben -->
                 <div class="summary-container">
-            <details class="details-box"  open onclick="showContent('quest')">
-                <summary>Quest</summary>
-            </details>        
-            <details class="details-box"  open onclick="showContent('market')">
-                <summary>Market Place</summary>
-            </details>
-            <details class="details-box"  open onclick="showContent('battle')">
-                <summary>Battle Pass</summary>
-            </details>
-            <details class="details-box"  open onclick="showContent('hunt')">
-                <summary>Hunt Log</summary>
-            </details>
-             <details class="details-box"  open onclick="showContent('dailyreward')">
-                <summary>Daily Reward</summary>
-            </details>
-               <details class="details-box"  open onclick="showContent('offattack')">
-                <summary>Offattack</summary>
-            </details>
-          
-    
-  
+                    <details class="details-box" open onclick="showContent('info')">
+                        <summary>Information</summary>
+                    </details>
+                </div><br>
+                <div class="summary-container">
+                    <details class="details-box" open onclick="showContent('quest')">
+                        <summary>Quest</summary>
+                    </details>
+                    <details class="details-box" open onclick="showContent('market')">
+                        <summary>Market Place</summary>
+                    </details>
+                    <details class="details-box" open onclick="showContent('battle')">
+                        <summary>Battle Pass</summary>
+                    </details>
+                    <details class="details-box" open onclick="showContent('hunt')">
+                        <summary>Hunt Log</summary>
+                    </details>
+                    <details class="details-box" open onclick="showContent('dailyreward')">
+                        <summary>Daily Reward</summary>
+                    </details>
+                    <details class="details-box" open onclick="showContent('offattack')">
+                        <summary>Offattack</summary>
+                    </details>
 
+
+
+
+                </div>
+                <div id="content" class="content-container">
+                </div>
             </div>
-            <div id="content" class="content-container">  
-            </div>
-            </div>
-          
-                   
-                
-         </section>
-
-         <div id="footer-container"></div>
-        
 
 
-      
-            
+
+        </section>
+
+        <div id="footer-container"></div>
+
+
+
+
+
 
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
@@ -229,17 +271,17 @@
         <script src="js/custom.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- jQuery laden -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
         <script type="text/javascript">
-          $(document).ready(function () {
-            $('body').bind('cut copy paste', function (e) {
-                e.preventDefault();
-            });
-            $("body").on("contextmenu", function (e) {
-                return false;
-            });
+            $(document).ready(function () {
+                $('body').bind('cut copy paste', function (e) {
+                    e.preventDefault();
+                });
+                $("body").on("contextmenu", function (e) {
+                    return false;
+                });
             });
         </script>
 
@@ -267,46 +309,46 @@
             });
         </script>
 
-    <script>
-// Konfiguration der Achievements
+        <script>
+            // Konfiguration der Achievements
 
 
-// Funktion zum Erstellen einer Tabelle für ein Achievement
-function generateAchievementTable(tableId, levels) {
-    const table = document.getElementById(tableId);
-    if (!table) return; // Sicherstellen, dass die Tabelle existiert
+            // Funktion zum Erstellen einer Tabelle für ein Achievement
+            function generateAchievementTable(tableId, levels) {
+                const table = document.getElementById(tableId);
+                if (!table) return; // Sicherstellen, dass die Tabelle existiert
 
-    // Tabellenkopf erstellen
-    const thead = document.createElement('thead');
-    const headerRow = document.createElement('tr');
-    const headers = ['Level', 'Quests Required'];
+                // Tabellenkopf erstellen
+                const thead = document.createElement('thead');
+                const headerRow = document.createElement('tr');
+                const headers = ['Level', 'Quests Required'];
 
-    headers.forEach(headerText => {
-        const th = document.createElement('th');
-        th.textContent = headerText;
-        headerRow.appendChild(th);
-    });
-    thead.appendChild(headerRow);
-    table.appendChild(thead);
+                headers.forEach(headerText => {
+                    const th = document.createElement('th');
+                    th.textContent = headerText;
+                    headerRow.appendChild(th);
+                });
+                thead.appendChild(headerRow);
+                table.appendChild(thead);
 
-    // Tabellenkörper erstellen
-    const tbody = document.createElement('tbody');
-    levels.forEach(({ level, quests }) => {
-        const row = document.createElement('tr');
-        const levelCell = document.createElement('td');
-        levelCell.textContent = `Level ${level}`;
-        row.appendChild(levelCell);
-        const questsCell = document.createElement('td');
-        questsCell.textContent = `${quests} Quests`;
-        row.appendChild(questsCell);
-        tbody.appendChild(row);
-    });
-    table.appendChild(tbody);
-}
-function showContent(region) {
-    const content = document.getElementById("content");
-    const data = {
-        "info": `
+                // Tabellenkörper erstellen
+                const tbody = document.createElement('tbody');
+                levels.forEach(({ level, quests }) => {
+                    const row = document.createElement('tr');
+                    const levelCell = document.createElement('td');
+                    levelCell.textContent = `Level ${level}`;
+                    row.appendChild(levelCell);
+                    const questsCell = document.createElement('td');
+                    questsCell.textContent = `${quests} Quests`;
+                    row.appendChild(questsCell);
+                    tbody.appendChild(row);
+                });
+                table.appendChild(tbody);
+            }
+            function showContent(region) {
+                const content = document.getElementById("content");
+                const data = {
+                    "info": `
             <div class="main-container">
                 <h1 class="main-title">Game Features</h1>
                 <p>After a period of pause following ADAGIO, we decided to implement more features and opportunities and to develop our content further. A multitude of functions have been added, and more will continue to be introduced over time. Achievements, Market Place, Battle Pass, Daily Reward, Hunting Log, User Interface for Quest System, and many others have been included. With these updates, we aim to deliver the very gaming moments you experienced on ADAGIO, ensuring the content brings immense enjoyment to your gameplay. More content will be added in time. Thank you so much for your trust and support, HARDCORE TEAM.</p>
@@ -314,7 +356,7 @@ function showContent(region) {
                 <br>
             </div>
         `,
-        "quest": `
+                    "quest": `
             <div class="main-container">
                 <h2 class="main-title">Quest</h2>
                 <p>The <strong>Quest system</strong> is implemented with a UI to monitor the quest number, drop, and remaining monsters. After completing a quest, you need to press the "Get Reward" button to receive the reward and proceed to the next quest. Very important: the drop is stored in the Gremory Case, which you can access in-game by pressing K to retrieve the item from the Gremory Case. The Quest system is combined with the Battle Pass, where certain quests grant Battle Stars that can be used to purchase items from the Battle Pass.To return the item, you need to go to "My Market Items" and return the item.</p>
@@ -331,7 +373,7 @@ function showContent(region) {
                 </div>
             </div>
         `,
-        "market": `
+                    "market": `
             <div class="main-container">
                 <h1 class="main-title">Market Place</h1>
                  <p>Finally, we can use the Market Place in-game, a long-awaited feature that frees us from relying on the web. Now we can fully enjoy this function. To use the Market Place, we need Market Coins, which can be exchanged at a rate of 1 Market Coin = 10 Wcoin. We can buy everything from the market, and to use Wcoin again, you can convert Market Coins back to Wcoin. To sell an item, right-click the item, go to the 'My Item Market' section, set the price in Market Coins, and press the 'Put on Sale' button. Each item sold requires 1 Wcoin to prevent item spam on the market.</p>
@@ -359,7 +401,7 @@ function showContent(region) {
                 <br>
             </div>
         `,
-        "battle": `
+                    "battle": `
             <div class="main-container">
                 <h1 class="main-title">Battle Pass</h1>
                
@@ -375,7 +417,7 @@ function showContent(region) {
                 <br>
             </div>
         `,
-        "hunt": `
+                    "hunt": `
           <div class="main-container">
                 <h1 class="main-title">Hunting Log</h1>
                  <p>The Hunting Log is a system for monitoring EXP per time and Zen per time, allowing you to determine which spot is most suitable for you.To activate it, you need to press the "End" button.</p>
@@ -401,7 +443,7 @@ function showContent(region) {
                 <br>
             </div>
         `,
-        "dailyreward": `
+                    "dailyreward": `
           <div class="main-container">
                 <h1 class="main-title">Daily Reward</h1>
                  <p>Daily Reward is an option for VIP accounts to receive daily rewards. The first day is counted from the server’s start date, and if you didn’t begin on the first day, you won’t have a chance to claim the big bonus.</p>
@@ -419,7 +461,7 @@ function showContent(region) {
                 <br>
             </div>
         `,
-         "offattack": `
+                    "offattack": `
           <div class="main-container">
                 <h1 class="main-title">Offattack</h1>
                  <p>To activate off-attack, you need to open the clicker, configure the skills and drop settings, then press "Save Settings" and finally "OFFHELPER."</p>
@@ -437,67 +479,67 @@ function showContent(region) {
                 <br>
             </div>
         `
-    };
+                };
 
-    content.innerHTML = data[region];
-    content.classList.add("active");
+                content.innerHTML = data[region];
+                content.classList.add("active");
 
-    // Tabellen für Achievements generieren, wenn die "general"-Sektion geladen wird
-    if (region === 'general') {
-        generateAllTables();
+                // Tabellen für Achievements generieren, wenn die "general"-Sektion geladen wird
+                if (region === 'general') {
+                    generateAllTables();
 
-        // Custom Quest-Tabelle direkt anzeigen
-        const customQuestContainer = document.getElementById('customQuestTableContainer');
-        if (customQuestContainer) {
-            customQuestContainer.style.display = 'block';
-        }
-    }
-}
-// Alle Achievement-Tabellen generieren
-function generateAllTables() {
-    achievements.forEach(({ id, levels }) => {
-        generateAchievementTable(id, levels);
-    });
-}
-
-// Event-Listener und Initialisierung
-document.addEventListener("DOMContentLoaded", function() {
-    // Tabellen generieren
-    generateAllTables();
-
-    // Custom Quest-Tabelle direkt anzeigen
-    const customQuestContainer = document.getElementById('customQuestTableContainer');
-    const npcQuestContainer = document.getElementById('npcQuestTableContainer');
-
-    if (customQuestContainer) {
-        customQuestContainer.style.display = 'block';
-    }
-
-    // Event-Listener für die Bilder hinzufügen
-    const customQuestImg = document.querySelector('.item-thumb[data-table="customQuestTable"]');
-    const npcQuestImg = document.querySelector('.item-thumb[data-table="npcQuestTable"]');
-
-    if (customQuestImg) {
-        customQuestImg.addEventListener('click', () => {
-            customQuestContainer.style.display = 'block';
-            if (npcQuestContainer) {
-                npcQuestContainer.style.display = 'none';
+                    // Custom Quest-Tabelle direkt anzeigen
+                    const customQuestContainer = document.getElementById('customQuestTableContainer');
+                    if (customQuestContainer) {
+                        customQuestContainer.style.display = 'block';
+                    }
+                }
             }
-        });
-    }
-
-    if (npcQuestImg) {
-        npcQuestImg.addEventListener('click', () => {
-            npcQuestContainer.style.display = 'block';
-            if (customQuestContainer) {
-                customQuestContainer.style.display = 'none';
+            // Alle Achievement-Tabellen generieren
+            function generateAllTables() {
+                achievements.forEach(({ id, levels }) => {
+                    generateAchievementTable(id, levels);
+                });
             }
-        });
-    }
-});
+
+            // Event-Listener und Initialisierung
+            document.addEventListener("DOMContentLoaded", function () {
+                // Tabellen generieren
+                generateAllTables();
+
+                // Custom Quest-Tabelle direkt anzeigen
+                const customQuestContainer = document.getElementById('customQuestTableContainer');
+                const npcQuestContainer = document.getElementById('npcQuestTableContainer');
+
+                if (customQuestContainer) {
+                    customQuestContainer.style.display = 'block';
+                }
+
+                // Event-Listener für die Bilder hinzufügen
+                const customQuestImg = document.querySelector('.item-thumb[data-table="customQuestTable"]');
+                const npcQuestImg = document.querySelector('.item-thumb[data-table="npcQuestTable"]');
+
+                if (customQuestImg) {
+                    customQuestImg.addEventListener('click', () => {
+                        customQuestContainer.style.display = 'block';
+                        if (npcQuestContainer) {
+                            npcQuestContainer.style.display = 'none';
+                        }
+                    });
+                }
+
+                if (npcQuestImg) {
+                    npcQuestImg.addEventListener('click', () => {
+                        npcQuestContainer.style.display = 'block';
+                        if (customQuestContainer) {
+                            customQuestContainer.style.display = 'none';
+                        }
+                    });
+                }
+            });
 
 
-    </script>
+        </script>
 
 
 
@@ -506,20 +548,20 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<script>
-    const params = new URLSearchParams(window.location.search);
-    const tabToOpen = params.get('tab');
-    const popupToOpen = params.get('popup');
-  
-    if (tabToOpen) {
-      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
-    }
-  
-    if (popupToOpen) {
-      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
-    }
-  </script>
-       
+        <script>
+            const params = new URLSearchParams(window.location.search);
+            const tabToOpen = params.get('tab');
+            const popupToOpen = params.get('popup');
+
+            if (tabToOpen) {
+                document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
+            }
+
+            if (popupToOpen) {
+                document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
+            }
+        </script>
+
 
     </body>
 

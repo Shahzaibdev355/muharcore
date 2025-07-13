@@ -27,223 +27,231 @@
         <meta name="author" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-   
 
-       
-  <style>
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #000;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
- .jewel-container {
-            width: 100%;
-            max-width: 1100px;
-            margin: 10px auto;
-            padding: 20px;
-            background-color: #1f0000; /* Dunkles Rot */
-            border: 3px solid #49e410; /* Grüne Umrandung */
-            border-radius: 10px;
-            box-shadow: 0px 0px 15px rgba(73, 228, 16, 0.5);
-            text-align: center;
-            box-sizing: border-box;
-        }
 
-        .flex-container {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            width: 100%;
-            flex-wrap: wrap;
-        }
 
-        .flex-video-wrapper {
-            flex: 1;
-            min-width: 400px;
-        }
+        <style>
+            .loader {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #000;
+                color: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+            }
 
-        .flex-table-wrapper {
-            flex: 1;
-            min-width: 400px;
-            position: relative;
-        }
-
-        .item-wrapper {
-            text-align: center;
-        }
-
-        .item-thumb {
-            width: 250px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            cursor: pointer; /* Zeigt an, dass es klickbar ist */
-        }
-
-        .popup-im {
-            width: 120px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-
-        .popup-info {
-            border: 2px solid white;
-            padding: 10px;
-            border-radius: 5px;
-            width: 300px;
-            height: auto;
-            display: none; /* Standardmäßig ausgeblendet */
-            position: absolute;
-            background-color: #1f0000;
-            z-index: 10;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* Popup bei Hover für Desktop */
-        .flex-table-wrapper:hover .popup-info {
-            display: block;
-        }
-
-        .video-frame {
-            position: relative;
-            width: 100%;
-            height: 0;
-            padding-bottom: 56.25%; /* 16:9 Seitenverhältnis */
-        }
-
-        .video-frame iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 10px;
-        }
-
-        /* Mobile Anpassungen */
-        @media only screen and (max-width: 768px) {
             .jewel-container {
-                padding: 10px;
-                margin: 5px auto;
+                width: 100%;
+                max-width: 1100px;
+                margin: 10px auto;
+                padding: 20px;
+                background-color: #1f0000;
+                /* Dunkles Rot */
+                border: 3px solid #49e410;
+                /* Grüne Umrandung */
+                border-radius: 10px;
+                box-shadow: 0px 0px 15px rgba(73, 228, 16, 0.5);
+                text-align: center;
+                box-sizing: border-box;
             }
 
             .flex-container {
-                flex-direction: column;
-                gap: 15px;
-                align-items: center;
-            }
-
-            .flex-video-wrapper, .flex-table-wrapper {
-                min-width: 100%;
-                padding: 0;
-            }
-
-            .item-thumb {
-                width: 150px;
-            }
-
-            .popup-im {
-                width: 80px;
-            }
-
-            .popup-info {
-                width: 90%;
-                max-width: 250px;
-                position: relative;
-                transform: none;
-                left: auto;
-                margin: 10px auto;
-            }
-
-            /* Hover auf Mobile deaktivieren */
-            .flex-table-wrapper:hover .popup-info {
-                display: none;
-            }
-
-            body, html {
-                overflow-x: hidden;
+                display: flex;
+                align-items: flex-start;
+                gap: 10px;
                 width: 100%;
+                flex-wrap: wrap;
             }
-        }
 
-        /* Querformat */
-        @media only screen and (max-width: 768px) and (orientation: landscape) {
+            .flex-video-wrapper {
+                flex: 1;
+                min-width: 400px;
+            }
+
+            .flex-table-wrapper {
+                flex: 1;
+                min-width: 400px;
+                position: relative;
+            }
+
+            .item-wrapper {
+                text-align: center;
+            }
+
             .item-thumb {
-                width: 120px;
+                width: 250px;
+                height: auto;
+                display: block;
+                margin: 0 auto;
+                cursor: pointer;
+                /* Zeigt an, dass es klickbar ist */
             }
 
             .popup-im {
-                width: 60px;
+                width: 120px;
+                height: auto;
+                display: block;
+                margin: 0 auto;
             }
 
             .popup-info {
-                width: 80%;
-                max-width: 200px;
+                border: 2px solid white;
+                padding: 10px;
+                border-radius: 5px;
+                width: 300px;
+                height: auto;
+                display: none;
+                /* Standardmäßig ausgeblendet */
+                position: absolute;
+                background-color: #1f0000;
+                z-index: 10;
+                left: 50%;
+                transform: translateX(-50%);
             }
-        }
-  </style>
+
+            /* Popup bei Hover für Desktop */
+            .flex-table-wrapper:hover .popup-info {
+                display: block;
+            }
+
+            .video-frame {
+                position: relative;
+                width: 100%;
+                height: 0;
+                padding-bottom: 56.25%;
+                /* 16:9 Seitenverhältnis */
+            }
+
+            .video-frame iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 10px;
+            }
+
+            /* Mobile Anpassungen */
+            @media only screen and (max-width: 768px) {
+                .jewel-container {
+                    padding: 10px;
+                    margin: 5px auto;
+                }
+
+                .flex-container {
+                    flex-direction: column;
+                    gap: 15px;
+                    align-items: center;
+                }
+
+                .flex-video-wrapper,
+                .flex-table-wrapper {
+                    min-width: 100%;
+                    padding: 0;
+                }
+
+                .item-thumb {
+                    width: 150px;
+                }
+
+                .popup-im {
+                    width: 80px;
+                }
+
+                .popup-info {
+                    width: 90%;
+                    max-width: 250px;
+                    position: relative;
+                    transform: none;
+                    left: auto;
+                    margin: 10px auto;
+                }
+
+                /* Hover auf Mobile deaktivieren */
+                .flex-table-wrapper:hover .popup-info {
+                    display: none;
+                }
+
+                body,
+                html {
+                    overflow-x: hidden;
+                    width: 100%;
+                }
+            }
+
+            /* Querformat */
+            @media only screen and (max-width: 768px) and (orientation: landscape) {
+                .item-thumb {
+                    width: 120px;
+                }
+
+                .popup-im {
+                    width: 60px;
+                }
+
+                .popup-info {
+                    width: 80%;
+                    max-width: 200px;
+                }
+            }
+        </style>
 
     </head>
 
     <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
 
         <div class="loader">Loading...</div>
-          <div id="navbar-container"></div>
+        <div id="navbar-container"></div>
 
 
         <section class="about section" id="about">
-          
-      
-            <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
-            
-            <h1 style="text-align: center;"> 🛡 PET SYSTEM </h1>
-            <br>
-  
-            <!-- Alle Details-Buttons bleiben oben -->
-            <div class="summary-container">
-             <details class="details-box"  open onclick="showContent('info')">
-                 <summary>Information</summary>
-             </details>
-            </div><br>
-                <div class="summary-container">
-            <details class="details-box"  open onclick="showContent('damage')">
-                <summary>DAMAGE</summary>
-            </details>        
-            <details class="details-box"  open onclick="showContent('defense')">
-                <summary>DEFENSE</summary>
-            </details>
-    
-            <details class="details-box" onclick="showContent('mix')">
-                <summary>MIX </summary>
-            </details>
-    
-            <details class="details-box" onclick="showContent('horse')">
-                <summary>HORSE </summary>
-            </details>
-    
-            <details class="details-box" onclick="showContent('farm')">
-                <summary>FARM</summary>
-            </details>
 
+
+            <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+
+                <h1 style="text-align: center;"> 🛡 PET SYSTEM </h1>
+                <br>
+
+                <!-- Alle Details-Buttons bleiben oben -->
+                <div class="summary-container">
+                    <details class="details-box" open onclick="showContent('info')">
+                        <summary>Information</summary>
+                    </details>
+                </div><br>
+                <div class="summary-container">
+                    <details class="details-box" open onclick="showContent('damage')">
+                        <summary>DAMAGE</summary>
+                    </details>
+                    <details class="details-box" open onclick="showContent('defense')">
+                        <summary>DEFENSE</summary>
+                    </details>
+
+                    <details class="details-box" onclick="showContent('mix')">
+                        <summary>MIX </summary>
+                    </details>
+
+                    <details class="details-box" onclick="showContent('horse')">
+                        <summary>HORSE </summary>
+                    </details>
+
+                    <details class="details-box" onclick="showContent('farm')">
+                        <summary>FARM</summary>
+                    </details>
+
+                </div>
+                <div id="content" class="content-container">
+                </div>
             </div>
-            <div id="content" class="content-container">  
-            </div>
-            </div>
-          
-                   
-                
-         </section>
-     
+
+
+
+        </section>
+
         <div id="footer-container"></div>
 
         <script src="js/jquery.min.js"></script>
@@ -253,42 +261,42 @@
         <script src="js/custom.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- jQuery laden -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-        
-<!-- Schutz-Skript -->
-<script src="js/protection.js"></script>
-        <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const loader = document.querySelector('.loader');
 
-        fetch('libraries.html?v=' + new Date().getTime())
-            .then(response => response.text())
-            .then(data => {
-                document.head.insertAdjacentHTML('beforeend', data);
-                return fetch('navbar.html?v=' + new Date().getTime());
-            })
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar-container').innerHTML = data;
-                return fetch('footer.html?v=' + new Date().getTime());
-            })
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-container').innerHTML = data;
-                showContent('info');
-                loader.style.display = 'none'; // Ladebildschirm ausblenden
-            })
-            .catch(error => console.error('Fehler beim Laden:', error));
-    });
-</script>
+        <!-- Schutz-Skript -->
+        <script src="js/protection.js"></script>
         <script>
-            function showContent(region) {
+            document.addEventListener("DOMContentLoaded", function () {
+                const loader = document.querySelector('.loader');
+
+                fetch('libraries.html?v=' + new Date().getTime())
+                    .then(response => response.text())
+                    .then(data => {
+                        document.head.insertAdjacentHTML('beforeend', data);
+                        return fetch('navbar.html?v=' + new Date().getTime());
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('navbar-container').innerHTML = data;
+                        return fetch('footer.html?v=' + new Date().getTime());
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('footer-container').innerHTML = data;
+                        // showContent('info');
+                        loader.style.display = 'none'; // Ladebildschirm ausblenden
+                    })
+                    .catch(error => console.error('Fehler beim Laden:', error));
+            });
+        </script>
+        <script>
+            function showContent(region, pushState = true) {
                 const content = document.getElementById("content");
-   
+
                 const data = {
-                // Information
-                "info": `
+                    // Information
+                    "info": `
                     <div class="main-container">
                          
                           <h1 class="main-title">Pet System</h1>
@@ -307,10 +315,10 @@
                         <br>
                         <br>
                     </div>
-                    ` 
-                ,
-                // DAMAGE
-                "damage": `
+                    `
+                    ,
+                    // DAMAGE
+                    "damage": `
                     <div class="main-container">
                         <h1 class="main-title">DAMAGE</h1><br>
 
@@ -564,10 +572,10 @@
                         <br>
                         <br>
                     </div>
-                    ` 
-                ,
-                // DEFENSE
-                "defense": `
+                    `
+                    ,
+                    // DEFENSE
+                    "defense": `
                     <div class="main-container">
                         <h1 class="main-title">DEFENSE</h1><br>
                               
@@ -814,10 +822,10 @@
                         <br>
                         <br>
                     </div>
-                    ` 
-                ,
-                // MIX
-                "mix": `
+                    `
+                    ,
+                    // MIX
+                    "mix": `
                     <div class="main-container">
                     <h1 class="main-title">MIX</h1>
                             <div class="jewel-container">
@@ -1066,10 +1074,10 @@
                         <br>
                         <br>
                     </div>
-                    ` 
-                ,
-                // HORSE
-                "horse": `
+                    `
+                    ,
+                    // HORSE
+                    "horse": `
                     <div class="main-container">
                      <h1 class="main-title">HORSE</h1>
 
@@ -1259,10 +1267,10 @@
                   
                         <br>
                     </div>
-                    ` 
-                ,
-                // FARM
-                "farm": `
+                    `
+                    ,
+                    // FARM
+                    "farm": `
                     <div class="main-container">
                      <h1 class="main-title">FARM</h1>
 
@@ -1448,25 +1456,56 @@
                         <br>
                         <br>
                     </div>
-                    ` 
-                ,
+                    `
+                    ,
 
                 };
-    
-                
-                content.innerHTML = data[region];
-                content.classList.add("active"); 
+
+
+                content.innerHTML = data[region] || `<div class="main-container"><h1 class="main-title">Not Found</h1></div>`;
+                content.classList.add("active");
+
+
+
+
+
+                // ✅ Remove open from all
+                document.querySelectorAll('details.details-box').forEach(d => d.removeAttribute('open'));
+
+                // ✅ Find the matching one and set open
+                const matchingDetails = Array.from(document.querySelectorAll('details.details-box')).find(d => {
+                    const onclickAttr = d.getAttribute('onclick') || "";
+                    // Normalize single quotes and remove spaces
+                    const cleanAttr = onclickAttr.replace(/\s/g, '').replace(/"/g, "'");
+                    return cleanAttr === `showContent('${region}')`;
+                });
+
+                console.log(matchingDetails);
+
+
+                if (matchingDetails) {
+                    setTimeout(() => {
+                        matchingDetails.setAttribute('open', 'true');
+                    }, 0);
+                }
+
+
+
+                // ✅ Update URL without page reload
+                if (pushState) {
+                    const newUrl = `${window.location.pathname}?q=${encodeURIComponent(region)}`;
+                    history.pushState({ region }, '', newUrl);
+                }
+
             }
-            document.addEventListener("DOMContentLoaded", function() {
-           showContent('info');
-          });
-        
-  
 
-</script>
+            window.addEventListener('popstate', function (event) {
+                const region = event.state?.region || 'info';
+                showContent(region, false); // Don't push again
+            });
 
 
-
+        </script>
 
 
 
@@ -1477,20 +1516,49 @@
 
 
 
+        <script>
+            function autoDetectSection(query) {
+                query = query.toLowerCase();
+                const sectionIdMap = {
 
-<script>
-    const params = new URLSearchParams(window.location.search);
-    const tabToOpen = params.get('tab');
-    const popupToOpen = params.get('popup');
-  
-    if (tabToOpen) {
-      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
-    }
-  
-    if (popupToOpen) {
-      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
-    }
-  </script>
+                    "information": "info",
+                    "damage": "damage",
+                    "defense": "defense",
+                    "mix": "mix",
+                    "horse": "horse",
+                    "farm": "farm"
+
+                };
+
+                // ✅ NEW: if query is a section ID directly
+                if (Object.values(sectionIdMap).includes(query)) {
+                    console.log(`Direct section ID match: ${query}`);
+                    return query;
+                }
+
+                for (const tag in sectionIdMap) {
+                    if (query.includes(tag)) {
+                        console.log(`Matched query "${query}" → section: ${sectionIdMap[tag]}`);
+                        return sectionIdMap[tag];
+                    }
+                }
+
+                console.warn("No matching section found, defaulting to 'info'");
+                return 'info';
+            }
+
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const params = new URLSearchParams(window.location.search);
+                const q = params.get("q") || "info";
+                console.log("Query param received:", q);
+                const section = autoDetectSection(q);
+                showContent(section, false);
+
+
+            });
+
+        </script>
 
     </body>
 

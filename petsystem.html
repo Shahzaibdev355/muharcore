@@ -1,245 +1,262 @@
 <script type="text/javascript">
-    $(document).ready(function () {
-        //Disable cut copy paste
-        $('body').bind('cut copy paste', function (e) {
-            e.preventDefault();
-        });
-
-        //Disable mouse right click
-        $("body").on("contextmenu", function (e) {
-            return false;
-        });
+  $(document).ready(function () {
+    //Disable cut copy paste
+    $('body').bind('cut copy paste', function (e) {
+      e.preventDefault();
     });
+
+    //Disable mouse right click
+    $("body").on("contextmenu", function (e) {
+      return false;
+    });
+  });
 </script>
 <!DOCTYPE html>
 
 <body oncopy="return false" oncut="return false" onpaste="return false">
-    <html lang="en">
+  <html lang="en">
 
-    <head>
+  <head>
 
-        <title>Guides MU-HARDCORE</title>
+    <title>Guides MU-HARDCORE</title>
 
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-        <meta name="description" content="">
-        <meta name="keywords" content="">
-        <meta name="author" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-      <style>
-        .loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <style>
+      .loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
 
-p {
-    color: #f1c40f;
-}
+      p {
+        color: #f1c40f;
+      }
 
-.item-container {
-    background-color: #1f0000;
-    padding: 10px;
-    width: 90%; /* Beibehalten, wird aber durch max-width eingeschränkt */
-    max-width: 150px; /* Feste maximale Breite */
-    box-sizing: border-box;
-    text-align: center;
-    border-radius: 15px;
-    box-shadow: 0 0px 100px #93330b7a;
-    border: 1px solid #93330b;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 200px; /* Feste Höhe */
-}
+      .item-container {
+        background-color: #1f0000;
+        padding: 10px;
+        width: 90%;
+        /* Beibehalten, wird aber durch max-width eingeschränkt */
+        max-width: 150px;
+        /* Feste maximale Breite */
+        box-sizing: border-box;
+        text-align: center;
+        border-radius: 15px;
+        box-shadow: 0 0px 100px #93330b7a;
+        border: 1px solid #93330b;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+        /* Feste Höhe */
+      }
 
-/* Bilder in Containern */
-.item-thumb { 
-    width: 120px;
-    height: 120px; 
-    display: block; 
-    margin: 0 auto; 
-}
+      /* Bilder in Containern */
+      .item-thumb {
+        width: 120px;
+        height: 120px;
+        display: block;
+        margin: 0 auto;
+      }
 
-/* Flexbox-Reihe */
-.items-row {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap; /* **Jetzt erlaubt es Umbrüche für kleine Bildschirme** */
-}
+      /* Flexbox-Reihe */
+      .items-row {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        /* **Jetzt erlaubt es Umbrüche für kleine Bildschirme** */
+      }
 
-/* Popup-Bilder */
-.popup-im {
-    width: 120px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-/* Popup-Box */
-.popup-info {
-    border: 2px solid white;
-    padding: 10px;
-    border-radius: 5px;
-    width: 250px;
-    height: auto;
-}
-
-/* ========================================== */
-/* **Responsive Anpassungen für Mobile** */
-/* ========================================== */
-
-/* **Für Bildschirme bis 768px (Smartphones & kleine Tablets)** */
-@media (max-width: 768px) {
-    .items-row {
-        flex-direction: column; /* Stapelt die Boxen untereinander */
-        align-items: center; /* Zentriert die Elemente */
-    }
-    
-    .item-container {
-        max-width: 100%; /* Volle Breite für Mobile */
-        height: auto; /* Flexible Höhe */
-        padding: 15px;
-    }
-    
-    .popup-info {
-        width: 200px; /* Breite für Mobile optimiert */
-        height: auto; /* Hohe für Mobile optimiert */
-        max-width: 300px; /* Begrenzung der Breite */
-    }
-    
-    .popup-im {
-        width: 100px; /* Kleinere Bilder für Mobile */
-    }
-}
-
-/* **Für sehr kleine Bildschirme (bis 480px)** */
-@media (max-width: 480px) {
-    .item-container {
-        max-width: 95%; /* Fast volle Breite für kleine Handys */
+      /* Popup-Bilder */
+      .popup-im {
+        width: 120px;
         height: auto;
-    }
-    
-    .item-thumb, .popup-im {
-        width: 80px; /* Noch kleinere Bilder für sehr kleine Displays */
-    }
-    
-    .popup-info {
-       width: 300px; /* Breite für Mobile optimiert */
-        height: auto; /* Hohe für Mobile optimiert */
-        max-width: 300px; /* Begrenzung der Breite */
-    }
-}
+        display: block;
+        margin: 0 auto;
+      }
 
-      </style>
+      /* Popup-Box */
+      .popup-info {
+        border: 2px solid white;
+        padding: 10px;
+        border-radius: 5px;
+        width: 250px;
+        height: auto;
+      }
+
+      /* ========================================== */
+      /* **Responsive Anpassungen für Mobile** */
+      /* ========================================== */
+
+      /* **Für Bildschirme bis 768px (Smartphones & kleine Tablets)** */
+      @media (max-width: 768px) {
+        .items-row {
+          flex-direction: column;
+          /* Stapelt die Boxen untereinander */
+          align-items: center;
+          /* Zentriert die Elemente */
+        }
+
+        .item-container {
+          max-width: 100%;
+          /* Volle Breite für Mobile */
+          height: auto;
+          /* Flexible Höhe */
+          padding: 15px;
+        }
+
+        .popup-info {
+          width: 200px;
+          /* Breite für Mobile optimiert */
+          height: auto;
+          /* Hohe für Mobile optimiert */
+          max-width: 300px;
+          /* Begrenzung der Breite */
+        }
+
+        .popup-im {
+          width: 100px;
+          /* Kleinere Bilder für Mobile */
+        }
+      }
+
+      /* **Für sehr kleine Bildschirme (bis 480px)** */
+      @media (max-width: 480px) {
+        .item-container {
+          max-width: 95%;
+          /* Fast volle Breite für kleine Handys */
+          height: auto;
+        }
+
+        .item-thumb,
+        .popup-im {
+          width: 80px;
+          /* Noch kleinere Bilder für sehr kleine Displays */
+        }
+
+        .popup-info {
+          width: 300px;
+          /* Breite für Mobile optimiert */
+          height: auto;
+          /* Hohe für Mobile optimiert */
+          max-width: 300px;
+          /* Begrenzung der Breite */
+        }
+      }
+    </style>
 
 
-    </head>
+  </head>
 
-    <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+  <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
 
-         <div class="loader">Loading...</div>
-          <div id="navbar-container"></div>
-
-
-        <section class="about section" id="about">
-          
-      
-            <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
-            
-            <h1 style="text-align: center;"> 🛡 PET SYSTEM </h1>
-            <br>
-  
-            <!-- Alle Details-Buttons bleiben oben -->
-            <div class="summary-container">
-             <details class="details-box"  open onclick="showContent('info')">
-                 <summary>Information</summary>
-             </details>
-            </div><br>
-                <div class="summary-container">
-            <details class="details-box"  open onclick="showContent('damage')">
-                <summary>DAMAGE</summary>
-            </details>        
-            <details class="details-box"  open onclick="showContent('defense')">
-                <summary>DEFENSE</summary>
-            </details>
-    
-            <details class="details-box" onclick="showContent('mix')">
-                <summary>MIX </summary>
-            </details>
-    
-            <details class="details-box" onclick="showContent('horse')">
-                <summary>HORSE </summary>
-            </details>
-    
-            <details class="details-box" onclick="showContent('farm')">
-                <summary>FARM</summary>
-            </details>
-
-            </div>
-            <div id="content" class="content-container">  
-            </div>
-            </div>
-          
-                   
-                
-         </section>
-        <div id="footer-container"></div>
+    <div class="loader">Loading...</div>
+    <div id="navbar-container"></div>
 
 
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/aos.js"></script>
-        <script src="js/smoothscroll.js"></script>
-        <script src="js/custom.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- jQuery laden -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        
-<!-- Schutz-Skript -->
-<script src="js/protection.js"></script>
-        <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    <section class="about section" id="about">
+
+
+      <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+
+        <h1 style="text-align: center;"> 🛡 PET SYSTEM </h1>
+        <br>
+
+        <!-- Alle Details-Buttons bleiben oben -->
+        <div class="summary-container">
+          <details class="details-box" open onclick="showContent('info')">
+            <summary>Information</summary>
+          </details>
+        </div><br>
+        <div class="summary-container">
+          <details class="details-box" open onclick="showContent('damage')">
+            <summary>DAMAGE</summary>
+          </details>
+          <details class="details-box" open onclick="showContent('defense')">
+            <summary>DEFENSE</summary>
+          </details>
+
+          <details class="details-box" onclick="showContent('mix')">
+            <summary>MIX </summary>
+          </details>
+
+          <details class="details-box" onclick="showContent('horse')">
+            <summary>HORSE </summary>
+          </details>
+
+          <details class="details-box" onclick="showContent('farm')">
+            <summary>FARM</summary>
+          </details>
+
+        </div>
+        <div id="content" class="content-container">
+        </div>
+      </div>
+
+
+
+    </section>
+    <div id="footer-container"></div>
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery laden -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Schutz-Skript -->
+    <script src="js/protection.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
         const loader = document.querySelector('.loader');
 
         fetch('libraries.html?v=' + new Date().getTime())
-            .then(response => response.text())
-            .then(data => {
-                document.head.insertAdjacentHTML('beforeend', data);
-                return fetch('navbar.html?v=' + new Date().getTime());
-            })
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar-container').innerHTML = data;
-                return fetch('footer.html?v=' + new Date().getTime());
-            })
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-container').innerHTML = data;
-                showContent('info');
-                loader.style.display = 'none'; // Ladebildschirm ausblenden
-            })
-            .catch(error => console.error('Fehler beim Laden:', error));
-    });
-</script>
+          .then(response => response.text())
+          .then(data => {
+            document.head.insertAdjacentHTML('beforeend', data);
+            return fetch('navbar.html?v=' + new Date().getTime());
+          })
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById('navbar-container').innerHTML = data;
+            return fetch('footer.html?v=' + new Date().getTime());
+          })
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById('footer-container').innerHTML = data;
+            showContent('info');
+            loader.style.display = 'none'; // Ladebildschirm ausblenden
+          })
+          .catch(error => console.error('Fehler beim Laden:', error));
+      });
+    </script>
 
-        <script>
-            function showContent(region) {
-                const content = document.getElementById("content");
-   
-                const data = {
-                // Information
-                "info": `
+    <script>
+      function showContent(region) {
+        const content = document.getElementById("content");
+
+        const data = {
+          // Information
+          "info": `
                     <div class="main-container">
                          
                           <h1 class="main-title">Pet System</h1>
@@ -259,10 +276,10 @@ p {
                         <br>
                         <br>
                     </div>
-                    ` 
-                ,
-                // DAMAGE
-                "damage": `
+                    `
+          ,
+          // DAMAGE
+          "damage": `
                     <div class="main-container">
                      <h1 class="main-title">DAMAGE</h1><br>
 
@@ -963,10 +980,10 @@ p {
                         <br>
                         <br>
                     </div>
-                    ` 
-                ,
-                // DEFENSE
-                "defense": `
+                    `
+          ,
+          // DEFENSE
+          "defense": `
                     <div class="main-container">
                      <h1 class="main-title">DEFENSE</h1><br>
                      <h1 class="main-title">Fairy King ACT I</h1>
@@ -1619,10 +1636,10 @@ p {
                         <br>
                         <br>
                     </div>
-                    ` 
-                ,
-                // MIX
-                "mix": `
+                    `
+          ,
+          // MIX
+          "mix": `
                     <div class="main-container">
                      <h1 class="main-title">MIX</h1><br>
                      <h1 class="main-title">FOX ACT I</h1><br>
@@ -2281,10 +2298,10 @@ p {
                         <br>
                         <br>
                     </div>
-                    ` 
-                ,
-                // HORSE
-                "horse": `
+                    `
+          ,
+          // HORSE
+          "horse": `
                     <div class="main-container">           
                     <h1 class="main-title">HORSES</h1><br>
                     <h1 class="main-title">GHOST HORSE ACT I</h1><br>
@@ -2747,10 +2764,10 @@ p {
                         <br>
                         <br>
                     </div>
-                    ` 
-                ,
-                // FARM
-                "farm": `
+                    `
+          ,
+          // FARM
+          "farm": `
                     <div class="main-container">
                      
                           <h1 class="main-title">William ACT I</h1><br>
@@ -3174,23 +3191,21 @@ p {
                         <br>
                         <br>
                     </div>
-                    ` 
-                ,
+                    `
+          ,
 
-                };
-    
-                
-                content.innerHTML = data[region];
-                content.classList.add("active"); 
-            }
-            document.addEventListener("DOMContentLoaded", function() {
-           showContent('info');
-          });
-        
-  
-        </script>
+        };
 
 
+        content.innerHTML = data[region];
+        content.classList.add("active");
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        showContent('info');
+      });
+
+
+    </script>
 
 
 
@@ -3209,20 +3224,22 @@ p {
 
 
 
-<script>
-  const params = new URLSearchParams(window.location.search);
-  const tabToOpen = params.get('tab');
-  const popupToOpen = params.get('popup');
 
-  if (tabToOpen) {
-    document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
-  }
 
-  if (popupToOpen) {
-    document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
-  }
-</script>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const tabToOpen = params.get('tab');
+      const popupToOpen = params.get('popup');
 
-    </body>
+      if (tabToOpen) {
+        document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
+      }
 
-    </html>
+      if (popupToOpen) {
+        document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
+      }
+    </script>
+
+  </body>
+
+  </html>

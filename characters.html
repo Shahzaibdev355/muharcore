@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -80,7 +81,8 @@
             background: transparent;
         }
 
-        .character-page th, .character-page td {
+        .character-page th,
+        .character-page td {
             border: 1px solid #fff;
             padding: 8px;
             text-align: center;
@@ -123,7 +125,9 @@
         }
     </style>
 </head>
-<body oncopy="return false" oncut="return false" onpaste="return false" data-spy="scroll" data-target="#navbarNav" data-offset="50">
+
+<body oncopy="return false" oncut="return false" onpaste="return false" data-spy="scroll" data-target="#navbarNav"
+    data-offset="50">
     <div class="loader">Loading...</div>
 
     <div id="navbar-container"></div>
@@ -134,19 +138,33 @@
             <br>
 
             <div class="summary-container">
-                <details class="details-box" open>
+                <details class="details-box" open onclick="showContent('information')">
                     <summary>Information</summary>
                 </details>
             </div><br>
 
             <div class="summary-container">
-                <details class="details-box"><summary>Dark Wizard</summary></details>
-                <details class="details-box"><summary>Fairy Elf</summary></details>
-                <details class="details-box"><summary>Dragon Knight</summary></details>
-                <details class="details-box"><summary>Summoner</summary></details>
-                <details class="details-box"><summary>Rage Fighter</summary></details>
-                <details class="details-box"><summary>Magic Gladiator</summary></details>
-                <details class="details-box"><summary>Dark Lord</summary></details>
+                <details class="details-box" onclick="showContent('darkwizard')">
+                    <summary>Dark Wizard</summary>
+                </details>
+                <details class="details-box" onclick="showContent('fairyelf')">
+                    <summary>Fairy Elf</summary>
+                </details>
+                <details class="details-box" onclick="showContent('dragonknight')">
+                    <summary>Dragon Knight</summary>
+                </details>
+                <details class="details-box" onclick="showContent('summoner')">
+                    <summary>Summoner</summary>
+                </details>
+                <details class="details-box" onclick="showContent('ragefighter')">
+                    <summary>Rage Fighter</summary>
+                </details>
+                <details class="details-box" onclick="showContent('magicgladiator')">
+                    <summary>Magic Gladiator</summary>
+                </details>
+                <details class="details-box" onclick="showContent('darklord')">
+                    <summary>Dark Lord</summary>
+                </details>
             </div>
 
             <div id="content" class="content-container"></div>
@@ -162,7 +180,7 @@
     <script src="js/smoothscroll.js"></script>
     <script src="js/custom.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-   
+
     <!-- Loader und Character Script -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -191,8 +209,16 @@
                     loader.style.opacity = '0';
                     setTimeout(() => {
                         loader.style.display = 'none';
-                        showContent('information');
+                        // showContent('information');
                     }, 500);
+
+
+                      // ✅ Only now it's safe to read URL param & show content
+                      const params = new URLSearchParams(window.location.search);
+                        const q = params.get("q") || 'information';
+                        console.log("Query param received:", q);
+                        const section = autoDetectSection(q);
+                        showContent(section, false);
                 })
                 .catch(error => {
                     console.error('Fehler beim Laden:', error);
@@ -200,29 +226,29 @@
                     loader.style.opacity = '0';
                     setTimeout(() => {
                         loader.style.display = 'none';
-                        showContent('information');
+                        // showContent('information');
                     }, 500);
                 });
 
             // Character Functionality: Nur ein Details-Element offen
             const detailsElements = document.querySelectorAll(".details-box");
-            detailsElements.forEach((element) => {
-                element.addEventListener("toggle", function() {
-                    if (this.open) {
-                        // Schließe alle anderen Details-Elemente
-                        detailsElements.forEach((other) => {
-                            if (other !== this) {
-                                other.removeAttribute('open');
-                            }
-                        });
-                        const region = this.querySelector("summary").textContent.toLowerCase().replace(/\s+/g, '');
-                        showContent(region);
-                    }
-                });
-            });
+            // detailsElements.forEach((element) => {
+            //     element.addEventListener("toggle", function () {
+            //         if (this.open) {
+            //             // Schließe alle anderen Details-Elemente
+            //             detailsElements.forEach((other) => {
+            //                 if (other !== this) {
+            //                     other.removeAttribute('open');
+            //                 }
+            //             });
+            //             const region = this.querySelector("summary").textContent.toLowerCase().replace(/\s+/g, '');
+            //             showContent(region);
+            //         }
+            //     });
+            // });
         });
 
-        function showContent(region) {
+        function showContent(region, pushState = true) {
             const content = document.getElementById("content");
             const data = {
                 "information": `
@@ -231,53 +257,96 @@
                         <p style="color: #f1c40f;">We currently offer <span class="highlight-text">7 playable character classes</span>! However, if you are a new player, you’ll only be able to play as the <span class="highlight-text">Dark Knight</span>, <span class="highlight-text">Fairy Elf</span>, or <span class="highlight-text">Dark Wizard</span> until you become more experienced! Alternatively, you can purchase <span class="highlight-text">VIP status</span> and enable the rest of the available characters from <span class="highlight-text">level 1</span>.</p>
                     </div>
                 `,
-                "darkwizard": characterTemplate("Dark Wizard", "darkwizard.png", 
-                    "As a descendant of the kingdom of magicians, Arka, he possesses powerful magical powers and can freely use offensive magic. Due to his long training in magic, his physical condition is relatively poor, so he appears weak in close combat. However, his magical skills are so excellent that they more than make up for his shortcomings, and he often puts his opponents in a state of inability to fight.", 
-                    [["Min DMG", "ENE/4"], ["Max DMG", "ENE/2"], ["Defense", "AGI/4"], ["Attack Speed", "AGI/20"], ["Mana Shield", "(AGI/100)+(ENE/100)"], ["MS Max %", "40"], ["MS % for party", "20%"], ["Teleport attack ", "disable"], ["Disable Teleport ", "by Ice Arrow"]], 
-                    [["Points per Level", "3-4"], ["Strength", "18"], ["Agility", "18"], ["Stamina", "15"], ["Energy", "30"]], 
-                    [["HP", "60"], ["Level add HP", "+2"], ["Stamina add HP", "+2.2"], ["Mana", "60"], ["Level add Mana", "+2"], ["Energy add Mana", "+2"]], 
+                "darkwizard": characterTemplate("Dark Wizard", "darkwizard.png",
+                    "As a descendant of the kingdom of magicians, Arka, he possesses powerful magical powers and can freely use offensive magic. Due to his long training in magic, his physical condition is relatively poor, so he appears weak in close combat. However, his magical skills are so excellent that they more than make up for his shortcomings, and he often puts his opponents in a state of inability to fight.",
+                    [["Min DMG", "ENE/4"], ["Max DMG", "ENE/2"], ["Defense", "AGI/4"], ["Attack Speed", "AGI/20"], ["Mana Shield", "(AGI/100)+(ENE/100)"], ["MS Max %", "40"], ["MS % for party", "20%"], ["Teleport attack ", "disable"], ["Disable Teleport ", "by Ice Arrow"]],
+                    [["Points per Level", "3-4"], ["Strength", "18"], ["Agility", "18"], ["Stamina", "15"], ["Energy", "30"]],
+                    [["HP", "60"], ["Level add HP", "+2"], ["Stamina add HP", "+2.2"], ["Mana", "60"], ["Level add Mana", "+2"], ["Energy add Mana", "+2"]],
                     ["Dark Wizard", "Soul Master", "Grand Master"]),
-                "fairyelf": characterTemplate("Fairy Elf", "elf.png", 
-                    "She is a member of Noria, the kingdom of fairies, and has a beautiful and elegant appearance. With sharp eyes, keen ears, and a natural talent for using bows and crossbows, fairies are generally good at ranged attacks using these weapons, but sometimes they use light, easy-to-handle melee weapons.", 
-                    [["Min Phys DMG", "(STR+AGI)/5"], ["Max Phys DMG", "(STR+AGI)/3"], ["Defense", "AGI/6"], ["Attack Speed", "AGI/45"]], 
-                    [["Points per Level", "3-4"], ["Strength", "22"], ["Agility", "25"], ["Stamina", "20"], ["Energy", "15"]], 
-                    [["HP", "80"], ["Level add HP", "+2"], ["Stamina add HP", "+2"], ["Mana", "30"], ["Level add Mana", "+1.5"], ["Energy add Mana", "+1.5"]], 
+                "fairyelf": characterTemplate("Fairy Elf", "elf.png",
+                    "She is a member of Noria, the kingdom of fairies, and has a beautiful and elegant appearance. With sharp eyes, keen ears, and a natural talent for using bows and crossbows, fairies are generally good at ranged attacks using these weapons, but sometimes they use light, easy-to-handle melee weapons.",
+                    [["Min Phys DMG", "(STR+AGI)/5"], ["Max Phys DMG", "(STR+AGI)/3"], ["Defense", "AGI/6"], ["Attack Speed", "AGI/45"]],
+                    [["Points per Level", "3-4"], ["Strength", "22"], ["Agility", "25"], ["Stamina", "20"], ["Energy", "15"]],
+                    [["HP", "80"], ["Level add HP", "+2"], ["Stamina add HP", "+2"], ["Mana", "30"], ["Level add Mana", "+1.5"], ["Energy add Mana", "+1.5"]],
                     ["Fairy Elf", "Muse Elf", "High Elf"]),
-                "dragonknight": characterTemplate("Dragon Knight", "darkknight.png", 
-                    "As a descendant of Lorencia, the kingdom of knights, he is a close-combat character with strong physical strength and flashy swordsmanship. They are the vanguard of the attack at the front lines during battles, and they often play a role in protecting their comrades.", 
-                    [["Min Phys DMG", "STR/7"], ["Max Phys DMG", "STR/4"], ["Min Magic DMG", "ENE/10"], ["Max Magic DMG", "ENE/8"], ["Defense", "AGI/3"], ["Attack Speed", "AGI/25"],  ["Great Fortitude MAX %", "50"],  ["Great Fortitude Formula %", "30(ENE/5000+VIT/5000)"],["Great Fortitude % for party", "25"]], 
-                    [["Points per Level", "3-4"], ["Strength", "28"], ["Agility", "20"], ["Stamina", "25"], ["Energy", "10"]], 
-                    [["HP", "110"], ["Level add HP", "+2"], ["Stamina add HP", "+3.1"], ["Mana", "20"], ["Level add Mana", "+0.5"], ["Energy add Mana", "+1"]], 
+                "dragonknight": characterTemplate("Dragon Knight", "darkknight.png",
+                    "As a descendant of Lorencia, the kingdom of knights, he is a close-combat character with strong physical strength and flashy swordsmanship. They are the vanguard of the attack at the front lines during battles, and they often play a role in protecting their comrades.",
+                    [["Min Phys DMG", "STR/7"], ["Max Phys DMG", "STR/4"], ["Min Magic DMG", "ENE/10"], ["Max Magic DMG", "ENE/8"], ["Defense", "AGI/3"], ["Attack Speed", "AGI/25"], ["Great Fortitude MAX %", "50"], ["Great Fortitude Formula %", "30(ENE/5000+VIT/5000)"], ["Great Fortitude % for party", "25"]],
+                    [["Points per Level", "3-4"], ["Strength", "28"], ["Agility", "20"], ["Stamina", "25"], ["Energy", "10"]],
+                    [["HP", "110"], ["Level add HP", "+2"], ["Stamina add HP", "+3.1"], ["Mana", "20"], ["Level add Mana", "+0.5"], ["Energy add Mana", "+1"]],
                     ["Dark Knight", "Blade Knight", "Blade Master"]),
-                "summoner": characterTemplate("Summoner", "summoner.png", 
-                    "The purity of the race continues due to the noble bloodline that has been passed down from ancient times. They have a natural talent for sorcery and a mysterious ability to communicate with other worlds.", 
-                    [["Min Magic DMG", "ENE/4"], ["Max Magic DMG", "ENE/2"], ["Min Cursed DMG", "ENE/10"], ["Max Cursed DMG", "ENE/5"], ["Defense", "AGI/4"], ["Attack Speed", "AGI/20"], ["Berserker %", "ENE/40"], ["Reflect MAX %", "20%"],["Reflect % for party", "1%"], ["Reflect Formula", "10%+(ene/600)"]], 
-                    [["Points per Level", "3-4"], ["Strength", "21"], ["Agility", "21"], ["Stamina", "18"], ["Energy", "23"]], 
-                    [["HP", "70"], ["Level add HP", "+1.2"], ["Stamina add HP", "+2"], ["Mana", "40"], ["Level add Mana", "+1.5"], ["Energy add Mana", "+1.5"]], 
+                "summoner": characterTemplate("Summoner", "summoner.png",
+                    "The purity of the race continues due to the noble bloodline that has been passed down from ancient times. They have a natural talent for sorcery and a mysterious ability to communicate with other worlds.",
+                    [["Min Magic DMG", "ENE/4"], ["Max Magic DMG", "ENE/2"], ["Min Cursed DMG", "ENE/10"], ["Max Cursed DMG", "ENE/5"], ["Defense", "AGI/4"], ["Attack Speed", "AGI/20"], ["Berserker %", "ENE/40"], ["Reflect MAX %", "20%"], ["Reflect % for party", "1%"], ["Reflect Formula", "10%+(ene/600)"]],
+                    [["Points per Level", "3-4"], ["Strength", "21"], ["Agility", "21"], ["Stamina", "18"], ["Energy", "23"]],
+                    [["HP", "70"], ["Level add HP", "+1.2"], ["Stamina add HP", "+2"], ["Mana", "40"], ["Level add Mana", "+1.5"], ["Energy add Mana", "+1.5"]],
                     ["Summoner", "Bloody Summoner", "Dimension Master"]),
-                "ragefighter": characterTemplate("Rage Fighter", "ragefighter.png", 
-                    "The inheritor who has mastered the martial arts passed down by the royal knights of the already fallen kingdom of Karutan. The Rage Fighter instills fear in enemies with his powerful physique and charging attacks.", 
-                    [["Min Phys DMG", "(STR/7)+(VIT/20)"], ["Max Phys DMG", "(STR/4)+(VIT/16)"], ["Min Magic DMG", "ENE/7"], ["Max Magic DMG", "ENE/5"], ["Defense", "AGI/8"], ["Attack Speed", "AGI/50"], ["DSR Buff", "10ENE = 1RATE"], ["Increase Vitality", "10ENE = 1VIT"]], 
-                    [["Points per Level", "4"], ["Strength", "25"], ["Agility", "27"], ["Stamina", "32"], ["Energy", "20"]], 
-                    [["HP", "114"], ["Level add HP", "+1.3"], ["Stamina add HP", "+2"], ["Mana", "40"], ["Level add Mana", "+1"], ["Energy add Mana", "+1.3"]], 
+                "ragefighter": characterTemplate("Rage Fighter", "ragefighter.png",
+                    "The inheritor who has mastered the martial arts passed down by the royal knights of the already fallen kingdom of Karutan. The Rage Fighter instills fear in enemies with his powerful physique and charging attacks.",
+                    [["Min Phys DMG", "(STR/7)+(VIT/20)"], ["Max Phys DMG", "(STR/4)+(VIT/16)"], ["Min Magic DMG", "ENE/7"], ["Max Magic DMG", "ENE/5"], ["Defense", "AGI/8"], ["Attack Speed", "AGI/50"], ["DSR Buff", "10ENE = 1RATE"], ["Increase Vitality", "10ENE = 1VIT"]],
+                    [["Points per Level", "4"], ["Strength", "25"], ["Agility", "27"], ["Stamina", "32"], ["Energy", "20"]],
+                    [["HP", "114"], ["Level add HP", "+1.3"], ["Stamina add HP", "+2"], ["Mana", "40"], ["Level add Mana", "+1"], ["Energy add Mana", "+1.3"]],
                     ["Rage Fighter", "Fist Master"]),
-                "magicgladiator": characterTemplate("Magic Gladiator", "magic.png", 
-                    "It is rare for someone to possess multiple talents at the same time. The Gladiator, a hybrid character, possesses the characteristics of both a Dark Knight and a Dark Wizard.", 
-                    [["Min Phys DMG", "(STR/5))"], ["Max Phys DMG", "(STR/2)"], ["Min Magic DMG", "ENE/4"], ["Max Magic DMG", "ENE/2"], ["Defense", "AGI/3"], ["Attack Speed", "AGI/25"], ["Fireslash MAX %", "25"], ["Fireslash Formula", "10%+(STR/1000)"]], 
-                    [["Points per Level", "4"], ["Strength", "26"], ["Agility", "26"], ["Stamina", "26"], ["Energy", "26"]], 
-                    [["HP", "110"], ["Level add HP", "+1.3"], ["Stamina add HP", "+2.3"], ["Mana", "60"], ["Level add Mana", "+1"], ["Energy add Mana", "+2"]], 
+                "magicgladiator": characterTemplate("Magic Gladiator", "magic.png",
+                    "It is rare for someone to possess multiple talents at the same time. The Gladiator, a hybrid character, possesses the characteristics of both a Dark Knight and a Dark Wizard.",
+                    [["Min Phys DMG", "(STR/5))"], ["Max Phys DMG", "(STR/2)"], ["Min Magic DMG", "ENE/4"], ["Max Magic DMG", "ENE/2"], ["Defense", "AGI/3"], ["Attack Speed", "AGI/25"], ["Fireslash MAX %", "25"], ["Fireslash Formula", "10%+(STR/1000)"]],
+                    [["Points per Level", "4"], ["Strength", "26"], ["Agility", "26"], ["Stamina", "26"], ["Energy", "26"]],
+                    [["HP", "110"], ["Level add HP", "+1.3"], ["Stamina add HP", "+2.3"], ["Mana", "60"], ["Level add Mana", "+1"], ["Energy add Mana", "+2"]],
                     ["Magic Gladiator", "Duel Master"]),
-                "darklord": characterTemplate("Dark Lord", "darklord.png", 
-                    "As a monarch-type character with sharp charisma and excellent leadership, he can gather more guild members than other characters when creating a guild.", 
-                    [["Min Phys DMG", "(STR/6)+(ENE/15)"], ["Max Phys DMG", "(STR/3)+(ENE/11)"], ["Min Magic DMG", "ENE/10"], ["Max Magic DMG", "ENE/7"], ["Defense", "AGI/4"], ["Attack Speed", "AGI/28"], ["CriticalDMG MAX %", "(ENE/25)+(CMD/500)"]], 
-                    [["Points per Level", "4"], ["Strength", "26"], ["Agility", "20"], ["Stamina", "20"], ["Energy", "15"], ["Command", "25"]], 
-                    [["HP", "90"], ["Level add HP", "+1.5"], ["Stamina add HP", "+2"], ["Mana", "40"], ["Level add Mana", "+1"], ["Energy add Mana", "+1.5"]], 
+                "darklord": characterTemplate("Dark Lord", "darklord.png",
+                    "As a monarch-type character with sharp charisma and excellent leadership, he can gather more guild members than other characters when creating a guild.",
+                    [["Min Phys DMG", "(STR/6)+(ENE/15)"], ["Max Phys DMG", "(STR/3)+(ENE/11)"], ["Min Magic DMG", "ENE/10"], ["Max Magic DMG", "ENE/7"], ["Defense", "AGI/4"], ["Attack Speed", "AGI/28"], ["CriticalDMG MAX %", "(ENE/25)+(CMD/500)"]],
+                    [["Points per Level", "4"], ["Strength", "26"], ["Agility", "20"], ["Stamina", "20"], ["Energy", "15"], ["Command", "25"]],
+                    [["HP", "90"], ["Level add HP", "+1.5"], ["Stamina add HP", "+2"], ["Mana", "40"], ["Level add Mana", "+1"], ["Energy add Mana", "+1.5"]],
                     ["Dark Lord", "Lord Emperor"])
             };
 
-            content.innerHTML = data[region] || "<div class='main-container'><h1 class='main-title'>Not Found</h1></div>";
+            content.innerHTML = data[region] || `<div class="main-container"><h1 class="main-title">Not Found</h1></div>`;
             content.classList.add("active");
+
+
+
+
+
+            // ✅ Remove open from all
+            document.querySelectorAll('details.details-box').forEach(d => d.removeAttribute('open'));
+
+            // ✅ Find the matching one and set open
+            const matchingDetails = Array.from(document.querySelectorAll('details.details-box')).find(d => {
+                const onclickAttr = d.getAttribute('onclick') || "";
+                // Normalize single quotes and remove spaces
+                const cleanAttr = onclickAttr.replace(/\s/g, '').replace(/"/g, "'");
+                return cleanAttr === `showContent('${region}')`;
+            });
+
+            console.log(matchingDetails);
+
+
+            if (matchingDetails) {
+                setTimeout(() => {
+                    matchingDetails.setAttribute('open', 'true');
+                }, 0);
+            }
+
+
+
+            // ✅ Update URL without page reload
+            if (pushState) {
+                const newUrl = `${window.location.pathname}?q=${encodeURIComponent(region)}`;
+                history.pushState({ region }, '', newUrl);
+            }
+
+
+
         }
+
+        window.addEventListener('popstate', function (event) {
+            const region = event.state?.region || 'info';
+            showContent(region, false); // Don't push again
+        });
+
+
+
 
         function characterTemplate(name, imgSrc, desc, info, stats, hpMana, evolutions) {
             return `
@@ -318,6 +387,42 @@
 
 
 
+    <script>
+        function autoDetectSection(query) {
+            query = query.toLowerCase();
+            const sectionIdMap = {
+
+                "information": "information",
+                "dark wizard": "darkwizard",
+                "fairy elf": "fairyelf",
+                "dragon knight": "dragonknight",
+                "summoner": "summoner",
+                "rage fighter": "ragefighter",
+                "magic gladiator": "magicgladiator",
+                "dark lord": "darklord"
+
+            };
+
+            // ✅ NEW: if query is a section ID directly
+            if (Object.values(sectionIdMap).includes(query)) {
+                console.log(`Direct section ID match: ${query}`);
+                return query;
+            }
+
+            for (const tag in sectionIdMap) {
+                if (query.includes(tag)) {
+                    console.log(`Matched query "${query}" → section: ${sectionIdMap[tag]}`);
+                    return sectionIdMap[tag];
+                }
+            }
+
+            console.warn("No matching section found, defaulting to 'info'");
+            return 'information';
+        }
+
+
+
+    </script>
 
 
 
@@ -329,18 +434,6 @@
 
 
 
-<script>
-    const params = new URLSearchParams(window.location.search);
-    const tabToOpen = params.get('tab');
-    const popupToOpen = params.get('popup');
-  
-    if (tabToOpen) {
-      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
-    }
-  
-    if (popupToOpen) {
-      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
-    }
-  </script>
 </body>
+
 </html>

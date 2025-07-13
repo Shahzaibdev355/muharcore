@@ -12,8 +12,10 @@
     });
 </script>
 <!DOCTYPE html>
+
 <body oncopy="return false" oncut="return false" onpaste="return false">
     <html lang="en">
+
     <head>
         <title>Guides MU-HARDCORE</title>
         <meta charset="UTF-8">
@@ -24,80 +26,88 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
         <script>
-        fetch('libraries.html')
-            .then(response => response.text())
-            .then(data => {
-                document.head.insertAdjacentHTML('beforeend', data);
-            })
-            .catch(error => console.error('Fehler beim Laden der Libraries:', error));
+            fetch('libraries.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.head.insertAdjacentHTML('beforeend', data);
+                })
+                .catch(error => console.error('Fehler beim Laden der Libraries:', error));
         </script>
 
         <style>
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #000;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-        .item-wrapper { 
-            text-align: center; 
-            margin: 20px auto; 
-            max-width: 600px; 
-        }
-        .item-thumb { 
-            width: 150px; 
-            height: 150px; 
-            display: block; 
-            margin: 0 auto; 
-        }
-        .popup-info { 
-            width: 300px; 
-            margin: 20px auto; 
-            text-align: center; 
-            padding: 10px; 
-            border: 1px solid #ccc; 
-        }
-        .popup-header { 
-            font-size: 20px; 
-            font-weight: bold; 
-            color: #f1c40f; 
-            margin-bottom: 10px; 
-        }
-        .popup-im { 
-            width: 120px; 
-            height: 120px; 
-            display: block; 
-            margin: 10px auto; 
-        }
-        .popup-name { 
-            font-size: 16px; 
-            font-weight: bold; 
-            margin: 5px 0; 
-        }
-        .popup-loot { 
-            font-size: 16px; 
-            color: #ffdf1b; 
-            margin: 2px 0; 
-        }
-        .skill-container {
-            background-color: #1f0000;
-            padding: 20px;
-            width: 90%;
-            max-width: 1000px;
-            box-sizing: border-box;
-            text-align: center;
-            margin: 50px auto;
-            border-radius: 15px;
-            box-shadow: 0 0px 100px #93330b7a;
-            border: 1px solid #93330b;
-        }
+            .loader {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #000;
+                color: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+            }
+
+            .item-wrapper {
+                text-align: center;
+                margin: 20px auto;
+                max-width: 600px;
+            }
+
+            .item-thumb {
+                width: 150px;
+                height: 150px;
+                display: block;
+                margin: 0 auto;
+            }
+
+            .popup-info {
+                width: 300px;
+                margin: 20px auto;
+                text-align: center;
+                padding: 10px;
+                border: 1px solid #ccc;
+            }
+
+            .popup-header {
+                font-size: 20px;
+                font-weight: bold;
+                color: #f1c40f;
+                margin-bottom: 10px;
+            }
+
+            .popup-im {
+                width: 120px;
+                height: 120px;
+                display: block;
+                margin: 10px auto;
+            }
+
+            .popup-name {
+                font-size: 16px;
+                font-weight: bold;
+                margin: 5px 0;
+            }
+
+            .popup-loot {
+                font-size: 16px;
+                color: #ffdf1b;
+                margin: 2px 0;
+            }
+
+            .skill-container {
+                background-color: #1f0000;
+                padding: 20px;
+                width: 90%;
+                max-width: 1000px;
+                box-sizing: border-box;
+                text-align: center;
+                margin: 50px auto;
+                border-radius: 15px;
+                box-shadow: 0 0px 100px #93330b7a;
+                border: 1px solid #93330b;
+            }
         </style>
     </head>
 
@@ -150,59 +160,68 @@
         <script src="js/custom.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const loader = document.querySelector('.loader');
+            document.addEventListener("DOMContentLoaded", function () {
+                const loader = document.querySelector('.loader');
 
-            fetch('libraries.html?v=' + new Date().getTime())
-                .then(response => response.text())
-                .then(data => {
-                    document.head.insertAdjacentHTML('beforeend', data);
-                    return fetch('navbar.html?v=' + new Date().getTime());
-                })
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('navbar-container').innerHTML = data;
-                    return fetch('footer.html?v=' + new Date().getTime());
-                })
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('footer-container').innerHTML = data;
-                    loadSkillsData();
-                })
-                .catch(error => console.error('Fehler beim Laden:', error))
-                .finally(() => {
-                    loader.style.display = 'none';
-                });
-        });
+                fetch('libraries.html?v=' + new Date().getTime())
+                    .then(response => response.text())
+                    .then(data => {
+                        document.head.insertAdjacentHTML('beforeend', data);
+                        return fetch('navbar.html?v=' + new Date().getTime());
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('navbar-container').innerHTML = data;
+                        return fetch('footer.html?v=' + new Date().getTime());
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('footer-container').innerHTML = data;
+                        loadSkillsData();
+                    })
+                    .catch(error => console.error('Fehler beim Laden:', error))
+                    .finally(() => {
+                        loader.style.display = 'none';
+                    });
+            });
 
-        let skillsData = {};
+            let skillsData = {};
 
-        function loadSkillsData() {
-            fetch('configs/skills.json?v=' + new Date().getTime())
-                .then(response => response.json())
-                .then(data => {
-                    skillsData = data;
-                    showContent('info');
-                })
-                .catch(error => console.error('Fehler beim Laden der Skills:', error));
-        }
+            function loadSkillsData() {
+                fetch('configs/skills.json?v=' + new Date().getTime())
+                    .then(response => response.json())
+                    .then(data => {
+                        skillsData = data;
+                        // showContent('info');
 
-        function showContent(region) {
-            const content = document.getElementById("content");
-            content.innerHTML = '';
 
-            if (region === 'info') {
-                content.innerHTML = `
+                        // ✅ Only now it's safe to read URL param & show content
+                        const params = new URLSearchParams(window.location.search);
+                        const q = params.get("q") || 'goldens';
+                        console.log("Query param received:", q);
+                        const section = autoDetectSection(q);
+                        showContent(section, false);
+
+                    })
+                    .catch(error => console.error('Fehler beim Laden der Skills:', error));
+            }
+
+            function showContent(region, pushState = true) {
+                const content = document.getElementById("content");
+                content.innerHTML = '';
+
+                if (region === 'info') {
+                    content.innerHTML = `
                 <div class="main-container">
                 <h1 class="main-title">Information</h1>
                 <p style="color: #f1c40f;">The topic describes in more detail which location  and monster drops certail skill scroll of orb.</p>
                 <br><br>
                 </div>`;
 
-            } else if (skillsData[region] && skillsData[region].skills && skillsData[region].skills.length > 0) {
-                let html = '<div class="main-container">';
-                skillsData[region].skills.forEach(skill => {
-                    html += `
+                } else if (skillsData[region] && skillsData[region].skills && skillsData[region].skills.length > 0) {
+                    let html = '<div class="main-container">';
+                    skillsData[region].skills.forEach(skill => {
+                        html += `
                         <div class="item-wrapper">
                             <div class="skill-container">
                                 <p style="line-height:140%;font-size:15px">
@@ -226,14 +245,101 @@
                                 ${skill.dropFrom.map(drop => `<div class="popup-loot">${drop}</div>`).join('')}
                             </div>
                         </div>`;
+                    });
+                    html += '<br><br></div>';
+                    content.innerHTML = html;
+                } else {
+                    content.innerHTML = '<div class="main-container"><p>Keine Skills für diese Klasse verfügbar.</p><br><br></div>';
+                }
+                content.classList.add("active");
+
+
+                // ✅ Remove open from all
+                document.querySelectorAll('details.details-box').forEach(d => d.removeAttribute('open'));
+
+                // ✅ Find the matching one and set open
+                const matchingDetails = Array.from(document.querySelectorAll('details.details-box')).find(d => {
+                    const onclickAttr = d.getAttribute('onclick') || "";
+                    // Normalize single quotes and remove spaces
+                    const cleanAttr = onclickAttr.replace(/\s/g, '').replace(/"/g, "'");
+                    return cleanAttr === `showContent('${region}')`;
                 });
-                html += '<br><br></div>';
-                content.innerHTML = html;
-            } else {
-                content.innerHTML = '<div class="main-container"><p>Keine Skills für diese Klasse verfügbar.</p><br><br></div>';
+
+                console.log(matchingDetails);
+
+
+                if (matchingDetails) {
+                    setTimeout(() => {
+                        matchingDetails.setAttribute('open', 'true');
+                    }, 0);
+                }
+
+
+
+                // ✅ Update URL without page reload
+                if (pushState) {
+                    const newUrl = `${window.location.pathname}?q=${encodeURIComponent(region)}`;
+                    history.pushState({ region }, '', newUrl);
+                }
+
+
+
+
             }
-            content.classList.add("active");
-        }
+
+
+            window.addEventListener('popstate', function (event) {
+                const region = event.state?.region || 'goldens';
+                showContent(region, false); // Don't push again
+            });
+
+        </script>
+
+
+
+
+
+
+        <script>
+            function autoDetectSection(query) {
+                query = query.toLowerCase();
+
+
+
+                const sectionIdMap = {
+
+                    "information": "info",
+                    "dark wizard": "dw",
+                    "dark knight": "dk",
+                    "fairy elf": "elf",
+                    "summoner": "sum",
+                    "rage fighter": "rf",
+                    "magic gladiator": "mg",
+                    "dark lord": "dl"
+
+                };
+
+
+
+                // ✅ NEW: if query is a section ID directly
+                if (Object.values(sectionIdMap).includes(query)) {
+                    console.log(`Direct section ID match: ${query}`);
+                    return query;
+                }
+
+                for (const tag in sectionIdMap) {
+                    if (query.includes(tag)) {
+                        console.log(`Matched query "${query}" → section: ${sectionIdMap[tag]}`);
+                        return sectionIdMap[tag];
+                    }
+                }
+
+                console.warn("No matching section found, defaulting to 'info'");
+                return 'info';
+            }
+
+
+
         </script>
 
 
@@ -247,26 +353,7 @@
 
 
 
-
-
-
-
-
-
-
-<script>
-    const params = new URLSearchParams(window.location.search);
-    const tabToOpen = params.get('tab');
-    const popupToOpen = params.get('popup');
-  
-    if (tabToOpen) {
-      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
-    }
-  
-    if (popupToOpen) {
-      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
-    }
-  </script>
     </body>
+
     </html>
 </body>
