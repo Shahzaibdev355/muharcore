@@ -243,7 +243,7 @@
           .then(response => response.text())
           .then(data => {
             document.getElementById('footer-container').innerHTML = data;
-            showContent('info');
+            // showContent('info');
             loader.style.display = 'none'; // Ladebildschirm ausblenden
           })
           .catch(error => console.error('Fehler beim Laden:', error));
@@ -251,7 +251,7 @@
     </script>
 
     <script>
-      function showContent(region) {
+      function showContent(region, pushState = true) {
         const content = document.getElementById("content");
 
         const data = {
@@ -3197,20 +3197,56 @@
         };
 
 
-        content.innerHTML = data[region];
+        content.innerHTML = data[region] || `<div class="main-container"><h1 class="main-title">Not Found</h1></div>`;
         content.classList.add("active");
+
+
+
+
+
+        // ✅ Remove open from all
+        document.querySelectorAll('details.details-box').forEach(d => d.removeAttribute('open'));
+
+        // ✅ Find the matching one and set open
+        const matchingDetails = Array.from(document.querySelectorAll('details.details-box')).find(d => {
+          const onclickAttr = d.getAttribute('onclick') || "";
+          // Normalize single quotes and remove spaces
+          const cleanAttr = onclickAttr.replace(/\s/g, '').replace(/"/g, "'");
+          return cleanAttr === `showContent('${region}')`;
+        });
+
+        console.log(matchingDetails);
+
+
+        if (matchingDetails) {
+          setTimeout(() => {
+            matchingDetails.setAttribute('open', 'true');
+          }, 0);
+        }
+
+
+
+        // ✅ Update URL without page reload
+        if (pushState) {
+          const newUrl = `${window.location.pathname}?q=${encodeURIComponent(region)}`;
+          history.pushState({ region }, '', newUrl);
+        }
+
       }
-      document.addEventListener("DOMContentLoaded", function () {
-        showContent('info');
+
+
+
+      window.addEventListener('popstate', function (event) {
+        const region = event.state?.region || 'info';
+        showContent(region, false); // Don't push again
       });
+
+      // document.addEventListener("DOMContentLoaded", function () {
+      //   showContent('info');
+      // });
 
 
     </script>
-
-
-
-
-
 
 
 
@@ -3227,18 +3263,61 @@
 
 
     <script>
-      const params = new URLSearchParams(window.location.search);
-      const tabToOpen = params.get('tab');
-      const popupToOpen = params.get('popup');
+      function autoDetectSection(query) {
+        query = query.toLowerCase();
+        const sectionIdMap = {
 
-      if (tabToOpen) {
-        document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
+          "information": "info",
+          "damage": "damage",
+          "defense": "defense",
+          "mix": "mix",
+          "horse": "horse",
+          "farm": "farm"
+
+        };
+
+        // ✅ NEW: if query is a section ID directly
+        if (Object.values(sectionIdMap).includes(query)) {
+          console.log(`Direct section ID match: ${query}`);
+          return query;
+        }
+
+        for (const tag in sectionIdMap) {
+          if (query.includes(tag)) {
+            console.log(`Matched query "${query}" → section: ${sectionIdMap[tag]}`);
+            return sectionIdMap[tag];
+          }
+        }
+
+        console.warn("No matching section found, defaulting to 'info'");
+        return 'info';
       }
 
-      if (popupToOpen) {
-        document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
-      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const params = new URLSearchParams(window.location.search);
+        const q = params.get("q") || "info";
+        console.log("Query param received:", q);
+        const section = autoDetectSection(q);
+        showContent(section, false);
+
+
+      });
+
     </script>
+
+
+<script>
+  window.addEventListener('load', function () {
+    // Delay scroll until the browser paints the page
+    requestAnimationFrame(() => {
+      window.scrollTo({
+        top: 150,
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
 
   </body>
 

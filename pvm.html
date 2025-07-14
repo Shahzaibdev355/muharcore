@@ -29,79 +29,78 @@
 
 
 
-     <style>
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #000;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-         p {
-            color: #f1c40f;
-        }
+        <style>
+            .loader {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #000;
+                color: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+            }
 
-       
-     </style>
+            p {
+                color: #f1c40f;
+            }
+        </style>
 
     </head>
 
     <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
 
         <div class="loader">Loading...</div>
-          <div id="navbar-container"></div>
+        <div id="navbar-container"></div>
 
 
         <section class="about section" id="about">
-          
-      
-            <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
-            
-            <h1 style="text-align: center;"> 🛡 PVM RANKING </h1>
-            <br>
-  
-            <!-- Alle Details-Buttons bleiben oben -->
-            <div class="summary-container">
-             <details class="details-box"  open onclick="showContent('info')">
-                 <summary>Information</summary>
-             </details>
-            </div><br>
-                <div class="summary-container">
-            <details class="details-box"  open onclick="showContent('farm')">
-                <summary>FARM</summary>
-            </details>   
-            <details class="details-box"  open onclick="showContent('feather')">
-                <summary>FEATHER</summary>
-            </details>       
-            <details class="details-box"  open onclick="showContent('goldens')">
-                <summary>Golden Invasion</summary>
-            </details>
-    
-            <details class="details-box" onclick="showContent('kalima')">
-                <summary>Kalima Invasion </summary>
-            </details>
-    
-            <details class="details-box" onclick="showContent('world')">
-                <summary>World Bosses </summary>
-            </details>
-    
-           
 
+
+            <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+
+                <h1 style="text-align: center;"> 🛡 PVM RANKING </h1>
+                <br>
+
+                <!-- Alle Details-Buttons bleiben oben -->
+                <div class="summary-container">
+                    <details class="details-box" open onclick="showContent('info')">
+                        <summary>Information</summary>
+                    </details>
+                </div><br>
+                <div class="summary-container">
+                    <details class="details-box" open onclick="showContent('farm')">
+                        <summary>FARM</summary>
+                    </details>
+                    <details class="details-box" open onclick="showContent('feather')">
+                        <summary>FEATHER</summary>
+                    </details>
+                    <details class="details-box" open onclick="showContent('goldens')">
+                        <summary>Golden Invasion</summary>
+                    </details>
+
+                    <details class="details-box" onclick="showContent('kalima')">
+                        <summary>Kalima Invasion </summary>
+                    </details>
+
+                    <details class="details-box" onclick="showContent('world')">
+                        <summary>World Bosses </summary>
+                    </details>
+
+
+
+                </div>
+                <div id="content" class="content-container">
+                </div>
             </div>
-            <div id="content" class="content-container">  
-            </div>
-            </div>
-          
-                   
-                
-         </section>
-     
+
+
+
+        </section>
+
         <div id="footer-container"></div>
         <!-- jQuery laden -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -109,94 +108,94 @@
         <script src="js/aos.js"></script>
         <script src="js/smoothscroll.js"></script>
         <script src="js/custom.js"></script>
-         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
         <!-- Schutz-Skript -->
         <script src="js/protection.js"></script>
         <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const loader = document.querySelector('.loader');
+            document.addEventListener("DOMContentLoaded", function () {
+                const loader = document.querySelector('.loader');
 
-        fetch('libraries.html?v=' + new Date().getTime())
-            .then(response => response.text())
-            .then(data => {
-                document.head.insertAdjacentHTML('beforeend', data);
-                return fetch('navbar.html?v=' + new Date().getTime());
-            })
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar-container').innerHTML = data;
-                return fetch('footer.html?v=' + new Date().getTime());
-            })
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-container').innerHTML = data;
-                showContent('info');
-                loader.style.display = 'none'; // Ladebildschirm ausblenden
-            })
-            .catch(error => console.error('Fehler beim Laden:', error));
-    });
-    </script>
-     <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Lade externe Dateien
-        fetch('libraries.html?v=' + new Date().getTime())
-            .then(response => response.text())
-            .then(data => {
-                document.head.insertAdjacentHTML('beforeend', data);
-                return fetch('navbar.html?v=' + new Date().getTime());
-            })
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar-container').innerHTML = data;
-                return fetch('footer.html?v=' + new Date().getTime());
-            })
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-container').innerHTML = data;
-                // Starte mit "info"
-                showContent('info');
-            })
-            .catch(error => console.error('Fehler beim Laden:', error));
-    });
+                fetch('libraries.html?v=' + new Date().getTime())
+                    .then(response => response.text())
+                    .then(data => {
+                        document.head.insertAdjacentHTML('beforeend', data);
+                        return fetch('navbar.html?v=' + new Date().getTime());
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('navbar-container').innerHTML = data;
+                        return fetch('footer.html?v=' + new Date().getTime());
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('footer-container').innerHTML = data;
+                        // showContent('info');
+                        loader.style.display = 'none'; // Ladebildschirm ausblenden
+                    })
+                    .catch(error => console.error('Fehler beim Laden:', error));
+            });
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Lade externe Dateien
+                fetch('libraries.html?v=' + new Date().getTime())
+                    .then(response => response.text())
+                    .then(data => {
+                        document.head.insertAdjacentHTML('beforeend', data);
+                        return fetch('navbar.html?v=' + new Date().getTime());
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('navbar-container').innerHTML = data;
+                        return fetch('footer.html?v=' + new Date().getTime());
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('footer-container').innerHTML = data;
+                        // Starte mit "info"
+                        // showContent('info');
+                    })
+                    .catch(error => console.error('Fehler beim Laden:', error));
+            });
 
-    function showContent(region) {
-        const content = document.getElementById("content");
+            function showContent(region, pushState = true) {
+                const content = document.getElementById("content");
 
-        // Inhalt leeren, ohne Loader
-        content.innerHTML = '';
+                // Inhalt leeren, ohne Loader
+                content.innerHTML = '';
 
-        // Lade die pvm.json-Datei aus dem Verzeichnis configs
-        fetch('configs/pvm.json')
-            .then(response => response.json())
-            .then(data => {
-                const regionData = data[region];
-                if (!regionData) {
-                    content.innerHTML = `<p>Keine Daten für ${region} gefunden.</p>`;
-                    return;
-                }
+                // Lade die pvm.json-Datei aus dem Verzeichnis configs
+                fetch('configs/pvm.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const regionData = data[region];
+                        if (!regionData) {
+                            content.innerHTML = `<p>Keine Daten für ${region} gefunden.</p>`;
+                            return;
+                        }
 
-                // HTML-Inhalt generieren
-                let html = `
+                        // HTML-Inhalt generieren
+                        let html = `
                     <div class="main-container">
                         <h1 class="main-title">${region.charAt(0).toUpperCase() + region.slice(1)}</h1>
                 `;
 
-                // Falls eine Beschreibung vorhanden ist (z. B. für "info")
-                if (regionData.description) {
-                    html += `
+                        // Falls eine Beschreibung vorhanden ist (z. B. für "info")
+                        if (regionData.description) {
+                            html += `
                         <div class="map-container">
                             <div class="map-text-content">
                                 <div class="map-description" style= "color: #f1c40f;">${regionData.description}</div>
                             </div>
                         </div>
                     `;
-                }
+                        }
 
-                // Falls Monster vorhanden sind (z. B. für "farm", "goldens", etc.)
-                if (regionData.monsters && regionData.monsters.length > 0) { 
-                    regionData.monsters.forEach(monster => {
-                        html += `
+                        // Falls Monster vorhanden sind (z. B. für "farm", "goldens", etc.)
+                        if (regionData.monsters && regionData.monsters.length > 0) {
+                            regionData.monsters.forEach(monster => {
+                                html += `
                             <div class="item-wrapper">
                               <p style="line-height: 140%; text-align: center;">
                                   <span style="color: #f1c40f; line-height: 19.6px;">
@@ -215,53 +214,129 @@
                                 </div>
                             </div>
                         `;
+                            });
+                        }
+
+                        html += '</div>';
+                        content.innerHTML = html;
+
+
+
+                        // ✅ Remove open from all
+                        document.querySelectorAll('details.details-box').forEach(d => d.removeAttribute('open'));
+
+                        // ✅ Find the matching one and set open
+                        const matchingDetails = Array.from(document.querySelectorAll('details.details-box')).find(d => {
+                            const onclickAttr = d.getAttribute('onclick') || "";
+                            // Normalize single quotes and remove spaces
+                            const cleanAttr = onclickAttr.replace(/\s/g, '').replace(/"/g, "'");
+                            return cleanAttr === `showContent('${region}')`;
+                        });
+
+                        console.log(matchingDetails);
+
+
+                        if (matchingDetails) {
+                            setTimeout(() => {
+                                matchingDetails.setAttribute('open', 'true');
+                            }, 0);
+                        }
+
+
+
+                        // ✅ Update URL without page reload
+                        if (pushState) {
+                            const newUrl = `${window.location.pathname}?q=${encodeURIComponent(region)}`;
+                            history.pushState({ region }, '', newUrl);
+                        }
+
+
+
+
+                    })
+                    .catch(error => {
+                        console.error('Fehler beim Laden von pvm.json:', error);
+                        content.innerHTML = `<p>Fehler beim Laden der Daten.</p>`;
                     });
+            }
+
+
+            window.addEventListener('popstate', function (event) {
+                const region = event.state?.region || 'info';
+                showContent(region, false); // Don't push again
+            });
+
+            // Standardmäßig "info" anzeigen (zweiter Listener bleibt, kann aber entfernt werden, wenn nicht benötigt)
+            // document.addEventListener("DOMContentLoaded", function () {
+            //     showContent('info');
+            // });
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+        <script>
+            function autoDetectSection(query) {
+                query = query.toLowerCase();
+                const sectionIdMap = {
+                    "information": "info",
+                    "farm": "farm",
+                    "feather": "feather",
+                    "golden invasion": "goldens",
+                    "kalima invasion": "kalima",
+                    "world bosses": "world"
+                };
+
+                // ✅ NEW: if query is a section ID directly
+                if (Object.values(sectionIdMap).includes(query)) {
+                    console.log(`Direct section ID match: ${query}`);
+                    return query;
                 }
 
-                html += '</div>';
-                content.innerHTML = html;
-            })
-            .catch(error => {
-                console.error('Fehler beim Laden von pvm.json:', error);
-                content.innerHTML = `<p>Fehler beim Laden der Daten.</p>`;
+                for (const tag in sectionIdMap) {
+                    if (query.includes(tag)) {
+                        console.log(`Matched query "${query}" → section: ${sectionIdMap[tag]}`);
+                        return sectionIdMap[tag];
+                    }
+                }
+
+                console.warn("No matching section found, defaulting to 'info'");
+                return 'info';
+            }
+
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const params = new URLSearchParams(window.location.search);
+                const q = params.get("q") || "info";
+                console.log("Query param received:", q);
+                const section = autoDetectSection(q);
+                showContent(section, false);
+
+
             });
-    }
 
-    // Standardmäßig "info" anzeigen (zweiter Listener bleibt, kann aber entfernt werden, wenn nicht benötigt)
-    document.addEventListener("DOMContentLoaded", function() {
-        showContent('info');
-    });
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        </script>
 
 
 <script>
-    const params = new URLSearchParams(window.location.search);
-    const tabToOpen = params.get('tab');
-    const popupToOpen = params.get('popup');
-  
-    if (tabToOpen) {
-      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
-    }
-  
-    if (popupToOpen) {
-      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
-    }
+    window.addEventListener('load', function () {
+      // Delay scroll until the browser paints the page
+      requestAnimationFrame(() => {
+        window.scrollTo({
+          top: 150,
+          behavior: 'smooth'
+        });
+      });
+    });
   </script>
-            
 
     </body>
 

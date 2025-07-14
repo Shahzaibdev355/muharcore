@@ -29,98 +29,102 @@
 
 
 
-          <style>
-          .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #000;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-       
-      
-        h1 {
-            color: #ffd700;
-            text-align: center;
-            text-shadow: 2px 2px 4px #ff8c00;
-        }
-        h3 {
-            color: #00e6e6;
-            border-bottom: 2px solid #ffd700;
-            padding-bottom: 5px;
-        }
-        p {
-            line-height: 1.6;
-            margin: 10px 0;
-            color: #f1c40f;
-        }
-        .highlight {
-            color: #ff00ff;
-            font-weight: bold;
-        }
-        .evolution-list {
-            list-style-type: none;
-            padding: 0;
-        }
-        .evolution-list li {
-            margin: 10px 0;
-            color: #ffd700;
-        }
-        .evolution-list li span {
-            color: #00e6e6;
-        }
+        <style>
+            .loader {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #000;
+                color: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+            }
 
-    
-  </style>
+
+            h1 {
+                color: #ffd700;
+                text-align: center;
+                text-shadow: 2px 2px 4px #ff8c00;
+            }
+
+            h3 {
+                color: #00e6e6;
+                border-bottom: 2px solid #ffd700;
+                padding-bottom: 5px;
+            }
+
+            p {
+                line-height: 1.6;
+                margin: 10px 0;
+                color: #f1c40f;
+            }
+
+            .highlight {
+                color: #ff00ff;
+                font-weight: bold;
+            }
+
+            .evolution-list {
+                list-style-type: none;
+                padding: 0;
+            }
+
+            .evolution-list li {
+                margin: 10px 0;
+                color: #ffd700;
+            }
+
+            .evolution-list li span {
+                color: #00e6e6;
+            }
+        </style>
 
     </head>
 
     <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
 
-          <div class="loader">Loading...</div>
-          <div id="navbar-container"></div>
+        <div class="loader">Loading...</div>
+        <div id="navbar-container"></div>
 
 
         <section class="about section" id="about">
-          
-      
-            <div style="max-width: 1200px; margin: 0 auto; padding: 20px; ">
-            
-            <h1 style="text-align: center;"> 🛡 Class Evolution </h1>
-            <br>
-  
-            <!-- Alle Details-Buttons bleiben oben -->
-            <div class="summary-container">
-             <details class="details-box"  open onclick="showContent('info')">
-                 <summary>Information</summary>
-             </details>
-            </div><br>
-                <div class="summary-container">
-            <details class="details-box"  open onclick="showContent('2')">
-                <summary>Sebina The Priest</summary>
-            </details>        
-            <details class="details-box"  open onclick="showContent('220')">
-                <summary>Marlon</summary>
-            </details>
-    
-            <details class="details-box" onclick="showContent('3')">
-                <summary>3rd class </summary>
-            </details>
 
+
+            <div style="max-width: 1200px; margin: 0 auto; padding: 20px; ">
+
+                <h1 style="text-align: center;"> 🛡 Class Evolution </h1>
+                <br>
+
+                <!-- Alle Details-Buttons bleiben oben -->
+                <div class="summary-container">
+                    <details class="details-box" open onclick="showContent('info')">
+                        <summary>Information</summary>
+                    </details>
+                </div><br>
+                <div class="summary-container">
+                    <details class="details-box" open onclick="showContent('2')">
+                        <summary>Sebina The Priest</summary>
+                    </details>
+                    <details class="details-box" open onclick="showContent('220')">
+                        <summary>Marlon</summary>
+                    </details>
+
+                    <details class="details-box" onclick="showContent('3')">
+                        <summary>3rd class </summary>
+                    </details>
+
+                </div>
+                <div id="content" class="content-container">
+                </div>
             </div>
-            <div id="content" class="content-container">  
-            </div>
-            </div>
-          
-                   
-                
-         </section>
+
+
+
+        </section>
 
         <div id="footer-container"></div>
 
@@ -133,42 +137,42 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- jQuery laden -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        
+
         <!-- Schutz-Skript -->
         <script src="js/protection.js"></script>
 
         <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const loader = document.querySelector('.loader');
+            document.addEventListener("DOMContentLoaded", function () {
+                const loader = document.querySelector('.loader');
 
-        fetch('libraries.html?v=' + new Date().getTime())
-            .then(response => response.text())
-            .then(data => {
-                document.head.insertAdjacentHTML('beforeend', data);
-                return fetch('navbar.html?v=' + new Date().getTime());
-            })
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar-container').innerHTML = data;
-                return fetch('footer.html?v=' + new Date().getTime());
-            })
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-container').innerHTML = data;
-                showContent('info');
-                loader.style.display = 'none'; // Ladebildschirm ausblenden
-            })
-            .catch(error => console.error('Fehler beim Laden:', error));
-    });
-</script>
+                fetch('libraries.html?v=' + new Date().getTime())
+                    .then(response => response.text())
+                    .then(data => {
+                        document.head.insertAdjacentHTML('beforeend', data);
+                        return fetch('navbar.html?v=' + new Date().getTime());
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('navbar-container').innerHTML = data;
+                        return fetch('footer.html?v=' + new Date().getTime());
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('footer-container').innerHTML = data;
+                        // showContent('info');
+                        loader.style.display = 'none'; // Ladebildschirm ausblenden
+                    })
+                    .catch(error => console.error('Fehler beim Laden:', error));
+            });
+        </script>
 
         <script>
-            function showContent(region) {
+            function showContent(region, pushState = true) {
                 const content = document.getElementById("content");
-   
+
                 const data = {
-                // Information
-                "info": `
+                    // Information
+                    "info": `
                     <div class="main-container">
                           <h1 class="main-title">Character Evolution</h1>
 
@@ -194,10 +198,10 @@
                         <br>
                         <br>
                     </div>
-                    ` 
-                ,
-                // Sabine
-                "2": `
+                    `
+                    ,
+                    // Sabine
+                    "2": `
                     <div class="main-container">
                           <h1 class="main-title">Sebina The
                             Priest</h1>
@@ -440,10 +444,10 @@
                         <br>
                         <br>
                     </div>
-                    ` 
-                ,
-                // Marlon
-                "220": `
+                    `
+                    ,
+                    // Marlon
+                    "220": `
                     <div class="main-container">
                     <h1 class="main-title">Marlon</h1>
 
@@ -534,10 +538,10 @@
                         <br>
                         <br>
                     </div>
-                    ` 
-                ,
-                // 3rd quest
-                "3": `
+                    `
+                    ,
+                    // 3rd quest
+                    "3": `
                     <div class="main-container">
                       <h1 class="main-title">Apostle Devin</h1>
 
@@ -687,22 +691,62 @@
                         <br>
                         <br>
                     </div>
-                    ` 
-                ,
-                
-               
-               
+                    `
+                    ,
+
+
+
                 };
-    
-                
+
+
                 content.innerHTML = data[region];
-                content.classList.add("active"); 
+                content.classList.add("active");
+
+
+
+                // ✅ Remove open from all
+                document.querySelectorAll('details.details-box').forEach(d => d.removeAttribute('open'));
+
+                // ✅ Find the matching one and set open
+                const matchingDetails = Array.from(document.querySelectorAll('details.details-box')).find(d => {
+                    const onclickAttr = d.getAttribute('onclick') || "";
+                    // Normalize single quotes and remove spaces
+                    const cleanAttr = onclickAttr.replace(/\s/g, '').replace(/"/g, "'");
+                    return cleanAttr === `showContent('${region}')`;
+                });
+
+                console.log(matchingDetails);
+
+
+                if (matchingDetails) {
+                    setTimeout(() => {
+                        matchingDetails.setAttribute('open', 'true');
+                    }, 0);
+                }
+
+
+
+                // ✅ Update URL without page reload
+                if (pushState) {
+                    const newUrl = `${window.location.pathname}?q=${encodeURIComponent(region)}`;
+                    history.pushState({ region }, '', newUrl);
+                }
+
+
+
             }
-            document.addEventListener("DOMContentLoaded", function() {
-           showContent('info');
-          });
-        
-  
+
+
+            window.addEventListener('popstate', function (event) {
+                const region = event.state?.region || 'info';
+                showContent(region, false); // Don't push again
+            });
+
+            // document.addEventListener("DOMContentLoaded", function () {
+            //     showContent('info');
+            // });
+
+
         </script>
 
 
@@ -710,36 +754,66 @@
 
 
 
+        <script>
+            function autoDetectSection(query) {
+                query = query.toLowerCase();
+                const sectionIdMap = {
+
+                    "information": "info",
+                    "sebina the priest": "2",
+                    "marlon": "220",
+                    "3rd class": "3",
+                    "third class": "3"
+
+                };
+
+                // ✅ NEW: if query is a section ID directly
+                if (Object.values(sectionIdMap).includes(query)) {
+                    console.log(`Direct section ID match: ${query}`);
+                    return query;
+                }
+
+                for (const tag in sectionIdMap) {
+                    if (query.includes(tag)) {
+                        console.log(`Matched query "${query}" → section: ${sectionIdMap[tag]}`);
+                        return sectionIdMap[tag];
+                    }
+                }
+
+                console.warn("No matching section found, defaulting to 'info'");
+                return 'info';
+            }
 
 
+            document.addEventListener("DOMContentLoaded", function () {
+                const params = new URLSearchParams(window.location.search);
+                const q = params.get("q") || "info";
+                console.log("Query param received:", q);
+                const section = autoDetectSection(q);
+                showContent(section, false);
 
 
+            });
 
-
-
-
-
-
-
+        </script>
 
 
 
 
 <script>
-    const params = new URLSearchParams(window.location.search);
-    const tabToOpen = params.get('tab');
-    const popupToOpen = params.get('popup');
-  
-    if (tabToOpen) {
-      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
-    }
-  
-    if (popupToOpen) {
-      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
-    }
+    window.addEventListener('load', function () {
+      // Delay scroll until the browser paints the page
+      requestAnimationFrame(() => {
+        window.scrollTo({
+          top: 150,
+          behavior: 'smooth'
+        });
+      });
+    });
   </script>
 
-            
+
+
 
     </body>
 

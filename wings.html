@@ -2317,6 +2317,19 @@
                 // } -->
 
 
+                <script>
+                    window.addEventListener('load', function () {
+                      // Delay scroll until the browser paints the page
+                      requestAnimationFrame(() => {
+                        window.scrollTo({
+                          top: 150,
+                          behavior: 'smooth'
+                        });
+                      });
+                    });
+                  </script>
+
+
     </body>
 
     </html>

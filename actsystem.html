@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Guides MU-HARDCORE</title>
     <meta charset="UTF-8">
@@ -55,7 +56,7 @@
         /* Stil für strong-Elemente                                                   */
         /* ========================================================================== */
         strong {
-           color: #49e410;
+            color: #49e410;
         }
 
         /* ========================================================================== */
@@ -80,17 +81,16 @@
                 min-width: 100%;
             }
         }
-
-    
     </style>
 </head>
 
-<body data-spy="scroll" data-target="#navbarNav" data-offset="50" oncopy="return false" oncut="return false" onpaste="return false">
-    
+<body data-spy="scroll" data-target="#navbarNav" data-offset="50" oncopy="return false" oncut="return false"
+    onpaste="return false">
+
     <div class="loader">Loading...</div>
     <div id="navbar-container"></div>
     <section class="about section" id="about">
-        
+
         <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
             <h1 style="text-align: center;"> 🛡 ACT SYSTEM </h1>
             <br>
@@ -131,16 +131,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- jQuery laden -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
+
     <!-- Schutz-Skript -->
     <script src="js/protection.js"></script>
-    
+
     <!-- Lade-Skript -->
     <script src="js/loader.js"></script>
-    
+
 
     <script>
-        function showContent(region) {
+        function showContent(region, pushState=true) {
             const content = document.getElementById("content");
             const data = {
                 // Information
@@ -568,29 +568,120 @@
                 `
             };
 
-            content.innerHTML = data[region];
+            content.innerHTML = data[region] || `<div class="main-container"><h1 class="main-title">Not Found</h1></div>`;
             content.classList.add("active");
+
+
+
+
+
+            // ✅ Remove open from all
+            document.querySelectorAll('details.details-box').forEach(d => d.removeAttribute('open'));
+
+            // ✅ Find the matching one and set open
+            const matchingDetails = Array.from(document.querySelectorAll('details.details-box')).find(d => {
+                const onclickAttr = d.getAttribute('onclick') || "";
+                // Normalize single quotes and remove spaces
+                const cleanAttr = onclickAttr.replace(/\s/g, '').replace(/"/g, "'");
+                return cleanAttr === `showContent('${region}')`;
+            });
+
+            console.log(matchingDetails);
+
+
+            if (matchingDetails) {
+                setTimeout(() => {
+                    matchingDetails.setAttribute('open', 'true');
+                }, 0);
+            }
+
+
+
+            // ✅ Update URL without page reload
+            if (pushState) {
+                const newUrl = `${window.location.pathname}?q=${encodeURIComponent(region)}`;
+                history.pushState({ region }, '', newUrl);
+            }
+
         }
 
-        document.addEventListener("DOMContentLoaded", function() {
-            showContent('info');
+
+        window.addEventListener('popstate', function (event) {
+                const region = event.state?.region || 'info';
+                showContent(region, false); // Don't push again
+            });
+
+
+        // document.addEventListener("DOMContentLoaded", function () {
+        //     showContent('info');
+        // });
+    </script>
+
+
+
+    <script>
+        function autoDetectSection(query) {
+            query = query.toLowerCase();
+            const sectionIdMap = {
+                "information": "info",
+                "act 1": "1",
+                "act i": "1",
+                "act 2": "2",
+                "act ii": "2",
+                "act 3": "3",
+                "act iii": "3",
+                "act 4": "4",
+                "act iv": "4",
+                "act 5": "5",
+                "act v": "5"
+
+            };
+
+            // ✅ NEW: if query is a section ID directly
+            if (Object.values(sectionIdMap).includes(query)) {
+                console.log(`Direct section ID match: ${query}`);
+                return query;
+            }
+
+            for (const tag in sectionIdMap) {
+                if (query.includes(tag)) {
+                    console.log(`Matched query "${query}" → section: ${sectionIdMap[tag]}`);
+                    return sectionIdMap[tag];
+                }
+            }
+
+            console.warn("No matching section found, defaulting to 'info'");
+            return 'info';
+        }
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const params = new URLSearchParams(window.location.search);
+            const q = params.get("q") || "info";
+            console.log("Query param received:", q);
+            const section = autoDetectSection(q);
+            showContent(section, false);
+
+
         });
+
     </script>
 
 
 
 <script>
-    const params = new URLSearchParams(window.location.search);
-    const tabToOpen = params.get('tab');
-    const popupToOpen = params.get('popup');
-  
-    if (tabToOpen) {
-      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
-    }
-  
-    if (popupToOpen) {
-      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
-    }
+    window.addEventListener('load', function () {
+      // Delay scroll until the browser paints the page
+      requestAnimationFrame(() => {
+        window.scrollTo({
+          top: 150,
+          behavior: 'smooth'
+        });
+      });
+    });
   </script>
+
+
 </body>
+
 </html>

@@ -4,155 +4,161 @@
         $('body').bind('cut copy paste', function (e) {
             e.preventDefault();
         });
-       
+
         //Disable mouse right click
-        $("body").on("contextmenu",function(e){
+        $("body").on("contextmenu", function (e) {
             return false;
         });
     });
-    </script>
-    <!DOCTYPE html>
-    <body oncopy="return false" oncut="return false" onpaste="return false">
+</script>
+<!DOCTYPE html>
+
+<body oncopy="return false" oncut="return false" onpaste="return false">
     <html lang="en">
+
     <head>
-         <title>Guides MU-HARDCORE</title>
-         <meta charset="UTF-8">
-         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-         <meta name="description" content="">
-         <meta name="keywords" content="">
-         <meta name="author" content="">
-         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>Guides MU-HARDCORE</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <style>
-           .loader {
-               position: fixed;
-               top: 0;
-               left: 0;
-               width: 100%;
-               height: 100%;
-               background: #000;
-               color: #fff;
-               display: flex;
-               justify-content: center;
-               align-items: center;
-               z-index: 1000;
-           }
+            .loader {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #000;
+                color: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+            }
+        </style>
+    </head>
 
-       </style>
-        </head>
-        <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+    <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
 
-           <div class="loader">Loading...</div>
-          <div id="navbar-container"></div>
-        
-        
-            <section class="about section" id="about">
-            
-        
+        <div class="loader">Loading...</div>
+        <div id="navbar-container"></div>
+
+
+        <section class="about section" id="about">
+
+
             <div style="max-width: 1200px; margin: 0 auto; padding: 20px; ">
-            
-            <h1 style="text-align: center;">🎃 Quests</h1>
-            <br>
+
+                <h1 style="text-align: center;">🎃 Quests</h1>
+                <br>
 
                 <!-- Alle Details-Buttons bleiben oben -->
-            <div class="summary-container">
-           
-             <details class="details-box"  open onclick="showContent('info')">
-                 <summary>Information</summary>
-             </details>
-            </div><br>
-            <div class="summary-container">
-        <details class="details-box" id="act1-details" open onclick="showContent('act1')">
-            <summary>ACT I</summary>
-        </details>
+                <div class="summary-container">
 
-        <details class="details-box" onclick="showContent('act2')">
-            <summary>ACT II</summary>
-        </details>
+                    <details class="details-box" open onclick="showContent('info')">
+                        <summary>Information</summary>
+                    </details>
+                </div><br>
+                <div class="summary-container">
+                    <!-- id="act1-details" -->
+                    <details class="details-box" onclick="showContent('act1')">
+                        <summary>ACT I</summary>
+                    </details>
 
-        <details class="details-box" onclick="showContent('act3')">
-            <summary>ACT III</summary>
-        </details>
+                    <details class="details-box" onclick="showContent('act2')">
+                        <summary>ACT II</summary>
+                    </details>
 
-        <details class="details-box" onclick="showContent('act4')">
-            <summary>ACT IV</summary>
-        </details>
-        <details class="details-box" onclick="showContent('act5')">
-            <summary>ACT V</summary>
-        </details>
-    
-    </div>
-            <div id="content" class="content-container">  
+                    <details class="details-box" onclick="showContent('act3')">
+                        <summary>ACT III</summary>
+                    </details>
+
+                    <details class="details-box" onclick="showContent('act4')">
+                        <summary>ACT IV</summary>
+                    </details>
+                    <details class="details-box" onclick="showContent('act5')">
+                        <summary>ACT V</summary>
+                    </details>
+
+                </div>
+                <div id="content" class="content-container">
+                </div>
             </div>
-            </div>
-                   
-                
-         </section>
-        
+
+
+        </section>
+
         <div id="footer-container"></div>
-         <script src="js/jquery.min.js"></script>
-         <script src="js/bootstrap.min.js"></script>
-         <script src="js/aos.js"></script>
-         <script src="js/smoothscroll.js"></script>
-         <script src="js/custom.js"></script>
-         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/aos.js"></script>
+        <script src="js/smoothscroll.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <script>
-    // Globale Variable für die Quests (wird später gefüllt)
-    let quests = [];
+            // Globale Variable für die Quests (wird später gefüllt)
+            let quests = [];
 
-    // Funktion zum Laden der Quests aus der JSON-Datei
-    async function loadQuests() {
-        try {
-            const response = await fetch('configs/quests.json?v=' + new Date().getTime()); // Pfad zur JSON-Datei
-            if (!response.ok) {
-                throw new Error('Fehler beim Laden von configs/quests.json');
+            // Funktion zum Laden der Quests aus der JSON-Datei
+            async function loadQuests() {
+                try {
+                    const response = await fetch('configs/quests.json?v=' + new Date().getTime()); // Pfad zur JSON-Datei
+                    if (!response.ok) {
+                        throw new Error('Fehler beim Laden von configs/quests.json');
+                    }
+                    quests = await response.json(); // JSON in Array umwandeln
+                    console.log('Quests erfolgreich geladen:', quests);
+                } catch (error) {
+                    console.error('Fehler beim Laden der Quests:', error);
+                    quests = []; // Fallback auf leeres Array bei Fehler
+                }
             }
-            quests = await response.json(); // JSON in Array umwandeln
-            console.log('Quests erfolgreich geladen:', quests);
-        } catch (error) {
-            console.error('Fehler beim Laden der Quests:', error);
-            quests = []; // Fallback auf leeres Array bei Fehler
-        }
-    }
 
-    // Funktionen zum Abrufen der Daten
-    function getQuestType(index) {
-        return quests[index]?.questType || 'N/A';
-    }
-    function getImageType(index) {
-        return quests[index]?.imageType || 'bronze'; // Fallback-Wert
-    }
-    function getMonsterName(index) {
-        return quests[index]?.monster || 'Unbekannt';
-    }
-    function getLevelRequired(index) {
-        return quests[index]?.levelRequired || '*';
-    }
-    function getResetRequired(index) {
-        return quests[index]?.resetRequired || '*';
-    }
-    function getMonsterImage(index) {
-        return quests[index]?.image || 'placeholder.png'; // Fallback-Bild
-    }
-    function getMonsterCount(index) {
-        return quests[index]?.count || 0;
-    }
-    function getMonsterLocation(index) {
-        return quests[index]?.location || 'Unbekannt';
-    }
-    function getReward(index) {
-        return quests[index]?.reward || 'Kein Reward';
-    }
+            // Funktionen zum Abrufen der Daten
+            function getQuestType(index) {
+                return quests[index]?.questType || 'N/A';
+            }
+            function getImageType(index) {
+                return quests[index]?.imageType || 'bronze'; // Fallback-Wert
+            }
+            function getMonsterName(index) {
+                return quests[index]?.monster || 'Unbekannt';
+            }
+            function getLevelRequired(index) {
+                return quests[index]?.levelRequired || '*';
+            }
+            function getResetRequired(index) {
+                return quests[index]?.resetRequired || '*';
+            }
+            function getMonsterImage(index) {
+                return quests[index]?.image || 'placeholder.png'; // Fallback-Bild
+            }
+            function getMonsterCount(index) {
+                return quests[index]?.count || 0;
+            }
+            function getMonsterLocation(index) {
+                return quests[index]?.location || 'Unbekannt';
+            }
+            function getReward(index) {
+                return quests[index]?.reward || 'Kein Reward';
+            }
 
-    // Funktion zum Anzeigen der Inhalte
-    function showContent(region) {
-        const content = document.getElementById("content");
-        if (!content) {
-            console.error('Element mit ID "content" nicht gefunden');
-            return;
-        }
+            // Funktion zum Anzeigen der Inhalte
+            function showContent(region, pushState = true) {
 
-        const data = {
-            "info": `
+                const content = document.getElementById("content");
+                if (!content) {
+                    console.error('Element mit ID "content" nicht gefunden');
+                    return;
+                }
+
+
+
+                const data = {
+                    "info": `
                 <div class="main-container">
                 <h1 class="main-title">Information</h1>
                    <p style="color: #f1c40f;"><span class="highlight">MU HARDCORE</span> offers an uniquely designed quest system. For those of you that will embark on this journey, the following are just a few examples of what rewards await you:</p>
@@ -166,7 +172,7 @@
         <p style="color: #f1c40f;">Below are the available quests, broken down per each individual ACT.</p>
                 </div>
             `,
-            "act1": `
+                    "act1": `
                 <div class="main-container">
                  <h1 class="main-title">ACT I - Quests</h1>
                     ${quests.slice(0, 283).map((q, i) => `
@@ -201,7 +207,7 @@
                     `).join('')}
                 </div>
             `,
-            "act2": `
+                    "act2": `
                 <div class="main-container">
     <h1 class="main-title">ACT II - Quests</h1>
     ${quests.slice(283, 507).map((q, i) => `
@@ -236,7 +242,7 @@
                     `).join('')}
                 </div>
             `,
-            "act3": `
+                    "act3": `
             <div class="main-container">
     <h1 class="main-title">ACT III - Quests</h1>
     ${quests.slice(507, 650).map((q, i) => `
@@ -271,7 +277,7 @@
                 `).join('')}
             </div>
             `,
-            "act4": `
+                    "act4": `
                <div class="main-container">
     <h1 class="main-title">ACT IV - Quests</h1>
     ${quests.slice(650, 760).map((q, i) => `
@@ -307,7 +313,7 @@
             </div>
 
             `,
-            "act5": `
+                    "act5": `
              <div class="main-container">
     <h1 class="main-title">ACT IV - Quests</h1>
     ${quests.slice(760, 871).map((q, i) => `
@@ -343,110 +349,224 @@
             </div>
 
             `
-        };
+                };
 
-        content.innerHTML = data[region] || '<h2>Unbekannter Bereich</h2>';
-        content.classList.add("active");
-    }
 
-    // Laden der Seite mit Loader
-    document.addEventListener("DOMContentLoaded", function () {
-        const loader = document.querySelector('.loader');
-        if (!loader) {
-            console.warn('Loader-Element nicht gefunden');
-        }
+                content.innerHTML = data[region] || `<div class="main-container"><h1 class="main-title">Not Found</h1></div>`;
+                content.classList.add("active");
 
-        function hideLoader() {
-            if (loader) {
-                loader.style.display = 'none';
-            }
-        }
 
-        // Lade libraries.html, navbar.html und quests.json
-        fetch('libraries.html?v=' + new Date().getTime())
-            .then(response => {
-                if (!response.ok) throw new Error('Fehler beim Laden von libraries.html');
-                return response.text();
-            })
-            .then(data => {
-                document.head.insertAdjacentHTML('beforeend', data);
-                return fetch('navbar.html?v=' + new Date().getTime());
-            })
-            .then(response => {
-                if (!response.ok) throw new Error('Fehler beim Laden von navbar.html');
-                return response.text();
-            })
-            .then(data => {
-                const navbarContainer = document.getElementById('navbar-container');
-                if (navbarContainer) {
-                    navbarContainer.innerHTML = data;
-                } else {
-                    console.error('Navbar-Container nicht gefunden');
+                // // Find the matching <details> and open it
+                // const detailsToOpen = Array.from(document.querySelectorAll('details.details-box')).find(d => {
+                //     const onclickAttr = d.getAttribute('onclick') || "";
+                //     return onclickAttr.includes(`showContent('${region}')`);
+                // });
+
+                // // Open and simulate click
+                // if (detailsToOpen) {
+                //     setTimeout(() => {
+                //         detailsToOpen.setAttribute('open', 'true');
+                //         // Simulate a click in case your onclick handlers do more
+                //         detailsToOpen.click();
+                //     }, 50); // slight delay to ensure content is in DOM
+                // }
+
+
+
+
+                // ✅ Remove open from all
+                document.querySelectorAll('details.details-box').forEach(d => d.removeAttribute('open'));
+
+                // ✅ Find the matching one and set open
+                const matchingDetails = Array.from(document.querySelectorAll('details.details-box')).find(d => {
+                    const onclickAttr = d.getAttribute('onclick') || "";
+                    // Normalize single quotes and remove spaces
+                    const cleanAttr = onclickAttr.replace(/\s/g, '').replace(/"/g, "'");
+                    return cleanAttr === `showContent('${region}')`;
+                });
+
+                console.log(matchingDetails);
+
+
+                if (matchingDetails) {
+                    setTimeout(() => {
+                        matchingDetails.setAttribute('open', 'true');
+                    }, 0);
                 }
-                // Lade Quests nach Navbar
-                return loadQuests();
-            })
-            .then(() => {
-                showContent('info'); // Standardmäßig 'info' anzeigen
-                hideLoader(); // Loader ausblenden
-            })
-            .catch(error => {
-                console.error('Fehler beim Laden:', error);
-                hideLoader(); // Auch bei Fehler ausblenden
+
+
+                // ✅ Update URL without page reload
+                if (pushState) {
+                    const newUrl = `${window.location.pathname}?q=${encodeURIComponent(region)}`;
+                    history.pushState({ region }, '', newUrl);
+                }
+
+            }
+
+
+            window.addEventListener('popstate', function (event) {
+                const region = event.state?.region || 'info';
+                showContent(region, false); // Don't push again
             });
 
-        // Fallback: Loader nach 5 Sekunden ausblenden
-        setTimeout(() => {
-            hideLoader();
-            console.warn('Timeout: Loader wurde nach 5 Sekunden ausgeblendet');
-        }, 5000);
-    });
-</script>
+
+
+            // Laden der Seite mit Loader
+            document.addEventListener("DOMContentLoaded", function () {
+                const loader = document.querySelector('.loader');
+                if (!loader) {
+                    console.warn('Loader-Element nicht gefunden');
+                }
+
+                function hideLoader() {
+                    if (loader) {
+                        loader.style.display = 'none';
+                    }
+                }
+
+                // Lade libraries.html, navbar.html und quests.json
+                fetch('libraries.html?v=' + new Date().getTime())
+                    .then(response => {
+                        if (!response.ok) throw new Error('Fehler beim Laden von libraries.html');
+                        return response.text();
+                    })
+                    .then(data => {
+                        document.head.insertAdjacentHTML('beforeend', data);
+                        return fetch('navbar.html?v=' + new Date().getTime());
+                    })
+                    .then(response => {
+                        if (!response.ok) throw new Error('Fehler beim Laden von navbar.html');
+                        return response.text();
+                    })
+                    .then(data => {
+                        const navbarContainer = document.getElementById('navbar-container');
+                        if (navbarContainer) {
+                            navbarContainer.innerHTML = data;
+                        } else {
+                            console.error('Navbar-Container nicht gefunden');
+                        }
+                        // Lade Quests nach Navbar
+                        return loadQuests();
+                    })
+                    .then(() => {
+                        // showContent('info'); // Standardmäßig 'info' anzeigen
+                        hideLoader(); // Loader ausblenden
+
+
+
+
+                        const params = new URLSearchParams(window.location.search);
+                        const q = params.get("q") || "info";
+                        const section = autoDetectSection(q);
+                        window.currentRegion = section;
+                        showContent(section, false); // Don't push state on load
+
+                    })
+                    .catch(error => {
+                        console.error('Fehler beim Laden:', error);
+                        hideLoader(); // Auch bei Fehler ausblenden
+                    });
+
+                // Fallback: Loader nach 5 Sekunden ausblenden
+                setTimeout(() => {
+                    hideLoader();
+                    console.warn('Timeout: Loader wurde nach 5 Sekunden ausgeblendet');
+                }, 5000);
+            });
+        </script>
+
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const loader = document.querySelector('.loader');
+
+                fetch('footer.html?v=' + new Date().getTime()) // Nur Footer laden
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('footer-container').innerHTML = data; // Footer einfügen
+                        loader.style.display = 'none'; // Ladebildschirm ausblenden
+                    })
+                    .catch(error => console.error('Fehler beim Laden des Footers:', error));
+            });
+        </script>
+
+
+
+
+
+        <script>
+            function autoDetectSection(query) {
+                query = query.toLowerCase();
+
+                const sectionIdMap = {
+                    "information": "info",
+                    "act v": "act5",
+                    "act 5": "act5",
+                    "act5": "act5",
+                    "act iv": "act4",
+                    "act 4": "act4",
+                    "act4": "act4",
+                    "act iii": "act3",
+                    "act 3": "act3",
+                    "act3": "act3",
+                    "act ii": "act2",
+                    "act 2": "act2",
+                    "act2": "act2",
+                    "act i": "act1",
+                    "act 1": "act1",
+                    "act1": "act1",
+                };
+
+                // Exact match first
+                if (sectionIdMap[query]) {
+                    console.log(`Direct section ID match: ${sectionIdMap[query]}`);
+                    return sectionIdMap[query];
+                }
+
+                // Sort tags by length (longest first) to avoid substring confusion
+                const sortedTags = Object.keys(sectionIdMap).sort((a, b) => b.length - a.length);
+
+                for (const tag of sortedTags) {
+                    if (query.includes(tag)) {
+                        console.log(`Matched query "${query}" → section: ${sectionIdMap[tag]}`);
+                        return sectionIdMap[tag];
+                    }
+                }
+
+                console.warn("No matching section found, defaulting to 'info'");
+                return 'info';
+            }
+
+
+
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const params = new URLSearchParams(window.location.search);
+                const q = params.get("q") || "info";
+                console.log("Query param received:", q);
+                const section = autoDetectSection(q);
+                showContent(section, false);
+
+
+            });
+
+        </script>
+
+
+
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const loader = document.querySelector('.loader');
-        
-        fetch('footer.html?v=' + new Date().getTime()) // Nur Footer laden
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-container').innerHTML = data; // Footer einfügen
-                loader.style.display = 'none'; // Ladebildschirm ausblenden
-            })
-            .catch(error => console.error('Fehler beim Laden des Footers:', error));
+    window.addEventListener('load', function () {
+      // Delay scroll until the browser paints the page
+      requestAnimationFrame(() => {
+        window.scrollTo({
+          top: 150,
+          behavior: 'smooth'
+        });
+      });
     });
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script>
-    const params = new URLSearchParams(window.location.search);
-    const tabToOpen = params.get('tab');
-    const popupToOpen = params.get('popup');
-  
-    if (tabToOpen) {
-      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
-    }
-  
-    if (popupToOpen) {
-      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
-    }
   </script>
- 
+
+
     </body>
+
     </html>
