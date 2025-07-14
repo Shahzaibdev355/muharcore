@@ -201,20 +201,24 @@
         <script>
             let fuse;
             let flatIndex = [];
+            let sectionMapByPage = {};
+
+
+            // Load section mapping
+            fetch('./configs/section-mapping.json')
+                .then(res => res.json())
+                .then(data => {
+                    // console.log(data);
+
+                    sectionMapByPage = data;
+
+                });
 
             fetch('./configs/search-index.json') // adjust if your file is in another folder
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+                    // console.log(data);
 
-
-
-                    // flatIndex = Object.entries(data).map(([pageKey, pageData]) => ({
-                    //     title: pageData.title || '',
-                    //     url: pageData.url,
-                    //     content: pageData.content || '',
-                    //     tags: pageData.tags || []
-                    // }));
 
                     flatIndex = Object.entries(data).map(([pageKey, pageData]) => ({
                         title: (pageData.title || '').toLowerCase(),
@@ -261,13 +265,6 @@
 
                 const fuzzyResults = fuse.search(query).slice(0, 20); // keep top 20
 
-                //                 const rawResults = fuse.search(query);
-                // rawResults.forEach(result => {
-                //     console.log(`Matched: ${result.item.url} | Score: ${result.score}`);
-                // });
-
-
-
                 const combined = [...exactResults.map(item => ({ item })), ...fuzzyResults];
 
                 const seen = new Set();
@@ -283,268 +280,6 @@
                     const snippet = result.item.content.slice(0, 150).replace(/\s+/g, ' ') + '...';
                     li.textContent = `${result.item.url} - ${snippet}`;
 
-                    // const sectionIdMap = {
-                    //     "information": "info",
-                    //     "wings 1": "1",
-                    //     "wings 2": "2",
-                    //     "wings 2.5": "2.5",
-                    //     "wings 3": "3",
-                    //     "wings 4": "4",
-                    //     "wings 5": "5"
-                    // };
-
-
-                    const sectionMapByPage = {
-                        "wings.html": {
-                            "information": "info",
-                            "wings 1": "1",
-                            "wings 2": "2",
-                            "wings 2.5": "2.5",
-                            "wings 3": "3",
-                            "wings 4": "4",
-                            "wings 5": "5"
-                        },
-                        "boxes.html": {
-                            "golden invasion": "goldens",
-                            "monster farm": "farm",
-                            "winged": "winged",
-                            "hardboxes": "hardbox",
-                            "blood castle": "bc",
-                            "chaos castle": "cc",
-                            "kalima": "kalima",
-                            "weapon": "weapon",
-                            "excellent weapon": "exeweapon",
-                            "white wizard": "ww",
-                            "skill": "skill",
-                            "christmas": "christmas",
-                            "evolution": "evolution",
-                            "dota": "dota",
-                            "dragon": "dragon"
-                        },
-                        "pets.html": {
-                            "information": "info",
-                            "damage": "damage",
-                            "defense": "defense",
-                            "mix": "mix",
-                            "horse": "horse",
-                            "farm": "farm"
-                        },
-
-                        "jewels.html": {
-                            "information": "info",
-                            "upgrade": "upgrade",
-                            "jewel of daedalus": "daedalus",
-                            "earrings": "earrings"
-                        },
-                        "customjewels.html": {
-                            "information": "info",
-                            "upgrade": "upgrade",
-                            "wings": "wings",
-                            "jewel of daedalus": "daedalus",
-                            "pet": "pet"
-                        },
-
-                        "skills.html": {
-                            "information": "info",
-                            "dark wizard": "dw",
-                            "dark knight": "dk",
-                            "fairy elf": "elf",
-                            "summoner": "sum",
-                            "rage fighter": "rf",
-                            "magic gladiator": "mg",
-                            "dark lord": "dl"
-                        },
-                        "invasions.html": {
-                            "information": "info",
-                            "farm": "farm",
-                            "golden": "golden",
-                            "goblin": "goblin",
-                            "white wizard": "ww",
-                            "king": "king",
-                            "lorencia warrior": "warrior",
-                            "pet": "pet",
-                            "feather": "feather",
-                            "weapon": "weapon",
-                            "kalima": "kalima",
-                            "skill": "skill",
-                            "skills": "skill",        // alternate for plural
-                            "christmas": "christmas",
-                            "evolution": "evolution",
-                            "dota": "dota",
-                            "dragon": "dragon",
-                            "summon dragon": "sdragon"
-                        },
-                        "events.html": {
-                            "information": "info",
-                            "blood castle": "bc",
-                            "devil square": "ds",
-                            "chaos castle": "cc",
-                            "kanturu event": "maya",
-                            "crywolf event": "balgass",
-                            "imperial guardian": "ig",
-                            "double goer": "dg",
-                            "pandora": "pandora",
-                            "killall": "killall",
-                            "castle siege": "cs"
-                        },
-                        "characters.html": {
-                            "information": "information",
-                            "dark wizard": "darkwizard",
-                            "fairy elf": "fairyelf",
-                            "dragon knight": "dragonknight",
-                            "summoner": "summoner",
-                            "rage fighter": "ragefighter",
-                            "magic gladiator": "magicgladiator",
-                            "dark lord": "darklord"
-                        },
-                        "maps.html": {
-                            "information": "info",
-                            "lorencia": "lorencia",
-                            "noria": "noria",
-                            "devias": "devias",
-                            "dungeon": "dungeon",
-                            "atlans": "atlans",
-                            "tarkan": "tarkan",
-                            "aida": "aida",
-                            "kalima": "kalima",
-                            "icarus": "icarus",
-                            "kanturu ruins": "kantururuins",
-                            "kanturu underground": "kanturuunderground",
-                            "kanturu relics": "kantururelics",
-                            "raklion": "raklion",
-                            "crywolf": "crywolf",
-                            "barraks of balgas": "baraks",
-                            "karutan": "karutan",
-                            "swamp of peace": "swamp",
-                            "gray aida": "grayaida",
-                            "nixies lake": "nixis",
-                            "ferea": "ferea",
-                            "deep dungeon": "deep",
-                            "swamp of darkness": "swampofdarkness",
-                            "atlans abbys": "atlansabbys"
-                        },
-
-
-                        "game.html": {
-                            "information": "info",
-                            "quest": "quest",
-                            "market": "market",
-                            "market place": "market",
-                            "battle pass": "battle",
-                            "battle": "battle",
-                            "hunt log": "hunt",
-                            "hunt": "hunt",
-                            "daily reward": "dailyreward",
-                            "offattack": "offattack"
-                        },
-
-                        "actsystem.html": {
-                            "information": "info",
-                            "act 1": "1",
-                            "act i": "1",
-                            "act 2": "2",
-                            "act ii": "2",
-                            "act 3": "3",
-                            "act iii": "3",
-                            "act 4": "4",
-                            "act iv": "4",
-                            "act 5": "5",
-                            "act v": "5"
-                        },
-
-                        "options-bonus.html": {
-                            "information": "info",
-                            "harmony": "harmony",
-                            "380": "380",
-                            "socket": "socket"
-                        },
-
-                        "achievements.html": {
-                            "information": "info",
-                            "my bonus": "mybonus",
-                            "general": "general",
-                            "monsters": "monsters",
-                            "items": "items"
-                        },
-
-                        "classevolution.html": {
-                            "information": "info",
-                            "sebina the priest": "2",
-                            "marlon": "220",
-                            "3rd class": "3",
-                            "third class": "3"
-                        },
-
-
-                        "quest.html": {
-                            "information": "info",
-                            "act v": "act5",
-                            "act 5": "act5",
-                            "act5": "act5",
-                            "act iv": "act4",
-                            "act 4": "act4",
-                            "act4": "act4",
-                            "act iii": "act3",
-                            "act 3": "act3",
-                            "act3": "act3",
-                            "act ii": "act2",
-                            "act 2": "act2",
-                            "act2": "act2",
-                            "act i": "act1",
-                            "act 1": "act1",
-                            "act1": "act1",
-                        },
-
-
-
-                        "petsystem.html": {
-                            "information": "info",
-                            "damage": "damage",
-                            "defense": "defense",
-                            "mix": "mix",
-                            "horse": "horse",
-                            "farm": "farm"
-                        },
-
-
-                        "earrings.html": {
-                            "information": "info",
-                            "earrings": "damage"
-                        },
-
-                        "itemsbonus.html": {
-                            "information": "info",
-                            "wings": "wings",
-                            "items": "items",
-                            "weapons": "weapons"
-                        },
-
-                        "pvm.html": {
-                            "information": "info",
-                            "farm": "farm",
-                            "feather": "feather",
-                            "golden invasion": "goldens",
-                            "kalima invasion": "kalima",
-                            "world bosses": "world"
-                        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        // Add more pages here
-                    };
 
 
                     li.addEventListener('click', () => {
@@ -564,15 +299,6 @@
                         window.location.href = `${result.item.url}?${finalQuery}`;
 
 
-
-
-
-                        // const query = document.getElementById("search-box").value.toLowerCase();
-                        // const tags = result.item.tags.map(t => t.toLowerCase());
-                        // const matchedTag = tags.find(tag => query.includes(tag));
-                        // const sectionId = matchedTag ? sectionIdMap[matchedTag] : null;
-                        // const finalQuery = sectionId ? `q=${encodeURIComponent(sectionId)}` : `q=${encodeURIComponent(title)}`;
-                        // window.location.href = `${result.item.url}?${finalQuery}`;
                     });
 
                     resultsList.appendChild(li);

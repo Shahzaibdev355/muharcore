@@ -33,7 +33,8 @@
 
 </head>
 
-<body oncopy="return false" oncut="return false" onpaste="return false" data-spy="scroll" data-target="#navbarNav" data-offset="50">
+<body oncopy="return false" oncut="return false" onpaste="return false" data-spy="scroll" data-target="#navbarNav"
+    data-offset="50">
 
     <div class="loader">Loading...</div>
 
@@ -44,25 +45,36 @@
 
         <div class="main-container">
 
-        <h2 class="main-title">What privileges await you on our server once you purchase VIP?</h2>
+            <h2 class="main-title">What privileges await you on our server once you purchase VIP?</h2>
 
 
- 
-   <ul style="color: #f1c40f; text-align: left; list-style-position: inside;">
-    <li><strong style="color: #49e410;">1:</strong> VIPs can start as Magic Gladiator, Dark Lord, or Rage Fighter at level 1, skipping any level requirements.</li>
-    <li><strong style="color: #49e410;">2:</strong> VIPs gain 15% more EXP, leveling up faster than non-VIPs.</li>
-    <li><strong style="color: #49e410;">3:</strong> VIPs have a 10% higher chance to get items from monsters or activities.</li>
-    <li><strong style="color: #49e410;">4:</strong> VIPs earn 20% more Zen, the in-game currency, from drops.</li>
-    <li><strong style="color: #49e410;">5:</strong> VIPs get a 5% better success rate for item upgrades in the Chaos Machine from +10 to +15.</li>
-    <li><strong style="color: #49e410;">6:</strong> VIPs can use the Battle Pass for extra challenges and rewards.</li>
-    <li><strong style="color: #49e410;">7:</strong> VIPs unlock special Map Quests for unique rewards and missions.</li>
-    <li><strong style="color: #49e410;">8:</strong> VIPs get one extra daily entry to Blood Castle and Devil Square events.</li>
-    <li><strong style="color: #49e410;">9:</strong> VIPs unlock special Map Quests for unique rewards and missions.</li>
-    <li><strong style="color: #49e410;">10:</strong> VIPs can participate in the Double Goer event, offering unique challenges and valuable rewards.</li>
-    <li><strong style="color: #49e410;">11:</strong> VIPs can use off-attack mode indefinitely to auto-farm while AFK.</li>
-</ul><br>
 
-    <p style= "color:red">Price 700 WCoin</p>
+            <ul style="color: #f1c40f; text-align: left; list-style-position: inside;">
+                <li><strong style="color: #49e410;">1:</strong> VIPs can start as Magic Gladiator, Dark Lord, or Rage
+                    Fighter at level 1, skipping any level requirements.</li>
+                <li><strong style="color: #49e410;">2:</strong> VIPs gain 15% more EXP, leveling up faster than
+                    non-VIPs.</li>
+                <li><strong style="color: #49e410;">3:</strong> VIPs have a 10% higher chance to get items from monsters
+                    or activities.</li>
+                <li><strong style="color: #49e410;">4:</strong> VIPs earn 20% more Zen, the in-game currency, from
+                    drops.</li>
+                <li><strong style="color: #49e410;">5:</strong> VIPs get a 5% better success rate for item upgrades in
+                    the Chaos Machine from +10 to +15.</li>
+                <li><strong style="color: #49e410;">6:</strong> VIPs can use the Battle Pass for extra challenges and
+                    rewards.</li>
+                <li><strong style="color: #49e410;">7:</strong> VIPs unlock special Map Quests for unique rewards and
+                    missions.</li>
+                <li><strong style="color: #49e410;">8:</strong> VIPs get one extra daily entry to Blood Castle and Devil
+                    Square events.</li>
+                <li><strong style="color: #49e410;">9:</strong> VIPs unlock special Map Quests for unique rewards and
+                    missions.</li>
+                <li><strong style="color: #49e410;">10:</strong> VIPs can participate in the Double Goer event, offering
+                    unique challenges and valuable rewards.</li>
+                <li><strong style="color: #49e410;">11:</strong> VIPs can use off-attack mode indefinitely to auto-farm
+                    while AFK.</li>
+            </ul><br>
+
+            <p style="color:red">Price 700 WCoin</p>
 
         </div>
     </section>
@@ -75,16 +87,14 @@
     <script src="js/smoothscroll.js"></script>
     <script src="js/custom.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<!-- jQuery laden -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery laden -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!-- Schutz-Skript -->
-<script src="js/protection.js"></script>
+    <!-- Schutz-Skript -->
+    <script src="js/protection.js"></script>
 
-<!-- Lade-Skript -->
-<script src="js/loader.js"></script>
-
-
+    <!-- Lade-Skript -->
+    <script src="js/loader.js"></script>
 
 
 
@@ -99,32 +109,35 @@
 
 
 
-<script>
-    const params = new URLSearchParams(window.location.search);
-    const tabToOpen = params.get('tab');
-    const popupToOpen = params.get('popup');
-  
-    if (tabToOpen) {
-      document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
-    }
-  
-    if (popupToOpen) {
-      document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
-    }
-  </script>
 
 
-<script>
-    window.addEventListener('load', function () {
-      // Delay scroll until the browser paints the page
-      requestAnimationFrame(() => {
-        window.scrollTo({
-          top: 150,
-          behavior: 'smooth'
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const tabToOpen = params.get('tab');
+        const popupToOpen = params.get('popup');
+
+        if (tabToOpen) {
+            document.querySelector(`[data-tab="${tabToOpen}"]`)?.click(); // or use a class toggle
+        }
+
+        if (popupToOpen) {
+            document.querySelector(`#${popupToOpen}`)?.classList.add('open'); // adjust to your popup logic
+        }
+    </script>
+
+
+    <script>
+        window.addEventListener('load', function () {
+            // Delay scroll until the browser paints the page
+            requestAnimationFrame(() => {
+                window.scrollTo({
+                    top: 150,
+                    behavior: 'smooth'
+                });
+            });
         });
-      });
-    });
-  </script>
+    </script>
 
 </body>
+
 </html>

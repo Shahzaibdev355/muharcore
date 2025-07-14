@@ -2266,20 +2266,19 @@
 
 
 
-        <script>
+        <!-- <script>
             function autoDetectSection(query) {
                 query = query.toLowerCase();
                 const sectionIdMap = {
+                    "wings 2.5": "2.5",
                     "wings 1": "1",
                     "wings 2": "2",
-                    "wings 2.5": "2.5",
                     "wings 3": "3",
                     "wings 4": "4",
                     "wings 5": "5",
                     "information": "info"
                 };
 
-                // ✅ NEW: if query is a section ID directly
                 if (Object.values(sectionIdMap).includes(query)) {
                     console.log(`Direct section ID match: ${query}`);
                     return query;
@@ -2307,27 +2306,71 @@
 
             });
 
+        </script> -->
+
+
+        <script>
+            function getCurrentPage() {
+                return window.location.pathname.split("/").pop();
+            }
+
+            function autoDetectSection(query, sectionMap) {
+                query = query.toLowerCase();
+
+                if (Object.values(sectionMap).includes(query)) {
+                    console.log(`Direct section ID match: ${query}`);
+                    return query;
+                }
+
+                const matchedKey = Object.keys(sectionMap)
+                    .sort((a, b) => b.length - a.length)
+                    .find(key => query.includes(key));
+
+                if (matchedKey) {
+                    console.log(`Matched query "${query}" → section: ${sectionMap[matchedKey]}`);
+                    return sectionMap[matchedKey];
+                }
+
+                console.warn("No matching section found, defaulting to 'info'");
+                return "info";
+            }
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const currentPage = getCurrentPage();
+                const params = new URLSearchParams(window.location.search);
+                const q = params.get("q") || "info";
+
+                fetch('./configs/section-mapping.json')
+                    .then(res => res.json())
+
+
+                    .then(mapping => {
+                        console.log(mapping[currentPage]);
+
+                        const sectionMap = mapping[currentPage] || {};
+                        const section = autoDetectSection(q, sectionMap);
+                        showContent(section, false);
+                    })
+                    .catch(err => {
+                        console.error("Failed to load section mapping:", err);
+                        showContent("info", false); // fallback
+                    });
+            });
+
         </script>
 
 
-        <!-- // Optional scroll to summary button if it exists
-                // const summary = document.querySelector(`details[onclick="showContent('${sectionToShow}')"]`);
-                // if (summary) {
-                //     summary.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                // } -->
 
-
-                <script>
-                    window.addEventListener('load', function () {
-                      // Delay scroll until the browser paints the page
-                      requestAnimationFrame(() => {
-                        window.scrollTo({
-                          top: 150,
-                          behavior: 'smooth'
-                        });
-                      });
+        <script>
+            window.addEventListener('load', function () {
+                requestAnimationFrame(() => {
+                    window.scrollTo({
+                        top: 150,
+                        behavior: 'smooth'
                     });
-                  </script>
+                });
+            });
+        </script>
 
 
     </body>
