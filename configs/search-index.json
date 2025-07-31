@@ -16,26 +16,13 @@
     "title": "ACHIEVEMENTS",
     "url": "achievments.html",
     "content": "Achievements Information My Bonus General Monsters Items",
-    "tags": [
-      "Achievements",
-      "My Bonus",
-      "General",
-      "Monsters",
-      "Items"
-    ]
+    "tags": ["Achievements", "My Bonus", "General", "Monsters", "Items"]
   },
   "page3": {
     "title": "ACT SYSTEM",
     "url": "actsystem.html",
     "content": "ACT SYSTEM Information ACT I ACT II ACT III ACT IV ACT V",
-    "tags": [
-      "ACT SYSTEM",
-      "ACT I",
-      "ACT II",
-      "ACT III",
-      "ACT IV",
-      "ACT V"
-    ]
+    "tags": ["ACT SYSTEM", "ACT I", "ACT II", "ACT III", "ACT IV", "ACT V"]
   },
   "page4": {
     "title": "Boxes",
@@ -56,14 +43,6 @@
     ]
   },
 
-
-
-
-  
-
-
-
-
   "page5": {
     "title": "Characters",
     "url": "characters.html",
@@ -79,47 +58,31 @@
     ]
   },
 
-
-
   "page6": {
     "title": "Class Evolution",
     "url": "classevolution.html",
     "content": "Class Evolution Information Sebina The Priest Marlon 3rd class",
-    "tags": [
-      "Sebina",
-      "The Priest",
-      "Marlon",
-      "3rd class"
-    ]
+    "tags": ["Sebina", "The Priest", "Marlon", "3rd class"]
   },
-
-
 
   "page7": {
     "title": "Custom Jewels",
     "url": "customjewels.html",
     "content": "Custom Jewels Information UPGRADE WINGS Jewel of Daedalus Pet",
-    "tags": [
-      "UPGRADE",
-      "WINGS",
-      "Jewel of Daedalus",
-      "Pet"
-    ]
+    "tags": ["UPGRADE", "WINGS", "Jewel of Daedalus", "Pet"]
   },
 
   "page8": {
     "title": "earrings",
     "url": "earrings.html",
     "content": "Information Earrings",
-    "tags":[
-      "Earrings"
-    ]
+    "tags": ["Earrings"]
   },
   "page9": {
     "title": "Events",
     "url": "events.html",
     "content": "Events Information Blood Castle Devil Square Chaos Castle Kanturu Event Crywolf Event Imperial Guardian Double Goer Pandora KILLALL Castle Siege",
-    "tags":[
+    "tags": [
       "Events",
       "Blood Castle",
       "Devil Square",
@@ -169,7 +132,7 @@
       "Offattack"
     ]
   },
-  
+
   "page13": {
     "title": "Important to know",
     "url": "important.html",
@@ -203,38 +166,24 @@
       "Dragon",
       "Summon Dragon"
     ]
-  
   },
   "page16": {
     "title": "Items Bonus",
     "url": "itemsbonus.html",
     "content": "Items Bonus Information WINGS ITEMS WEAPONS",
-    "tags": [
-      "Items Bonus",
-      "WINGS",
-      "ITEMS",
-      "WEAPONS"
-    ]
+    "tags": ["Items Bonus", "WINGS", "ITEMS", "WEAPONS"]
   },
   "page17": {
     "title": "Jewels Mixes",
     "url": "jewels.html",
     "content": "Jewels Mixes Information UPGRADE Jewel of Daedalus Earrings",
-    "tags":[
-      "UPGRADE", 
-      "Jewel of Daedalus", 
-      "Earrings"
-    ]
+    "tags": ["UPGRADE", "Jewel of Daedalus", "Earrings"]
   },
   "page18": {
     "title": "Custom Jewels",
     "url": "jewelsrate.html",
     "content": "Custom Jewels Information UPGRADE WINGS Jewel of Daedalus",
-    "tags": [
-      "UPGRADE",
-      "WINGS",
-      "Jewel of Daedalus"
-    ]
+    "tags": ["UPGRADE", "WINGS", "Jewel of Daedalus"]
   },
   "page19": {
     "url": "libraries.html",
@@ -250,7 +199,7 @@
     "title": "MAPS & MONSTERS",
     "url": "maps.html",
     "content": "MAPS & MONSTERS Information Lorencia Noria Devias Dungeon Atlans Tarkan Aida Kalima Icarus Kanturu Ruins Kanturu Underground Kanturu Relics Raklion Crywolf Barraks of Balgas Karutan Swamp of Peace Gray Aida Nixies Lake Ferea Deep Dungeon Swamp of Darkness Atlans Abbys",
-    "tags":[
+    "tags": [
       "MAPS & MONSTERS",
       "Lorencia",
       "Noria",
@@ -278,41 +227,23 @@
     ]
   },
 
- 
   "page22": {
     "title": "Optional items options",
     "url": "options-bonus.html",
     "content": "Optional items options Information Harmony 380 Socket",
-    "tags":[
-      "Harmony",
-      "380",
-      "Socket"
-    ]
+    "tags": ["Harmony", "380", "Socket"]
   },
   "page23": {
     "title": "PET SYSTEM",
     "url": "pets.html",
     "content": "PET SYSTEM Information DAMAGE DEFENSE MIX HORSE FARM",
-    "tags": [
-      "PET SYSTEM",
-      "DAMAGE",
-      "DEFENSE",
-      "MIX",
-      "HORSE",
-      "FARM"
-    ]
+    "tags": ["PET SYSTEM", "DAMAGE", "DEFENSE", "MIX", "HORSE", "FARM"]
   },
   "page24": {
     "title": "PET SYSTEM",
     "url": "petsystem.html",
     "content": "PET SYSTEM Information DAMAGE DEFENSE MIX HORSE FARM",
-    "tags": [
-      "DAMAGE",
-      "DEFENSE",
-      "MIX",
-      "HORSE",
-      "FARM"
-    ]
+    "tags": ["DAMAGE", "DEFENSE", "MIX", "HORSE", "FARM"]
   },
   "page25": {
     "title": "PVM RANKING",
@@ -331,14 +262,7 @@
     "title": "Quests",
     "url": "quest.html",
     "content": "Quests Information ACT I ACT II ACT III ACT IV ACT V",
-    "tags":[
-      "Quests",
-      "ACT I",
-      "ACT II",
-      "ACT III",
-      "ACT IV",
-      "ACT V"
-    ]
+    "tags": ["Quests", "ACT I", "ACT II", "ACT III", "ACT IV", "ACT V"]
   },
   "page27": {
     "title": "Questmap",

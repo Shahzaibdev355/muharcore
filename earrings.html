@@ -232,7 +232,7 @@
           .then(response => response.text())
           .then(data => {
             document.getElementById('footer-container').innerHTML = data;
-            showContent('info');
+            // showContent('info');
             loader.style.display = 'none'; // Ladebildschirm ausblenden
           })
           .catch(error => console.error('Fehler beim Laden:', error));

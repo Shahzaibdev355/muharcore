@@ -253,57 +253,92 @@
 
 
 
+            // searchBox.addEventListener('input', () => {
+            //     const query = searchBox.value.trim().toLowerCase();
+            //     resultsList.innerHTML = '';
+            //     if (!query || !fuse) return;
+
+            //     const exactResults = flatIndex.filter(item =>
+            //         item.title.includes(query) ||
+            //         item.tags.some(tag => tag.includes(query))
+            //     );
+
+            //     const fuzzyResults = fuse.search(query).slice(0, 20); // keep top 20
+
+            //     const combined = [...exactResults.map(item => ({ item })), ...fuzzyResults];
+
+            //     const seen = new Set();
+            //     const finalResults = combined.filter(res => {
+            //         const id = res.item.url;
+            //         if (seen.has(id)) return false;
+            //         seen.add(id);
+            //         return true;
+            //     }).slice(0, 12);
+
+            //     finalResults.forEach(result => {
+            //         const li = document.createElement('li');
+            //         const snippet = result.item.content.slice(0, 150).replace(/\s+/g, ' ') + '...';
+            //         li.textContent = `${result.item.url} - ${snippet}`;
+
+
+
+            //         li.addEventListener('click', () => {
+
+
+            //             const page = result.item.url.split('/').pop(); // extract like "wings.html"
+            //             const title = result.item.title.toLowerCase();
+            //             const sectionMap = sectionMapByPage[page] || {};
+
+
+            //             // 👇 FIX: match against full query instead of tags only
+            //             const queryValue = document.getElementById("search-box").value.toLowerCase();
+            //             const matchedKey = Object.keys(sectionMap).find(key => queryValue.includes(key));
+            //             const sectionId = matchedKey ? sectionMap[matchedKey] : null;
+
+            //             const finalQuery = sectionId ? `q=${encodeURIComponent(sectionId)}` : `q=${encodeURIComponent(title)}`;
+            //             window.location.href = `${result.item.url}?${finalQuery}`;
+
+
+            //         });
+
+            //         resultsList.appendChild(li);
+            //     });
+            // });
+
+
             searchBox.addEventListener('input', () => {
                 const query = searchBox.value.trim().toLowerCase();
                 resultsList.innerHTML = '';
-                if (!query || !fuse) return;
 
-                const exactResults = flatIndex.filter(item =>
-                    item.title.includes(query) ||
-                    item.tags.some(tag => tag.includes(query))
-                );
+                if (!query || !sectionMapByPage) return;
 
-                const fuzzyResults = fuse.search(query).slice(0, 20); // keep top 20
+                const matchedResults = [];
 
-                const combined = [...exactResults.map(item => ({ item })), ...fuzzyResults];
+                // Loop through all pages in the section mapping
+                for (const [page, sections] of Object.entries(sectionMapByPage)) {
+                    for (const [sectionName, sectionId] of Object.entries(sections)) {
+                        if (sectionName.includes(query)) {
+                            matchedResults.push({
+                                title: sectionName,
+                                url: `${page}?q=${encodeURIComponent(sectionId)}`
+                            });
+                        }
+                    }
+                }
 
-                const seen = new Set();
-                const finalResults = combined.filter(res => {
-                    const id = res.item.url;
-                    if (seen.has(id)) return false;
-                    seen.add(id);
-                    return true;
-                }).slice(0, 12);
-
-                finalResults.forEach(result => {
+                // Only show top 12 results
+                matchedResults.slice(0, 20).forEach(result => {
                     const li = document.createElement('li');
-                    const snippet = result.item.content.slice(0, 150).replace(/\s+/g, ' ') + '...';
-                    li.textContent = `${result.item.url} - ${snippet}`;
-
-
-
+                    const pageName = result.url.split('?')[0]; // Extract page file name
+                    li.textContent = `${result.title} - ${pageName}`;
+                    // li.textContent = result.title;
                     li.addEventListener('click', () => {
-
-
-                        const page = result.item.url.split('/').pop(); // extract like "wings.html"
-                        const title = result.item.title.toLowerCase();
-                        const sectionMap = sectionMapByPage[page] || {};
-
-
-                        // 👇 FIX: match against full query instead of tags only
-                        const queryValue = document.getElementById("search-box").value.toLowerCase();
-                        const matchedKey = Object.keys(sectionMap).find(key => queryValue.includes(key));
-                        const sectionId = matchedKey ? sectionMap[matchedKey] : null;
-
-                        const finalQuery = sectionId ? `q=${encodeURIComponent(sectionId)}` : `q=${encodeURIComponent(title)}`;
-                        window.location.href = `${result.item.url}?${finalQuery}`;
-
-
+                        window.location.href = result.url;
                     });
-
                     resultsList.appendChild(li);
                 });
             });
+
 
 
 
