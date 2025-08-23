@@ -1,247 +1,245 @@
 {
-    "info": {
-        "description": "The PvM Ranking is a prestigious top system where players hunt monsters and bosses across the MU HARDCORE world throughout the week. Engage in thrilling battles in various areas, participate in invasions, and challenge formidable world bosses to climb the ranks. At the end of each week, the top 10 players are rewarded with a generous WCoins bonus based on their performance. Explore the categories below to discover the best hunting spots and strategies to secure your place in the top ranks!"
-    },
-    "farm": {
-        "description": " ",
-        "monsters": [
-            {
-                "name": "Lunar Rabbit",
-                "image": "images/PNG/lunar.png",
-                "points": 2
-            },
-            {
-                "name": "Pouch of Blessing",
-                "image": "images/PNG/pouch.png",
-                "points": 2
-            },
-            {
-                "name": "Fire Flame Ghost",
-                "image": "images/PNG/ghost.png",
-                "points": 2
-            },
-             {
-                "name": "Cursed Goblin",
-                "image": "images/monsters/cursedgoblin.png",
-                "points": 2
-            },
-             {
-                "name": "Death King",
-                "image": "images/PNG/deathking.png",
-                "points": 3
-            },
-            {
-                "name": "Destruction Orc",
-                "image": "images/monsters/orc.png",
-                "points": 2
-            },
-             {
-                "name": "White Wizard",
-                "image": "images/PNG/ww.png",
-                "points": 15
-            }
-        
-        ]
-    },
-    "feather": {
-        "description": " ",
-        "monsters": [  
-            {
-                "name": "Pharaoh",
-                "image": "images/monsters/pharaon.png",
-                "points": 5
-            },
-            {
-                "name": "Icar",
-                "image": "images/monsters/icar.png",
-                "points": 10
-            },
-            {
-                "name": "Fallen Angel",
-                "image": "images/monsters/fallen.png",
-                "points": 15
-            },
-            {
-                "name": "Silver",
-                "image": "images/monsters/silver.png",
-                "points": 20
-            },
-            {
-                "name": "Phoenix Spirit",
-                "image": "images/monsters/phoenixspirit.png",
-                "points": 25
-            },
-            {
-                "name": "Daemon",
-                "image": "images/monsters/Daemon.png",
-                "points": 30
-            }
-        ]
-    },
-    "goldens": {
-        "description": " ",
-        "monsters": [
-            {
-                "name": "Golden Rabbit",
-                "image": "images/monsters/goldenrabbit.png",
-                "points": 2
-            },
-           {
-                "name": "Golden Goblin",
-                "image": "images/monsters/goldengoblin.png",
-                "points": 3
-            },
-            {
-                "name": "Golden Titan",
-                "image": "images/monsters/goldentitan.png",
-                "points": 4
-            },
-            {
-                "name": "Golden Vepar",
-                "image": "images/monsters/goldenvepar.png",
-                "points": 4
-            },
-            {
-                "name": "Golden Tantalos",
-                "image": "images/monsters/goldentantal.png",
-                "points": 5
-            },
-            {
-                "name": "Golden Crust",
-                "image": "images/monsters/goldencrust.png",
-                "points": 5
-            },
-            {
-                "name": "Golden Satyros",
-                "image": "images/monsters/goldensatyros.png",
-                "points": 6
-            },  
-            {
-                "name": "Golden Twin Tale",
-                "image": "images/monsters/goldentwin.png",
-                "points": 7
-            },
-            {
-                "name": "Great Golden Dragon",
-                "image": "images/monsters/ggd.png",
-                "points": 20
-            },
-            {
-                "name": "Golden Erohim",
-                "image": "images/monsters/Golden Erohim.png",
-                "points": 25
-            },
-            {
-                "name": "Golden Derkon",
-                "image": "images/monsters/goldendragon.png",
-                "points": 15
-            }
-        ]
-    },
-    "kalima": {
-        "description": " ",
-        "monsters": [
-            {
-                "name": "BERSERKER",
-                "image": "images/monsters/berserker.png",
-                "points": 5
-            },
-            {
-                "name": "PURPLE",
-                "image": "images/monsters/purple.png",
-                "points": 7
-            },
-            {
-                "name": "BLUE",
-                "image": "images/monsters/blue.png",
-                "points": 9
-            },
-            {
-                "name": "KNIGHT",
-                "image": "images/monsters/knight.png",
-                "points": 15
-            },
-            {
-                "name": "INCUBUS",
-                "image": "images/monsters/incubus.png",
-                "points": 20
-            },
-            {
-                "name": "LILITH",
-                "image": "images/monsters/lilith.png",
-                "points": 22
-            },
-            {
-                "name": "GOLDEN KUNDUN",
-                "image": "images/monsters/goldenkundun.png",
-                "points": 25
-            }
-        ]
-    },
-    "world": {
-        "description": " ",
-        "monsters": [
-           
-            {
-                "name": "Roshan",
-                "image": "images/monsters/roshan.png",
-                "points": 20
-            },
-            {
-                "name": "Broodmother",
-                "image": "images/monsters/brodmother.png",
-                "points": 25
-            },
-            {
-                "name": "Pudge",
-                "image": "images/monsters/pudge.png",
-                "points": 30
-            },
-            {
-                "name": "Medusa",
-                "image": "images/monsters/swamp/medusa.png",
-                "points": 35
-            },
-            {
-                "name": "Blue Dragon",
-                "image": "images/monsters/bluedragon.png",
-                "points": 20
-            },
-            {
-                "name": "Green Dragon",
-                "image": "images/monsters/greendragon.png",
-                "points": 25
-            },
-            {
-                "name": "Ice Dragon",
-                "image": "images/monsters/icedragon.png",
-                "points": 30
-            },
-            {
-                "name": "Flame Dragon",
-                "image": "images/monsters/flamedragon.png",
-                "points": 35
-            },
-            {
-                "name": "Nixia Boss",
-                "image": "images/monsters/nixis/bossnix.png",
-                "points": 40
-            },
-            {
-                "name": "Balgass",
-                "image": "images/monsters/crywolf/balgass.png",
-                "points": 30
-            }, 
-            {
-                "name": "Selupan",
-                "image": "images/monsters/raklion/selupan.png",
-                "points": 35
-            },
-             {
-                "name": "Nightmare",
-                "image": "images/monsters/kanturu/nightmare.png",
-                "points": 20
-            }
-        ]
-    }
+  "info": {
+    "description": "The PvM Ranking is a prestigious top system where players hunt monsters and bosses across the MU HARDCORE world throughout the week. Engage in thrilling battles in various areas, participate in invasions, and challenge formidable world bosses to climb the ranks. At the end of each week, the top 10 players are rewarded with a generous WCoins bonus based on their performance. Explore the categories below to discover the best hunting spots and strategies to secure your place in the top ranks!"
+  },
+  "farm": {
+    "description": " ",
+    "monsters": [
+      {
+        "name": "Lunar Rabbit",
+        "image": "images/PNG/lunar.png",
+        "points": 2
+      },
+      {
+        "name": "Pouch of Blessing",
+        "image": "images/PNG/pouch.png",
+        "points": 2
+      },
+      {
+        "name": "Fire Flame Ghost",
+        "image": "images/PNG/ghost.png",
+        "points": 2
+      },
+      {
+        "name": "Cursed Goblin",
+        "image": "images/monsters/cursedgoblin.png",
+        "points": 2
+      },
+      {
+        "name": "Death King",
+        "image": "images/PNG/deathking.png",
+        "points": 3
+      },
+      {
+        "name": "Destruction Orc",
+        "image": "images/monsters/orc.png",
+        "points": 2
+      },
+      {
+        "name": "White Wizard",
+        "image": "images/PNG/ww.png",
+        "points": 15
+      }
+    ]
+  },
+  "feather": {
+    "description": " ",
+    "monsters": [
+      {
+        "name": "Pharaoh",
+        "image": "images/monsters/pharaon.png",
+        "points": 5
+      },
+      {
+        "name": "Icar",
+        "image": "images/monsters/icar.png",
+        "points": 10
+      },
+      {
+        "name": "Fallen Angel",
+        "image": "images/monsters/fallen.png",
+        "points": 15
+      },
+      {
+        "name": "Silver",
+        "image": "images/monsters/silver.png",
+        "points": 20
+      },
+      {
+        "name": "Phoenix Spirit",
+        "image": "images/monsters/phoenixspirit.png",
+        "points": 25
+      },
+      {
+        "name": "Daemon",
+        "image": "images/monsters/Daemon.png",
+        "points": 30
+      }
+    ]
+  },
+  "goldens": {
+    "description": " ",
+    "monsters": [
+      {
+        "name": "Golden Rabbit",
+        "image": "images/monsters/goldenrabbit.png",
+        "points": 2
+      },
+      {
+        "name": "Golden Goblin",
+        "image": "images/monsters/goldengoblin.png",
+        "points": 3
+      },
+      {
+        "name": "Golden Titan",
+        "image": "images/monsters/goldentitan.png",
+        "points": 4
+      },
+      {
+        "name": "Golden Vepar",
+        "image": "images/monsters/goldenvepar.png",
+        "points": 4
+      },
+      {
+        "name": "Golden Tantalos",
+        "image": "images/monsters/goldentantal.png",
+        "points": 5
+      },
+      {
+        "name": "Golden Crust",
+        "image": "images/monsters/goldencrust.png",
+        "points": 5
+      },
+      {
+        "name": "Golden Satyros",
+        "image": "images/monsters/goldensatyros.png",
+        "points": 6
+      },
+      {
+        "name": "Golden Twin Tale",
+        "image": "images/monsters/goldentwin.png",
+        "points": 7
+      },
+      {
+        "name": "Great Golden Dragon",
+        "image": "images/monsters/ggd.png",
+        "points": 20
+      },
+      {
+        "name": "Golden Erohim",
+        "image": "images/monsters/Golden Erohim.png",
+        "points": 25
+      },
+      {
+        "name": "Golden Derkon",
+        "image": "images/monsters/goldendragon.png",
+        "points": 15
+      }
+    ]
+  },
+  "kalima": {
+    "description": " ",
+    "monsters": [
+      {
+        "name": "BERSERKER",
+        "image": "images/monsters/berserker.png",
+        "points": 5
+      },
+      {
+        "name": "PURPLE",
+        "image": "images/monsters/purple.png",
+        "points": 7
+      },
+      {
+        "name": "BLUE",
+        "image": "images/monsters/blue.png",
+        "points": 9
+      },
+      {
+        "name": "KNIGHT",
+        "image": "images/monsters/knight.png",
+        "points": 15
+      },
+      {
+        "name": "INCUBUS",
+        "image": "images/monsters/incubus.png",
+        "points": 20
+      },
+      {
+        "name": "LILITH",
+        "image": "images/monsters/lilith.png",
+        "points": 22
+      },
+      {
+        "name": "GOLDEN KUNDUN",
+        "image": "images/monsters/goldenkundun.png",
+        "points": 25
+      }
+    ]
+  },
+  "world": {
+    "description": " ",
+    "monsters": [
+      {
+        "name": "Roshan",
+        "image": "images/monsters/roshan.png",
+        "points": 20
+      },
+      {
+        "name": "Broodmother",
+        "image": "images/monsters/brodmother.png",
+        "points": 25
+      },
+      {
+        "name": "Pudge",
+        "image": "images/monsters/pudge.png",
+        "points": 30
+      },
+      {
+        "name": "Medusa",
+        "image": "images/monsters/swamp/medusa.png",
+        "points": 35
+      },
+      {
+        "name": "Blue Dragon",
+        "image": "images/monsters/bluedragon.png",
+        "points": 20
+      },
+      {
+        "name": "Green Dragon",
+        "image": "images/monsters/greendragon.png",
+        "points": 25
+      },
+      {
+        "name": "Ice Dragon",
+        "image": "images/monsters/icedragon.png",
+        "points": 30
+      },
+      {
+        "name": "Flame Dragon",
+        "image": "images/monsters/flamedragon.png",
+        "points": 35
+      },
+      {
+        "name": "Nixia Boss",
+        "image": "images/monsters/nixis/bossnix.png",
+        "points": 40
+      },
+      {
+        "name": "Balgass",
+        "image": "images/monsters/crywolf/balgass.png",
+        "points": 30
+      },
+      {
+        "name": "Selupan",
+        "image": "images/monsters/raklion/selupan.png",
+        "points": 35
+      },
+      {
+        "name": "Nightmare",
+        "image": "images/monsters/kanturu/nightmare.png",
+        "points": 20
+      }
+    ]
+  }
 }

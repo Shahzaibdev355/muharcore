@@ -12,8 +12,9 @@
     }); -->
 </script>
 <!DOCTYPE html>
+<!-- oncopy="return false" oncut="return false" -->
 
-<body oncopy="return false" oncut="return false">
+<body>
     <html lang="en">
 
     <head>
@@ -114,6 +115,11 @@
             }
         </style>
 
+
+
+        <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+
+
     </head>
 
     <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
@@ -135,12 +141,13 @@
 
                     <div class="col-lg-8 col-md-10 mx-auto col-12">
                         <div class="hero-text mt-5 text-center">
-                            <img src="https://i.imgur.com/nmihhYQ.png" alt="MU HARDCORE!" style="margin-left: 00px;">
+                            <img src="https://muhardcore.com/webassets/Update/img/logo_hardcoremu.png"
+                                alt="MU HARDCORE!" style="margin-left: 00px;">
 
 
-                            <input type="text" id="search-box" placeholder="Search..." autocomplete="off"
+                            <!-- <input type="text" id="search-box" placeholder="Search..." autocomplete="off"
                                 style="border: 3px solid yellow;" />
-                            <ul id="autocomplete-results"></ul>
+                            <ul id="autocomplete-results"></ul> -->
 
                             <h3 class="feature-title"
                                 style="text-align: center;font-size: 40px;font-family: cinzel;font-weight: 800;color: #ffc436;text-shadow: 0 0 15px rgb(251 104 0);">
@@ -155,9 +162,42 @@
 
 
 
+
+            <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
+                <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+                    <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+                        <header class="modal__header">
+                            <h2 class="modal__title" id="modal-1-title">
+                                Micromodal
+                            </h2>
+                            <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+                        </header>
+                        <main class="modal__content" id="modal-1-content">
+                            <p>
+                                Try hitting the <code>tab</code> key and notice how the focus stays within the modal
+                                itself.
+                                Also, <code>esc</code> to close modal.
+                            </p>
+                        </main>
+                        <footer class="modal__footer">
+                            <button class="modal__btn modal__btn-primary">Continue</button>
+                            <button class="modal__btn" data-micromodal-close
+                                aria-label="Close this dialog window">Close</button>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+
+
+
         </section>
 
         <div id="footer-container"></div>
+
+
+
+
+
 
 
 
@@ -184,7 +224,14 @@
                     .then(response => response.text())
                     .then(data => {
                         document.getElementById('navbar-container').innerHTML = data;
-                        return fetch('footer.html?v=' + new Date().getTime()); // Load footer
+
+                        // ✅ Initialize MicroModal AFTER navbar is injected
+                        MicroModal.init();
+
+                        // return fetch('footer.html?v=' + new Date().getTime()); // Load footer
+                    })
+                    .then(() => {
+                        return fetch('footer.html?v=' + new Date().getTime());
                     })
                     .then(response => response.text())
                     .then(data => {
