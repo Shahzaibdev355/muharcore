@@ -181,7 +181,7 @@ body {
     /* position: absolute; */
     right: 0px;
     color: #ffffff;
-    background-color: red;
+    background-color: #600000;
     pointer-events: painted;
 }
 
@@ -230,14 +230,30 @@ body {
 }
 
 /* Normal states */
-.social_icons--facebook { background-position: 0 -144px; }
-.social_icons--youtube  { background-position: -103px -144px; }
-.social_icons--discord  { background-position: -206px -144px; }
+.social_icons--facebook {
+    background-position: 0 -144px;
+}
+
+.social_icons--youtube {
+    background-position: -103px -144px;
+}
+
+.social_icons--discord {
+    background-position: -206px -144px;
+}
 
 /* Hover highlight (overlay positions) */
-.social_icons--facebook::after { background-position: 0 0; }
-.social_icons--youtube::after  { background-position: -103px 0; }
-.social_icons--discord::after  { background-position: -206px 0; }
+.social_icons--facebook::after {
+    background-position: 0 0;
+}
+
+.social_icons--youtube::after {
+    background-position: -103px 0;
+}
+
+.social_icons--discord::after {
+    background-position: -206px 0;
+}
 
 /* Smooth fade on hover */
 .social_icons:hover::after {
@@ -302,7 +318,9 @@ body {
 }
 
 .modal__container {
-    background-color: #fff;
+    background-color: black;
+    border: 2px solid #93330b;
+    /* background: url("../images/popup-bg.jpg"); */
     padding: 30px;
     /* max-width: 500px; */
     width: 40%;
@@ -323,10 +341,11 @@ body {
     margin-bottom: 0;
     font-weight: 600;
     font-size: 1.25rem;
+    font-family: cinzel;
     line-height: 1.25;
-    color: #F7BC34;
+    color: #f3733f;
     box-sizing: border-box;
-    letter-spacing: 1px;
+    letter-spacing: 0.4px;
 }
 
 .modal__close {
@@ -334,9 +353,14 @@ body {
     border: 0;
 }
 
-.modal__header .modal__close:before {
-    content: "\2715";
+.modal__close i{
+    font-size: 24px;
+    color: white;
 }
+
+/* .modal__header .modal__close:before {
+    content: "\2715";
+} */
 
 .modal__content {
     margin-top: 2rem;
@@ -518,4 +542,60 @@ Demo Animation Style
 
 ::-webkit-scrollbar-track {
     background: #000;
+}
+
+/* ✅ Firefox */
+* {
+    scrollbar-width: thin;              /* auto | thin | none */
+    scrollbar-color: #444 #000;
+    /* first = thumb color/image, second = track color */
+}
+
+
+
+
+
+
+
+
+.search-box-div-mobile{
+    display: none;
+    margin-bottom: 10px;
+}
+
+.search-box-div-mobile button{
+    background-color: #600000;
+    border-radius: 8px;
+    color: white;
+    /* border: 1px solid white; */
+    border: 2px solid #93330b;
+
+}
+
+.search-box-div-mobile button h3{
+    font-size: 18px;
+    padding: 5px 20px 5px 20px;
+    font-family: cinzel;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+}
+
+
+/* ✅ Mobile view */
+@media (max-width: 768px) {
+
+    .search-box-div-mobile{
+        display: block;
+    }
+    
+
+    .search-box-div{
+        display: none;
+    }
+
+    .modal__container {
+        width: 95%;
+        padding: 25px 15px 20px 15px;
+    }
+    
 }
