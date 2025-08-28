@@ -204,43 +204,44 @@ body {
     background: url("../images/footer-brick.png") repeat-x 0 0;
     /* top: -5px; */
     box-shadow: 0 10px 20px rgba(0, 0, 0, .5);
+    z-index: 10;
 }
 
 
+/* Base icon */
 .social_icons {
-    background: url("../images/social_icons.png") 0 0 no-repeat;
+    position: relative;
+    display: inline-block;
     width: 103px;
     height: 139px;
-    display: inline-block;
     margin: -20px auto 20px;
+    background: url("../images/social_icons.png") no-repeat;
+    overflow: hidden;
 }
 
-
-
-
-
-.social_icons--facebook {
-    background-position: 0 -144px;
+/* Overlay for hover highlight */
+.social_icons::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("../images/social_icons.png") no-repeat;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
 }
 
-.social_icons--facebook:hover {
-    background-position: 0 0;
-}
+/* Normal states */
+.social_icons--facebook { background-position: 0 -144px; }
+.social_icons--youtube  { background-position: -103px -144px; }
+.social_icons--discord  { background-position: -206px -144px; }
 
-.social_icons--youtube {
-    background-position: -103px -144px;
-}
+/* Hover highlight (overlay positions) */
+.social_icons--facebook::after { background-position: 0 0; }
+.social_icons--youtube::after  { background-position: -103px 0; }
+.social_icons--discord::after  { background-position: -206px 0; }
 
-.social_icons--youtube:hover {
-    background-position: -103px 0;
-}
-
-.social_icons--discord {
-    background-position: -206px -144px;
-}
-
-.social_icons--discord:hover {
-    background-position: -206px 0;
+/* Smooth fade on hover */
+.social_icons:hover::after {
+    opacity: 1;
 }
 
 
