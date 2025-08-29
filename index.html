@@ -85,43 +85,7 @@
         </style>
 
 
-        <style>
-            #autocomplete-results {
 
-                max-height: 220px;
-                height: 220px;
-
-                overflow-y: scroll;
-
-
-                list-style: none;
-                padding: 0;
-                margin: 0;
-                position: relative;
-                background: white;
-                width: 100%;
-                z-index: 1000;
-
-                padding: 10px 0px 10px 15px;
-                margin-top: 20px;
-                border-radius: 10px;
-            }
-
-            #autocomplete-results li {
-                padding: 8px;
-                cursor: pointer;
-            }
-
-            #autocomplete-results li:hover {
-                background: #eee;
-            }
-
-            /* #search-box {
-                width: 300px;
-                padding: 8px;
-                font-size: 16px;
-            } */
-        </style>
 
 
 
@@ -262,7 +226,7 @@
 
         <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
 
-        <script>
+        <!-- <script>
             let fuse;
             let flatIndex = [];
             let sectionMapByPage = {};
@@ -318,62 +282,12 @@
 
 
 
-            // searchBox.addEventListener('input', () => {
-            //     const query = searchBox.value.trim().toLowerCase();
-            //     resultsList.innerHTML = '';
-            //     if (!query || !fuse) return;
-
-            //     const exactResults = flatIndex.filter(item =>
-            //         item.title.includes(query) ||
-            //         item.tags.some(tag => tag.includes(query))
-            //     );
-
-            //     const fuzzyResults = fuse.search(query).slice(0, 20); // keep top 20
-
-            //     const combined = [...exactResults.map(item => ({ item })), ...fuzzyResults];
-
-            //     const seen = new Set();
-            //     const finalResults = combined.filter(res => {
-            //         const id = res.item.url;
-            //         if (seen.has(id)) return false;
-            //         seen.add(id);
-            //         return true;
-            //     }).slice(0, 12);
-
-            //     finalResults.forEach(result => {
-            //         const li = document.createElement('li');
-            //         const snippet = result.item.content.slice(0, 150).replace(/\s+/g, ' ') + '...';
-            //         li.textContent = `${result.item.url} - ${snippet}`;
-
-
-
-            //         li.addEventListener('click', () => {
-
-
-            //             const page = result.item.url.split('/').pop(); // extract like "wings.html"
-            //             const title = result.item.title.toLowerCase();
-            //             const sectionMap = sectionMapByPage[page] || {};
-
-
-            //             // 👇 FIX: match against full query instead of tags only
-            //             const queryValue = document.getElementById("search-box").value.toLowerCase();
-            //             const matchedKey = Object.keys(sectionMap).find(key => queryValue.includes(key));
-            //             const sectionId = matchedKey ? sectionMap[matchedKey] : null;
-
-            //             const finalQuery = sectionId ? `q=${encodeURIComponent(sectionId)}` : `q=${encodeURIComponent(title)}`;
-            //             window.location.href = `${result.item.url}?${finalQuery}`;
-
-
-            //         });
-
-            //         resultsList.appendChild(li);
-            //     });
-            // });
-
+         
 
             searchBox.addEventListener('input', () => {
                 const query = searchBox.value.trim().toLowerCase();
                 resultsList.innerHTML = '';
+
 
                 // Hide by default
                 resultsList.style.display = 'none';
@@ -394,6 +308,7 @@
                         }
                     }
                 }
+                
 
 
                 if (matchedResults.length === 0) {
@@ -435,42 +350,158 @@
                     resultsList.innerHTML = '';
                 }
             });
-        </script>
+        </script> -->
 
+
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+        <script>
+            let fuse;
+            let flatIndex = [];
+            let sectionMapByPage = {};
+
+            let hideTimeout; // keep reference to the timeout
+        
+            $(document).ready(function () {
+                // Load section mapping
+                $.getJSON('./configs/section-mapping.json', function (data) {
+                    sectionMapByPage = data;
+                });
+        
+                // Load search index
+                $.getJSON('./configs/search-index.json', function (data) {
+                    flatIndex = $.map(data, function (pageData, pageKey) {
+                        return {
+                            title: (pageData.title || '').toLowerCase(),
+                            url: (pageData.url || '').toLowerCase(),
+                            content: (pageData.content || '').toLowerCase(),
+                            tags: (pageData.tags || []).map(tag => tag.toLowerCase())
+                        };
+                    });
+        
+                    fuse = new Fuse(flatIndex, {
+                        keys: [
+                            { name: 'title', weight: 0.7 },
+                            { name: 'tags', weight: 0.2 },
+                            { name: 'content', weight: 0.1 }
+                        ],
+                        threshold: 0.3,
+                        minMatchCharLength: 1,
+                        ignoreLocation: true,
+                        includeMatches: true,
+                        useExtendedSearch: true,
+                        includeScore: true,
+                    });
+                });
+        
+                const $searchBox = $('#search-box');
+                const $resultsList = $('#autocomplete-results');
+        
+                $resultsList.hide(); // hide initially
+        
+                // helper: animate height change smoothly
+                function animateHeight() {
+                    const newHeight = $resultsList[0].scrollHeight;
+                    $resultsList.stop().animate({ height: newHeight }, 200);
+                }
+        
+                // Input listener
+                $searchBox.on('input', function () {
+                    const query = $(this).val().trim().toLowerCase();
+
+                    clearTimeout(hideTimeout); // cancel any pending hide
+
+                    $resultsList.empty();
+        
+                    if (!query || $.isEmptyObject(sectionMapByPage)) {
+                        $resultsList.stop().animate({ height: 0 }, 200, function () {
+                            $resultsList.hide();
+                        });
+                        return;
+                    }
+        
+                    const matchedResults = [];
+        
+                    $.each(sectionMapByPage, function (page, sections) {
+                        $.each(sections, function (sectionName, sectionId) {
+                            if (sectionName.includes(query)) {
+                                matchedResults.push({
+                                    title: sectionName,
+                                    url: `${page}?q=${encodeURIComponent(sectionId)}`
+                                });
+                            }
+                        });
+                    });
+        
+                    if (matchedResults.length === 0) {
+                        $('<li>')
+                            .text('❌ No matching results found')
+                            .css({ color: '#aaa', fontStyle: 'italic' })
+                            .appendTo($resultsList);
+                    } else {
+                        $.each(matchedResults.slice(0, 20), function (_, result) {
+                            const pageName = result.url.split('?')[0];
+                            $('<li>')
+                                .text(`${result.title} - ${pageName}`)
+                                .on('click', function () {
+                                    window.location.href = result.url;
+                                })
+                                .appendTo($resultsList);
+                        });
+                    }
+        
+                    if (!$resultsList.is(':visible')) {
+                        $resultsList.show().css({ height: 0 }); // reset to collapsed
+                    }
+                    animateHeight(); // always animate to new size
+                });
+        
+                // Close results when clicking outside
+                $(document).on('click', function (e) {
+                    if (!$(e.target).closest('#autocomplete-results, #search-box').length) {
+                        $resultsList.stop().animate({ height: 0 }, 200, function () {
+                            $resultsList.hide().empty();
+                        });
+                    }
+                });
+            });
+        </script>
+        
 
 
 
         <script src="https://cdn.jsdelivr.net/npm/smooth-scrollbar@8.6.3/dist/smooth-scrollbar.js"></script>
 
         <script>
-           let scrollbar;
+            let scrollbar;
 
-document.addEventListener('DOMContentLoaded', function () {
-    var options = {
-        damping: 0.1,
-        alwaysShowTracks: true
-    };
+            document.addEventListener('DOMContentLoaded', function () {
+                var options = {
+                    damping: 0.1,
+                    alwaysShowTracks: true
+                };
 
-    // Initialize once
-    scrollbar = Scrollbar.init(document.querySelector('.my-scrollbar'), options);
-});
+                // Initialize once
+                scrollbar = Scrollbar.init(document.querySelector('.my-scrollbar'), options);
+            });
 
-// Whenever you update search results
-function updateAutocompleteResults(items) {
-    const ul = document.getElementById('autocomplete-results');
-    ul.innerHTML = "";
+            // Whenever you update search results
+            function updateAutocompleteResults(items) {
+                const ul = document.getElementById('autocomplete-results');
+                ul.innerHTML = "";
 
-    items.forEach(text => {
-        const li = document.createElement("li");
-        li.textContent = text;
-        ul.appendChild(li);
-    });
+                items.forEach(text => {
+                    const li = document.createElement("li");
+                    li.textContent = text;
+                    ul.appendChild(li);
+                });
 
-    // Refresh scrollbar after adding items
-    if (scrollbar) {
-        scrollbar.update();  
-    }
-}
+                // Refresh scrollbar after adding items
+                if (scrollbar) {
+                    scrollbar.update();
+                }
+            }
 
 
 

@@ -186,6 +186,11 @@ body {
 }
 
 
+.btn-search:hover{
+    background-color: #800000;
+    transition: 0.3s;
+}
+
 .site-footer {
     padding-top: 0px !important;
     padding-bottom: 10px !important;
@@ -354,9 +359,14 @@ body {
     border: 0;
 }
 
-.modal__close i{
+.modal__close i {
     font-size: 24px;
     color: white;
+}
+
+.modal__close i:hover{
+    color: #f3733f;
+    transition: 0.3s;
 }
 
 /* .modal__header .modal__close:before {
@@ -505,7 +515,7 @@ Demo Animation Style
     font-family: cinzel;
     padding: 8px 6px 8px 20px;
     font-size: 18px;
-    letter-spacing: 0.8px ;
+    letter-spacing: 0.8px;
     font-weight: 500;
 }
 
@@ -562,7 +572,7 @@ Demo Animation Style
 
 /* ✅ Firefox */
 * {
-    scrollbar-width: thin;              
+    scrollbar-width: thin;
     scrollbar-color: #444 #000;
 }
 
@@ -570,15 +580,49 @@ Demo Animation Style
 
 
 
+#autocomplete-results {
+
+    max-height: 220px;
+    /* height: 220px; */
+
+    overflow-y: auto;
+
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    background: white;
+    width: 100%;
+    z-index: 1000;
+
+    padding: 10px 0px 10px 0px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+#autocomplete-results li {
+    padding: 8px 8px 8px 15px;
+    cursor: pointer;
+}
+
+#autocomplete-results li:hover {
+    background: #eee;
+}
 
 
 
-.search-box-div-mobile{
+
+
+
+
+
+.search-box-div-mobile {
     display: none;
     margin-bottom: 10px;
 }
 
-.search-box-div-mobile button{
+.search-box-div-mobile button {
     background-color: #600000;
     border-radius: 8px;
     color: white;
@@ -587,7 +631,7 @@ Demo Animation Style
 
 }
 
-.search-box-div-mobile button h3{
+.search-box-div-mobile button h3 {
     font-size: 18px;
     padding: 5px 20px 5px 20px;
     font-family: cinzel;
@@ -601,12 +645,12 @@ Demo Animation Style
 /* ✅ Mobile view */
 @media (max-width: 768px) {
 
-    .search-box-div-mobile{
+    .search-box-div-mobile {
         display: block;
     }
-    
 
-    .search-box-div{
+
+    .search-box-div {
         display: none;
     }
 
@@ -617,9 +661,9 @@ Demo Animation Style
 
 
     #autocomplete-results {
-        
-        width: 100%!important;
+
+        width: 100% !important;
 
     }
-    
+
 }
